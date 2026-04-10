@@ -1,5 +1,6 @@
 #include "elrs.h"
 #include "usart.h"
+#include <string.h>  // 添加string.h头文件以使用memset
 /**
 ************************************************************************************************
 * @brief    遥控器接收机通道函数
@@ -165,5 +166,5 @@ void ELRS_UARTE_RxCallback(uint16_t Size)
 
     memset(elrs_data_temp, 0, sizeof(elrs_data_temp));
 	
-	    ELRS_Init();
+    ELRS_Init();
 }
