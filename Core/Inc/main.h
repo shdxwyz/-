@@ -63,29 +63,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-/* 电机1引脚定义 (左前) */
 #define PWM_M1_1_Pin GPIO_PIN_15
 #define PWM_M1_1_GPIO_Port GPIOA
 #define PWM_M1_2_Pin GPIO_PIN_3
 #define PWM_M1_2_GPIO_Port GPIOB
-
-/* 电机2引脚定义 (右前) */
-#define PWM_M2_1_Pin GPIO_PIN_2
-#define PWM_M2_1_GPIO_Port GPIOA
-#define PWM_M2_2_Pin GPIO_PIN_3
-#define PWM_M2_2_GPIO_Port GPIOA
-
-/* 电机3引脚定义 (左后) */
 #define PWM_M3_1_Pin GPIO_PIN_4
 #define PWM_M3_1_GPIO_Port GPIOB
 #define PWM_M3_2_Pin GPIO_PIN_5
 #define PWM_M3_2_GPIO_Port GPIOB
-
-/* 电机4引脚定义 (右后) */
-#define PWM_M4_1_Pin GPIO_PIN_0
-#define PWM_M4_1_GPIO_Port GPIOB
-#define PWM_M4_2_Pin GPIO_PIN_1
-#define PWM_M4_2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 extern int motor_L_set;          //?????????
