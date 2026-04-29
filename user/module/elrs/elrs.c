@@ -1,5 +1,6 @@
 #include "elrs.h"
 #include "usart.h"
+#include <string.h>  // 添加string.h头文件以使用memset
 /**
 ************************************************************************************************
 * @brief    遥控器接收机通道函数
@@ -148,8 +149,8 @@ void ELRS_UARTE_RxCallback(uint16_t Size)
             elrs_data.channels[3] = ((uint16_t)elrs_data_temp[date_i+7] >> 1 | ((uint16_t)elrs_data_temp[date_i+8] << 7)) & 0x07FF;
             elrs_data.channels[4] = ((uint16_t)elrs_data_temp[date_i+8] >> 4 | ((uint16_t)elrs_data_temp[date_i+9] << 4)) & 0x07FF;
             elrs_data.channels[5] = ((uint16_t)elrs_data_temp[date_i+9] >> 7 | ((uint16_t)elrs_data_temp[date_i+10] << 1) | ((uint16_t)elrs_data_temp[date_i+11] << 9)) & 0x07FF;
-            elrs_data.Roll 		= int16_Map_with_median(elrs_data.channels[3], 174, 1808, 992, -400, 400);
-			elrs_data.Throttle	= int16_Map_with_median(elrs_data.channels[2], 174, 1811, 992, 5, 15);
+			elrs_data.Roll 		= int16_Map_with_median(elrs_data.channels[3], 174, 1808, 992, -400, 400);
+			elrs_data.Throttle	= int16_Map_with_median(elrs_data.channels[2], 174, 1811, 992, 0, 1000);
             elrs_data.Yaw 		= int16_Map_with_median(elrs_data.channels[0], 174, 1811, 992, -100, 100);
             elrs_data.midpoint_1= int16_Map_with_median(abs16_fast(elrs_data.Yaw), 0, 100, 50, 0, 30);		
             elrs_data.midpoint 	= int16_Map_with_median(elrs_data.channels[1], 174, 1808, 992, -80, 80);if((-5<elrs_data.midpoint)&&(elrs_data.midpoint<5)){elrs_data.midpoint=0;};
@@ -165,5 +166,5 @@ void ELRS_UARTE_RxCallback(uint16_t Size)
 
     memset(elrs_data_temp, 0, sizeof(elrs_data_temp));
 	
-	    ELRS_Init();
+    ELRS_Init();
 }
