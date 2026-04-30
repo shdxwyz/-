@@ -50,92 +50,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-// 左右电机的基准点（中位角度//调小翅膀向上）
-int16_t motor_L_midpoint = 2150;
-int16_t motor_R_midpoint = 2150;
-
-// 相位累加器（16位：0..65535 表示一整周期）
-static uint16_t g_phase16 = 0;
-
-// 上一次循环的时间戳（ms）
-static uint32_t g_last_ms = 0;
-int motor_L_set;                // 左电机目标角度
-int motor_R_set;                // 右电机目标角度
-int Throttle, Pitch, Roll, Yaw; // 油门2，俯仰1，横滚0，偏航3
-
-long map(long x, long in_min, long in_max, long out_min, long out_max)
-{
-  const long run = in_max - in_min;
-  if (run == 0)
-  {
-    return -1; // AVR returns -1, SAM returns 0
-  }
-  const long rise = out_max - out_min;
-  const long delta = x - in_min;
-  return (delta * rise) / run + out_min;
-}
-
-void motor_disable() // 翅膀失能
-{
-  // 停止所有电机（设置所有PWM输出为0）
-  TIM2->CCR1 = 0; // 电机1正转
-  TIM2->CCR2 = 0; // 电机1反转
-  TIM2->CCR3 = 0; // 电机2正转
-  TIM2->CCR4 = 0; // 电机2反转
-  TIM3->CCR1 = 0; // 电机3正转
-  TIM3->CCR2 = 0; // 电机3反转
-  TIM3->CCR3 = 0; // 电机4正转
-  TIM3->CCR4 = 0; // 电机4反转
-}
-
-void motor_stop() // 翅膀暂停
-{
-  // 停止所有电机（设置所有PWM输出为最大值，使电机刹车）
-  TIM2->CCR1 = 19999; // 电机1正转
-  TIM2->CCR2 = 19999; // 电机1反转
-  TIM2->CCR3 = 19999; // 电机2正转
-  TIM2->CCR4 = 19999; // 电机2反转
-  TIM3->CCR1 = 19999; // 电机3正转
-  TIM3->CCR2 = 19999; // 电机3反转
-  TIM3->CCR3 = 19999; // 电机4正转
-  TIM3->CCR4 = 19999; // 电机4反转
-}
-
-void motor_test() // 调试前翅膀水平打开，运行后翅膀向下摆动，即为电机方向正确
-{
-  Set_Pwm(3000, 3000, 3000, 3000);
-  HAL_Delay(100);
-  Set_Pwm(0, 0, 0, 0);
-  while (1)
-    ;
-}
-
-// 分支消除的 int16 绝对值（两补码）
-static inline uint16_t abs16_fast(int16_t x)
-{
-  int16_t m = x >> 15;            // x<0 → -1；x>=0 → 0
-  return (uint16_t)((x ^ m) - m); // 等价于 abs(x)
-}
-// ====== 定点余弦表（Q15），15 点：20°..160° ======
-static const int16_t COS_Q15_15[9] = {
-    30784, 25133, 16384,
-    11207, 0, -11207,
-    -16384, -25133, -30784};
-
-// Q15 乘法： (a * b) >> 15
-static inline int16_t q15_mul(int16_t a, int16_t b)
-{
-  return (int16_t)(((int32_t)a * (int32_t)b) >> 15);
-}
-
-// ====== 非阻塞状态机的静态状态 ======
-static uint8_t sm_idx = 13;       // 0..14
-static int8_t sm_dir = 1;         // +1 正向 / -1 反向
-static uint32_t sm_next_tick = 0; // 下次步进的时刻（ms）
-static uint8_t thr = 0;
-#ifndef MIN
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
-#endif
+// 凸轮连杆机构仿生蝴蝶 - 电机持续正转驱动翅膀拍打
+// 通过油门控制转速（拍打频率），偏航和横滚控制差速实现姿态调节
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -223,7 +139,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  g_last_ms = HAL_GetTick(); // 初始化时间戳
 
   while (1)
   {

@@ -25,52 +25,59 @@ const int16_t MOTOR_MAX_OUT = 20000; // PWM最大输出值
 const int16_t MOTOR_MIN_OUT = 0;     // PWM最小输出值
 
 /**
- * @brief  4电机直接转速控制
- * @param  throttle: 油门值 (0-1000)
- * @param  yaw: 偏航值 (-1000 to 1000)
- * @param  roll: 横滚值 (-1000 to 1000)
+ * @brief  4电机直接转速控制（凸轮连杆机构仿生蝴蝶）
+ * @param  throttle: 油门值 (0-1000) 控制基础转速
+ * @param  yaw: 偏航值 (-400 to 400) 控制左右差速（转向）
+ * @param  roll: 横滚值 (-80 to 80) 控制前后差速（俯仰）
  * @retval None
  * @note   控制逻辑：
- *         1. 油门控制基础转速
- *         2. 偏航控制左右差速
- *         3. 横滚控制前后差速
- *         电机布局：
+ *         1. 油门控制基础转速（所有电机同速）
+ *         2. 偏航控制左右差速（左转/右转）
+ *         3. 横滚控制前后差速（前倾/后倾）
+ *         电机布局（凸轮连杆机构，电机持续正转）：
  *         左前(M1)  右前(M2)
  *         左后(M3)  右后(M4)
+ *         
+ *         由于是凸轮连杆机构，电机只需正转（0~MOTOR_MAX_OUT），
+ *         通过改变转速差实现姿态控制。
  */
 void Motor_Direct_Control(int16_t throttle, int16_t yaw, int16_t roll)
 {
-  // 将油门值映射到PWM范围 (0-1000 -> 0-20000)
+  // 油门值范围 0-1000，映射到PWM范围 0-MOTOR_MAX_OUT
+  // 油门为0时电机停转，油门最大时全速
   int16_t base_speed = (throttle * MOTOR_MAX_OUT) / 1000;
 
-  // 将偏航和横滚值映射到差速范围 (-1000 to 1000 -> -MOTOR_MAX_OUT/4 to MOTOR_MAX_OUT/4)
+  // 偏航差速：yaw范围 -400~400，映射到 -MOTOR_MAX_OUT/4 ~ MOTOR_MAX_OUT/4
   int16_t yaw_diff = (yaw * MOTOR_MAX_OUT) / (4 * 1000);
+
+  // 横滚差速：roll范围 -80~80，映射到 -MOTOR_MAX_OUT/4 ~ MOTOR_MAX_OUT/4
   int16_t roll_diff = (roll * MOTOR_MAX_OUT) / (4 * 1000);
 
-  // 计算各电机速度
-  // 左前电机: 基础速度 + 偏航差速(左减) + 横滚差速(前加)
+  // 计算各电机速度（凸轮机构只需正转，但允许差速导致某侧减速）
+  // 左前电机: 基础速度 - 偏航差速(左转减速) + 横滚差速(前倾加速)
   motor_1_set_pwm = base_speed - yaw_diff + roll_diff;
 
-  // 右前电机: 基础速度 + 偏航差速(右加) + 横滚差速(前加)
+  // 右前电机: 基础速度 + 偏航差速(右转减速) + 横滚差速(前倾加速)
   motor_2_set_pwm = base_speed + yaw_diff + roll_diff;
 
-  // 左后电机: 基础速度 + 偏航差速(左减) - 横滚差速(后减)
+  // 左后电机: 基础速度 - 偏航差速(左转减速) - 横滚差速(后倾减速)
   motor_3_set_pwm = base_speed - yaw_diff - roll_diff;
 
-  // 右后电机: 基础速度 + 偏航差速(右加) - 横滚差速(后减)
+  // 右后电机: 基础速度 + 偏航差速(右转减速) - 横滚差速(后倾减速)
   motor_4_set_pwm = base_speed + yaw_diff - roll_diff;
 
-// 限幅处理
-#define LIMIT_PWM(x)             \
-  if ((x) > MOTOR_MAX_OUT)       \
-    (x) = MOTOR_MAX_OUT;         \
-  else if ((x) < -MOTOR_MAX_OUT) \
-    (x) = -MOTOR_MAX_OUT;
-
-  LIMIT_PWM(motor_1_set_pwm);
-  LIMIT_PWM(motor_2_set_pwm);
-  LIMIT_PWM(motor_3_set_pwm);
-  LIMIT_PWM(motor_4_set_pwm);
+  // 限幅处理（凸轮机构电机只需正转，下限为0）
+  if (motor_1_set_pwm < 0) motor_1_set_pwm = 0;
+  if (motor_1_set_pwm > MOTOR_MAX_OUT) motor_1_set_pwm = MOTOR_MAX_OUT;
+  
+  if (motor_2_set_pwm < 0) motor_2_set_pwm = 0;
+  if (motor_2_set_pwm > MOTOR_MAX_OUT) motor_2_set_pwm = MOTOR_MAX_OUT;
+  
+  if (motor_3_set_pwm < 0) motor_3_set_pwm = 0;
+  if (motor_3_set_pwm > MOTOR_MAX_OUT) motor_3_set_pwm = MOTOR_MAX_OUT;
+  
+  if (motor_4_set_pwm < 0) motor_4_set_pwm = 0;
+  if (motor_4_set_pwm > MOTOR_MAX_OUT) motor_4_set_pwm = MOTOR_MAX_OUT;
 
   // 设置PWM输出
   Set_Pwm(motor_1_set_pwm, motor_2_set_pwm, motor_3_set_pwm, motor_4_set_pwm);
