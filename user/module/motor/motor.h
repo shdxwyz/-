@@ -34,28 +34,31 @@ extern pid_type_def motor_1_pid, motor_3_pid;
 #define MOTOR_3_SPEED_PID_KI 0.0f
 #define MOTOR_3_SPEED_PID_KD KD
 
-// 1	2
+// 凸轮连杆机构仿生蝴蝶 - 电机布局
+//   前翅：M1(左前)  M3(右前)
+//   后翅：M2(左后)  M4(右后)
 //
-// 4	3
+// 左右翅膀转动方向相反：
+//   左翅(M1,M2)正转 → 右翅(M3,M4)反转
 
-/*-------------Motor_PWM_M1 (左前)--------------*/
-#define PWM_M1_1 TIM2->CCR1 // PWM_M1 正转 (PA15, TIM2_CH1)
-#define PWM_M1_2 TIM2->CCR2 // PWM_M1 反转 (PB3, TIM2_CH2)
+/*-------------Motor_PWM_M1 (左前翅)--------------*/
+#define PWM_M1_1 TIM2->CCR1 // M1 反转通道 (PA15, TIM2_CH1)
+#define PWM_M1_2 TIM2->CCR2 // M1 正转通道 (PB3, TIM2_CH2)
 /*------------------------------------*/
 
-/*-------------Motor_PWM_M2 (右前)--------------*/
-#define PWM_M2_1 TIM2->CCR3 // PWM_M2 正转 (PA2, TIM2_CH3)
-#define PWM_M2_2 TIM2->CCR4 // PWM_M2 反转 (PA3, TIM2_CH4)
+/*-------------Motor_PWM_M2 (左后翅)--------------*/
+#define PWM_M2_1 TIM2->CCR3 // M2 反转通道 (PA2, TIM2_CH3)
+#define PWM_M2_2 TIM2->CCR4 // M2 正转通道 (PA3, TIM2_CH4)
 /*------------------------------------*/
 
-/*-------------Motor_PWM_M3 (左后)--------------*/
-#define PWM_M3_1 TIM3->CCR1 // PWM_M3 正转 (PB4, TIM3_CH1)
-#define PWM_M3_2 TIM3->CCR2 // PWM_M3 反转 (PB5, TIM3_CH2)
+/*-------------Motor_PWM_M3 (右前翅)--------------*/
+#define PWM_M3_1 TIM3->CCR1 // M3 反转通道 (PB4, TIM3_CH1)
+#define PWM_M3_2 TIM3->CCR2 // M3 正转通道 (PB5, TIM3_CH2)
 /*------------------------------------*/
 
-/*-------------Motor_PWM_M4 (右后)--------------*/
-#define PWM_M4_1 TIM3->CCR3 // PWM_M4 正转 (PB0, TIM3_CH3)
-#define PWM_M4_2 TIM3->CCR4 // PWM_M4 反转 (PB1, TIM3_CH4)
+/*-------------Motor_PWM_M4 (右后翅)--------------*/
+#define PWM_M4_1 TIM3->CCR3 // M4 反转通道 (PB0, TIM3_CH3)
+#define PWM_M4_2 TIM3->CCR4 // M4 正转通道 (PB1, TIM3_CH4)
 /*------------------------------------*/
 
 extern void Motor_PID_Control(void);

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [fly\fly.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image fly\fly.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Apr 30 13:33:54 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri May 08 16:48:10 2026
 <BR><P>
 <H3>Maximum Stack Usage =        148 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -930,8 +930,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9e]"></a>Motor_Direct_Control</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, motor.o(i.Motor_Direct_Control))
-<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Motor_Direct_Control &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+<P><STRONG><a name="[9e]"></a>Motor_Direct_Control</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, motor.o(i.Motor_Direct_Control))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = Motor_Direct_Control &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Pwm
@@ -949,8 +949,8 @@ Global Symbols
 <P><STRONG><a name="[4]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g0xx_it.o(i.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g031xx.o(RESET)
 </UL>
-<P><STRONG><a name="[a0]"></a>Remote_To_Motor_Control</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, motor.o(i.Remote_To_Motor_Control))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = Remote_To_Motor_Control &rArr; Motor_Direct_Control &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+<P><STRONG><a name="[a0]"></a>Remote_To_Motor_Control</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, motor.o(i.Remote_To_Motor_Control))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Remote_To_Motor_Control &rArr; Motor_Direct_Control &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_Pwm
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Direct_Control
