@@ -1,0 +1,136 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc22232a --dep-file=test.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\code -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_common -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_components -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_device -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o test.src ../test.c"
+	.compiler_name		"ctc"
+	;source	'../test.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.inttab2.intvec.001',code
+	.sect	'.text.inttab2.intvec.001'
+	movh.a	a14,#@his(isr)
+	lea	a14,[a14]@los(isr)
+	ji	a14
+	.sdecl	'.text.test.isr',code,cluster('isr')
+	.sect	'.text.test.isr'
+	.align	2
+	
+	.global	isr
+; Function isr
+.L3:
+isr:	.type	func
+	svlcx
+.L22:
+	rslcx
+	rfe
+.L13:
+	
+__isr_function_end:
+	.size	isr,__isr_function_end-isr
+.L12:
+	; End of function
+	
+	.calls	'isr','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L5:
+	.word	191
+	.half	3
+	.word	.L6
+	.byte	4
+.L4:
+	.byte	1
+	.byte	'../test.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
+	.word	.L7
+	.byte	2,1,3
+	.word	169
+	.byte	4
+	.byte	'__codeptr',0,1,1,1
+	.word	171
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L6:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,21,0,54,15,0,0,3,15,0,73,19,0,0,4,22,0,3,8,58,15,59,15
+	.byte	57,15,73,19,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L7:
+	.word	.L15-.L14
+.L14:
+	.half	3
+	.word	.L17-.L16
+.L16:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../test.c',0,0,0,0,0
+.L17:
+.L15:
+	.sdecl	'.debug_info',debug,cluster('isr')
+	.sect	'.debug_info'
+.L8:
+	.word	208
+	.half	3
+	.word	.L9
+	.byte	4,1
+	.byte	'../test.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
+	.word	.L11,.L10
+	.byte	2
+	.word	.L4
+	.byte	3
+	.byte	'isr',0,1,1,39,1,1,1
+	.word	.L3,.L13,.L2
+	.byte	4
+	.word	.L3,.L13
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('isr')
+	.sect	'.debug_abbrev'
+.L9:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('isr')
+	.sect	'.debug_line'
+.L10:
+	.word	.L19-.L18
+.L18:
+	.half	3
+	.word	.L21-.L20
+.L20:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../test.c',0,0,0,0,0
+.L21:
+	.byte	5,39,7,0,5,2
+	.word	.L3
+	.byte	1,5,50,9
+	.half	.L22-.L3
+	.byte	1,9
+	.half	.L12-.L22
+	.byte	0,1,1
+.L19:
+	.sdecl	'.debug_ranges',debug,cluster('isr')
+	.sect	'.debug_ranges'
+.L11:
+	.word	-1,.L3,0,.L12-.L3,0,0
+	.sdecl	'.debug_loc',debug,cluster('isr')
+	.sect	'.debug_loc'
+.L2:
+	.word	-1,.L3,0,.L13-.L3
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L23:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('isr')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L23,.L3,.L13-.L3
+	; Module end
