@@ -1,19 +1,17 @@
 {
     "configurations": [
         {
-            "name": "AURIX TC264",
+            "name": "AURIX_TC264",
             "includePath": [
-                "${workspaceFolder}/**",
-                "D:/Infineon/AURIX-Studio-1.10.32/tools/Compilers/Tasking_1.1r8/ctc/include"
+                "${workspaceFolder}/**"
             ],
             "defines": [
-                "__CPU__=tc26xb",
-                "__TASKING__"
+                "__TASKING__",
+                "__CPU__=tc26xb"
             ],
-            "compilerPath": "",
             "cStandard": "c99",
-            "cppStandard": "c++14",
-            "intelliSenseMode": "gcc-arm"
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4

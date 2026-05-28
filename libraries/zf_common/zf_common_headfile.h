@@ -89,14 +89,16 @@
 #include "zf_device_dl1b.h"
 #include "zf_device_icm20602.h"
 #include "zf_device_imu660ra.h"
-#include "zf_device_imu660rc.h"
+#include "zf_device_imu660rb.h"
+#include "zf_device_imu660rx.h"
 #include "zf_device_imu963ra.h"
 #include "zf_device_ips114.h"
 #include "zf_device_ips200.h"
+#include "zf_device_ips200pro.h"
 #include "zf_device_key.h"
 #include "zf_device_menc15a.h"
 #include "zf_device_mpu6050.h"
-#include "zf_device_mt9v03x.h"
+#include "zf_device_mt9v03x_double.h"
 #include "zf_device_oled.h"
 #include "zf_device_ov7725.h"
 #include "zf_device_scc8660.h"
@@ -116,15 +118,7 @@
 //====================================================应用组件层====================================================
 
 //=====================================================用户层======================================================
-#include "Car.h"
-#include "Encoder.h"
-#include "PID.h"
-#include "Kalman_Gyro.h"
-#include "Switch.h"
-#include "LED.h"
 
-#include "figure.h"
-#include "scan_line.h"
 //=====================================================用户层======================================================
 
 #endif

@@ -45,25 +45,15 @@ RM := rm -rf
 -include libraries/infineon_libraries/Service/CpuGeneric/If/subdir.mk
 -include libraries/infineon_libraries/Infra/Platform/Tricore/Compilers/subdir.mk
 -include code/subdir.mk
--include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(strip $(C++M_DEPS)),)
--include $(C++M_DEPS)
-endif
 ifneq ($(strip $(C++_DEPS)),)
 -include $(C++_DEPS)
-endif
-ifneq ($(strip $(CCM_DEPS)),)
--include $(CCM_DEPS)
 endif
 ifneq ($(strip $(CC_DEPS)),)
 -include $(CC_DEPS)
 endif
 ifneq ($(strip $(CPP_DEPS)),)
 -include $(CPP_DEPS)
-endif
-ifneq ($(strip $(CXXM_DEPS)),)
--include $(CXXM_DEPS)
 endif
 ifneq ($(strip $(CXX_DEPS)),)
 -include $(CXX_DEPS)
@@ -84,44 +74,39 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Seekfree_TC264_Opensource_Library
+BUILD_ARTIFACT_NAME := zhixian-fk-pid2
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
-Seekfree_TC264_Opensource_Library.siz \
+zhixian-fk-pid2.siz \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Seekfree_TC264_Opensource_Library.elf secondary-outputs
+main-build: zhixian-fk-pid2.elf secondary-outputs
 
 # Tool invocations
-Seekfree_TC264_Opensource_Library.elf: $(OBJS) makefile $(OPTIONAL_TOOL_DEPS) .Seekfree_TC264_Opensource_Library.elf.opt
+zhixian-fk-pid2.elf: $(OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: TASKING Linker'
-	cctc -f .Seekfree_TC264_Opensource_Library.elf.opt
+	cctc --lsl-file="../Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy "D:\Infineon\workspace\zhixian-fk-pid2\libraries\zf_device\zf_device_config.a" -Wl--map-file="zhixian-fk-pid2.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc26xb -o"zhixian-fk-pid2.elf" -Wl-o"zhixian-fk-pid2.hex:IHEX" $(OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-.Seekfree_TC264_Opensource_Library.elf.opt:
-	@argfile .Seekfree_TC264_Opensource_Library.elf.opt --lsl-file="../Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy "C:/Users/23182/Desktop/Zhi_NengChe-main/Zhi_NengChe-main/libraries/zf_device/zf_device_config.a" -Wl--map-file="Seekfree_TC264_Opensource_Library.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lcs_fpu -lfp_fpu -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc26xb -o"Seekfree_TC264_Opensource_Library.elf" -Wl-o"Seekfree_TC264_Opensource_Library.hex:IHEX" $(OBJS)
-
-.PHONY: .Seekfree_TC264_Opensource_Library.elf.opt
-
-Seekfree_TC264_Opensource_Library.siz: Seekfree_TC264_Opensource_Library.elf makefile $(OPTIONAL_TOOL_DEPS)
+zhixian-fk-pid2.siz: zhixian-fk-pid2.elf makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	elfsize  "Seekfree_TC264_Opensource_Library.elf"
+	elfsize  "zhixian-fk-pid2.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Seekfree_TC264_Opensource_Library.siz Seekfree_TC264_Opensource_Library.elf
+	-$(RM) zhixian-fk-pid2.siz zhixian-fk-pid2.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_SIZE)

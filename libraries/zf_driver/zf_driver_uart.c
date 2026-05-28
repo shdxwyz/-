@@ -267,7 +267,6 @@ void uart_write_byte (uart_index_enum uart_n, const uint8 dat)
     IfxAsclin_Asc* uart_handle;
     uart_handle = uart_get_handle(uart_n);
 
-    while(IfxAsclin_getTxFifoFillLevel(uart_handle->asclin) != 0);
     IfxAsclin_write8(uart_handle->asclin, &dat, 1);
 }
 
@@ -282,13 +281,12 @@ void uart_write_byte (uart_index_enum uart_n, const uint8 dat)
 //-------------------------------------------------------------------------------------------------------------------
 void uart_write_buffer (uart_index_enum uart_n, const uint8 *buff, uint32 len)
 {
-    while(len)
-    {
-        uart_write_byte(uart_n, *buff);
-        len--;
-        buff++;
-    }
+    IfxAsclin_Asc* uart_handle;
+    uart_handle = uart_get_handle(uart_n);
+
+    IfxAsclin_write8(uart_handle->asclin, buff, len);
 }
+
 
 
 //-------------------------------------------------------------------------------------------------------------------

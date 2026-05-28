@@ -37,6 +37,6 @@ for /f "delims=" %%i in ('type "%sourceFile%"') do (
     )
 )
 move /y "%tempFile%" "%sourceFile%" >nul 2>&1
-
+call и╬ЁЩаый╠нд╪Ч.bat
 endlocal
 

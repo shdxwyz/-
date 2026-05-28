@@ -24,7 +24,7 @@
 * 文件名称          zf_device_wifi_spi
 * 公司名称          成都逐飞科技有限公司
 * 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
-* 开发环境          ADS v1.10.2
+* 开发环境          ADS v1.9.20
 * 适用平台          TC264D
 * 店铺链接          https://seekfree.taobao.com/
 * 
@@ -271,6 +271,8 @@ static uint8 wifi_spi_get_version (void)
     {
         memcpy(wifi_spi_version, temp_packets.buffer, temp_packets.head.length);
     }
+    return_state = (return_state == 0) ? (WIFI_SPI_REPLY_VERSION != temp_packets.head.command) : 1;
+
     return return_state;
 }
 
@@ -291,6 +293,8 @@ static uint8 wifi_spi_get_mac_addr (void)
     {
         memcpy(wifi_spi_mac_addr, temp_packets.buffer, temp_packets.head.length);
     }
+    return_state = (return_state == 0) ? (WIFI_SPI_REPLY_MAC_ADDR != temp_packets.head.command) : 1;
+
     return return_state;
 }
 
@@ -312,6 +316,8 @@ static uint8 wifi_spi_get_ip_addr_port (void)
     {
         memcpy(wifi_spi_ip_addr_port, temp_packets.buffer, temp_packets.head.length);
     }
+    return_state = (return_state == 0) ? (WIFI_SPI_REPLY_IP_ADDR != temp_packets.head.command) : 1;
+
     return return_state;
 }
 

@@ -1,94 +1,80 @@
-/*
- * PID.c
- *
- *  Created on: 2026年2月8日
- *      Author: 19929
- */
+#include "pid.h"
 
-#include <math.h>
-#include "zf_common_headfile.h"
-
-#pragma section all "cpu0_dsram"
-// 将本语句与#pragma section all restore语句之间的全局变量都放在CPU0的RAM中
-
-
-void PID_Init(PID_t *p)
-{
-    p->Actual = 0;
-    p->Out = 0;
-    p->Target = 0;
-    p->Error0 = 0;
-    p->Error1 = 0;
-    p->Error2 = 0;
-    p->GKD = 0;
-    p->gyro_z = 0;
-    p->KP2 = 0;
-    p->ErrorInt = 0;
-}
-
-
-// 增量式PID
-void PID_Update_Incremental(PID_t *p)
-{
-    p->Error2 = p->Error1;
-    p->Error1 = p->Error0;
-    p->Error0 = p->Target - p->Actual;
-
-    p->Out += p->Kp * (p->Error0 - p->Error1)
-            + p->Ki * p->Error0
-            + p->Kd * (p->Error0 - 2*p->Error1 + p->Error2);
-
-    if(p->Out > p->OutMax) p->Out = p->OutMax;
-    if(p->Out < p->OutMin) p->Out = p->OutMin;
-}
-
-// 位置式PID
-void PID_Update_Positional(PID_t *p)
-{
-    p->Error1 = p->Error0;
-    p->Error0 = p->Target - p->Actual;
-
-    // 积分项
-    if (p->Ki != 0)
-    {
-        p->ErrorInt += p->Error0;
-        // 积分限幅
-        if(p->ErrorInt > 10) p->ErrorInt = 10;
-        if(p->ErrorInt < -10) p->ErrorInt = -10;
-    }
-    else
-    {
-        p->ErrorInt = 0;
+#define LimitMax(input, max)   \
+    {                          \
+        if (input > max)       \
+        {                      \
+            input = max;       \
+        }                      \
+        else if (input < -max) \
+        {                      \
+            input = -max;      \
+        }                      \
     }
 
-    // 位置式PID计算
-    p->Out = p->Kp * p->Error0
-           + p->Ki * p->ErrorInt
-           + p->Kd * (p->Error0 - p->Error1);
-
-    // 输出限幅
-    if(p->Out > p->OutMax) p->Out = p->OutMax;
-    if(p->Out < p->OutMin) p->Out = p->OutMin;
-}
-
-// 双PD式PID
-void PID_Update_Double_P(PID_t *p)
+void PID_Init(PidTypeDef *pid, uint8_t mode, float maxout, float max_iout, float kp, float ki, float kd)
 {
-    p->Error1 = p->Error0;                      // 上一次的角度偏差
-    p->Error0 = p->Target - p->Actual;          // 这一次的角度偏差
-
-    // 双PD式PID计算
-    p->Out = p->Kp * p->Error0
-           + p->KP2 * p->Error0 * fabs(p->Error0)
-           + p->Kd * (p->Error0 - p->Error1)
-           + p->GKD * p->gyro_z;
-
-    // 输出限幅
-    if(p->Out > p->OutMax) p->Out = p->OutMax;
-    if(p->Out < p->OutMin) p->Out = p->OutMin;
+    if (pid == NULL )
+    {
+        return;
+    }
+    pid->mode = mode;
+    pid->Kp =  kp;
+    pid->Ki = ki;
+    pid->Kd = kd;
+    pid->max_out = maxout;
+    pid->max_iout = max_iout;
+    pid->Dbuf[0] = pid->Dbuf[1] = pid->Dbuf[2] = 0.0f;
+    pid->error[0] = pid->error[1] = pid->error[2] = pid->Pout = pid->Iout = pid->Dout = pid->out = 0.0f;
 }
 
+float PID_Calc(PidTypeDef *pid, float ref, float set)
+{
+    if (pid == NULL)
+    {
+        return 0.0f;
+    }
 
+    pid->error[2] = pid->error[1];
+    pid->error[1] = pid->error[0];
+    pid->set = set;
+    pid->fdb = ref;
+    pid->error[0] = set - ref;
+    if (pid->mode == PID_POSITION)
+    {
+        pid->Pout = pid->Kp * pid->error[0];
+        pid->Iout += pid->Ki * pid->error[0];
+        pid->Dbuf[2] = pid->Dbuf[1];
+        pid->Dbuf[1] = pid->Dbuf[0];
+        pid->Dbuf[0] = (pid->error[0] - pid->error[1]);
+        pid->Dout = pid->Kd * pid->Dbuf[0];
+        LimitMax(pid->Iout, pid->max_iout);
+        pid->out = pid->Pout + pid->Iout + pid->Dout;
+        LimitMax(pid->out, pid->max_out);
+    }
+    else if (pid->mode == PID_DELTA)
+    {
+        pid->Pout = pid->Kp * (pid->error[0] - pid->error[1]);
+        pid->Iout = pid->Ki * pid->error[0];
+        pid->Dbuf[2] = pid->Dbuf[1];
+        pid->Dbuf[1] = pid->Dbuf[0];
+        pid->Dbuf[0] = (pid->error[0] - 2.0f * pid->error[1] + pid->error[2]);
+        pid->Dout = pid->Kd * pid->Dbuf[0];
+        pid->out += pid->Pout + pid->Iout + pid->Dout;
+        LimitMax(pid->out, pid->max_out);
+    }
+    return pid->out;
+}
 
+void PID_clear(PidTypeDef *pid)
+{
+    if (pid == NULL)
+    {
+        return;
+    }
 
-#pragma section all restore
+    pid->error[0] = pid->error[1] = pid->error[2] = 0.0f;
+    pid->Dbuf[0] = pid->Dbuf[1] = pid->Dbuf[2] = 0.0f;
+    pid->out = pid->Pout = pid->Iout = pid->Dout = 0.0f;
+    pid->fdb = pid->set = 0.0f;
+}

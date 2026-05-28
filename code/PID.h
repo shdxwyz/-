@@ -1,41 +1,33 @@
-/*
- * PID.h
- *
- *  Created on: 2026年2月8日
- *      Author: 19929
- */
+#ifndef __PID_H__
+#define __PID_H__
 
-#ifndef CODE_PID_H_
-#define CODE_PID_H_
+#include "zf_common_headfile.h"
 
-typedef struct
-{
-       float Target;
-       float Actual;
-       float Out;
+enum PID_MODE { PID_POSITION = 0, PID_DELTA };
 
-       float Error0;            // 当前误差
-       float Error1;            // 上一次的误差
-       float Error2;            // 上上一次的误差
+typedef struct {
+  uint8_t mode;
 
-       float ErrorInt;          // 误差积分
+  float Kp;
+  float Ki;
+  float Kd;
 
-       float Kp;
-       float Ki;
-       float Kd;
+  float max_out;
+  float max_iout;
 
-       float GKD;               // kd乘的参数
-       float gyro_z;            // 陀螺仪角速度值
-       float KP2;               
+  float set;
+  float fdb;
 
-       float OutMax;
-       float OutMin;
+  float out;
+  float Pout;
+  float Iout;
+  float Dout;
+  float Dbuf[3];
+  float error[3];
 
-}PID_t;
+} PidTypeDef;
+extern void PID_Init(PidTypeDef *pid, uint8_t mode, float maxout, float max_iout, float kp, float ki, float kd);
+extern float PID_Calc(PidTypeDef *pid, float ref, float set);
+extern void PID_clear(PidTypeDef *pid);
 
-void PID_Init(PID_t *p);
-void PID_Update_Incremental(PID_t *p);      // 增量式PID
-void PID_Update_Positional(PID_t *p);       // 位置式PID
-void PID_Update_Double_P(PID_t *p);          // 双参数PID
-
-#endif /* CODE_PID_H_ */
+#endif  // !__PID_H__

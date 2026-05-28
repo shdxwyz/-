@@ -1,3 +1,107 @@
-建议用户需要添加自己的代码文件的时候，将文件存放在CODE文件夹下
-不要再创建子文件夹，直接将代码文件放在CODE文件夹里面就行
-然后工程里面添加文件即可编译
+case 2:
+                // A10 和 A11 同时小于 500 后右转。
+                yqj_condition = yqj_right_turn_trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 1.0f;
+                yqj_right_speed_mps = 0.0f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 3:
+                // A1 和 A2 同时小于 500 后左转。
+                yqj_condition = yqj_left_turn_trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.0f;
+                yqj_right_speed_mps = 1.0f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 4:
+                // 电源
+                yqj_condition = yqj_dianyuan_trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 5:
+                // 电阻
+                yqj_condition = yqj_dianzu_trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 6:
+                // 开关1_0
+                yqj_condition = yqj_kaiguang1_0trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 7:
+                // 开关0_1
+                yqj_condition = yqj_kaiguang0_1trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 8:
+                // 二级管
+                yqj_condition = yqj_erjiguan_trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 350;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+            case 9:
+                // 三极管1_2
+                yqj_condition = yqj_sanjiguan1_2trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 800;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;
+
+             case 1:
+                // 三极管2_1
+                yqj_condition = yqj_sanjiguan2_1trigger(adc_value);
+                yqj_case_trigger = 1;
+                yqj_left_speed_mps = 0.3f;
+                yqj_right_speed_mps = 0.3f;
+                yqj_delay_ms = 0;
+                yqj_run_ms = 800;
+                yqj_lock_ms = 500;
+                yqj_lock_distance_m = 0.5f;
+                break;

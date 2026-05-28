@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc8380a --dep-file=libraries/zf_device/zf_device_type.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\code -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_common -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_components -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_device -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o libraries/zf_device/zf_device_type.src ../libraries/zf_device/zf_device_type.c"
+	.compiler_invocation	"ctc -f cc1404a --dep-file=zf_device_type.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2 -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\code -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_common -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_components -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_device -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_driver -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/zf_device/zf_device_type.src ../libraries/zf_device/zf_device_type.c"
 	.compiler_name		"ctc"
 	;source	'../libraries/zf_device/zf_device_type.c'
 
@@ -12,14 +12,14 @@ $TC16X
 	.align	2
 	
 ; Function type_default_callback
-.L13:
+.L22:
 type_default_callback:	.type	func
 	ret
-.L75:
+.L90:
 	
 __type_default_callback_function_end:
 	.size	type_default_callback,__type_default_callback_function_end-type_default_callback
-.L43:
+.L52:
 	; End of function
 	
 	.sdecl	'.text.zf_device_type.set_camera_type',code,cluster('set_camera_type')
@@ -28,58 +28,103 @@ __type_default_callback_function_end:
 	
 	.global	set_camera_type
 ; Function set_camera_type
-.L15:
+.L24:
 set_camera_type:	.type	func
 	movh.a	a15,#@his(camera_type)
 	lea	a15,[a15]@los(camera_type)
-.L84:
+.L99:
 	st.b	[a15],d4
-.L85:
-	jnz.a	a6,.L2
-.L86:
+.L100:
+	jeq	d4,#5,.L2
+.L101:
+	jne	d4,#3,.L3
+.L2:
+	jnz.a	a6,.L4
+.L102:
 	movh.a	a6,#@his(type_default_callback)
 	lea	a6,[a6]@los(type_default_callback)
-.L87:
-	j	.L3
-.L2:
-.L3:
-	movh.a	a15,#@his(camera_uart_handler)
-	lea	a15,[a15]@los(camera_uart_handler)
-.L88:
-	st.a	[a15],a6
-.L89:
-	jnz.a	a4,.L4
-.L90:
-	movh.a	a4,#@his(type_default_callback)
-	lea	a4,[a4]@los(type_default_callback)
-.L91:
+.L103:
 	j	.L5
 .L4:
 .L5:
-	movh.a	a15,#@his(camera_vsync_handler)
-	lea	a15,[a15]@los(camera_vsync_handler)
-.L92:
-	st.a	[a15],a4
-.L93:
-	jnz.a	a5,.L6
-.L94:
-	movh.a	a5,#@his(type_default_callback)
-	lea	a5,[a5]@los(type_default_callback)
-.L95:
+	movh.a	a15,#@his(camera_uart_handler_2)
+	lea	a15,[a15]@los(camera_uart_handler_2)
+.L104:
+	st.a	[a15],a6
+.L105:
+	jnz.a	a4,.L6
+.L106:
+	movh.a	a4,#@his(type_default_callback)
+	lea	a4,[a4]@los(type_default_callback)
+.L107:
 	j	.L7
 .L6:
 .L7:
-	movh.a	a15,#@his(camera_dma_handler)
-	lea	a15,[a15]@los(camera_dma_handler)
-.L96:
+	movh.a	a15,#@his(camera_vsync_handler_2)
+	lea	a15,[a15]@los(camera_vsync_handler_2)
+.L108:
+	st.a	[a15],a4
+.L109:
+	jnz.a	a5,.L8
+.L110:
+	movh.a	a5,#@his(type_default_callback)
+	lea	a5,[a5]@los(type_default_callback)
+.L111:
+	j	.L9
+.L8:
+.L9:
+	movh.a	a15,#@his(camera_dma_handler_2)
+	lea	a15,[a15]@los(camera_dma_handler_2)
+.L112:
 	st.a	[a15],a5
-.L97:
+.L113:
+	j	.L10
+.L3:
+	jnz.a	a6,.L11
+.L114:
+	movh.a	a6,#@his(type_default_callback)
+	lea	a6,[a6]@los(type_default_callback)
+.L115:
+	j	.L12
+.L11:
+.L12:
+	movh.a	a15,#@his(camera_uart_handler_1)
+	lea	a15,[a15]@los(camera_uart_handler_1)
+.L116:
+	st.a	[a15],a6
+.L117:
+	jnz.a	a4,.L13
+.L118:
+	movh.a	a4,#@his(type_default_callback)
+	lea	a4,[a4]@los(type_default_callback)
+.L119:
+	j	.L14
+.L13:
+.L14:
+	movh.a	a15,#@his(camera_vsync_handler_1)
+	lea	a15,[a15]@los(camera_vsync_handler_1)
+.L120:
+	st.a	[a15],a4
+.L121:
+	jnz.a	a5,.L15
+.L122:
+	movh.a	a5,#@his(type_default_callback)
+	lea	a5,[a5]@los(type_default_callback)
+.L123:
+	j	.L16
+.L15:
+.L16:
+	movh.a	a15,#@his(camera_dma_handler_1)
+	lea	a15,[a15]@los(camera_dma_handler_1)
+.L124:
+	st.a	[a15],a5
+.L10:
 	ret
-.L60:
+.L75:
 	
 __set_camera_type_function_end:
 	.size	set_camera_type,__set_camera_type_function_end-set_camera_type
-.L28:
+.L37:
 	; End of function
 	
 	.sdecl	'.text.zf_device_type.set_wireless_type',code,cluster('set_wireless_type')
@@ -88,32 +133,32 @@ __set_camera_type_function_end:
 	
 	.global	set_wireless_type
 ; Function set_wireless_type
-.L17:
+.L26:
 set_wireless_type:	.type	func
 	movh.a	a15,#@his(wireless_type)
 	lea	a15,[a15]@los(wireless_type)
-.L102:
+.L129:
 	st.b	[a15],d4
-.L103:
-	jnz.a	a4,.L8
-.L104:
+.L130:
+	jnz.a	a4,.L17
+.L131:
 	movh.a	a4,#@his(type_default_callback)
 	lea	a4,[a4]@los(type_default_callback)
-.L105:
-	j	.L9
-.L8:
-.L9:
+.L132:
+	j	.L18
+.L17:
+.L18:
 	movh.a	a15,#@his(wireless_module_uart_handler)
 	lea	a15,[a15]@los(wireless_module_uart_handler)
-.L106:
+.L133:
 	st.a	[a15],a4
-.L107:
+.L134:
 	ret
-.L67:
+.L82:
 	
 __set_wireless_type_function_end:
 	.size	set_wireless_type,__set_wireless_type_function_end-set_wireless_type
-.L33:
+.L42:
 	; End of function
 	
 	.sdecl	'.text.zf_device_type.set_tof_type',code,cluster('set_tof_type')
@@ -122,32 +167,32 @@ __set_wireless_type_function_end:
 	
 	.global	set_tof_type
 ; Function set_tof_type
-.L19:
+.L28:
 set_tof_type:	.type	func
 	movh.a	a15,#@his(tof_type)
 	lea	a15,[a15]@los(tof_type)
-.L112:
+.L139:
 	st.b	[a15],d4
-.L113:
-	jnz.a	a4,.L10
-.L114:
+.L140:
+	jnz.a	a4,.L19
+.L141:
 	movh.a	a4,#@his(type_default_callback)
 	lea	a4,[a4]@los(type_default_callback)
-.L115:
-	j	.L11
-.L10:
-.L11:
+.L142:
+	j	.L20
+.L19:
+.L20:
 	movh.a	a15,#@his(tof_module_exti_handler)
 	lea	a15,[a15]@los(tof_module_exti_handler)
-.L116:
+.L143:
 	st.a	[a15],a4
-.L117:
+.L144:
 	ret
-.L71:
+.L86:
 	
 __set_tof_type_function_end:
 	.size	set_tof_type,__set_tof_type_function_end-set_tof_type
-.L38:
+.L47:
 	; End of function
 	
 	.sdecl	'.data.zf_device_type.camera_type',data,cluster('camera_type')
@@ -156,26 +201,47 @@ __set_tof_type_function_end:
 camera_type:	.type	object
 	.size	camera_type,1
 	.space	1
-	.sdecl	'.data.zf_device_type.camera_uart_handler',data,cluster('camera_uart_handler')
-	.sect	'.data.zf_device_type.camera_uart_handler'
-	.global	camera_uart_handler
+	.sdecl	'.data.zf_device_type.camera_uart_handler_1',data,cluster('camera_uart_handler_1')
+	.sect	'.data.zf_device_type.camera_uart_handler_1'
+	.global	camera_uart_handler_1
 	.align	4
-camera_uart_handler:	.type	object
-	.size	camera_uart_handler,4
+camera_uart_handler_1:	.type	object
+	.size	camera_uart_handler_1,4
 	.word	type_default_callback
-	.sdecl	'.data.zf_device_type.camera_vsync_handler',data,cluster('camera_vsync_handler')
-	.sect	'.data.zf_device_type.camera_vsync_handler'
-	.global	camera_vsync_handler
+	.sdecl	'.data.zf_device_type.camera_vsync_handler_1',data,cluster('camera_vsync_handler_1')
+	.sect	'.data.zf_device_type.camera_vsync_handler_1'
+	.global	camera_vsync_handler_1
 	.align	4
-camera_vsync_handler:	.type	object
-	.size	camera_vsync_handler,4
+camera_vsync_handler_1:	.type	object
+	.size	camera_vsync_handler_1,4
 	.word	type_default_callback
-	.sdecl	'.data.zf_device_type.camera_dma_handler',data,cluster('camera_dma_handler')
-	.sect	'.data.zf_device_type.camera_dma_handler'
-	.global	camera_dma_handler
+	.sdecl	'.data.zf_device_type.camera_dma_handler_1',data,cluster('camera_dma_handler_1')
+	.sect	'.data.zf_device_type.camera_dma_handler_1'
+	.global	camera_dma_handler_1
 	.align	4
-camera_dma_handler:	.type	object
-	.size	camera_dma_handler,4
+camera_dma_handler_1:	.type	object
+	.size	camera_dma_handler_1,4
+	.word	type_default_callback
+	.sdecl	'.data.zf_device_type.camera_uart_handler_2',data,cluster('camera_uart_handler_2')
+	.sect	'.data.zf_device_type.camera_uart_handler_2'
+	.global	camera_uart_handler_2
+	.align	4
+camera_uart_handler_2:	.type	object
+	.size	camera_uart_handler_2,4
+	.word	type_default_callback
+	.sdecl	'.data.zf_device_type.camera_vsync_handler_2',data,cluster('camera_vsync_handler_2')
+	.sect	'.data.zf_device_type.camera_vsync_handler_2'
+	.global	camera_vsync_handler_2
+	.align	4
+camera_vsync_handler_2:	.type	object
+	.size	camera_vsync_handler_2,4
+	.word	type_default_callback
+	.sdecl	'.data.zf_device_type.camera_dma_handler_2',data,cluster('camera_dma_handler_2')
+	.sect	'.data.zf_device_type.camera_dma_handler_2'
+	.global	camera_dma_handler_2
+	.align	4
+camera_dma_handler_2:	.type	object
+	.size	camera_dma_handler_2,4
 	.word	type_default_callback
 	.sdecl	'.data.zf_device_type.wireless_type',data,cluster('wireless_type')
 	.sect	'.data.zf_device_type.wireless_type'
@@ -211,673 +277,776 @@ tof_module_exti_handler:	.type	object
 	.calls	'set_tof_type','',0
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
-.L21:
-	.word	1077
+.L30:
+	.word	1107
 	.half	3
-	.word	.L22
+	.word	.L31
 	.byte	4
-.L20:
+.L29:
 	.byte	1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
-	.word	.L23
-.L61:
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.word	.L32
+.L76:
 	.byte	2,1,44,9,1,3
 	.byte	'NO_CAMERE',0,0,3
 	.byte	'CAMERA_BIN_IIC',0,1,3
 	.byte	'CAMERA_BIN_UART',0,2,3
-	.byte	'CAMERA_GRAYSCALE',0,3,3
-	.byte	'CAMERA_COLOR',0,4,0,4,1,1,5
-	.word	286
+	.byte	'CAMERA_GRAYSCALE_SINGLE',0,3,3
+	.byte	'CAMERA_GRAYSCALE_1',0,4,3
+	.byte	'CAMERA_GRAYSCALE_2',0,5,3
+	.byte	'CAMERA_COLOR',0,6,0,4,1,1,5
+	.word	316
 	.byte	5
-	.word	286
-.L63:
+	.word	316
+.L78:
 	.byte	6
-	.byte	'callback_function',0,1,73,16
-	.word	294
-.L68:
-	.byte	2,1,53,9,1,3
+	.byte	'callback_function',0,1,75,16
+	.word	324
+.L83:
+	.byte	2,1,55,9,1,3
 	.byte	'NO_WIRELESS',0,0,3
 	.byte	'WIRELESS_UART',0,1,3
 	.byte	'BLE6A20',0,2,3
 	.byte	'BLUETOOTH_CH9141',0,3,3
 	.byte	'WIFI_UART',0,4,3
 	.byte	'RECEIVER_UART',0,5,0
-.L72:
-	.byte	2,1,63,9,1,3
+.L87:
+	.byte	2,1,65,9,1,3
 	.byte	'NO_TOF',0,0,3
 	.byte	'TOF_DL1A',0,1,3
 	.byte	'TOF_DL1B',0,2,0,7
 	.byte	'__INDIRECT__',0,2,1,1,1,1,1,8
 	.byte	'short int',0,2,5,6
 	.byte	'__wchar_t',0,2,1,1
-	.word	475
+	.word	505
 	.byte	8
 	.byte	'unsigned int',0,4,7,6
 	.byte	'__size_t',0,2,1,1
-	.word	506
+	.word	536
 	.byte	8
 	.byte	'int',0,4,5,6
 	.byte	'__ptrdiff_t',0,2,1,1
-	.word	539
+	.word	569
 	.byte	9,1,5
-	.word	566
+	.word	596
 	.byte	6
 	.byte	'__codeptr',0,2,1,1
-	.word	568
+	.word	598
 	.byte	6
 	.byte	'__intptr_t',0,2,1,1
-	.word	539
+	.word	569
 	.byte	6
 	.byte	'__uintptr_t',0,2,1,1
-	.word	506
+	.word	536
 	.byte	8
 	.byte	'unsigned short int',0,2,7,6
 	.byte	'_iob_flag_t',0,3,82,25
-	.word	630
+	.word	660
 	.byte	8
 	.byte	'unsigned char',0,1,8,6
 	.byte	'uint8',0,4,105,29
-	.word	672
+	.word	702
 	.byte	6
 	.byte	'uint16',0,4,109,29
-	.word	630
+	.word	660
 	.byte	8
 	.byte	'unsigned long int',0,4,7,6
 	.byte	'uint32',0,4,113,29
-	.word	718
+	.word	748
 	.byte	8
 	.byte	'unsigned long long int',0,8,7,6
 	.byte	'uint64',0,4,118,29
-	.word	754
+	.word	784
 	.byte	6
 	.byte	'sint16',0,4,126,29
-	.word	475
+	.word	505
 	.byte	8
 	.byte	'long int',0,4,5,6
 	.byte	'sint32',0,4,131,1,29
-	.word	810
+	.word	840
 	.byte	8
 	.byte	'long long int',0,8,5,6
 	.byte	'sint64',0,4,138,1,29
-	.word	838
+	.word	868
 	.byte	8
 	.byte	'float',0,4,4,6
 	.byte	'float32',0,4,167,1,29
-	.word	871
+	.word	901
 	.byte	10
 	.byte	'void',0,5
-	.word	897
+	.word	927
 	.byte	6
 	.byte	'pvoid',0,5,57,28
-	.word	903
+	.word	933
 	.byte	6
 	.byte	'Ifx_TickTime',0,5,79,28
-	.word	838
+	.word	868
 	.byte	8
 	.byte	'char',0,1,6,6
 	.byte	'int8',0,6,54,29
-	.word	943
+	.word	973
 	.byte	6
 	.byte	'int16',0,6,55,29
-	.word	475
+	.word	505
 	.byte	6
 	.byte	'int32',0,6,56,29
-	.word	539
+	.word	569
 	.byte	6
 	.byte	'int64',0,6,57,29
-	.word	838
+	.word	868
 	.byte	6
-	.byte	'camera_type_enum',0,1,51,2
-	.word	199
+	.byte	'camera_type_enum',0,1,53,2
+	.word	180
 	.byte	6
-	.byte	'wireless_type_enum',0,1,61,2
-	.word	325
+	.byte	'wireless_type_enum',0,1,63,2
+	.word	355
 	.byte	6
-	.byte	'tof_type_enum',0,1,68,2
-	.word	418
+	.byte	'tof_type_enum',0,1,70,2
+	.word	448
 	.byte	0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
-.L22:
+.L31:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,4,1,58,15,59,15,57,15,11,15,0,0,3,40,0,3,8,28,13,0,0,4
 	.byte	21,0,54,15,39,12,0,0,5,15,0,73,19,0,0,6,22,0,3,8,58,15,59,15,57,15,73,19,0,0,7,46,0,3,8,58,15,59,15,57
 	.byte	15,54,15,63,12,60,12,0,0,8,36,0,3,8,11,15,62,15,0,0,9,21,0,54,15,0,0,10,59,0,3,8,0,0,0
 	.sdecl	'.debug_line',debug
 	.sect	'.debug_line'
-.L23:
-	.word	.L77-.L76
-.L76:
+.L32:
+	.word	.L92-.L91
+.L91:
 	.half	3
-	.word	.L79-.L78
-.L78:
+	.word	.L94-.L93
+.L93:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
-	.byte	'E:\\Infineon\\AURIX-Studio-1.10.32\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
-	.byte	'C:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std',0
-	.byte	'C:\\\\Users\\\\23182\\\\Desktop\\\\Zhi_NengChe-main\\\\Zhi_NengChe-main\\\\libraries\\\\zf_common',0
-	.byte	0
+	.byte	'D:\\Infineon\\AURIX-Studio-1.10.2\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'D:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	'D:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_common',0,0
 	.byte	'..\\libraries\\zf_device\\zf_device_type.h',0,0,0,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0
 	.byte	'stdio.h',0,1,0,0
 	.byte	'Platform_Types.h',0,2,0,0
 	.byte	'ifx_types.h',0,2,0,0
 	.byte	'zf_common_typedef.h',0,3,0,0,0
-.L79:
-.L77:
+.L94:
+.L92:
 	.sdecl	'.debug_info',debug,cluster('set_camera_type')
 	.sect	'.debug_info'
-.L24:
-	.word	350
+.L33:
+	.word	331
 	.half	3
-	.word	.L25
+	.word	.L34
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
-	.word	.L27,.L26
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.word	.L36,.L35
 	.byte	2
-	.word	.L20
+	.word	.L29
 	.byte	3
-	.byte	'set_camera_type',0,1,74,7,1,1,1
-	.word	.L15,.L60,.L14
+	.byte	'set_camera_type',0,1,80,7,1,1,1
+	.word	.L24,.L75,.L23
 	.byte	4
-	.byte	'type_set',0,1,74,41
-	.word	.L61,.L62
+	.byte	'type_set',0,1,80,41
+	.word	.L76,.L77
 	.byte	4
-	.byte	'vsync_callback',0,1,74,69
-	.word	.L63,.L64
+	.byte	'vsync_callback',0,1,80,69
+	.word	.L78,.L79
 	.byte	4
-	.byte	'dma_callback',0,1,74,103
-	.word	.L63,.L65
+	.byte	'dma_callback',0,1,80,103
+	.word	.L78,.L80
 	.byte	4
-	.byte	'uart_callback',0,1,74,135,1
-	.word	.L63,.L66
+	.byte	'uart_callback',0,1,80,135,1
+	.word	.L78,.L81
 	.byte	5
-	.word	.L15,.L60
+	.word	.L24,.L75
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('set_camera_type')
 	.sect	'.debug_abbrev'
-.L25:
+.L34:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('set_camera_type')
 	.sect	'.debug_line'
-.L26:
-	.word	.L81-.L80
-.L80:
+.L35:
+	.word	.L96-.L95
+.L95:
 	.half	3
-	.word	.L83-.L82
-.L82:
+	.word	.L98-.L97
+.L97:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L83:
+.L98:
 	.byte	5,5,7,0,5,2
-	.word	.L15
-	.byte	3,203,0,1,5,17,9
-	.half	.L84-.L15
-	.byte	1,5,28,9
-	.half	.L85-.L84
-	.byte	3,1,1,5,55,7,9
-	.half	.L86-.L85
-	.byte	1,5,78,9
-	.half	.L87-.L86
-	.byte	1,5,5,9
-	.half	.L3-.L87
-	.byte	1,5,25,9
-	.half	.L88-.L3
-	.byte	1,5,29,9
-	.half	.L89-.L88
-	.byte	3,1,1,5,57,7,9
-	.half	.L90-.L89
-	.byte	1,5,80,9
-	.half	.L91-.L90
-	.byte	1,5,5,9
-	.half	.L5-.L91
-	.byte	1,5,26,9
-	.half	.L92-.L5
-	.byte	1,5,27,9
-	.half	.L93-.L92
-	.byte	3,1,1,5,53,7,9
-	.half	.L94-.L93
-	.byte	1,5,76,9
-	.half	.L95-.L94
-	.byte	1,5,5,9
-	.half	.L7-.L95
-	.byte	1,5,24,9
-	.half	.L96-.L7
+	.word	.L24
+	.byte	3,209,0,1,5,27,9
+	.half	.L99-.L24
+	.byte	1,5,8,9
+	.half	.L100-.L99
+	.byte	3,2,1,5,51,7,9
+	.half	.L101-.L100
+	.byte	1,5,36,7,9
+	.half	.L2-.L101
+	.byte	3,2,1,5,64,7,9
+	.half	.L102-.L2
+	.byte	1,5,87,9
+	.half	.L103-.L102
+	.byte	1,5,9,9
+	.half	.L5-.L103
+	.byte	1,5,33,9
+	.half	.L104-.L5
+	.byte	1,5,36,9
+	.half	.L105-.L104
+	.byte	3,1,1,5,64,7,9
+	.half	.L106-.L105
+	.byte	1,5,87,9
+	.half	.L107-.L106
+	.byte	1,5,9,9
+	.half	.L7-.L107
+	.byte	1,5,33,9
+	.half	.L108-.L7
+	.byte	1,5,36,9
+	.half	.L109-.L108
+	.byte	3,1,1,5,64,7,9
+	.half	.L110-.L109
+	.byte	1,5,87,9
+	.half	.L111-.L110
+	.byte	1,5,9,9
+	.half	.L9-.L111
+	.byte	1,5,33,9
+	.half	.L112-.L9
+	.byte	1,5,104,9
+	.half	.L113-.L112
+	.byte	1,5,36,9
+	.half	.L3-.L113
+	.byte	3,4,1,5,64,7,9
+	.half	.L114-.L3
+	.byte	1,5,87,9
+	.half	.L115-.L114
+	.byte	1,5,9,9
+	.half	.L12-.L115
+	.byte	1,5,33,9
+	.half	.L116-.L12
+	.byte	1,5,36,9
+	.half	.L117-.L116
+	.byte	3,1,1,5,64,7,9
+	.half	.L118-.L117
+	.byte	1,5,87,9
+	.half	.L119-.L118
+	.byte	1,5,9,9
+	.half	.L14-.L119
+	.byte	1,5,33,9
+	.half	.L120-.L14
+	.byte	1,5,36,9
+	.half	.L121-.L120
+	.byte	3,1,1,5,64,7,9
+	.half	.L122-.L121
+	.byte	1,5,87,9
+	.half	.L123-.L122
+	.byte	1,5,9,9
+	.half	.L16-.L123
+	.byte	1,5,33,9
+	.half	.L124-.L16
 	.byte	1,5,1,9
-	.half	.L97-.L96
-	.byte	3,1,1,7,9
-	.half	.L28-.L97
+	.half	.L10-.L124
+	.byte	3,2,1,7,9
+	.half	.L37-.L10
 	.byte	0,1,1
-.L81:
+.L96:
 	.sdecl	'.debug_ranges',debug,cluster('set_camera_type')
 	.sect	'.debug_ranges'
-.L27:
-	.word	-1,.L15,0,.L28-.L15,0,0
+.L36:
+	.word	-1,.L24,0,.L37-.L24,0,0
 	.sdecl	'.debug_info',debug,cluster('set_wireless_type')
 	.sect	'.debug_info'
-.L29:
-	.word	303
+.L38:
+	.word	284
 	.half	3
-	.word	.L30
+	.word	.L39
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
-	.word	.L32,.L31
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.word	.L41,.L40
 	.byte	2
-	.word	.L20
+	.word	.L29
 	.byte	3
-	.byte	'set_wireless_type',0,1,90,6,1,1,1
-	.word	.L17,.L67,.L16
+	.byte	'set_wireless_type',0,1,106,6,1,1,1
+	.word	.L26,.L82,.L25
 	.byte	4
-	.byte	'type_set',0,1,90,44
-	.word	.L68,.L69
+	.byte	'type_set',0,1,106,44
+	.word	.L83,.L84
 	.byte	4
-	.byte	'wireless_callback',0,1,90,72
-	.word	.L63,.L70
+	.byte	'wireless_callback',0,1,106,72
+	.word	.L78,.L85
 	.byte	5
-	.word	.L17,.L67
+	.word	.L26,.L82
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('set_wireless_type')
 	.sect	'.debug_abbrev'
-.L30:
+.L39:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('set_wireless_type')
 	.sect	'.debug_line'
-.L31:
-	.word	.L99-.L98
-.L98:
+.L40:
+	.word	.L126-.L125
+.L125:
 	.half	3
-	.word	.L101-.L100
-.L100:
+	.word	.L128-.L127
+.L127:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L101:
+.L128:
 	.byte	5,5,7,0,5,2
-	.word	.L17
-	.byte	3,219,0,1,5,19,9
-	.half	.L102-.L17
+	.word	.L26
+	.byte	3,235,0,1,5,19,9
+	.half	.L129-.L26
 	.byte	1,5,37,9
-	.half	.L103-.L102
+	.half	.L130-.L129
 	.byte	3,1,1,5,68,7,9
-	.half	.L104-.L103
+	.half	.L131-.L130
 	.byte	1,5,91,9
-	.half	.L105-.L104
+	.half	.L132-.L131
 	.byte	1,5,5,9
-	.half	.L9-.L105
+	.half	.L18-.L132
 	.byte	1,5,34,9
-	.half	.L106-.L9
+	.half	.L133-.L18
 	.byte	1,5,1,9
-	.half	.L107-.L106
+	.half	.L134-.L133
 	.byte	3,1,1,7,9
-	.half	.L33-.L107
+	.half	.L42-.L134
 	.byte	0,1,1
-.L99:
+.L126:
 	.sdecl	'.debug_ranges',debug,cluster('set_wireless_type')
 	.sect	'.debug_ranges'
-.L32:
-	.word	-1,.L17,0,.L33-.L17,0,0
+.L41:
+	.word	-1,.L26,0,.L42-.L26,0,0
 	.sdecl	'.debug_info',debug,cluster('set_tof_type')
 	.sect	'.debug_info'
-.L34:
-	.word	294
+.L43:
+	.word	275
 	.half	3
-	.word	.L35
+	.word	.L44
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
-	.word	.L37,.L36
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.word	.L46,.L45
 	.byte	2
-	.word	.L20
+	.word	.L29
 	.byte	3
-	.byte	'set_tof_type',0,1,104,6,1,1,1
-	.word	.L19,.L71,.L18
+	.byte	'set_tof_type',0,1,120,6,1,1,1
+	.word	.L28,.L86,.L27
 	.byte	4
-	.byte	'type_set',0,1,104,34
-	.word	.L72,.L73
+	.byte	'type_set',0,1,120,34
+	.word	.L87,.L88
 	.byte	4
-	.byte	'exti_callback',0,1,104,62
-	.word	.L63,.L74
+	.byte	'exti_callback',0,1,120,62
+	.word	.L78,.L89
 	.byte	5
-	.word	.L19,.L71
+	.word	.L28,.L86
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('set_tof_type')
 	.sect	'.debug_abbrev'
-.L35:
+.L44:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('set_tof_type')
 	.sect	'.debug_line'
-.L36:
-	.word	.L109-.L108
-.L108:
+.L45:
+	.word	.L136-.L135
+.L135:
 	.half	3
-	.word	.L111-.L110
-.L110:
+	.word	.L138-.L137
+.L137:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L111:
+.L138:
 	.byte	5,5,7,0,5,2
-	.word	.L19
-	.byte	3,233,0,1,5,14,9
-	.half	.L112-.L19
+	.word	.L28
+	.byte	3,249,0,1,5,14,9
+	.half	.L139-.L28
 	.byte	1,5,32,9
-	.half	.L113-.L112
+	.half	.L140-.L139
 	.byte	3,1,1,5,59,7,9
-	.half	.L114-.L113
+	.half	.L141-.L140
 	.byte	1,5,82,9
-	.half	.L115-.L114
+	.half	.L142-.L141
 	.byte	1,5,5,9
-	.half	.L11-.L115
+	.half	.L20-.L142
 	.byte	1,5,29,9
-	.half	.L116-.L11
+	.half	.L143-.L20
 	.byte	1,5,1,9
-	.half	.L117-.L116
+	.half	.L144-.L143
 	.byte	3,1,1,7,9
-	.half	.L38-.L117
+	.half	.L47-.L144
 	.byte	0,1,1
-.L109:
+.L136:
 	.sdecl	'.debug_ranges',debug,cluster('set_tof_type')
 	.sect	'.debug_ranges'
-.L37:
-	.word	-1,.L19,0,.L38-.L19,0,0
+.L46:
+	.word	-1,.L28,0,.L47-.L28,0,0
 	.sdecl	'.debug_info',debug,cluster('type_default_callback')
 	.sect	'.debug_info'
-.L39:
-	.word	255
-	.half	3
-	.word	.L40
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1
-	.word	.L42,.L41
-	.byte	2
-	.word	.L20
-	.byte	3
-	.byte	'type_default_callback',0,1,60,13,1,1
-	.word	.L13,.L75,.L12
-	.byte	4
-	.word	.L13,.L75
-	.byte	0,0
-	.sdecl	'.debug_abbrev',debug,cluster('type_default_callback')
-	.sect	'.debug_abbrev'
-.L40:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
-	.byte	39,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
-	.sdecl	'.debug_line',debug,cluster('type_default_callback')
-	.sect	'.debug_line'
-.L41:
-	.word	.L119-.L118
-.L118:
-	.half	3
-	.word	.L121-.L120
-.L120:
-	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
-	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L121:
-	.byte	5,1,7,0,5,2
-	.word	.L13
-	.byte	3,62,1,7,9
-	.half	.L43-.L13
-	.byte	0,1,1
-.L119:
-	.sdecl	'.debug_ranges',debug,cluster('type_default_callback')
-	.sect	'.debug_ranges'
-.L42:
-	.word	-1,.L13,0,.L43-.L13,0,0
-	.sdecl	'.debug_info',debug,cluster('wireless_type')
-	.sect	'.debug_info'
-.L44:
-	.word	226
-	.half	3
-	.word	.L45
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
-	.byte	3
-	.byte	'wireless_type',0,2,47,21
-	.word	.L68
-	.byte	1,5,3
-	.word	wireless_type
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('wireless_type')
-	.sect	'.debug_abbrev'
-.L45:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('wireless_module_uart_handler')
-	.sect	'.debug_info'
-.L46:
-	.word	241
-	.half	3
-	.word	.L47
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
-	.byte	3
-	.byte	'wireless_module_uart_handler',0,2,48,21
-	.word	.L63
-	.byte	1,5,3
-	.word	wireless_module_uart_handler
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('wireless_module_uart_handler')
-	.sect	'.debug_abbrev'
-.L47:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_type')
-	.sect	'.debug_info'
 .L48:
-	.word	224
+	.word	236
 	.half	3
 	.word	.L49
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.word	.L51,.L50
+	.byte	2
+	.word	.L29
+	.byte	3
+	.byte	'type_default_callback',0,1,66,13,1,1
+	.word	.L22,.L90,.L21
+	.byte	4
+	.word	.L22,.L90
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('type_default_callback')
+	.sect	'.debug_abbrev'
+.L49:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('type_default_callback')
+	.sect	'.debug_line'
+.L50:
+	.word	.L146-.L145
+.L145:
+	.half	3
+	.word	.L148-.L147
+.L147:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
+.L148:
+	.byte	5,1,7,0,5,2
+	.word	.L22
+	.byte	3,196,0,1,7,9
+	.half	.L52-.L22
+	.byte	0,1,1
+.L146:
+	.sdecl	'.debug_ranges',debug,cluster('type_default_callback')
+	.sect	'.debug_ranges'
+.L51:
+	.word	-1,.L22,0,.L52-.L22,0,0
+	.sdecl	'.debug_info',debug,cluster('wireless_type')
+	.sect	'.debug_info'
+.L53:
+	.word	207
+	.half	3
+	.word	.L54
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
+	.byte	3
+	.byte	'wireless_type',0,2,53,21
+	.word	.L83
+	.byte	1,5,3
+	.word	wireless_type
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('wireless_type')
+	.sect	'.debug_abbrev'
+.L54:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('wireless_module_uart_handler')
+	.sect	'.debug_info'
+.L55:
+	.word	222
+	.half	3
+	.word	.L56
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
+	.byte	3
+	.byte	'wireless_module_uart_handler',0,2,54,21
+	.word	.L78
+	.byte	1,5,3
+	.word	wireless_module_uart_handler
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('wireless_module_uart_handler')
+	.sect	'.debug_abbrev'
+.L56:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('camera_type')
+	.sect	'.debug_info'
+.L57:
+	.word	205
+	.half	3
+	.word	.L58
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
 	.byte	3
 	.byte	'camera_type',0,2,42,21
-	.word	.L61
+	.word	.L76
 	.byte	1,5,3
 	.word	camera_type
 	.byte	0
 	.sdecl	'.debug_abbrev',debug,cluster('camera_type')
 	.sect	'.debug_abbrev'
-.L49:
+.L58:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_dma_handler')
+	.sdecl	'.debug_info',debug,cluster('camera_uart_handler_1')
 	.sect	'.debug_info'
-.L50:
-	.word	231
+.L59:
+	.word	215
 	.half	3
-	.word	.L51
+	.word	.L60
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
 	.byte	3
-	.byte	'camera_dma_handler',0,2,45,21
-	.word	.L63
+	.byte	'camera_uart_handler_1',0,2,44,21
+	.word	.L78
 	.byte	1,5,3
-	.word	camera_dma_handler
+	.word	camera_uart_handler_1
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_dma_handler')
+	.sdecl	'.debug_abbrev',debug,cluster('camera_uart_handler_1')
 	.sect	'.debug_abbrev'
-.L51:
+.L60:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_vsync_handler')
+	.sdecl	'.debug_info',debug,cluster('camera_vsync_handler_1')
 	.sect	'.debug_info'
-.L52:
-	.word	233
+.L61:
+	.word	216
 	.half	3
-	.word	.L53
+	.word	.L62
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
 	.byte	3
-	.byte	'camera_vsync_handler',0,2,44,21
-	.word	.L63
+	.byte	'camera_vsync_handler_1',0,2,45,21
+	.word	.L78
 	.byte	1,5,3
-	.word	camera_vsync_handler
+	.word	camera_vsync_handler_1
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_vsync_handler')
+	.sdecl	'.debug_abbrev',debug,cluster('camera_vsync_handler_1')
 	.sect	'.debug_abbrev'
-.L53:
+.L62:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_uart_handler')
+	.sdecl	'.debug_info',debug,cluster('camera_dma_handler_1')
 	.sect	'.debug_info'
-.L54:
-	.word	232
+.L63:
+	.word	214
 	.half	3
-	.word	.L55
+	.word	.L64
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
 	.byte	3
-	.byte	'camera_uart_handler',0,2,43,21
-	.word	.L63
+	.byte	'camera_dma_handler_1',0,2,46,21
+	.word	.L78
 	.byte	1,5,3
-	.word	camera_uart_handler
+	.word	camera_dma_handler_1
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_uart_handler')
+	.sdecl	'.debug_abbrev',debug,cluster('camera_dma_handler_1')
 	.sect	'.debug_abbrev'
-.L55:
+.L64:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('camera_uart_handler_2')
+	.sect	'.debug_info'
+.L65:
+	.word	215
+	.half	3
+	.word	.L66
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
+	.byte	3
+	.byte	'camera_uart_handler_2',0,2,48,21
+	.word	.L78
+	.byte	1,5,3
+	.word	camera_uart_handler_2
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('camera_uart_handler_2')
+	.sect	'.debug_abbrev'
+.L66:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('camera_vsync_handler_2')
+	.sect	'.debug_info'
+.L67:
+	.word	216
+	.half	3
+	.word	.L68
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
+	.byte	3
+	.byte	'camera_vsync_handler_2',0,2,49,21
+	.word	.L78
+	.byte	1,5,3
+	.word	camera_vsync_handler_2
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('camera_vsync_handler_2')
+	.sect	'.debug_abbrev'
+.L68:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('camera_dma_handler_2')
+	.sect	'.debug_info'
+.L69:
+	.word	214
+	.half	3
+	.word	.L70
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
+	.byte	3
+	.byte	'camera_dma_handler_2',0,2,50,21
+	.word	.L78
+	.byte	1,5,3
+	.word	camera_dma_handler_2
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('camera_dma_handler_2')
+	.sect	'.debug_abbrev'
+.L70:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('tof_type')
 	.sect	'.debug_info'
-.L56:
-	.word	221
+.L71:
+	.word	202
 	.half	3
-	.word	.L57
+	.word	.L72
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
 	.byte	3
-	.byte	'tof_type',0,2,50,21
-	.word	.L72
+	.byte	'tof_type',0,2,56,21
+	.word	.L87
 	.byte	1,5,3
 	.word	tof_type
 	.byte	0
 	.sdecl	'.debug_abbrev',debug,cluster('tof_type')
 	.sect	'.debug_abbrev'
-.L57:
+.L72:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('tof_module_exti_handler')
 	.sect	'.debug_info'
-.L58:
-	.word	236
+.L73:
+	.word	217
 	.half	3
-	.word	.L59
+	.word	.L74
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\23182\\Desktop\\Zhi_NengChe-main\\Zhi_NengChe-main\\Debug\\',0,12,1,2
-	.word	.L20
+	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1,2
+	.word	.L29
 	.byte	3
-	.byte	'tof_module_exti_handler',0,2,51,21
-	.word	.L63
+	.byte	'tof_module_exti_handler',0,2,57,21
+	.word	.L78
 	.byte	1,5,3
 	.word	tof_module_exti_handler
 	.byte	0
 	.sdecl	'.debug_abbrev',debug,cluster('tof_module_exti_handler')
 	.sect	'.debug_abbrev'
-.L59:
+.L74:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
 	.sdecl	'.debug_loc',debug,cluster('set_camera_type')
 	.sect	'.debug_loc'
-.L65:
-	.word	-1,.L15,0,.L60-.L15
+.L80:
+	.word	-1,.L24,0,.L75-.L24
 	.half	1
 	.byte	101
 	.word	0,0
-.L14:
-	.word	-1,.L15,0,.L60-.L15
+.L23:
+	.word	-1,.L24,0,.L75-.L24
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L62:
-	.word	-1,.L15,0,.L60-.L15
+.L77:
+	.word	-1,.L24,0,.L75-.L24
 	.half	1
 	.byte	84
 	.word	0,0
-.L66:
-	.word	-1,.L15,0,.L60-.L15
+.L81:
+	.word	-1,.L24,0,.L75-.L24
 	.half	1
 	.byte	102
 	.word	0,0
-.L64:
-	.word	-1,.L15,0,.L60-.L15
+.L79:
+	.word	-1,.L24,0,.L75-.L24
 	.half	1
 	.byte	100
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('set_tof_type')
 	.sect	'.debug_loc'
-.L74:
-	.word	-1,.L19,0,.L71-.L19
+.L89:
+	.word	-1,.L28,0,.L86-.L28
 	.half	1
 	.byte	100
 	.word	0,0
-.L18:
-	.word	-1,.L19,0,.L71-.L19
+.L27:
+	.word	-1,.L28,0,.L86-.L28
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L73:
-	.word	-1,.L19,0,.L71-.L19
+.L88:
+	.word	-1,.L28,0,.L86-.L28
 	.half	1
 	.byte	84
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('set_wireless_type')
 	.sect	'.debug_loc'
-.L16:
-	.word	-1,.L17,0,.L67-.L17
+.L25:
+	.word	-1,.L26,0,.L82-.L26
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L69:
-	.word	-1,.L17,0,.L67-.L17
+.L84:
+	.word	-1,.L26,0,.L82-.L26
 	.half	1
 	.byte	84
 	.word	0,0
-.L70:
-	.word	-1,.L17,0,.L67-.L17
+.L85:
+	.word	-1,.L26,0,.L82-.L26
 	.half	1
 	.byte	100
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('type_default_callback')
 	.sect	'.debug_loc'
-.L12:
-	.word	-1,.L13,0,.L75-.L13
+.L21:
+	.word	-1,.L22,0,.L90-.L22
 	.half	2
 	.byte	138,0
 	.word	0,0
 	.sdecl	'.debug_frame',debug
 	.sect	'.debug_frame'
-.L122:
+.L149:
 	.word	48
 	.word	-1
 	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
@@ -885,21 +1054,21 @@ tof_module_exti_handler:	.type	object
 	.sdecl	'.debug_frame',debug,cluster('type_default_callback')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L122,.L13,.L75-.L13
+	.word	.L149,.L22,.L90-.L22
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('set_camera_type')
 	.sect	'.debug_frame'
 	.word	20
-	.word	.L122,.L15,.L60-.L15
+	.word	.L149,.L24,.L75-.L24
 	.byte	8,18,8,19,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('set_wireless_type')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L122,.L17,.L67-.L17
+	.word	.L149,.L26,.L82-.L26
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('set_tof_type')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L122,.L19,.L71-.L19
+	.word	.L149,.L28,.L86-.L28
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	; Module end
