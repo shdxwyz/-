@@ -96,6 +96,49 @@ uint8 yqj_sanjiguan2_1trigger(const uint16 adc_value[])
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
+//三极管2_0
+uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[])
+{
+    return (adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
+}
+// 三极管0_1
+uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[])
+{
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
+}
+// 三极管1_0
+uint8 yqj_sanjiguan1_0trigger(const uint16 adc_value[])
+{    return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE);
+}
+//三极管0_2
+uint8 yqj_sanjiguan0_2trigger(const uint16 adc_value[])
+{
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
+}
+// 双触发
+uint8 yqj_double_trigger(const uint16 adc_value[])
+{    return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE&&
+            adc_value[9]<YQJ_TURN_TRIGGER_ADC_VALUE);
+}
+
 // ==================== 内部工具函数 ====================
 
 // 将速度 m/s 换算成一个 PID 周期内的编码器目标计数。

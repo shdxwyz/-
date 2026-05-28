@@ -46,6 +46,7 @@ uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[]);
 uint8 yqj_sanjiguan0_2trigger(const uint16 adc_value[]);
 uint8 yqj_sanjiguan1_0trigger(const uint16 adc_value[]);
 uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[]);
+uint8 yqj_double_trigger(const uint16 adc_value[]);
 uint8 yqj_time_reached(uint32 start_time, uint32 duration_ms);
 
 void yqj_start_case(uint8 action_trigger);

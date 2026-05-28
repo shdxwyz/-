@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc10032a --dep-file=Ifx_LutAtan2F32.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2 -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\code -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_common -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_components -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_device -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\zf_driver -ID:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.src ../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c"
+	.compiler_invocation	"ctc -f cc16600a --dep-file=Ifx_LutAtan2F32.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -ID:\\\\cup\\\\- -ID:\\\\cup\\\\-\\\\code -ID:\\\\cup\\\\-\\\\libraries -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\cup\\\\-\\\\libraries\\\\zf_common -ID:\\\\cup\\\\-\\\\libraries\\\\zf_components -ID:\\\\cup\\\\-\\\\libraries\\\\zf_device -ID:\\\\cup\\\\-\\\\libraries\\\\zf_driver -ID:\\\\cup\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.src ../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c"
 	.compiler_name		"ctc"
 	;source	'../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c'
 
@@ -677,7 +677,7 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
 .L63:
-	.word	1137
+	.word	1108
 	.half	3
 	.word	.L64
 	.byte	4
@@ -685,41 +685,41 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.byte	1
 	.byte	'../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.byte	'D:\\cup\\-\\Debug\\',0,12,1
 	.word	.L65
 	.byte	2,1,1,3
-	.word	220
+	.word	191
 	.byte	4
 	.byte	'Ifx__jump_and_link',0,3,1,61,17,1,1,5
 	.byte	'fun',0,1,61,43
-	.word	223
+	.word	194
 	.byte	6,0,7
 	.byte	'__fract',0,4,128,1
 .L84:
 	.byte	7
 	.byte	'float',0,4,4,8
 	.byte	'Ifx__float_to_fract',0,3,1,152,2,18
-	.word	268
+	.word	239
 	.byte	1,1,5
 	.byte	'a',0,1,152,2,44
-	.word	280
+	.word	251
 	.byte	6,0,7
 	.byte	'unsigned long long int',0,8,7,9
 	.byte	'void',0,3
-	.word	360
+	.word	331
 	.byte	8
 	.byte	'__ld64',0,3,2,135,1,19
-	.word	334
+	.word	305
 	.byte	1,1,5
 	.byte	'addr',0,2,135,1,32
-	.word	366
+	.word	337
 	.byte	6,0,4
 	.byte	'__st64',0,3,2,143,1,17,1,1,5
 	.byte	'addr',0,2,143,1,30
-	.word	366
+	.word	337
 	.byte	5
 	.byte	'value',0,2,143,1,43
-	.word	334
+	.word	305
 	.byte	6,0
 .L82:
 	.byte	7
@@ -727,120 +727,120 @@ __Ifx_LutAtan2F32_float32_function_end:
 .L90:
 	.byte	8
 	.byte	'Ifx_LutAtan2F32_fxpAnglePrivate',0,3,3,66,29
-	.word	452
+	.word	423
 	.byte	1,1
 .L92:
 	.byte	5
 	.byte	'valf',0,3,66,69
-	.word	280
+	.word	251
 .L94:
 	.byte	6,0
 .L115:
 	.byte	8
 	.byte	'Ifx_LutAtan2F32_float32Private',0,3,3,81,20
-	.word	280
+	.word	251
 	.byte	1,1
 .L117:
 	.byte	5
 	.byte	'val',0,3,81,59
-	.word	280
+	.word	251
 .L119:
 	.byte	6,0,10
-	.word	228
+	.word	199
 	.byte	11
-	.word	254
+	.word	225
 	.byte	6,0,10
-	.word	289
+	.word	260
 	.byte	11
-	.word	321
+	.word	292
 	.byte	6,0,10
-	.word	371
+	.word	342
 	.byte	11
-	.word	390
+	.word	361
 	.byte	6,0,10
+	.word	377
+	.byte	11
+	.word	392
+	.byte	11
 	.word	406
-	.byte	11
-	.word	421
-	.byte	11
-	.word	435
 	.byte	6,0
 .L95:
 	.byte	7
 	.byte	'unsigned long int',0,4,7,10
-	.word	464
+	.word	435
 	.byte	11
-	.word	507
+	.word	478
 	.byte	6,0,10
-	.word	522
+	.word	493
 	.byte	11
-	.word	564
+	.word	535
 	.byte	6,0,7
 	.byte	'short int',0,2,5,12
 	.byte	'__wchar_t',0,3,1,1
-	.word	676
+	.word	647
 	.byte	7
 	.byte	'unsigned int',0,4,7,12
 	.byte	'__size_t',0,3,1,1
-	.word	707
+	.word	678
 	.byte	7
 	.byte	'int',0,4,5,12
 	.byte	'__ptrdiff_t',0,3,1,1
-	.word	740
+	.word	711
 	.byte	13,1,3
-	.word	767
+	.word	738
 	.byte	12
 	.byte	'__codeptr',0,3,1,1
-	.word	769
+	.word	740
 	.byte	7
 	.byte	'unsigned char',0,1,8,12
 	.byte	'uint8',0,4,105,29
-	.word	792
+	.word	763
 	.byte	7
 	.byte	'unsigned short int',0,2,7,12
 	.byte	'uint16',0,4,109,29
-	.word	823
+	.word	794
 	.byte	12
 	.byte	'uint32',0,4,113,29
-	.word	631
+	.word	602
 	.byte	12
 	.byte	'uint64',0,4,118,29
-	.word	334
+	.word	305
 	.byte	12
 	.byte	'sint16',0,4,126,29
-	.word	676
+	.word	647
 	.byte	12
 	.byte	'sint32',0,4,131,1,29
-	.word	452
+	.word	423
 	.byte	7
 	.byte	'long long int',0,8,5,12
 	.byte	'sint64',0,4,138,1,29
-	.word	921
+	.word	892
 	.byte	12
 	.byte	'float32',0,4,167,1,29
-	.word	280
+	.word	251
 	.byte	12
 	.byte	'pvoid',0,5,57,28
-	.word	366
+	.word	337
 	.byte	12
 	.byte	'Ifx_TickTime',0,5,79,28
-	.word	921
+	.word	892
 	.byte	12
 	.byte	'Ifx_Lut_FxpAngle',0,6,84,16
-	.word	452
+	.word	423
 	.byte	14,132,32
-	.word	452
+	.word	423
 	.byte	15,128,8,0,16
-	.word	1031
+	.word	1002
 	.byte	17
 	.byte	'Ifx_g_LutAtan2F32_FxpAngle_table',0,7,60,43
-	.word	1042
+	.word	1013
 	.byte	1,1,14,132,32
-	.word	280
+	.word	251
 	.byte	15,128,8,0,16
-	.word	1090
+	.word	1061
 	.byte	17
 	.byte	'Ifx_g_LutAtan2F32_table',0,7,61,43
-	.word	1101
+	.word	1072
 	.byte	1,1,0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
@@ -859,14 +859,14 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.word	.L151-.L150
 .L150:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
-	.byte	'D:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\IfxCpu_IntrinsicsTasking.h',0
+	.byte	'D:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\IfxCpu_IntrinsicsTasking.h',0
 	.byte	0,0,0
-	.byte	'D:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\IfxCpu_Intrinsics.h',0
+	.byte	'D:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\IfxCpu_Intrinsics.h',0
 	.byte	0,0,0
 	.byte	'../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c',0,0,0,0
-	.byte	'D:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\Platform_Types.h',0
+	.byte	'D:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\Platform_Types.h',0
 	.byte	0,0,0
-	.byte	'D:\\\\Infineon\\\\workspace\\\\zhixian-fk-pid2\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\Ifx_Types.h',0
+	.byte	'D:\\\\cup\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\Cpu\\Std\\Ifx_Types.h',0
 	.byte	0,0,0
 	.byte	'..\\libraries\\infineon_libraries\\Service\\CpuGeneric\\SysSe\\Math\\Ifx_Lut.h',0,0,0,0
 	.byte	'..\\libraries\\infineon_libraries\\Service\\CpuGeneric\\SysSe\\Math\\Ifx_LutAtan2F32.h',0,0,0,0,0
@@ -875,13 +875,13 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.sdecl	'.debug_info',debug,cluster('Ifx_LutAtan2F32_init')
 	.sect	'.debug_info'
 .L66:
-	.word	276
+	.word	247
 	.half	3
 	.word	.L67
 	.byte	4,1
 	.byte	'../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.byte	'D:\\cup\\-\\Debug\\',0,12,1
 	.word	.L69,.L68
 	.byte	2
 	.word	.L62
@@ -920,13 +920,13 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.sdecl	'.debug_info',debug,cluster('Ifx_LutAtan2F32_fxpAngle')
 	.sect	'.debug_info'
 .L71:
-	.word	793
+	.word	764
 	.half	3
 	.word	.L72
 	.byte	4,1
 	.byte	'../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.byte	'D:\\cup\\-\\Debug\\',0,12,1
 	.word	.L74,.L73
 	.byte	2
 	.word	.L62
@@ -1376,13 +1376,13 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.sdecl	'.debug_info',debug,cluster('Ifx_LutAtan2F32_float32')
 	.sect	'.debug_info'
 .L76:
-	.word	622
+	.word	593
 	.half	3
 	.word	.L77
 	.byte	4,1
 	.byte	'../libraries/infineon_libraries/Service/CpuGeneric/SysSe/Math/Ifx_LutAtan2F32.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\Infineon\\workspace\\zhixian-fk-pid2\\Debug\\',0,12,1
+	.byte	'D:\\cup\\-\\Debug\\',0,12,1
 	.word	.L79,.L78
 	.byte	2
 	.word	.L62
@@ -1796,18 +1796,8 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L96:
-	.word	-1,.L59,.L127-.L59,.L4-.L59
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
-.L102:
-	.word	-1,.L59,.L134-.L59,.L10-.L59
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
-.L106:
-	.word	-1,.L59,.L138-.L59,.L22-.L59
+.L110:
+	.word	-1,.L59,.L141-.L59,.L142-.L59
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
@@ -1816,8 +1806,18 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L110:
-	.word	-1,.L59,.L141-.L59,.L142-.L59
+.L96:
+	.word	-1,.L59,.L127-.L59,.L4-.L59
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L104:
+	.word	-1,.L59,.L135-.L59,.L136-.L59
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L102:
+	.word	-1,.L59,.L134-.L59,.L10-.L59
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
@@ -1826,8 +1826,8 @@ __Ifx_LutAtan2F32_float32_function_end:
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L104:
-	.word	-1,.L59,.L135-.L59,.L136-.L59
+.L106:
+	.word	-1,.L59,.L138-.L59,.L22-.L59
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
