@@ -4,57 +4,58 @@
 #include "pid.h"
 #include "../code/yqj.h"
 #include "../code/xunji.h"
+#include "../code/pid_debug.h"
 
 #pragma section all "cpu0_dsram"
 
-// ==================== PIT Óë±àÂëÆ÷ÅäÖÃ ====================
+// ==================== PIT æ¶“åº£ç´ªé®ä½¸æ«’é–°å¶‡ç–† ====================
 
 #define PIT0                            (CCU60_CH0)
 
-// ×ó±àÂëÆ÷
+// å®¸ï¸¾ç´ªé®ä½¸æ«’
 #define LEFT_ENCODER                    (TIM2_ENCODER)
 #define LEFT_ENCODER_PULSE              (TIM2_ENCODER_CH1_P33_7)
 #define LEFT_ENCODER_DIR                (TIM2_ENCODER_CH2_P33_6)
 
-// ÓÒ±àÂëÆ÷
+// é™å´‡ç´ªé®ä½¸æ«’
 #define RIGHT_ENCODER                   (TIM4_ENCODER)
 #define RIGHT_ENCODER_PULSE             (TIM4_ENCODER_CH1_P02_8)
 #define RIGHT_ENCODER_DIR               (TIM4_ENCODER_CH2_P00_9)
 
 
-// ==================== ËÙ¶È PID ²ÎÊý ====================
+// ==================== é–«ç†·å®³ PID é™å‚›æšŸ ====================
 
-// Êµ²â£ºÐ¡³µ×ß 1 Ã×Ô¼ 12106 ¸ö±àÂëÆ÷¼ÆÊý
+// ç€¹ç‚´ç¥´é”›æ°¬çš¬æžï¹è›‹ 1 ç»«å´‡å®³ 12106 æ¶“î†ç´ªé®ä½¸æ«’ç’â„ƒæšŸ
 #define ENCODER_COUNT_PER_METER         (12106.0f)
 
-// Ä¿±ê»ù´¡ËÙ¶È£º0.3 m/s
+// é©î†½çˆ£é©è™¹î”…é–«ç†·å®³é”›ï¿½0.3 m/s
 #define TARGET_SPEED_MPS                (0.3f)
 
-// PID ÖÜÆÚ£º20ms
+// PID é›ã„¦æ¹¡é”›ï¿½20ms
 #define PID_PERIOD_MS                   (20)
 #define PID_PERIOD_S                    (0.02f)
 
-// 20ms ÄÚ»ù´¡Ä¿±ê¼ÆÊý£º0.3 * 0.02 * 12106 ¡Ö 72.6
+// 20ms éå‘­ç†€çº­ï¿½é©î†½çˆ£ç’â„ƒæšŸé”›ï¿½0.3 * 0.02 * 12106 éˆ®ï¿½ 72.6
 #define BASE_TARGET_COUNT               (TARGET_SPEED_MPS * PID_PERIOD_S * ENCODER_COUNT_PER_METER)
 
-// PID Êä³ö·¶Î§
+// PID æˆæ’³åš­é‘¼å†¨æ´¿
 #define SPEED_PID_MAX_OUT               (10000.0f)
 #define SPEED_PID_MAX_IOUT              (6000.0f)
 
-// ËÙ¶È PID ²ÎÊý
-#define SPEED_KP                        (35.0f)
-#define SPEED_KI                        (0.5f)
+// é–«ç†·å®³ PID é™å‚›æšŸ
+#define SPEED_KP                        (50.0f)
+#define SPEED_KI                        (5.0f)
 #define SPEED_KD                        (0.0f)
 
 
-// ==================== Ñ²Ïß²ÎÊý ====================
+// ==================== å®¸ï¼„åšŽé™å‚›æšŸ ====================
 
 #define SENSOR_NUM                      (XUNJI_SENSOR_NUM)
 
 
-// ==================== ADC ±äÁ¿ ====================
+// ==================== ADC é™æ©€å™º ====================
 
-// ´Ó×óµ½ÓÒ£ºA1 A2 A3 A4 A5 A6 A7 A8 A10 A11
+// æµ åº¡ä¹é’æ¿å½¸é”›æ¬°1 A2 A3 A4 A5 A6 A7 A8 A10 A11
 uint16 adc_value[SENSOR_NUM];
 
 adc_channel_enum adc_list[SENSOR_NUM] =
@@ -71,24 +72,24 @@ adc_channel_enum adc_list[SENSOR_NUM] =
     ADC0_CH11_A11
 };
 
-// ==================== ±àÂëÆ÷Óë PID ±äÁ¿ ====================
+// ==================== ç¼‚æ «çˆœé£ã„¤ç¬Œ PID é™æ©€å™º ====================
 
-// 20ms ÄÚ±àÂëÆ÷ÔöÁ¿£¬ÓÃÓÚËÙ¶È PID
+// 20ms éå‘¯ç´ªé®ä½¸æ«’æ¾§ç‚ºå™ºé”›å²€æ•¤æµœåº¨ï¿½ç†·å®³ PID
 volatile int16 left_encoder_count = 0;
 volatile int16 right_encoder_count = 0;
 
-// Èí¼þÀÛ¼Æ×Ü¼ÆÊý£¬ÓÃÓÚËã×ÜÂ·³Ì
+// æžîˆ™æ¬¢ç»±îˆî…¸éŽ¬æ˜î…¸éå¸®ç´é¢ã„¤ç°¬ç» æ¥ï¿½æ˜çŸ¾ç»‹ï¿½
 volatile int32 left_encoder_total = 0;
 volatile int32 right_encoder_total = 0;
 
-// Ð¡³µ×ÜÂ·³Ì£¬µ¥Î» m
+// çå¿šæº…éŽ¬æ˜çŸ¾ç»‹å¬¶ç´é—æ›šç¶… m
 volatile float car_distance_m = 0.5f;
 
-// Ñ­¼£Ëã³öÀ´µÄ×óÓÒÄ¿±ê¼ÆÊý
+// å¯°î‡æŠ—ç» æ¥€åš­é‰ãƒ§æ®‘å®¸ï¹€å½¸é©î†½çˆ£ç’â„ƒæšŸ
 volatile float left_target_count = BASE_TARGET_COUNT;
 volatile float right_target_count = BASE_TARGET_COUNT;
 
-// PID Êä³ö PWM
+// PID æˆæ’³åš­ PWM
 volatile float left_base_pwm = 0;
 volatile float right_base_pwm = 0;
 
@@ -96,7 +97,7 @@ PidTypeDef left_speed_pid;
 PidTypeDef right_speed_pid;
 
 
-// ==================== º¯ÊýÉùÃ÷ ====================
+// ==================== é‘èŠ¥æšŸæ¾¹ç‰ˆæ§‘ ====================
 
 void adc_all_init(void);
 void adc_all_read(void);
@@ -104,7 +105,7 @@ void adc_all_read(void);
 int16 limit_int16(int16 value, int16 min, int16 max);
 
 
-// ==================== Ö÷º¯Êý ====================
+// ==================== æ¶“è¯²åš±éï¿½ ====================
 
 int core0_main(void)
 {
@@ -129,17 +130,17 @@ int core0_main(void)
     clock_init();
     debug_init();
 
-    // ADC ³õÊ¼»¯
+    // ADC é’æ¿†îé–ï¿½
     adc_all_init();
 
-    // ±àÂëÆ÷³õÊ¼»¯
+    // ç¼‚æ «çˆœé£ã„¥åžµæ¿®å¬ªå¯²
     encoder_dir_init(LEFT_ENCODER, LEFT_ENCODER_PULSE, LEFT_ENCODER_DIR);
     encoder_dir_init(RIGHT_ENCODER, RIGHT_ENCODER_PULSE, RIGHT_ENCODER_DIR);
 
-    // µç»ú³õÊ¼»¯
+    // é¢åž«æº€é’æ¿†îé–ï¿½
     motor_init();
 
-    // PID ³õÊ¼»¯
+    // PID é’æ¿†îé–ï¿½
     PID_Init(&left_speed_pid,
              PID_POSITION,
              SPEED_PID_MAX_OUT,
@@ -156,25 +157,62 @@ int core0_main(void)
              SPEED_KI,
              SPEED_KD);
 
-    // 20ms ËÙ¶È PID
+    // 20ms é–«ç†·å®³ PID
     pit_ms_init(PIT0, PID_PERIOD_MS);
 
     cpu_wait_event_ready();
     yqj_init(PID_PERIOD_S, ENCODER_COUNT_PER_METER);
 
+    // PID ç’‹å†­ç˜¯é”â•‚å¢œé’æ¿†îé–ï¿½
+    pid_debug_init();
+
+    // ==================== é–«ç†·å®³å¨´å¬­ç˜¯é™æ©€å™º ====================
+    float test_speed = 0.2f;           // è¤°æ’³å¢ å¨´å¬­ç˜¯é–«ç†·å®³
+    uint32 test_speed_start_ms = 0;    // é–«ç†·å®³é™æ¨ºå¯²ç’â„ƒæ¤‚
+    float test_speed_get = 0.0f;       // ç€¹ç‚ºæª¯é–«ç†·å®³é”›å ¢ç´ªé®ä½¸æ«’éŽ¹ãˆ¢ç•»é”›ï¿½
+    float test_speed_set = 0.0f;       // é©î†½çˆ£é–«ç†·å®³
+
     system_delay_ms(2000);
 
     while(TRUE)
     {
-        // ==================== ¶ÁÈ¡ 10 Â· ADC ====================
+        // ==================== é–«ç†·å®³å¨´å¬­ç˜¯é”›æ°­ç˜¡10ç»‰æŽ‘å½‰é–æ ¦ç«´å¨†ï¿½ ====================
+        if(system_getval_ms() - test_speed_start_ms >= 10000)
+        {
+            test_speed_start_ms = system_getval_ms();
+            test_speed += 0.1f;
+            if(test_speed > 0.6f)
+            {
+                test_speed = 0.2f;
+            }
+            // é‡å­˜æŸŠé©î†½çˆ£é–«ç†·å®³
+            left_target_count = test_speed * PID_PERIOD_S * ENCODER_COUNT_PER_METER;
+            right_target_count = left_target_count;
+            test_speed_set = test_speed;
+            printf("[TEST] é©î†½çˆ£é–«ç†·å®³ = %.2f m/s\r\n", test_speed);
+        }
+
+        // ç€¹ç‚ºæª¯é–«ç†·å®³é”›å ¢ç´ªé®ä½¸æ«’ç’â„ƒæšŸéŽ¹ãˆ¢ç•»æ¶“ï¿½ m/sé”›ï¿½
+        test_speed_get = ((float)left_encoder_count + (float)right_encoder_count) / 2.0f
+                         / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+
+        // ==================== é™æˆ¦ï¿½ä½ºãšå¨‰ãˆ æ«’éç‰ˆåµ ====================
+        {
+            float send_data[2];
+            send_data[0] = test_speed_get;   // ç€¹ç‚ºæª¯é–«ç†·å®³
+            send_data[1] = test_speed_set;   // é©î†½çˆ£é–«ç†·å®³
+            Draw_ResponseCurve(send_data, sizeof(send_data));
+        }
+
+        // ==================== ç’‡è¯²å½‡ 10 ç’ºï¿½ ADC ====================
 
         adc_all_read();
-        // ==================== Ñ²Ïß²ã ====================
-        // xunji Ö»¸ù¾Ý ADC ¼ÆËãÆÕÍ¨Ñ²ÏßÄ¿±ê£¬²»´¦ÀíÈÎºÎÌØÊâÃüÁî¡£
+        // ==================== å®¸ï¼„åšŽçžï¿½ ====================
+        // xunji é™î…ç‰´éŽ¹ï¿½ ADC ç’ï¼„ç•»é…î‡€ï¿½æ°¬è´°ç»¾è·¨æ´°éå›·ç´æ¶“å¶…î˜©éžå—•æ¢æµ£æ› å£’å¨ˆå©‚æ‡¡æµ ã‚ƒï¿½ï¿½
         xunji_update(adc_value, BASE_TARGET_COUNT, &line_result);
 
-        // ==================== ÔªÆ÷¼þË³Ðò²ã ====================
-        // ÕâÀï¾ÍÊÇ×ÜÁ÷³Ì£ºÕý³£Ñ²Ïß¡¢ÅÐ¶Ïµ±Ç° flag¡¢ÑÓÊ±¡¢Ö´ÐÐ¶¯×÷¡¢×ÔËø¡¢flag ¼ÓÒ»¡£
+        // ==================== éå†¨æ«’æµ å •ã€Žæ´å¿“çœ° ====================
+        // æ©æ¬“å™·çè¾¨æ§¸éŽ¬ç»˜ç¥¦ç»‹å¬¶ç´°å§ï½…çˆ¶å®¸ï¼„åšŽéŠ†ä½¸åž½é‚î…žç¶‹é“ï¿½ flagéŠ†ä½¸æ¬¢éƒèº²ï¿½ä½¹å¢½ç›å±½å§©æµ£æº¿ï¿½ä½½åšœé–¿ä½µï¿½ä¹«lag é”çŠ±ç«´éŠ†ï¿½
         yqj_condition = 0;
         yqj_case_trigger = 0;
         yqj_delay_ms = 0;
@@ -190,7 +228,7 @@ int core0_main(void)
         switch(yqj_flag)
         {
             case 1:
-                            // µçÔ´
+                            // é¢åž«ç°®
                             yqj_condition = yqj_dianyuan_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 0.3f;
@@ -202,7 +240,7 @@ int core0_main(void)
                             break;
 
             case 2:
-                            // A10 ºÍ A11 Í¬Ê±Ð¡ÓÚ 500 ºóÓÒ×ª¡£
+                            // A10 éœï¿½ A11 éšå±¾æ¤‚çå¿Žç°¬ 500 éšåº¡å½¸æžîƒ¾ï¿½ï¿½
                             yqj_condition = yqj_right_turn_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 1.2f;
@@ -214,7 +252,7 @@ int core0_main(void)
                             break;
 
             case 3:
-                            // Èý¼«¹Ü2_1
+                            // æ¶“å¤‹ç€¬ç» ï¿½2_1
                             yqj_condition = yqj_sanjiguan2_1trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 0.3f;
@@ -226,7 +264,7 @@ int core0_main(void)
                             break;
 
             case 4:
-                            // µç×è
+                            // é¢ç”¸æ¨†
                             yqj_condition = yqj_dianzu_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 0.3f;
@@ -237,7 +275,7 @@ int core0_main(void)
                             yqj_lock_distance_m = 0.5f;
                             break;
             case 5:
-                            // A10 ºÍ A11 Í¬Ê±Ð¡ÓÚ 500 ºóÓÒ×ª¡£
+                            // A10 éœï¿½ A11 éšå±¾æ¤‚çå¿Žç°¬ 500 éšåº¡å½¸æžîƒ¾ï¿½ï¿½
                             yqj_condition = yqj_right_turn_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 1.2f;
@@ -249,7 +287,7 @@ int core0_main(void)
                             break;
 
             case 6:
-                           // ¶þ¼¶¹Ü
+                           // æµœå²€éª‡ç» ï¿½
                            yqj_condition = yqj_erjiguan_trigger(adc_value);
                            yqj_case_trigger = 1;
                            yqj_left_speed_mps = 0.3f;
@@ -261,7 +299,7 @@ int core0_main(void)
                            break;
 
             case 7:
-                            // A10 ºÍ A11 Í¬Ê±Ð¡ÓÚ 500 ºóÓÒ×ª¡£
+                            // A10 éœï¿½ A11 éšå±¾æ¤‚çå¿Žç°¬ 500 éšåº¡å½¸æžîƒ¾ï¿½ï¿½
                             yqj_condition = yqj_right_turn_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 1.2f;
@@ -273,7 +311,7 @@ int core0_main(void)
                             break;
 
             case 8:
-                            // ¿ª¹Ø0_1
+                            // å¯®ï¿½éï¿½0_1
                             yqj_condition = yqj_kaiguang0_1trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 0.3f;
@@ -285,7 +323,7 @@ int core0_main(void)
                             break;
 
             case 9:
-                            // A10 ºÍ A11 Í¬Ê±Ð¡ÓÚ 500 ºóÓÒ×ª¡£
+                            // A10 éœï¿½ A11 éšå±¾æ¤‚çå¿Žç°¬ 500 éšåº¡å½¸æžîƒ¾ï¿½ï¿½
                             yqj_condition = yqj_right_turn_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 1.2f;
@@ -297,7 +335,7 @@ int core0_main(void)
                             break;
 
             case 10:
-                            // µçÔ´
+                            // é¢åž«ç°®
                             yqj_condition = yqj_dianyuan_trigger(adc_value);
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 0.3f;
@@ -309,7 +347,7 @@ int core0_main(void)
                             break;
 
             default:
-                // Í£Ö¹
+                // é‹æ»„î„›
                 motor_stop();
                 system_delay_ms(20000);
                 break;
@@ -359,8 +397,13 @@ int core0_main(void)
         left_target_count  = final_left_target;
         right_target_count = final_right_target;
 
-        // ==================== Êä³öµç»ú ====================
-        // PID ÔÚ 20ms ÖÐ¶ÏÀï¸ù¾Ý×óÓÒÄ¿±ê¼ÆÊýÊä³ö PWM
+        // ==================== PID ç’‹å†­ç˜¯é‡å­˜æŸŠ ====================
+        // é™æˆ¦ï¿½ä½ºãšå¨‰ãˆ æ«’éç‰ˆåµé’æ¿åŒ—æ¾¶æ §î˜¿é”ç†»å…˜ç’‹å†­ç˜¯é”â•‚å¢œ
+        // æ¾¶å‹­æ‚Š SeekFree Assistant æ¶“å©ç¶…éˆè™¹æ®‘é¦ã„§åšŽç’‹å†¨å¼¬
+        pid_debug_update();
+
+        // ==================== æˆæ’³åš­é¢åž«æº€ ====================
+        // PID é¦ï¿½ 20ms æ¶“î…ŸæŸ‡é–²å±¾ç‰´éŽ¹î†¼ä¹é™å´‡æ´°éå›ªî…¸éæ‹Œç·­é‘ï¿½ PWM
 
         left_pwm  = (int16)left_base_pwm;
         right_pwm = (int16)right_base_pwm;
@@ -370,7 +413,7 @@ int core0_main(void)
 
         motor_control(left_pwm, right_pwm);
 
-        // ==================== ´®¿Úµ÷ÊÔ ====================
+        // ==================== æ¶“æ’å½›ç’‹å†­ç˜¯ ====================
 
         print_count++;
         if(print_count >= 50)
@@ -393,7 +436,8 @@ int core0_main(void)
                     left_pwm,
                     right_pwm);
 
-            for(uint8 i = 0; i < SENSOR_NUM; i++)
+            uint8 i;
+            for(i = 0; i < SENSOR_NUM; i++)
             {
                 printf(" %d", adc_value[i]);
             }
@@ -406,49 +450,51 @@ int core0_main(void)
 }
 
 
-// ==================== ADC ³õÊ¼»¯ ====================
+// ==================== ADC é’æ¿†îé–ï¿½ ====================
 
 void adc_all_init(void)
 {
-    for(uint8 i = 0; i < SENSOR_NUM; i++)
+    uint8 i;
+    for(i = 0; i < SENSOR_NUM; i++)
     {
         adc_init(adc_list[i], ADC_12BIT);
     }
 }
 
 
-// ==================== ADC ¶ÁÈ¡ ====================
+// ==================== ADC ç’‡è¯²å½‡ ====================
 
 void adc_all_read(void)
 {
-    for(uint8 i = 0; i < SENSOR_NUM; i++)
+    uint8 i;
+    for(i = 0; i < SENSOR_NUM; i++)
     {
-        // 10 Â·È«²¿ÓÃÓÚÑ­¼££¬3 ´ÎÆ½¾ù±£Ö¤ÏìÓ¦½Ï¿ì
+        // 10 ç’ºîˆšåé–®ã„§æ•¤æµœåº¡æƒŠæ©ç™¸ç´3 å¨†â€³é’©é§å›¦ç¹šç’‡ä½¸æ·æ´æ—‡ç·è¹‡ï¿½
         adc_value[i] = adc_mean_filter_convert(adc_list[i], 3);
     }
 }
 
 
-// ==================== 20ms ËÙ¶È PID ÖÐ¶Ï ====================
+// ==================== 20ms é–«ç†·å®³ PID æ¶“î…ŸæŸ‡ ====================
 
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);
     pit_clear_flag(CCU60_CH0);
 
-    // ==================== ¶ÁÈ¡ 20ms ÄÚ±àÂëÆ÷ÔöÁ¿ ====================
-    // ×ó±àÂëÆ÷Ç°½øÊ±ÊÇ¸ºÊý£¬ËùÒÔÈ¡·´±äÕý
+    // ==================== ç’‡è¯²å½‡ 20ms éå‘¯ç´ªé®ä½¸æ«’æ¾§ç‚ºå™º ====================
+    // å®¸ï¸¾ç´ªé®ä½¸æ«’é“å¶ˆç¹˜éƒèˆµæ§¸ç’ç†¸æšŸé”›å±¾å¢æµ ãƒ¥å½‡é™å¶…å½‰å§ï¿½
     left_encoder_count = -encoder_get_count(LEFT_ENCODER);
 
-    // ÓÒ±àÂëÆ÷Ç°½øÊ±ÊÇÕýÊý
+    // é™å´‡ç´ªé®ä½¸æ«’é“å¶ˆç¹˜éƒèˆµæ§¸å§ï½†æšŸ
     right_encoder_count = encoder_get_count(RIGHT_ENCODER);
 
-    // ==================== ¶ÁÍêÁ¢¿ÌÇå¿ÕÓ²¼þ±àÂëÆ÷ ====================
+    // ==================== ç’‡è¯²ç•¬ç»”å¬ªåŸ¢å¨“å‘¯â”–çº­îƒ¿æ¬¢ç¼‚æ «çˆœé£ï¿½ ====================
 
     encoder_clear_count(LEFT_ENCODER);
     encoder_clear_count(RIGHT_ENCODER);
 
-    // ==================== ·ÀÖ¹Å¼·¢¸ºÊýÓ°ÏìËÙ¶È PID ====================
+    // ==================== é—ƒå‰î„›é‹è·ºå½‚ç’ç†¸æšŸè¤°åžæ·é–«ç†·å®³ PID ====================
 
     if(left_encoder_count < 0)
     {
@@ -460,7 +506,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
         right_encoder_count = -right_encoder_count;
     }
 
-    // ==================== Èí¼þÀÛ¼Æ×ÜÂ·³Ì ====================
+    // ==================== æžîˆ™æ¬¢ç»±îˆî…¸éŽ¬æ˜çŸ¾ç»‹ï¿½ ====================
 
     left_encoder_total += left_encoder_count;
     right_encoder_total += right_encoder_count;
@@ -468,8 +514,8 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     car_distance_m = ((float)left_encoder_total + (float)right_encoder_total) /
                      (2.0f * ENCODER_COUNT_PER_METER);
 
-    // ==================== ËÙ¶È PID ====================
-    // PID_Calc(pid, Êµ¼ÊÖµ, Ä¿±êÖµ)
+    // ==================== é–«ç†·å®³ PID ====================
+    // PID_Calc(pid, ç€¹ç‚ºæª¯éŠï¿½, é©î†½çˆ£éŠï¿½)
 
     left_base_pwm = PID_Calc(&left_speed_pid,
                              (float)left_encoder_count,
@@ -481,7 +527,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 }
 
 
-// ==================== ÏÞ·ùº¯Êý ====================
+// ==================== é—„æ„¬ç®™é‘èŠ¥æšŸ ====================
 
 int16 limit_int16(int16 value, int16 min, int16 max)
 {
