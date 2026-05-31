@@ -328,5 +328,3 @@ pid_debug.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_components
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_components\seekfree_assistant_interface.h" :
 pid_debug.o :	..\code\pid.h
 ..\code\pid.h :
-pid_debug.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
-"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :

@@ -60,11 +60,11 @@
 #define PARAM_CH_TURN_KP        7   // 巡线转向强度
 
 // ==================== 默认 PID 参数（与 cpu0_main.c 保持一致） ====================
-#define PID_DEBUG_DEFAULT_LEFT_KP       (35.0f)
-#define PID_DEBUG_DEFAULT_LEFT_KI       (5.0f)
+#define PID_DEBUG_DEFAULT_LEFT_KP       (20.0f)
+#define PID_DEBUG_DEFAULT_LEFT_KI       (0.1f)
 #define PID_DEBUG_DEFAULT_LEFT_KD       (0.0f)
-#define PID_DEBUG_DEFAULT_RIGHT_KP      (35.0f)
-#define PID_DEBUG_DEFAULT_RIGHT_KI      (5.0f)
+#define PID_DEBUG_DEFAULT_RIGHT_KP      (20.0f)
+#define PID_DEBUG_DEFAULT_RIGHT_KI      (0.1f)
 #define PID_DEBUG_DEFAULT_RIGHT_KD      (0.0f)
 #define PID_DEBUG_DEFAULT_BASE_SPEED    (0.3f)
 #define PID_DEBUG_DEFAULT_TURN_KP       (0.01f)

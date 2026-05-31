@@ -1,14 +1,23 @@
 #include "pid_debug.h"
+#include "pid.h"
 
 #ifdef PID_DEBUG_ENABLE
+
+// ==================== 本地常量定义 ====================
+// 与 cpu0_main.c 保持一致
+#define ENCODER_COUNT_PER_METER         (12106.0f)
+#define PID_PERIOD_S                    (0.02f)
 
 // ==================== 本地变量 ====================
 
 // 保存上一次的参数值，用于检测变化
 static float last_param[SEEKFREE_ASSISTANT_SET_PARAMETR_COUNT] = {0};
 
+// 上次打印详细PID数据的时间（ms）
+static uint32 last_print_time_ms = 0;
+
 // 上次发送示波器数据的时间（ms）
-static uint32 last_send_time_ms = 0;
+static uint32 last_osc_time_ms = 0;
 
 // ==================== Draw_ResponseCurve 函数 ====================
 // 山外多功能调试助手的上位机响应曲线绘制函数
@@ -47,21 +56,36 @@ void pid_debug_init(void)
         last_param[i] = seekfree_assistant_parameter[i];
     }
 
-    last_send_time_ms = system_getval_ms();
+    last_print_time_ms = system_getval_ms();
 
-    printf("[PID_DEBUG] PID 调试助手已初始化\r\n");
-    printf("[PID_DEBUG] 左轮 Kp=%.1f Ki=%.1f Kd=%.1f\r\n",
+    printf("\r\n");
+    printf("========================================\r\n");
+    printf("  PID Debug v1.0\r\n");
+    printf("========================================\r\n");
+    printf("  Format:\r\n");
+    printf("  target  : target speed (m/s)\r\n");
+    printf("  get     : actual speed (m/s)\r\n");
+    printf("  err     : error = target - get\r\n");
+    printf("  Pout    : proportional term\r\n");
+    printf("  Iout    : integral term\r\n");
+    printf("  Dout    : derivative term\r\n");
+    printf("  out     : PID total output\r\n");
+    printf("  enc     : encoder count / 20ms\r\n");
+    printf("  pwm     : final PWM output\r\n");
+    printf("========================================\r\n");
+    printf("  Current PID params:\r\n");
+    printf("  Left  Kp=%.1f Ki=%.1f Kd=%.1f\r\n",
            PID_DEBUG_DEFAULT_LEFT_KP,
            PID_DEBUG_DEFAULT_LEFT_KI,
            PID_DEBUG_DEFAULT_LEFT_KD);
-    printf("[PID_DEBUG] 右轮 Kp=%.1f Ki=%.1f Kd=%.1f\r\n",
+    printf("  Right Kp=%.1f Ki=%.1f Kd=%.1f\r\n",
            PID_DEBUG_DEFAULT_RIGHT_KP,
            PID_DEBUG_DEFAULT_RIGHT_KI,
            PID_DEBUG_DEFAULT_RIGHT_KD);
-    printf("[PID_DEBUG] 基础速度=%.2f m/s  转向强度=%.3f\r\n",
-           PID_DEBUG_DEFAULT_BASE_SPEED,
-           PID_DEBUG_DEFAULT_TURN_KP);
-    printf("[PID_DEBUG] 打开山外多功能调试助手连接串口即可查看响应曲线\r\n");
+    printf("========================================\r\n");
+    printf("  Speed test: 0.2->0.6 m/s every 10s\r\n");
+    printf("========================================\r\n");
+    printf("\r\n");
 }
 
 // ==================== 参数更新处理 ====================
@@ -85,41 +109,41 @@ static void pid_debug_process_parameters(void)
                 {
                     case PARAM_CH_LEFT_KP:
                         left_speed_pid.Kp = seekfree_assistant_parameter[i];
-                        printf("[PID_DEBUG] 左轮 Kp = %.2f\r\n", left_speed_pid.Kp);
+                        printf("[PID] 左轮 Kp = %.2f\r\n", left_speed_pid.Kp);
                         break;
 
                     case PARAM_CH_LEFT_KI:
                         left_speed_pid.Ki = seekfree_assistant_parameter[i];
-                        printf("[PID_DEBUG] 左轮 Ki = %.2f\r\n", left_speed_pid.Ki);
+                        printf("[PID] 左轮 Ki = %.2f\r\n", left_speed_pid.Ki);
                         break;
 
                     case PARAM_CH_LEFT_KD:
                         left_speed_pid.Kd = seekfree_assistant_parameter[i];
-                        printf("[PID_DEBUG] 左轮 Kd = %.2f\r\n", left_speed_pid.Kd);
+                        printf("[PID] 左轮 Kd = %.2f\r\n", left_speed_pid.Kd);
                         break;
 
                     case PARAM_CH_RIGHT_KP:
                         right_speed_pid.Kp = seekfree_assistant_parameter[i];
-                        printf("[PID_DEBUG] 右轮 Kp = %.2f\r\n", right_speed_pid.Kp);
+                        printf("[PID] 右轮 Kp = %.2f\r\n", right_speed_pid.Kp);
                         break;
 
                     case PARAM_CH_RIGHT_KI:
                         right_speed_pid.Ki = seekfree_assistant_parameter[i];
-                        printf("[PID_DEBUG] 右轮 Ki = %.2f\r\n", right_speed_pid.Ki);
+                        printf("[PID] 右轮 Ki = %.2f\r\n", right_speed_pid.Ki);
                         break;
 
                     case PARAM_CH_RIGHT_KD:
                         right_speed_pid.Kd = seekfree_assistant_parameter[i];
-                        printf("[PID_DEBUG] 右轮 Kd = %.2f\r\n", right_speed_pid.Kd);
+                        printf("[PID] 右轮 Kd = %.2f\r\n", right_speed_pid.Kd);
                         break;
 
                     case PARAM_CH_BASE_SPEED:
-                        printf("[PID_DEBUG] 基础目标速度 = %.2f m/s\r\n",
+                        printf("[PID] 基础目标速度 = %.2f m/s\r\n",
                                seekfree_assistant_parameter[i]);
                         break;
 
                     case PARAM_CH_TURN_KP:
-                        printf("[PID_DEBUG] 巡线转向强度 = %.4f\r\n",
+                        printf("[PID] 巡线转向强度 = %.4f\r\n",
                                seekfree_assistant_parameter[i]);
                         break;
 
@@ -137,24 +161,57 @@ void pid_debug_update(void)
 {
     uint32 current_time_ms = system_getval_ms();
 
-    // 按固定间隔发送示波器数据
-    if((current_time_ms - last_send_time_ms) >= PID_DEBUG_SEND_INTERVAL_MS)
+    // 每50ms发送一次示波器数据
+    if((current_time_ms - last_osc_time_ms) >= PID_DEBUG_SEND_INTERVAL_MS)
     {
-        last_send_time_ms = current_time_ms;
+        last_osc_time_ms = current_time_ms;
 
-        // 准备示波器数据
-        // send_data[0] = motor.speed_get;   -> 左轮实际速度
-        // send_data[1] = motor.speed_set;   -> 左轮目标速度
-        // send_data[2] = 右轮实际速度
-        // send_data[3] = 右轮目标速度
-        float send_data[4];
-        send_data[0] = (float)left_encoder_count;        // 左轮实际速度
-        send_data[1] = left_target_count;                // 左轮目标速度
-        send_data[2] = (float)right_encoder_count;       // 右轮实际速度
-        send_data[3] = right_target_count;               // 右轮目标速度
+        // 计算实际速度 (m/s)
+        float left_speed  = (float)left_encoder_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+        float right_speed = (float)right_encoder_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+        float left_target_speed  = left_target_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+        float right_target_speed = right_target_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
 
-        // 调用 Draw_ResponseCurve 发送数据
-        Draw_ResponseCurve(send_data, sizeof(send_data));
+        // 左轮误差
+        float left_err  = left_target_speed - left_speed;
+        float right_err = right_target_speed - right_speed;
+
+        // 示波器数据：8个通道
+        // ch0: 左轮实际速度  ch1: 左轮目标速度
+        // ch2: 右轮实际速度  ch3: 右轮目标速度
+        // ch4: 左轮PWM       ch5: 右轮PWM
+        // ch6: 左轮误差      ch7: 右轮误差
+        float osc_data[8] = {
+            left_speed,           // ch0
+            left_target_speed,    // ch1
+            right_speed,          // ch2
+            right_target_speed,   // ch3
+            left_base_pwm,        // ch4
+            right_base_pwm,       // ch5
+            left_err,             // ch6
+            right_err             // ch7
+        };
+
+        Draw_ResponseCurve(osc_data, sizeof(osc_data));
+    }
+
+    // 每2000ms打印一次串口摘要
+    if((current_time_ms - last_print_time_ms) >= 2000)
+    {
+        last_print_time_ms = current_time_ms;
+
+        // 计算实际速度 (m/s)
+        float left_speed  = (float)left_encoder_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+        float right_speed = (float)right_encoder_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+        float left_target_speed  = left_target_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+        float right_target_speed = right_target_count / ENCODER_COUNT_PER_METER / PID_PERIOD_S;
+
+        printf("L: tgt=%.3f get=%.3f err=%+.3f P=%+.1f I=%+.1f out=%+.1f pwm=%d\r\n",
+               left_target_speed, left_speed, left_target_speed - left_speed,
+               left_speed_pid.Pout, left_speed_pid.Iout, left_base_pwm, (int16)left_base_pwm);
+        printf("R: tgt=%.3f get=%.3f err=%+.3f P=%+.1f I=%+.1f out=%+.1f pwm=%d\r\n",
+               right_target_speed, right_speed, right_target_speed - right_speed,
+               right_speed_pid.Pout, right_speed_pid.Iout, right_base_pwm, (int16)right_base_pwm);
     }
 
     // 处理上位机下发的参数更新

@@ -1,7 +1,8 @@
 #ifndef __PID_H__
 #define __PID_H__
 
-#include "zf_common_headfile.h"
+#include "stdint.h"
+#include "stddef.h"
 
 enum PID_MODE { PID_POSITION = 0, PID_DELTA };
 
