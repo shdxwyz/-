@@ -12,22 +12,28 @@ int32 yqj_lock_start_count = 0;
 static float yqj_pid_period_s = 0.02f;
 static float yqj_encoder_count_per_meter = 12106.0f;
 
-// ÅĞ¶Ï A1 ºÍ A2 ÊÇ·ñÍ¬Ê±Ğ¡ÓÚãĞÖµ£¬ÓÃ×÷×ó×ª´¥·¢Ìõ¼ş¡£
+// åˆ¤æ–­å·¦è½¬è§¦å‘æ¡ä»¶ï¼šå·¦è¾¹ä¼ æ„Ÿå™¨æ£€æµ‹åˆ°ç™½çº¿ï¼ˆä½äºé˜ˆå€¼ï¼‰ï¼Œ
+// åŒæ—¶å³è¾¹ä¼ æ„Ÿå™¨æ²¡æœ‰æ£€æµ‹åˆ°ç™½çº¿ï¼ˆé«˜äºé˜ˆå€¼ï¼‰ï¼Œé¿å…ç›´é“è¯¯è§¦å‘ã€‚
 uint8 yqj_left_turn_trigger(const uint16 adc_value[])
 {
     return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE);
+            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[8] >= YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[9] >= YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 
-// ÅĞ¶Ï A10 ºÍ A11 ÊÇ·ñÍ¬Ê±Ğ¡ÓÚãĞÖµ£¬ÓÃ×÷ÓÒ×ª´¥·¢Ìõ¼ş¡£
+// åˆ¤æ–­å³è½¬è§¦å‘æ¡ä»¶ï¼šå³è¾¹ä¼ æ„Ÿå™¨æ£€æµ‹åˆ°ç™½çº¿ï¼ˆä½äºé˜ˆå€¼ï¼‰ï¼Œ
+// åŒæ—¶å·¦è¾¹ä¼ æ„Ÿå™¨æ²¡æœ‰æ£€æµ‹åˆ°ç™½çº¿ï¼ˆé«˜äºé˜ˆå€¼ï¼‰ï¼Œé¿å…ç›´é“è¯¯è§¦å‘ã€‚
 uint8 yqj_right_turn_trigger(const uint16 adc_value[])
 {
     return (adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
+            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[0] >= YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[1] >= YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// µç×è
+// ç”µé˜»
 uint8 yqj_dianzu_trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -41,7 +47,7 @@ uint8 yqj_dianzu_trigger(const uint16 adc_value[])
 }
 
 
-// µçÔ´
+// ç”µæº
 uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -54,14 +60,14 @@ uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// ¿ª¹Ø1_0
+// å¼€å…³1_0
 uint8 yqj_kaiguang1_0trigger(const uint16 adc_value[])
 {
     return (adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// ¿ª¹Ø0_1
+// å¼€å…³0_1
 uint8 yqj_kaiguang0_1trigger(const uint16 adc_value[])
 {
     return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -69,7 +75,7 @@ uint8 yqj_kaiguang0_1trigger(const uint16 adc_value[])
 }
 
 
-// ¶ş¼«¹Ü
+// äºŒæç®¡
 uint8 yqj_erjiguan_trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -82,27 +88,27 @@ uint8 yqj_erjiguan_trigger(const uint16 adc_value[])
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// Èı¼«¹Ü1_2
+// ä¸‰æç®¡1_2
 uint8 yqj_sanjiguan1_2trigger(const uint16 adc_value[])
 {
     return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// Èı¼«¹Ü2_1
+// ä¸‰æç®¡2_1
 uint8 yqj_sanjiguan2_1trigger(const uint16 adc_value[])
 {
     return (adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-//Èı¼«¹Ü2_0
+//ä¸‰æç®¡2_0
 uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[])
 {
     return (adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
-// Èı¼«¹Ü0_1
+// ä¸‰æç®¡0_1
 uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -114,12 +120,12 @@ uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[])
             adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
-// Èı¼«¹Ü1_0
+// ä¸‰æç®¡1_0
 uint8 yqj_sanjiguan1_0trigger(const uint16 adc_value[])
 {    return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
-//Èı¼«¹Ü0_2
+//ä¸‰æç®¡0_2
 uint8 yqj_sanjiguan0_2trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -131,7 +137,7 @@ uint8 yqj_sanjiguan0_2trigger(const uint16 adc_value[])
             adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
-// Ë«´¥·¢
+// åŒè§¦å‘
 uint8 yqj_double_trigger(const uint16 adc_value[])
 {    return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -139,16 +145,16 @@ uint8 yqj_double_trigger(const uint16 adc_value[])
             adc_value[9]<YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// ==================== ÄÚ²¿¹¤¾ßº¯Êı ====================
+// ==================== å†…éƒ¨å·¥å…·å‡½æ•° ====================
 
-// ½«ËÙ¶È m/s »»Ëã³ÉÒ»¸ö PID ÖÜÆÚÄÚµÄ±àÂëÆ÷Ä¿±ê¼ÆÊı¡£
+// å°†é€Ÿåº¦ m/s æ¢ç®—æˆä¸€ä¸ª PID å‘¨æœŸå†…çš„ç¼–ç å™¨ç›®æ ‡è®¡æ•°ã€‚
 static float yqj_speed_to_target_count(float speed_mps)
 {
     return speed_mps * yqj_pid_period_s * yqj_encoder_count_per_meter;
 }
 
 
-// ½«×ÔËø¾àÀë m »»Ëã³É×óÓÒÂÖÀï³ÌºÍĞèÒªÔö¼ÓµÄ±àÂëÆ÷¼ÆÊı¡£
+// å°†è‡ªé”è·ç¦» m æ¢ç®—æˆå·¦å³è½®é‡Œç¨‹å’Œéœ€è¦å¢åŠ çš„ç¼–ç å™¨è®¡æ•°ã€‚
 static int32 yqj_meter_to_count(float distance_m)
 {
     if(distance_m <= 0.0f)
@@ -160,7 +166,7 @@ static int32 yqj_meter_to_count(float distance_m)
 }
 
 
-// ÇĞ»»×´Ì¬£¬²¢¼ÇÂ¼½øÈë¸Ã×´Ì¬µÄÊ±¼ä¡£
+// åˆ‡æ¢çŠ¶æ€ï¼Œå¹¶è®°å½•è¿›å…¥è¯¥çŠ¶æ€çš„æ—¶é—´ã€‚
 static void yqj_enter_state(yqj_state_enum state)
 {
     yqj_state = state;
@@ -168,7 +174,7 @@ static void yqj_enter_state(yqj_state_enum state)
 }
 
 
-// ÅĞ¶Ï¶¯×÷ºóµÄ×ÔËø¾àÀëÊÇ·ñÒÑ¾­×ß¹»¡£
+// åˆ¤æ–­åŠ¨ä½œåçš„è‡ªé”è·ç¦»æ˜¯å¦å·²ç»èµ°å¤Ÿã€‚
 static uint8 yqj_lock_distance_reached(int32 encoder_total_sum, float lock_distance_m)
 {
     int32 need_count = yqj_meter_to_count(lock_distance_m);
@@ -183,9 +189,9 @@ static uint8 yqj_lock_distance_reached(int32 encoder_total_sum, float lock_dista
 
 
 
-// ==================== ¶ÔÍâ¹¤¾ßº¯Êı ====================
+// ==================== å¯¹å¤–å·¥å…·å‡½æ•° ====================
 
-// ³õÊ¼»¯ÔªÆ÷¼şË³Ğò¿ò¼Ü£¬°Ñ flag¡¢×´Ì¬¡¢¶¯×÷¶¼¸´Î»µ½Æğµã¡£
+// åˆå§‹åŒ–å…ƒå™¨ä»¶é¡ºåºæ¡†æ¶ï¼ŒæŠŠ flagã€çŠ¶æ€ã€åŠ¨ä½œéƒ½å¤ä½åˆ°èµ·ç‚¹ã€‚
 void yqj_init(float pid_period_s, float encoder_count_per_meter)
 {
     yqj_pid_period_s = pid_period_s;
@@ -199,7 +205,7 @@ void yqj_init(float pid_period_s, float encoder_count_per_meter)
     system_start();
 }
 
-// ÅĞ¶Ï´Ó start_time ¿ªÊ¼ÊÇ·ñÒÑ¾­´ïµ½Ö¸¶¨ºÁÃëÊı£¬duration_ms Îª 0 Ê±±íÊ¾²»ÓÃµÈÊ±¼ä¡£
+// åˆ¤æ–­ä» start_time å¼€å§‹æ˜¯å¦å·²ç»è¾¾åˆ°æŒ‡å®šæ¯«ç§’æ•°ï¼Œduration_ms ä¸º 0 æ—¶è¡¨ç¤ºä¸ç”¨ç­‰æ—¶é—´ã€‚
 uint8 yqj_time_reached(uint32 start_time, uint32 duration_ms)
 {
     if(0 == duration_ms)
@@ -211,7 +217,7 @@ uint8 yqj_time_reached(uint32 start_time, uint32 duration_ms)
 }
 
 
-// µ±Ç° case µÄÌõ¼ş³ÉÁ¢ºó£¬¼ÇÂ¼ÊÇ·ñÖ´ĞĞ¶¯×÷£¬²¢½øÈë´¥·¢ÑÓÊ±¡£
+// å½“å‰ case çš„æ¡ä»¶æˆç«‹åï¼Œè®°å½•æ˜¯å¦æ‰§è¡ŒåŠ¨ä½œï¼Œå¹¶è¿›å…¥è§¦å‘å»¶æ—¶ã€‚
 void yqj_start_case(uint8 action_trigger)
 {
     yqj_action_trigger = action_trigger;
@@ -219,7 +225,7 @@ void yqj_start_case(uint8 action_trigger)
 }
 
 
-// ¶¯×÷Ö´ĞĞÍê³Éºó£¬¼ÇÂ¼×óÓÒÂÖÀï³ÌºÍ£¬²¢½øÈë×ÔËø×´Ì¬¡£
+// åŠ¨ä½œæ‰§è¡Œå®Œæˆåï¼Œè®°å½•å·¦å³è½®é‡Œç¨‹å’Œï¼Œå¹¶è¿›å…¥è‡ªé”çŠ¶æ€ã€‚
 void yqj_start_lock(int32 encoder_total_sum)
 {
     yqj_lock_start_count = encoder_total_sum;
@@ -227,7 +233,7 @@ void yqj_start_lock(int32 encoder_total_sum)
 }
 
 
-// µ±Ç° case ÍêÈ«½áÊøºó£¬flag ¼Ó 1£¬¿ªÊ¼µÈ´ıÏÂÒ»¸öÔªÆ÷¼şÌõ¼ş¡£
+// å½“å‰ case å®Œå…¨ç»“æŸåï¼Œflag åŠ  1ï¼Œå¼€å§‹ç­‰å¾…ä¸‹ä¸€ä¸ªå…ƒå™¨ä»¶æ¡ä»¶ã€‚
 void yqj_finish_case(void)
 {
     if(yqj_flag < 65535u)
@@ -242,7 +248,7 @@ void yqj_finish_case(void)
 }
 
 
-// ÅĞ¶Ïµ±Ç° case µÄ×ÔËøÊÇ·ñ½áÊø£»Ê±¼äºÍ¾àÀëÁ½¸öÌõ¼ş¶¼Âú×ã²Å½âËø¡£
+// åˆ¤æ–­å½“å‰ case çš„è‡ªé”æ˜¯å¦ç»“æŸï¼›æ—¶é—´å’Œè·ç¦»ä¸¤ä¸ªæ¡ä»¶éƒ½æ»¡è¶³æ‰è§£é”ã€‚
 uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance_m)
 {
     return (yqj_time_reached(yqj_state_start_time, lock_ms) &&
@@ -250,7 +256,8 @@ uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance
 }
 
 
-// ¸ù¾İµ±Ç° case ¸ø³öµÄ×óÓÒÂÖËÙ¶È¸²¸ÇÄ¿±ê£»´¥·¢±êÖ¾Îª 0 Ê±²»¸²¸Ç£¬¼ÌĞøÑ²Ïß¡£
+// æ ¹æ®å½“å‰ case ç»™å‡ºçš„å·¦å³è½®é€Ÿåº¦è¦†ç›–ç›®æ ‡ï¼›è§¦å‘æ ‡å¿—ä¸º 0 æ—¶ä¸è¦†ç›–ï¼Œç»§ç»­å·¡çº¿ã€‚
+// è½¬å¼¯æ—¶åœ¨è½¬å¼¯é€Ÿåº¦åŸºç¡€ä¸Šå åŠ å·¡çº¿ä¿®æ­£é‡ï¼Œè®©å°è½¦è¾¹è½¬è¾¹å·¡çº¿ã€‚
 void yqj_apply_action(float left_speed_mps,
                       float right_speed_mps,
                       float *left_target_count,
@@ -258,20 +265,46 @@ void yqj_apply_action(float left_speed_mps,
 {
     if(yqj_action_trigger)
     {
-        *left_target_count = yqj_speed_to_target_count(left_speed_mps);
-        *right_target_count = yqj_speed_to_target_count(right_speed_mps);
+        float base_left = yqj_speed_to_target_count(left_speed_mps);
+        float base_right = yqj_speed_to_target_count(right_speed_mps);
+
+        // è®¡ç®—å·¡çº¿ä¿®æ­£é‡ï¼šå½“å‰å·¡çº¿ç›®æ ‡ä¸åŸºç¡€é€Ÿåº¦çš„å·®å€¼
+        float line_correction_left = *left_target_count - base_left;
+        float line_correction_right = *right_target_count - base_right;
+
+        // å åŠ ä¿®æ­£é‡ï¼Œé™å¹…åˆ° Â±50% é˜²æ­¢ä¿®æ­£è¿‡å¤§
+        if(line_correction_left > 0)
+        {
+            line_correction_left = line_correction_left > base_left * 0.5f ? base_left * 0.5f : line_correction_left;
+        }
+        else
+        {
+            line_correction_left = line_correction_left < -base_left * 0.5f ? -base_left * 0.5f : line_correction_left;
+        }
+
+        if(line_correction_right > 0)
+        {
+            line_correction_right = line_correction_right > base_right * 0.5f ? base_right * 0.5f : line_correction_right;
+        }
+        else
+        {
+            line_correction_right = line_correction_right < -base_right * 0.5f ? -base_right * 0.5f : line_correction_right;
+        }
+
+        *left_target_count = base_left + line_correction_left;
+        *right_target_count = base_right + line_correction_right;
     }
 }
 
 
-// »ñÈ¡µ±Ç°ÕıÔÚµÈ´ı»òÖ´ĞĞµÄÔªÆ÷¼ş±àºÅ£¬´®¿Úµ÷ÊÔÊ±¿´Õâ¸öÖµ¡£
+// è·å–å½“å‰æ­£åœ¨ç­‰å¾…æˆ–æ‰§è¡Œçš„å…ƒå™¨ä»¶ç¼–å·ï¼Œä¸²å£è°ƒè¯•æ—¶çœ‹è¿™ä¸ªå€¼ã€‚
 uint16 yqj_get_flag(void)
 {
     return yqj_flag;
 }
 
 
-// ÊÖ¶¯ÉèÖÃµ±Ç°ÔªÆ÷¼ş±àºÅ£¬·½±ãÄã´ÓÄ³Ò»¸ö case ¿ªÊ¼µ÷³µ¡£
+// æ‰‹åŠ¨è®¾ç½®å½“å‰å…ƒå™¨ä»¶ç¼–å·ï¼Œæ–¹ä¾¿ä½ ä»æŸä¸€ä¸ª case å¼€å§‹è°ƒè½¦ã€‚
 void yqj_set_flag(uint16 flag)
 {
     yqj_flag = flag;
@@ -280,14 +313,14 @@ void yqj_set_flag(uint16 flag)
 }
 
 
-// »ñÈ¡µ±Ç°×´Ì¬£ºÑ²Ïß¡¢ÑÓÊ±¡¢Ö´ĞĞ¶¯×÷¡¢×ÔËø¡£
+// è·å–å½“å‰çŠ¶æ€ï¼šå·¡çº¿ã€å»¶æ—¶ã€æ‰§è¡ŒåŠ¨ä½œã€è‡ªé”ã€‚
 yqj_state_enum yqj_get_state(void)
 {
     return yqj_state;
 }
 
 
-// »ñÈ¡µ±Ç°ÊÇ·ñÕıÔÚÖ´ĞĞ´¥·¢¶¯×÷£¬0 ±íÊ¾²»Ö´ĞĞ£¬1 ±íÊ¾Ö´ĞĞ¡£
+// è·å–å½“å‰æ˜¯å¦æ­£åœ¨æ‰§è¡Œè§¦å‘åŠ¨ä½œï¼Œ0 è¡¨ç¤ºä¸æ‰§è¡Œï¼Œ1 è¡¨ç¤ºæ‰§è¡Œã€‚
 uint8 yqj_get_action_trigger(void)
 {
     return yqj_action_trigger;
