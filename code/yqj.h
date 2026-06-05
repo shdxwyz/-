@@ -27,9 +27,6 @@ extern uint16 yqj_flag;
 extern yqj_state_enum yqj_state;
 extern uint8 yqj_action_trigger;
 extern uint32 yqj_state_start_time;
-extern int32 yqj_delay_start_count;
-extern int32 yqj_action_left_start_count;
-extern int32 yqj_action_right_start_count;
 extern int32 yqj_lock_start_count;
 
 
@@ -53,23 +50,11 @@ uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[]);
 uint8 yqj_double_trigger(const uint16 adc_value[]);
 uint8 yqj_time_reached(uint32 start_time, uint32 duration_ms);
 
-void yqj_start_case(uint8 action_trigger, int32 encoder_total_sum);
-void yqj_start_run(int32 left_encoder_total, int32 right_encoder_total);
+void yqj_start_case(uint8 action_trigger);
 void yqj_start_lock(int32 encoder_total_sum);
 void yqj_finish_case(void);
-uint8 yqj_delay_done(int32 encoder_total_sum, uint32 delay_ms, float delay_distance_m);
-uint8 yqj_action_distance_done(float left_distance_m,
-                               float right_distance_m,
-                               int32 left_encoder_total,
-                               int32 right_encoder_total);
 uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance_m);
-void yqj_apply_action(float left_distance_m,
-                      float right_distance_m,
-                      uint32 run_ms,
-                      int32 left_encoder_total,
-                      int32 right_encoder_total,
-                      float *left_target_count,
-                      float *right_target_count);
+void yqj_apply_action(float left_speed_mps, float right_speed_mps, float *left_target_count, float *right_target_count);
 
 uint16 yqj_get_flag(void);
 void yqj_set_flag(uint16 flag);
