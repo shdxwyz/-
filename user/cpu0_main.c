@@ -222,7 +222,7 @@ int core0_main(void)
                             yqj_lock_ms = 0;
                             yqj_lock_distance_m = 0.3f;
                             break;
-            case 3:
+            case 300:
                 // A10 和 A11 同时小于 500 后右转。
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -232,7 +232,7 @@ int core0_main(void)
                 yqj_delay_distance_m = 0.0f;
                 yqj_run_ms = 400;
                 yqj_lock_ms = 0;
-                yqj_lock_distance_m = 0.2f;
+                yqj_lock_distance_m = 0.4f;
                 break;
 
 //            case 4:

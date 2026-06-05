@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc26504a --dep-file=IfxQspi_SpiMaster.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster/IfxQspi_SpiMaster.src ../libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster/IfxQspi_SpiMaster.c"
+	.compiler_invocation	"ctc -f cc14020a --dep-file=IfxQspi_SpiMaster.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster/IfxQspi_SpiMaster.src ../libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster/IfxQspi_SpiMaster.c"
 	.compiler_name		"ctc"
 	;source	'../libraries/infineon_libraries/iLLD/TC26B/Tricore/Qspi/SpiMaster/IfxQspi_SpiMaster.c'
 
@@ -28781,11 +28781,6 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	102
 	.word	0,0
-.L745:
-	.word	-1,.L302,.L1359-.L302,.L1360-.L302
-	.half	1
-	.byte	95
-	.word	0,0
 .L757:
 	.word	-1,.L302,.L1355-.L302,.L1365-.L302
 	.half	5
@@ -28796,6 +28791,11 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.word	0,0
 .L754:
 	.word	-1,.L302,.L1362-.L302,.L1363-.L302
+	.half	1
+	.byte	95
+	.word	0,0
+.L745:
+	.word	-1,.L302,.L1359-.L302,.L1360-.L302
 	.half	1
 	.byte	95
 	.word	0,0
@@ -29199,18 +29199,13 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	83
 	.word	0,0
-.L1006:
-	.word	-1,.L324,.L1452-.L324,.L160-.L324
-	.half	1
-	.byte	83
-	.word	0,0
 .L1021:
 	.word	-1,.L324,.L1455-.L324,.L177-.L324
 	.half	1
 	.byte	83
 	.word	0,0
-.L986:
-	.word	-1,.L324,.L1450-.L324,.L169-.L324
+.L1006:
+	.word	-1,.L324,.L1452-.L324,.L160-.L324
 	.half	1
 	.byte	83
 	.word	0,0
@@ -29219,13 +29214,18 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	83
 	.word	0,0
-.L1059:
-	.word	-1,.L324,.L1052-.L324,.L189-.L324
+.L986:
+	.word	-1,.L324,.L1450-.L324,.L169-.L324
 	.half	1
-	.byte	95
+	.byte	83
 	.word	0,0
 .L1102:
 	.word	-1,.L324,.L1100-.L324,.L215-.L324
+	.half	1
+	.byte	95
+	.word	0,0
+.L1059:
+	.word	-1,.L324,.L1052-.L324,.L189-.L324
 	.half	1
 	.byte	95
 	.word	0,0
@@ -29239,18 +29239,8 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L1063:
-	.word	-1,.L324,.L1060-.L324,.L190-.L324
-	.half	1
-	.byte	95
-	.word	0,0
-.L1066:
-	.word	-1,.L324,.L1064-.L324,.L1067-.L324
-	.half	1
-	.byte	95
-	.word	0,0
-.L1126:
-	.word	-1,.L324,.L1124-.L324,.L1510-.L324
+.L1073:
+	.word	-1,.L324,.L1071-.L324,.L1473-.L324
 	.half	1
 	.byte	95
 	.word	0,0
@@ -29259,13 +29249,23 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L1116:
-	.word	-1,.L324,.L1114-.L324,.L1117-.L324
+.L1063:
+	.word	-1,.L324,.L1060-.L324,.L190-.L324
 	.half	1
 	.byte	95
 	.word	0,0
-.L1073:
-	.word	-1,.L324,.L1071-.L324,.L1473-.L324
+.L1126:
+	.word	-1,.L324,.L1124-.L324,.L1510-.L324
+	.half	1
+	.byte	95
+	.word	0,0
+.L1066:
+	.word	-1,.L324,.L1064-.L324,.L1067-.L324
+	.half	1
+	.byte	95
+	.word	0,0
+.L1116:
+	.word	-1,.L324,.L1114-.L324,.L1117-.L324
 	.half	1
 	.byte	95
 	.word	0,0
@@ -29474,16 +29474,16 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	82
 	.word	0,0
-.L1031:
-	.word	-1,.L324,.L1460-.L324,.L1461-.L324
-	.half	1
-	.byte	82
-	.word	0,0
 .L919:
 	.word	-1,.L324,.L1440-.L324,.L966-.L324
 	.half	1
 	.byte	82
 	.word	.L165-.L324,.L984-.L324
+	.half	1
+	.byte	82
+	.word	0,0
+.L1031:
+	.word	-1,.L324,.L1460-.L324,.L1461-.L324
 	.half	1
 	.byte	82
 	.word	0,0
@@ -29630,25 +29630,15 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L1098:
-	.word	-1,.L324,.L1489-.L324,.L1490-.L324
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
 .L1099:
 	.word	-1,.L324,.L1492-.L324,.L1493-.L324
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L1017:
-	.word	-1,.L324,.L1453-.L324,.L1454-.L324
-	.half	1
-	.byte	95
-	.word	0,0
-.L955:
-	.word	-1,.L324,.L1445-.L324,.L1446-.L324
-	.half	1
-	.byte	95
+.L1098:
+	.word	-1,.L324,.L1489-.L324,.L1490-.L324
+	.half	5
+	.byte	144,32,157,32,0
 	.word	0,0
 .L1023:
 	.word	-1,.L324,.L1456-.L324,.L1457-.L324
@@ -29657,6 +29647,16 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.word	0,0
 .L982:
 	.word	-1,.L324,.L1448-.L324,.L1449-.L324
+	.half	1
+	.byte	95
+	.word	0,0
+.L1017:
+	.word	-1,.L324,.L1453-.L324,.L1454-.L324
+	.half	1
+	.byte	95
+	.word	0,0
+.L955:
+	.word	-1,.L324,.L1445-.L324,.L1446-.L324
 	.half	1
 	.byte	95
 	.word	0,0
@@ -29711,6 +29711,11 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.word	0,0
 .L1161:
 	.word	0,0
+.L1199:
+	.word	-1,.L326,.L1539-.L326,.L258-.L326
+	.half	1
+	.byte	83
+	.word	0,0
 .L1181:
 	.word	-1,.L326,.L1532-.L326,.L251-.L326
 	.half	1
@@ -29718,11 +29723,6 @@ __IfxQspi_SpiMaster_writeLong_function_end:
 	.word	0,0
 .L1193:
 	.word	-1,.L326,.L1536-.L326,.L254-.L326
-	.half	1
-	.byte	83
-	.word	0,0
-.L1199:
-	.word	-1,.L326,.L1539-.L326,.L258-.L326
 	.half	1
 	.byte	83
 	.word	0,0

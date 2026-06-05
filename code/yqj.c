@@ -2,7 +2,6 @@
 #include "device.h"
 
 #define YQJ_MS_TO_10NS(ms)              ((uint32)((ms) * 100000UL))
-#define YQJ_ACTION_MIN_SPEED_MPS        (0.20f)
 
 uint16 yqj_flag = 1;
 yqj_state_enum yqj_state = YQJ_STATE_LINE;
@@ -181,17 +180,6 @@ static float yqj_distance_to_speed(float distance_m, uint32 run_ms)
 }
 
 
-static float yqj_limit_min_action_speed(float speed_mps)
-{
-    if(speed_mps > 0.0f && speed_mps < YQJ_ACTION_MIN_SPEED_MPS)
-    {
-        return YQJ_ACTION_MIN_SPEED_MPS;
-    }
-
-    return speed_mps;
-}
-
-
 static float yqj_count_to_meter(int32 count)
 {
     if(yqj_encoder_count_per_meter <= 0.0f)
@@ -233,60 +221,7 @@ static float yqj_remaining_distance_to_speed(float target_distance_m,
         return 0.0f;
     }
 
-    return yqj_limit_min_action_speed(yqj_distance_to_speed(remaining_distance_m, remaining_ms));
-}
-
-
-static float yqj_remaining_progress_to_speed(float target_distance_m,
-                                             float progress,
-                                             uint32 run_ms)
-{
-    uint32 elapsed_ms = yqj_state_elapsed_ms();
-    uint32 remaining_ms = 0;
-    float remaining_distance_m = 0.0f;
-
-    if(0 == run_ms || elapsed_ms >= run_ms)
-    {
-        return 0.0f;
-    }
-
-    if(progress < 0.0f)
-    {
-        progress = 0.0f;
-    }
-    else if(progress > 1.0f)
-    {
-        progress = 1.0f;
-    }
-
-    remaining_ms = run_ms - elapsed_ms;
-    remaining_distance_m = target_distance_m * (1.0f - progress);
-
-    if(remaining_distance_m <= 0.0f)
-    {
-        return 0.0f;
-    }
-
-    return yqj_limit_min_action_speed(yqj_distance_to_speed(remaining_distance_m, remaining_ms));
-}
-
-
-static float yqj_dual_wheel_progress(float left_distance_m,
-                                     float right_distance_m,
-                                     int32 left_encoder_total,
-                                     int32 right_encoder_total)
-{
-    float target_average_m = (left_distance_m + right_distance_m) * 0.5f;
-    float driven_left_m = yqj_count_to_meter(left_encoder_total - yqj_action_left_start_count);
-    float driven_right_m = yqj_count_to_meter(right_encoder_total - yqj_action_right_start_count);
-    float driven_average_m = (driven_left_m + driven_right_m) * 0.5f;
-
-    if(target_average_m <= 0.0f)
-    {
-        return 1.0f;
-    }
-
-    return driven_average_m / target_average_m;
+    return yqj_distance_to_speed(remaining_distance_m, remaining_ms);
 }
 
 
@@ -428,14 +363,6 @@ uint8 yqj_action_distance_done(float left_distance_m,
                                int32 left_encoder_total,
                                int32 right_encoder_total)
 {
-    if(left_distance_m > 0.0f && right_distance_m > 0.0f)
-    {
-        return (yqj_dual_wheel_progress(left_distance_m,
-                                        right_distance_m,
-                                        left_encoder_total,
-                                        right_encoder_total) >= 1.0f);
-    }
-
     return (yqj_wheel_distance_reached(left_distance_m,
                                        yqj_action_left_start_count,
                                        left_encoder_total) &&
@@ -457,31 +384,14 @@ void yqj_apply_action(float left_distance_m,
 {
     if(yqj_action_trigger)
     {
-        float left_speed_mps = 0.0f;
-        float right_speed_mps = 0.0f;
-
-        if(left_distance_m > 0.0f && right_distance_m > 0.0f)
-        {
-            float progress = yqj_dual_wheel_progress(left_distance_m,
-                                                     right_distance_m,
-                                                     left_encoder_total,
-                                                     right_encoder_total);
-
-            left_speed_mps = yqj_remaining_progress_to_speed(left_distance_m, progress, run_ms);
-            right_speed_mps = yqj_remaining_progress_to_speed(right_distance_m, progress, run_ms);
-        }
-        else
-        {
-            left_speed_mps = yqj_remaining_distance_to_speed(left_distance_m,
-                                                             yqj_action_left_start_count,
-                                                             left_encoder_total,
-                                                             run_ms);
-            right_speed_mps = yqj_remaining_distance_to_speed(right_distance_m,
-                                                              yqj_action_right_start_count,
-                                                              right_encoder_total,
-                                                              run_ms);
-        }
-
+        float left_speed_mps = yqj_remaining_distance_to_speed(left_distance_m,
+                                                               yqj_action_left_start_count,
+                                                               left_encoder_total,
+                                                               run_ms);
+        float right_speed_mps = yqj_remaining_distance_to_speed(right_distance_m,
+                                                                yqj_action_right_start_count,
+                                                                right_encoder_total,
+                                                                run_ms);
         float base_left = yqj_speed_to_target_count(left_speed_mps);
         float base_right = yqj_speed_to_target_count(right_speed_mps);
 
