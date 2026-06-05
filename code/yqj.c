@@ -7,6 +7,9 @@ uint16 yqj_flag = 1;
 yqj_state_enum yqj_state = YQJ_STATE_LINE;
 uint8 yqj_action_trigger = 0;
 uint32 yqj_state_start_time = 0;
+int32 yqj_delay_start_count = 0;
+int32 yqj_action_left_start_count = 0;
+int32 yqj_action_right_start_count = 0;
 int32 yqj_lock_start_count = 0;
 
 static float yqj_pid_period_s = 0.02f;
@@ -166,6 +169,73 @@ static int32 yqj_meter_to_count(float distance_m)
 }
 
 
+static float yqj_distance_to_speed(float distance_m, uint32 run_ms)
+{
+    if(0 == run_ms)
+    {
+        return 0.0f;
+    }
+
+    return distance_m * 1000.0f / (float)run_ms;
+}
+
+
+static float yqj_count_to_meter(int32 count)
+{
+    if(yqj_encoder_count_per_meter <= 0.0f)
+    {
+        return 0.0f;
+    }
+
+    return (float)count / yqj_encoder_count_per_meter;
+}
+
+
+static uint32 yqj_state_elapsed_ms(void)
+{
+    return (uint32)((uint32)(system_getval() - yqj_state_start_time) / 100000UL);
+}
+
+
+static float yqj_remaining_distance_to_speed(float target_distance_m,
+                                             int32 start_count,
+                                             int32 now_count,
+                                             uint32 run_ms)
+{
+    uint32 elapsed_ms = yqj_state_elapsed_ms();
+    uint32 remaining_ms = 0;
+    float driven_distance_m = 0.0f;
+    float remaining_distance_m = 0.0f;
+
+    if(0 == run_ms || elapsed_ms >= run_ms)
+    {
+        return 0.0f;
+    }
+
+    remaining_ms = run_ms - elapsed_ms;
+    driven_distance_m = yqj_count_to_meter(now_count - start_count);
+    remaining_distance_m = target_distance_m - driven_distance_m;
+
+    if(remaining_distance_m <= 0.0f)
+    {
+        return 0.0f;
+    }
+
+    return yqj_distance_to_speed(remaining_distance_m, remaining_ms);
+}
+
+
+static uint8 yqj_wheel_distance_reached(float target_distance_m, int32 start_count, int32 now_count)
+{
+    if(target_distance_m <= 0.0f)
+    {
+        return 1;
+    }
+
+    return (yqj_count_to_meter(now_count - start_count) >= target_distance_m);
+}
+
+
 // 切换状态，并记录进入该状态的时间。
 static void yqj_enter_state(yqj_state_enum state)
 {
@@ -188,6 +258,19 @@ static uint8 yqj_lock_distance_reached(int32 encoder_total_sum, float lock_dista
 }
 
 
+static uint8 yqj_delay_distance_reached(int32 encoder_total_sum, float delay_distance_m)
+{
+    int32 need_count = yqj_meter_to_count(delay_distance_m) * 2;
+
+    if(need_count <= 0)
+    {
+        return 1;
+    }
+
+    return ((encoder_total_sum - yqj_delay_start_count) >= need_count);
+}
+
+
 
 // ==================== 对外工具函数 ====================
 
@@ -200,6 +283,9 @@ void yqj_init(float pid_period_s, float encoder_count_per_meter)
     yqj_state = YQJ_STATE_LINE;
     yqj_action_trigger = 0;
     yqj_state_start_time = 0;
+    yqj_delay_start_count = 0;
+    yqj_action_left_start_count = 0;
+    yqj_action_right_start_count = 0;
     yqj_lock_start_count = 0;
 
     system_start();
@@ -218,10 +304,19 @@ uint8 yqj_time_reached(uint32 start_time, uint32 duration_ms)
 
 
 // 当前 case 的条件成立后，记录是否执行动作，并进入触发延时。
-void yqj_start_case(uint8 action_trigger)
+void yqj_start_case(uint8 action_trigger, int32 encoder_total_sum)
 {
     yqj_action_trigger = action_trigger;
+    yqj_delay_start_count = encoder_total_sum;
     yqj_enter_state(YQJ_STATE_DELAY);
+}
+
+
+void yqj_start_run(int32 left_encoder_total, int32 right_encoder_total)
+{
+    yqj_action_left_start_count = left_encoder_total;
+    yqj_action_right_start_count = right_encoder_total;
+    yqj_enter_state(YQJ_STATE_RUN);
 }
 
 
@@ -256,15 +351,47 @@ uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance
 }
 
 
+uint8 yqj_delay_done(int32 encoder_total_sum, uint32 delay_ms, float delay_distance_m)
+{
+    return (yqj_time_reached(yqj_state_start_time, delay_ms) &&
+            yqj_delay_distance_reached(encoder_total_sum, delay_distance_m));
+}
+
+
+uint8 yqj_action_distance_done(float left_distance_m,
+                               float right_distance_m,
+                               int32 left_encoder_total,
+                               int32 right_encoder_total)
+{
+    return (yqj_wheel_distance_reached(left_distance_m,
+                                       yqj_action_left_start_count,
+                                       left_encoder_total) &&
+            yqj_wheel_distance_reached(right_distance_m,
+                                       yqj_action_right_start_count,
+                                       right_encoder_total));
+}
+
+
 // 根据当前 case 给出的左右轮速度覆盖目标；触发标志为 0 时不覆盖，继续巡线。
 // 转弯时在转弯速度基础上叠加巡线修正量，让小车边转边巡线。
-void yqj_apply_action(float left_speed_mps,
-                      float right_speed_mps,
+void yqj_apply_action(float left_distance_m,
+                      float right_distance_m,
+                      uint32 run_ms,
+                      int32 left_encoder_total,
+                      int32 right_encoder_total,
                       float *left_target_count,
                       float *right_target_count)
 {
     if(yqj_action_trigger)
     {
+        float left_speed_mps = yqj_remaining_distance_to_speed(left_distance_m,
+                                                               yqj_action_left_start_count,
+                                                               left_encoder_total,
+                                                               run_ms);
+        float right_speed_mps = yqj_remaining_distance_to_speed(right_distance_m,
+                                                                yqj_action_right_start_count,
+                                                                right_encoder_total,
+                                                                run_ms);
         float base_left = yqj_speed_to_target_count(left_speed_mps);
         float base_right = yqj_speed_to_target_count(right_speed_mps);
 
