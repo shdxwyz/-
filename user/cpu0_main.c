@@ -214,8 +214,8 @@ int core0_main(void)
                             yqj_right_speed_mps = 0.0f;
                             yqj_delay_ms = 0;
                             yqj_run_ms = 400;
-                            yqj_lock_ms = 0;
-                            yqj_lock_distance_m = 0.3f;
+                            yqj_lock_ms = 33;
+                            yqj_lock_distance_m = 0.2f;
                             break;
             case 3:
                 // A10 和 A11 同时小于 500 后右转。
@@ -225,8 +225,8 @@ int core0_main(void)
                 yqj_right_speed_mps = 0.0f;
                 yqj_delay_ms = 0;
                 yqj_run_ms = 400;
-                yqj_lock_ms = 0;
-                yqj_lock_distance_m = 0.4f;
+                yqj_lock_ms = 66;
+                yqj_lock_distance_m = 0.6f;
                 break;
 
 //            case 4:
@@ -248,7 +248,7 @@ int core0_main(void)
                 yqj_right_speed_mps = 1.5f;
                 yqj_delay_ms = 0;
                             yqj_run_ms = 400;
-                yqj_lock_ms = 1;
+                yqj_lock_ms = 33;
                 yqj_lock_distance_m = 0.4f;
                 break;
             
@@ -271,8 +271,8 @@ int core0_main(void)
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 1.5f;
                             yqj_right_speed_mps = 0.0f;
-                            yqj_delay_ms = 0;
-                            yqj_run_ms = 300;
+                            yqj_delay_ms = 100;
+                            yqj_run_ms = 350;
                             yqj_lock_ms = 66;
                             yqj_lock_distance_m = 0.4f;
                             break;
@@ -285,7 +285,7 @@ int core0_main(void)
                             yqj_delay_ms = 0;
                             yqj_run_ms = 400;
                             yqj_lock_ms = 66;
-                            yqj_lock_distance_m = 0.9f;
+                            yqj_lock_distance_m = 1.2f;
                             break;
             
 //            case 8:
@@ -317,7 +317,7 @@ int core0_main(void)
                             yqj_case_trigger = 1;
                             yqj_left_speed_mps = 0.0f;
                             yqj_right_speed_mps = 1.5f;
-                            yqj_delay_ms = 0;
+                            yqj_delay_ms = 100;
                             yqj_run_ms = 300;
                             yqj_lock_ms = 66;
                             yqj_lock_distance_m = 0.4f;
@@ -332,7 +332,7 @@ int core0_main(void)
                             yqj_delay_ms = 0;
                             yqj_run_ms = 400;
                             yqj_lock_ms = 66;
-                            yqj_lock_distance_m = 0.1f;
+                            yqj_lock_distance_m = 0.3f;
                             break;
             case 11:
                             // A1 和 A2 同时小于 500 后左转。
@@ -341,7 +341,7 @@ int core0_main(void)
                             yqj_left_speed_mps = 0.0f;
                             yqj_right_speed_mps = 1.5f;
                             yqj_delay_ms = 0;
-                            yqj_run_ms = 400;
+                            yqj_run_ms = 350;
                             yqj_lock_ms = 66;
                             yqj_lock_distance_m = 2.0f;
                             break;
@@ -472,8 +472,9 @@ int core0_main(void)
 
             default:
                 // 停止
-                motor_stop();
-                system_delay_ms(20000);
+                yqj_flag=2;
+                //motor_stop();
+                //system_delay_ms(20000);
                 break;
         }
 
