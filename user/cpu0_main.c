@@ -27,8 +27,8 @@
 // 1 米 = 27000 * 2 = 54000
 #define ENCODER_COUNT_PER_METER (54000.0f)
 
-// 目标基础速度 2.0 m/s
-#define TARGET_SPEED_MPS (2.0f)
+// 目标基础速度 1.0 m/s
+#define TARGET_SPEED_MPS (1.0f)
 
 // PID 周期 20ms
 #define PID_PERIOD_MS (20)
@@ -46,7 +46,7 @@
 #define SPEED_KI (0.002f)
 #define SPEED_KD (0.0f)
 
-// 前馈系数：2.0 m/s 需要约 1300 PWM，前馈提供基础量
+// 前馈系数：1.0 m/s 需要约 1300 PWM，前馈提供基础量
 #define FEEDFORWARD_GAIN (500.0f)
 
 // ==================== 巡线参数 ====================

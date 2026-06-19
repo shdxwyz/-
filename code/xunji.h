@@ -11,14 +11,14 @@
 #define XUNJI_LINE_DEAD_ZONE            (300)
 
 // 差值转成目标速度差
-// 速度从 0.3 提到 1.0 m/s，转向强度需要大幅加大
-#define XUNJI_LINE_TURN_KP              (0.03f)
+// 编码器 54000，基础目标 2160，转向强度需要加大
+#define XUNJI_LINE_TURN_KP              (0.5f)
 
 // 最大左右目标差，单位：20ms 编码器计数
-#define XUNJI_LINE_TURN_LIMIT           (35.0f)
+#define XUNJI_LINE_TURN_LIMIT           (500.0f)
 
 // 防止某一边目标速度太低
-#define XUNJI_MIN_TARGET_COUNT          (20.0f)
+#define XUNJI_MIN_TARGET_COUNT          (200.0f)
 
 
 // ==================== 巡线结果 ====================
