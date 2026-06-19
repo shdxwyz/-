@@ -1,6 +1,10 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+<<<<<<< Updated upstream
 	.compiler_invocation	"ctc -f cc11896a --dep-file=yqj.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/yqj.src ../code/yqj.c"
+=======
+	.compiler_invocation	"ctc -f cc21788a --dep-file=yqj.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\Lenovo\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/yqj.src ../code/yqj.c"
+>>>>>>> Stashed changes
 	.compiler_name		"ctc"
 	;source	'../code/yqj.c'
 
@@ -1036,7 +1040,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.calls	'yqj_get_action_trigger','',0
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L114:
+=======
+.L169:
+>>>>>>> Stashed changes
 	.word	140551
 	.half	3
 	.word	.L115
@@ -1046,7 +1054,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+<<<<<<< Updated upstream
 	.word	.L116
+=======
+	.word	.L171
+>>>>>>> Stashed changes
 	.byte	2,1,1,3
 	.word	151
 	.byte	4
@@ -6467,6 +6479,7 @@ yqj_encoder_count_per_meter:	.type	object
 	.word	10471
 	.byte	1,1,1,1,28
 	.word	607
+<<<<<<< Updated upstream
 .L257:
 	.byte	3
 	.word	33772
@@ -6475,6 +6488,16 @@ yqj_encoder_count_per_meter:	.type	object
 	.word	211
 .L299:
 	.byte	17,21,14,9,1,18
+=======
+.L337:
+	.byte	3
+	.word	33772
+.L382:
+	.byte	3
+	.word	211
+.L394:
+	.byte	17,21,15,9,1,18
+>>>>>>> Stashed changes
 	.byte	'YQJ_STATE_LINE',0,0,18
 	.byte	'YQJ_STATE_DELAY',0,1,18
 	.byte	'YQJ_STATE_RUN',0,2,18
@@ -20240,7 +20263,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'seekfree_assistant_image_type_enum',0,48,86,2
 	.word	140310
 	.byte	29
+<<<<<<< Updated upstream
 	.byte	'yqj_state_enum',0,21,20,3
+=======
+	.byte	'yqj_state_enum',0,21,21,3
+>>>>>>> Stashed changes
 	.word	33787
 	.byte	0
 	.sdecl	'.debug_abbrev',debug
@@ -21233,7 +21260,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_start_case')
 	.sect	'.debug_info'
 .L172:
+<<<<<<< Updated upstream
 	.word	230
+=======
+	.word	259
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L173
 	.byte	4,1
@@ -21260,6 +21291,363 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_line',debug,cluster('yqj_start_case')
 	.sect	'.debug_line'
 .L174:
+<<<<<<< Updated upstream
+=======
+	.word	.L440-.L439
+.L439:
+	.half	3
+	.word	.L442-.L441
+.L441:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L442:
+	.byte	5,5,7,0,5,2
+	.word	.L147
+	.byte	3,196,1,1,5,22,9
+	.half	.L443-.L147
+	.byte	1,5,5,9
+	.half	.L444-.L443
+	.byte	3,1,1,5,33,9
+	.half	.L445-.L444
+	.byte	1,5,5,9
+	.half	.L446-.L445
+	.byte	3,1,1,5,16,9
+	.half	.L447-.L446
+	.byte	1,5,14,9
+	.half	.L448-.L447
+	.byte	1,5,5,9
+	.half	.L449-.L448
+	.byte	3,1,1,5,17,9
+	.half	.L450-.L449
+	.byte	1,5,15,9
+	.half	.L451-.L450
+	.byte	1,5,5,9
+	.half	.L452-.L451
+	.byte	3,1,1,5,26,9
+	.half	.L453-.L452
+	.byte	1,5,24,9
+	.half	.L454-.L453
+	.byte	1,5,5,9
+	.half	.L455-.L454
+	.byte	3,1,1,5,28,9
+	.half	.L456-.L455
+	.byte	1,5,26,9
+	.half	.L457-.L456
+	.byte	1,5,5,9
+	.half	.L458-.L457
+	.byte	3,1,1,5,28,9
+	.half	.L459-.L458
+	.byte	1,5,26,9
+	.half	.L460-.L459
+	.byte	1,5,17,9
+	.half	.L461-.L460
+	.byte	3,2,1,5,1,9
+	.half	.L414-.L461
+	.byte	3,1,1,7,9
+	.half	.L176-.L414
+	.byte	0,1,1
+.L440:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_init')
+	.sect	'.debug_ranges'
+.L175:
+	.word	-1,.L147,0,.L176-.L147,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_left_turn_trigger')
+	.sect	'.debug_info'
+.L177:
+	.word	234
+	.half	3
+	.word	.L178
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L180,.L179
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_left_turn_trigger',0,1,17,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L111,.L336,.L110
+	.byte	4
+	.byte	'adc_value',0,1,17,42
+	.word	.L337,.L338
+	.byte	5
+	.word	.L111,.L336
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_left_turn_trigger')
+	.sect	'.debug_abbrev'
+.L178:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_left_turn_trigger')
+	.sect	'.debug_line'
+.L179:
+	.word	.L463-.L462
+.L462:
+	.half	3
+	.word	.L465-.L464
+.L464:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L465:
+	.byte	5,56,7,0,5,2
+	.word	.L111
+	.byte	3,20,1,5,22,9
+	.half	.L466-.L111
+	.byte	3,126,1,5,28,9
+	.half	.L467-.L466
+	.byte	1,5,13,9
+	.half	.L468-.L467
+	.byte	1,5,22,7,9
+	.half	.L469-.L468
+	.byte	3,1,1,5,28,9
+	.half	.L470-.L469
+	.byte	1,5,26,9
+	.half	.L471-.L470
+	.byte	1,5,22,7,9
+	.half	.L472-.L471
+	.byte	3,1,1,5,29,9
+	.half	.L473-.L472
+	.byte	1,5,26,9
+	.half	.L474-.L473
+	.byte	1,5,22,7,9
+	.half	.L475-.L474
+	.byte	3,1,1,5,29,9
+	.half	.L476-.L475
+	.byte	1,5,26,9
+	.half	.L477-.L476
+	.byte	1,5,56,7,9
+	.half	.L478-.L477
+	.byte	3,127,1,5,5,9
+	.half	.L2-.L478
+	.byte	3,126,1,5,1,9
+	.half	.L6-.L2
+	.byte	3,4,1,7,9
+	.half	.L181-.L6
+	.byte	0,1,1
+.L463:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_left_turn_trigger')
+	.sect	'.debug_ranges'
+.L180:
+	.word	-1,.L111,0,.L181-.L111,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_right_turn_trigger')
+	.sect	'.debug_info'
+.L182:
+	.word	235
+	.half	3
+	.word	.L183
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L185,.L184
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_right_turn_trigger',0,1,28,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L113,.L339,.L112
+	.byte	4
+	.byte	'adc_value',0,1,28,43
+	.word	.L337,.L340
+	.byte	5
+	.word	.L113,.L339
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_right_turn_trigger')
+	.sect	'.debug_abbrev'
+.L183:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_right_turn_trigger')
+	.sect	'.debug_line'
+.L184:
+	.word	.L480-.L479
+.L479:
+	.half	3
+	.word	.L482-.L481
+.L481:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L482:
+	.byte	5,56,7,0,5,2
+	.word	.L113
+	.byte	3,31,1,5,22,9
+	.half	.L483-.L113
+	.byte	3,126,1,5,28,9
+	.half	.L484-.L483
+	.byte	1,5,13,9
+	.half	.L485-.L484
+	.byte	1,5,22,7,9
+	.half	.L486-.L485
+	.byte	3,1,1,5,28,9
+	.half	.L487-.L486
+	.byte	1,5,26,9
+	.half	.L488-.L487
+	.byte	1,5,22,7,9
+	.half	.L489-.L488
+	.byte	3,1,1,5,29,9
+	.half	.L490-.L489
+	.byte	1,5,26,9
+	.half	.L491-.L490
+	.byte	1,5,22,7,9
+	.half	.L492-.L491
+	.byte	3,1,1,5,29,9
+	.half	.L493-.L492
+	.byte	1,5,26,9
+	.half	.L494-.L493
+	.byte	1,5,56,7,9
+	.half	.L495-.L494
+	.byte	3,127,1,5,5,9
+	.half	.L7-.L495
+	.byte	3,126,1,5,1,9
+	.half	.L11-.L7
+	.byte	3,4,1,7,9
+	.half	.L186-.L11
+	.byte	0,1,1
+.L480:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_right_turn_trigger')
+	.sect	'.debug_ranges'
+.L185:
+	.word	-1,.L113,0,.L186-.L113,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_dianzu_trigger')
+	.sect	'.debug_info'
+.L187:
+	.word	231
+	.half	3
+	.word	.L188
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L190,.L189
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_dianzu_trigger',0,1,37,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L115,.L341,.L114
+	.byte	4
+	.byte	'adc_value',0,1,37,39
+	.word	.L337,.L342
+	.byte	5
+	.word	.L115,.L341
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_dianzu_trigger')
+	.sect	'.debug_abbrev'
+.L188:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_dianzu_trigger')
+	.sect	'.debug_line'
+.L189:
+	.word	.L497-.L496
+.L496:
+	.half	3
+	.word	.L499-.L498
+.L498:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L499:
+	.byte	5,55,7,0,5,2
+	.word	.L115
+	.byte	3,44,1,5,22,9
+	.half	.L500-.L115
+	.byte	3,122,1,5,28,9
+	.half	.L501-.L500
+	.byte	1,5,13,9
+	.half	.L502-.L501
+	.byte	1,5,22,7,9
+	.half	.L503-.L502
+	.byte	3,1,1,5,28,9
+	.half	.L504-.L503
+	.byte	1,5,26,9
+	.half	.L505-.L504
+	.byte	1,5,22,7,9
+	.half	.L506-.L505
+	.byte	3,1,1,5,28,9
+	.half	.L507-.L506
+	.byte	1,5,26,9
+	.half	.L508-.L507
+	.byte	1,5,22,7,9
+	.half	.L509-.L508
+	.byte	3,1,1,5,28,9
+	.half	.L510-.L509
+	.byte	1,5,26,9
+	.half	.L511-.L510
+	.byte	1,5,22,7,9
+	.half	.L512-.L511
+	.byte	3,1,1,5,28,9
+	.half	.L513-.L512
+	.byte	1,5,26,9
+	.half	.L514-.L513
+	.byte	1,5,22,7,9
+	.half	.L515-.L514
+	.byte	3,1,1,5,28,9
+	.half	.L516-.L515
+	.byte	1,5,26,9
+	.half	.L517-.L516
+	.byte	1,5,22,7,9
+	.half	.L518-.L517
+	.byte	3,1,1,5,28,9
+	.half	.L519-.L518
+	.byte	1,5,26,9
+	.half	.L520-.L519
+	.byte	1,5,22,7,9
+	.half	.L521-.L520
+	.byte	3,1,1,5,28,9
+	.half	.L522-.L521
+	.byte	1,5,26,9
+	.half	.L523-.L522
+	.byte	1,5,55,7,9
+	.half	.L524-.L523
+	.byte	3,127,1,5,5,9
+	.half	.L12-.L524
+	.byte	3,122,1,5,1,9
+	.half	.L20-.L12
+	.byte	3,8,1,7,9
+	.half	.L191-.L20
+	.byte	0,1,1
+.L497:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_dianzu_trigger')
+	.sect	'.debug_ranges'
+.L190:
+	.word	-1,.L115,0,.L191-.L115,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_dianyuan_trigger')
+	.sect	'.debug_info'
+.L192:
+	.word	233
+	.half	3
+	.word	.L193
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L195,.L194
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_dianyuan_trigger',0,1,51,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L117,.L343,.L116
+	.byte	4
+	.byte	'adc_value',0,1,51,41
+	.word	.L337,.L344
+	.byte	5
+	.word	.L117,.L343
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_dianyuan_trigger')
+	.sect	'.debug_abbrev'
+.L193:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_dianyuan_trigger')
+	.sect	'.debug_line'
+.L194:
+>>>>>>> Stashed changes
 	.word	.L526-.L525
 .L525:
 	.half	3
@@ -21549,7 +21937,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_get_flag')
 	.sect	'.debug_info'
 .L197:
+<<<<<<< Updated upstream
 	.word	204
+=======
+	.word	235
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L198
 	.byte	4,1
@@ -21600,7 +21992,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_set_flag')
 	.sect	'.debug_info'
 .L202:
+<<<<<<< Updated upstream
 	.word	218
+=======
+	.word	235
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L203
 	.byte	4,1
@@ -21660,7 +22056,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_get_state')
 	.sect	'.debug_info'
 .L207:
+<<<<<<< Updated upstream
 	.word	205
+=======
+	.word	233
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L208
 	.byte	4,1
@@ -21711,7 +22111,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_get_action_trigger')
 	.sect	'.debug_info'
 .L212:
+<<<<<<< Updated upstream
 	.word	214
+=======
+	.word	236
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L213
 	.byte	4,1
@@ -21762,7 +22166,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_speed_to_target_count')
 	.sect	'.debug_info'
 .L217:
+<<<<<<< Updated upstream
 	.word	237
+=======
+	.word	236
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L218
 	.byte	4,1
@@ -21822,7 +22230,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_meter_to_count')
 	.sect	'.debug_info'
 .L222:
+<<<<<<< Updated upstream
 	.word	231
+=======
+	.word	236
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L223
 	.byte	4,1
@@ -21890,7 +22302,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_enter_state')
 	.sect	'.debug_info'
 .L227:
+<<<<<<< Updated upstream
 	.word	219
+=======
+	.word	238
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L228
 	.byte	4,1
@@ -21948,7 +22364,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.sdecl	'.debug_info',debug,cluster('yqj_lock_distance_reached')
 	.sect	'.debug_info'
 .L232:
+<<<<<<< Updated upstream
 	.word	301
+=======
+	.word	236
+>>>>>>> Stashed changes
 	.half	3
 	.word	.L233
 	.byte	4,1
@@ -21959,8 +22379,930 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	2
 	.word	.L113
 	.byte	3
+<<<<<<< Updated upstream
 	.byte	'yqj_lock_distance_reached',0,1,129,1,14
 	.word	.L255
+=======
+	.byte	'yqj_sanjiguan1_0trigger',0,1,124,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L133,.L359,.L132
+	.byte	4
+	.byte	'adc_value',0,1,124,44
+	.word	.L337,.L360
+	.byte	5
+	.word	.L133,.L359
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan1_0trigger')
+	.sect	'.debug_abbrev'
+.L233:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan1_0trigger')
+	.sect	'.debug_line'
+.L234:
+	.word	.L686-.L685
+.L685:
+	.half	3
+	.word	.L688-.L687
+.L687:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L688:
+	.byte	5,56,7,0,5,2
+	.word	.L133
+	.byte	3,252,0,1,5,23,9
+	.half	.L689-.L133
+	.byte	1,5,29,9
+	.half	.L690-.L689
+	.byte	1,5,14,9
+	.half	.L691-.L690
+	.byte	1,5,22,7,9
+	.half	.L692-.L691
+	.byte	3,1,1,5,28,9
+	.half	.L693-.L692
+	.byte	1,5,26,9
+	.half	.L694-.L693
+	.byte	1,5,56,7,9
+	.half	.L695-.L694
+	.byte	3,127,1,5,6,9
+	.half	.L63-.L695
+	.byte	1,5,1,9
+	.half	.L65-.L63
+	.byte	3,2,1,7,9
+	.half	.L236-.L65
+	.byte	0,1,1
+.L686:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan1_0trigger')
+	.sect	'.debug_ranges'
+.L235:
+	.word	-1,.L133,0,.L236-.L133,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan2_0trigger')
+	.sect	'.debug_info'
+.L237:
+	.word	236
+	.half	3
+	.word	.L238
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L240,.L239
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_sanjiguan2_0trigger',0,1,106,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L129,.L361,.L128
+	.byte	4
+	.byte	'adc_value',0,1,106,44
+	.word	.L337,.L362
+	.byte	5
+	.word	.L129,.L361
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan2_0trigger')
+	.sect	'.debug_abbrev'
+.L238:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan2_0trigger')
+	.sect	'.debug_line'
+.L239:
+	.word	.L697-.L696
+.L696:
+	.half	3
+	.word	.L699-.L698
+.L698:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L699:
+	.byte	5,55,7,0,5,2
+	.word	.L129
+	.byte	3,235,0,1,5,22,9
+	.half	.L700-.L129
+	.byte	1,5,28,9
+	.half	.L701-.L700
+	.byte	1,5,13,9
+	.half	.L702-.L701
+	.byte	1,5,22,7,9
+	.half	.L703-.L702
+	.byte	3,1,1,5,28,9
+	.half	.L704-.L703
+	.byte	1,5,26,9
+	.half	.L705-.L704
+	.byte	1,5,55,7,9
+	.half	.L706-.L705
+	.byte	3,127,1,5,5,9
+	.half	.L51-.L706
+	.byte	1,5,1,9
+	.half	.L53-.L51
+	.byte	3,2,1,7,9
+	.half	.L241-.L53
+	.byte	0,1,1
+.L697:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan2_0trigger')
+	.sect	'.debug_ranges'
+.L240:
+	.word	-1,.L129,0,.L241-.L129,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_double_trigger')
+	.sect	'.debug_info'
+.L242:
+	.word	233
+	.half	3
+	.word	.L243
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L245,.L244
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_double_trigger',0,1,141,1,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L137,.L363,.L136
+	.byte	4
+	.byte	'adc_value',0,1,141,1,39
+	.word	.L337,.L364
+	.byte	5
+	.word	.L137,.L363
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_double_trigger')
+	.sect	'.debug_abbrev'
+.L243:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_double_trigger')
+	.sect	'.debug_line'
+.L244:
+	.word	.L708-.L707
+.L707:
+	.half	3
+	.word	.L710-.L709
+.L709:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L710:
+	.byte	5,54,7,0,5,2
+	.word	.L137
+	.byte	3,143,1,1,5,23,9
+	.half	.L711-.L137
+	.byte	3,126,1,5,29,9
+	.half	.L712-.L711
+	.byte	1,5,14,9
+	.half	.L713-.L712
+	.byte	1,5,22,7,9
+	.half	.L714-.L713
+	.byte	3,1,1,5,28,9
+	.half	.L715-.L714
+	.byte	1,5,26,9
+	.half	.L716-.L715
+	.byte	1,5,22,7,9
+	.half	.L717-.L716
+	.byte	3,1,1,5,28,9
+	.half	.L718-.L717
+	.byte	1,5,26,9
+	.half	.L719-.L718
+	.byte	1,5,22,7,9
+	.half	.L720-.L719
+	.byte	3,1,1,5,26,9
+	.half	.L721-.L720
+	.byte	1,5,25,9
+	.half	.L722-.L721
+	.byte	1,5,54,7,9
+	.half	.L723-.L722
+	.byte	3,127,1,5,6,9
+	.half	.L75-.L723
+	.byte	3,126,1,5,1,9
+	.half	.L79-.L75
+	.byte	3,4,1,7,9
+	.half	.L246-.L79
+	.byte	0,1,1
+.L708:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_double_trigger')
+	.sect	'.debug_ranges'
+.L245:
+	.word	-1,.L137,0,.L246-.L137,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_time_reached')
+	.sect	'.debug_info'
+.L247:
+	.word	257
+	.half	3
+	.word	.L248
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L250,.L249
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_time_reached',0,1,209,1,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L149,.L365,.L148
+	.byte	4
+	.byte	'start_time',0,1,209,1,31
+	.word	.L366,.L367
+	.byte	4
+	.byte	'duration_ms',0,1,209,1,50
+	.word	.L366,.L368
+	.byte	5
+	.word	.L149,.L365
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_time_reached')
+	.sect	'.debug_abbrev'
+.L248:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_time_reached')
+	.sect	'.debug_line'
+.L249:
+	.word	.L725-.L724
+.L724:
+	.half	3
+	.word	.L727-.L726
+.L726:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L727:
+	.byte	5,7,7,0,5,2
+	.word	.L149
+	.byte	3,208,1,1,5,5,9
+	.half	.L417-.L149
+	.byte	3,2,1,5,16,7,9
+	.half	.L728-.L417
+	.byte	3,2,1,5,9,9
+	.half	.L729-.L728
+	.byte	1,5,35,9
+	.half	.L87-.L729
+	.byte	3,3,1,5,38,9
+	.half	.L415-.L87
+	.byte	1,5,55,9
+	.half	.L730-.L415
+	.byte	1,5,52,9
+	.half	.L418-.L730
+	.byte	1,5,5,9
+	.half	.L731-.L418
+	.byte	1,5,1,9
+	.half	.L88-.L731
+	.byte	3,1,1,7,9
+	.half	.L251-.L88
+	.byte	0,1,1
+.L725:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_time_reached')
+	.sect	'.debug_ranges'
+.L250:
+	.word	-1,.L149,0,.L251-.L149,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_start_case')
+	.sect	'.debug_info'
+.L252:
+	.word	230
+	.half	3
+	.word	.L253
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L255,.L254
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_start_case',0,1,221,1,6,1,1,1
+	.word	.L151,.L369,.L150
+	.byte	4
+	.byte	'action_trigger',0,1,221,1,27
+	.word	.L335,.L370
+	.byte	5
+	.word	.L151,.L369
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_start_case')
+	.sect	'.debug_abbrev'
+.L253:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_start_case')
+	.sect	'.debug_line'
+.L254:
+	.word	.L733-.L732
+.L732:
+	.half	3
+	.word	.L735-.L734
+.L734:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L735:
+	.byte	5,5,7,0,5,2
+	.word	.L151
+	.byte	3,222,1,1,5,24,9
+	.half	.L736-.L151
+	.byte	1,5,21,9
+	.half	.L737-.L736
+	.byte	3,1,1,5,1,9
+	.half	.L738-.L737
+	.byte	3,1,1,7,9
+	.half	.L256-.L738
+	.byte	0,1,1
+.L733:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_start_case')
+	.sect	'.debug_ranges'
+.L255:
+	.word	-1,.L151,0,.L256-.L151,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_start_lock')
+	.sect	'.debug_info'
+.L257:
+	.word	233
+	.half	3
+	.word	.L258
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L260,.L259
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_start_lock',0,1,229,1,6,1,1,1
+	.word	.L153,.L371,.L152
+	.byte	4
+	.byte	'encoder_total_sum',0,1,229,1,27
+	.word	.L372,.L373
+	.byte	5
+	.word	.L153,.L371
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_start_lock')
+	.sect	'.debug_abbrev'
+.L258:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_start_lock')
+	.sect	'.debug_line'
+.L259:
+	.word	.L740-.L739
+.L739:
+	.half	3
+	.word	.L742-.L741
+.L741:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L742:
+	.byte	5,5,7,0,5,2
+	.word	.L153
+	.byte	3,230,1,1,5,26,9
+	.half	.L743-.L153
+	.byte	1,5,21,9
+	.half	.L744-.L743
+	.byte	3,1,1,5,1,9
+	.half	.L745-.L744
+	.byte	3,1,1,7,9
+	.half	.L261-.L745
+	.byte	0,1,1
+.L740:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_start_lock')
+	.sect	'.debug_ranges'
+.L260:
+	.word	-1,.L153,0,.L261-.L153,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_finish_case')
+	.sect	'.debug_info'
+.L262:
+	.word	203
+	.half	3
+	.word	.L263
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L265,.L264
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_finish_case',0,1,237,1,6,1,1,1
+	.word	.L155,.L374,.L154
+	.byte	4
+	.word	.L155,.L374
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_finish_case')
+	.sect	'.debug_abbrev'
+.L263:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_finish_case')
+	.sect	'.debug_line'
+.L264:
+	.word	.L747-.L746
+.L746:
+	.half	3
+	.word	.L749-.L748
+.L748:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L749:
+	.byte	5,8,7,0,5,2
+	.word	.L155
+	.byte	3,238,1,1,5,19,9
+	.half	.L750-.L155
+	.byte	1,5,5,9
+	.half	.L751-.L750
+	.byte	1,5,9,7,9
+	.half	.L752-.L751
+	.byte	3,2,1,5,17,9
+	.half	.L753-.L752
+	.byte	1,5,5,9
+	.half	.L90-.L753
+	.byte	3,2,1,5,26,9
+	.half	.L754-.L90
+	.byte	1,5,24,9
+	.half	.L755-.L754
+	.byte	1,5,21,9
+	.half	.L756-.L755
+	.byte	3,1,1,5,1,9
+	.half	.L757-.L756
+	.byte	3,4,1,7,9
+	.half	.L266-.L757
+	.byte	0,1,1
+.L747:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_finish_case')
+	.sect	'.debug_ranges'
+.L265:
+	.word	-1,.L155,0,.L266-.L155,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_lock_done')
+	.sect	'.debug_info'
+.L267:
+	.word	286
+	.half	3
+	.word	.L268
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L270,.L269
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_lock_done',0,1,252,1,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L157,.L375,.L156
+	.byte	4
+	.byte	'encoder_total_sum',0,1,252,1,27
+	.word	.L372,.L376
+	.byte	4
+	.byte	'lock_ms',0,1,252,1,53
+	.word	.L366,.L377
+	.byte	4
+	.byte	'lock_distance_m',0,1,252,1,68
+	.word	.L332,.L378
+	.byte	5
+	.word	.L157,.L375
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_lock_done')
+	.sect	'.debug_abbrev'
+.L268:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_lock_done')
+	.sect	'.debug_line'
+.L269:
+	.word	.L759-.L758
+.L758:
+	.half	3
+	.word	.L761-.L760
+.L760:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L761:
+	.byte	5,7,7,0,5,2
+	.word	.L157
+	.byte	3,251,1,1,5,61,9
+	.half	.L424-.L157
+	.byte	3,2,1,5,30,9
+	.half	.L762-.L424
+	.byte	1,5,52,9
+	.half	.L421-.L762
+	.byte	1,5,13,9
+	.half	.L422-.L421
+	.byte	1,5,58,7,9
+	.half	.L763-.L422
+	.byte	3,1,1,5,38,9
+	.half	.L764-.L763
+	.byte	1,5,61,7,9
+	.half	.L765-.L764
+	.byte	3,127,1,5,5,9
+	.half	.L91-.L765
+	.byte	1,5,1,9
+	.half	.L93-.L91
+	.byte	3,2,1,7,9
+	.half	.L271-.L93
+	.byte	0,1,1
+.L759:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_lock_done')
+	.sect	'.debug_ranges'
+.L270:
+	.word	-1,.L157,0,.L271-.L157,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_apply_action')
+	.sect	'.debug_info'
+.L272:
+	.word	451
+	.half	3
+	.word	.L273
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L275,.L274
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_apply_action',0,1,133,2,6,1,1,1
+	.word	.L159,.L379,.L158
+	.byte	4
+	.byte	'left_speed_mps',0,1,133,2,29
+	.word	.L332,.L380
+	.byte	4
+	.byte	'right_speed_mps',0,1,134,2,29
+	.word	.L332,.L381
+	.byte	4
+	.byte	'left_target_count',0,1,135,2,30
+	.word	.L382,.L383
+	.byte	4
+	.byte	'right_target_count',0,1,136,2,30
+	.word	.L382,.L384
+	.byte	5
+	.word	.L159,.L379
+	.byte	5
+	.word	.L385,.L94
+	.byte	6
+	.byte	'base_left',0,1,140,2,15
+	.word	.L332,.L386
+	.byte	6
+	.byte	'base_right',0,1,141,2,15
+	.word	.L332,.L387
+	.byte	6
+	.byte	'line_correction_left',0,1,144,2,15
+	.word	.L332,.L388
+	.byte	6
+	.byte	'line_correction_right',0,1,145,2,15
+	.word	.L332,.L389
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_apply_action')
+	.sect	'.debug_abbrev'
+.L273:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_apply_action')
+	.sect	'.debug_line'
+.L274:
+	.word	.L767-.L766
+.L766:
+	.half	3
+	.word	.L769-.L768
+.L768:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L769:
+	.byte	5,6,7,0,5,2
+	.word	.L159
+	.byte	3,132,2,1,5,8,9
+	.half	.L428-.L159
+	.byte	3,5,1,5,5,9
+	.half	.L770-.L428
+	.byte	1,5,53,7,9
+	.half	.L385-.L770
+	.byte	3,2,1,5,25,9
+	.half	.L425-.L385
+	.byte	1,5,54,9
+	.half	.L430-.L425
+	.byte	3,1,1,5,38,9
+	.half	.L429-.L430
+	.byte	3,3,1,5,57,9
+	.half	.L771-.L429
+	.byte	1,5,39,9
+	.half	.L432-.L771
+	.byte	3,1,1,5,59,9
+	.half	.L772-.L432
+	.byte	1,5,35,9
+	.half	.L433-.L772
+	.byte	3,3,1,5,33,9
+	.half	.L773-.L433
+	.byte	1,5,9,9
+	.half	.L774-.L773
+	.byte	1,5,71,7,9
+	.half	.L775-.L774
+	.byte	3,2,1,5,69,9
+	.half	.L776-.L775
+	.byte	1,5,36,9
+	.half	.L777-.L776
+	.byte	1,5,95,9
+	.half	.L778-.L777
+	.byte	1,5,90,9
+	.half	.L96-.L778
+	.byte	1,5,88,9
+	.half	.L779-.L96
+	.byte	1,5,117,9
+	.half	.L97-.L779
+	.byte	1,5,59,9
+	.half	.L95-.L97
+	.byte	3,4,1,5,72,9
+	.half	.L780-.L95
+	.byte	1,5,70,9
+	.half	.L781-.L780
+	.byte	1,5,36,9
+	.half	.L782-.L781
+	.byte	1,5,97,9
+	.half	.L783-.L782
+	.byte	1,5,79,9
+	.half	.L99-.L783
+	.byte	1,5,92,9
+	.half	.L784-.L99
+	.byte	1,5,90,9
+	.half	.L785-.L784
+	.byte	1,5,36,9
+	.half	.L98-.L785
+	.byte	3,3,1,5,34,9
+	.half	.L786-.L98
+	.byte	1,5,9,9
+	.half	.L787-.L786
+	.byte	1,5,74,7,9
+	.half	.L788-.L787
+	.byte	3,2,1,5,72,9
+	.half	.L789-.L788
+	.byte	1,5,37,9
+	.half	.L790-.L789
+	.byte	1,5,99,9
+	.half	.L791-.L790
+	.byte	1,5,94,9
+	.half	.L102-.L791
+	.byte	1,5,92,9
+	.half	.L792-.L102
+	.byte	1,5,122,9
+	.half	.L103-.L792
+	.byte	1,5,61,9
+	.half	.L101-.L103
+	.byte	3,4,1,5,75,9
+	.half	.L793-.L101
+	.byte	1,5,73,9
+	.half	.L794-.L793
+	.byte	1,5,37,9
+	.half	.L795-.L794
+	.byte	1,5,101,9
+	.half	.L796-.L795
+	.byte	1,5,82,9
+	.half	.L105-.L796
+	.byte	1,5,96,9
+	.half	.L797-.L105
+	.byte	1,5,94,9
+	.half	.L798-.L797
+	.byte	1,5,40,9
+	.half	.L104-.L798
+	.byte	3,3,1,5,28,9
+	.half	.L799-.L104
+	.byte	1,5,42,9
+	.half	.L800-.L799
+	.byte	3,1,1,5,29,9
+	.half	.L801-.L800
+	.byte	1,5,1,9
+	.half	.L94-.L801
+	.byte	3,2,1,7,9
+	.half	.L276-.L94
+	.byte	0,1,1
+.L767:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_apply_action')
+	.sect	'.debug_ranges'
+.L275:
+	.word	-1,.L159,0,.L276-.L159,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_get_flag')
+	.sect	'.debug_info'
+.L277:
+	.word	204
+	.half	3
+	.word	.L278
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L280,.L279
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_get_flag',0,1,173,2,8
+	.word	.L390
+	.byte	1,1,1
+	.word	.L161,.L391,.L160
+	.byte	4
+	.word	.L161,.L391
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_get_flag')
+	.sect	'.debug_abbrev'
+.L278:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_get_flag')
+	.sect	'.debug_line'
+.L279:
+	.word	.L803-.L802
+.L802:
+	.half	3
+	.word	.L805-.L804
+.L804:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L805:
+	.byte	5,12,7,0,5,2
+	.word	.L161
+	.byte	3,174,2,1,5,5,9
+	.half	.L806-.L161
+	.byte	1,5,1,9
+	.half	.L107-.L806
+	.byte	3,1,1,7,9
+	.half	.L281-.L107
+	.byte	0,1,1
+.L803:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_get_flag')
+	.sect	'.debug_ranges'
+.L280:
+	.word	-1,.L161,0,.L281-.L161,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_set_flag')
+	.sect	'.debug_info'
+.L282:
+	.word	218
+	.half	3
+	.word	.L283
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L285,.L284
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_set_flag',0,1,180,2,6,1,1,1
+	.word	.L163,.L392,.L162
+	.byte	4
+	.byte	'flag',0,1,180,2,26
+	.word	.L390,.L393
+	.byte	5
+	.word	.L163,.L392
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_set_flag')
+	.sect	'.debug_abbrev'
+.L283:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_set_flag')
+	.sect	'.debug_line'
+.L284:
+	.word	.L808-.L807
+.L807:
+	.half	3
+	.word	.L810-.L809
+.L809:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L810:
+	.byte	5,5,7,0,5,2
+	.word	.L163
+	.byte	3,181,2,1,5,14,9
+	.half	.L811-.L163
+	.byte	1,5,5,9
+	.half	.L812-.L811
+	.byte	3,1,1,5,26,9
+	.half	.L813-.L812
+	.byte	1,5,24,9
+	.half	.L814-.L813
+	.byte	1,5,21,9
+	.half	.L815-.L814
+	.byte	3,1,1,5,1,9
+	.half	.L816-.L815
+	.byte	3,1,1,7,9
+	.half	.L286-.L816
+	.byte	0,1,1
+.L808:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_set_flag')
+	.sect	'.debug_ranges'
+.L285:
+	.word	-1,.L163,0,.L286-.L163,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_get_state')
+	.sect	'.debug_info'
+.L287:
+	.word	205
+	.half	3
+	.word	.L288
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L290,.L289
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_get_state',0,1,189,2,16
+	.word	.L394
+	.byte	1,1,1
+	.word	.L165,.L395,.L164
+	.byte	4
+	.word	.L165,.L395
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_get_state')
+	.sect	'.debug_abbrev'
+.L288:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_get_state')
+	.sect	'.debug_line'
+.L289:
+	.word	.L818-.L817
+.L817:
+	.half	3
+	.word	.L820-.L819
+.L819:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L820:
+	.byte	5,12,7,0,5,2
+	.word	.L165
+	.byte	3,190,2,1,5,5,9
+	.half	.L821-.L165
+	.byte	1,5,1,9
+	.half	.L108-.L821
+	.byte	3,1,1,7,9
+	.half	.L291-.L108
+	.byte	0,1,1
+.L818:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_get_state')
+	.sect	'.debug_ranges'
+.L290:
+	.word	-1,.L165,0,.L291-.L165,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_get_action_trigger')
+	.sect	'.debug_info'
+.L292:
+	.word	214
+	.half	3
+	.word	.L293
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L295,.L294
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_get_action_trigger',0,1,196,2,7
+	.word	.L335
+	.byte	1,1,1
+	.word	.L167,.L396,.L166
+	.byte	4
+	.word	.L167,.L396
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_get_action_trigger')
+	.sect	'.debug_abbrev'
+.L293:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_get_action_trigger')
+	.sect	'.debug_line'
+.L294:
+	.word	.L823-.L822
+.L822:
+	.half	3
+	.word	.L825-.L824
+.L824:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L825:
+	.byte	5,12,7,0,5,2
+	.word	.L167
+	.byte	3,197,2,1,5,5,9
+	.half	.L826-.L167
+	.byte	1,5,1,9
+	.half	.L109-.L826
+	.byte	3,1,1,7,9
+	.half	.L296-.L109
+	.byte	0,1,1
+.L823:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_get_action_trigger')
+	.sect	'.debug_ranges'
+.L295:
+	.word	-1,.L167,0,.L296-.L167,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_speed_to_target_count')
+	.sect	'.debug_info'
+.L297:
+	.word	239
+	.half	3
+	.word	.L298
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L300,.L299
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_speed_to_target_count',0,1,151,1,14
+	.word	.L332
+>>>>>>> Stashed changes
 	.byte	1,1
 	.word	.L90,.L308,.L89
 	.byte	4
@@ -21970,7 +23312,200 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'lock_distance_m',0,1,129,1,71
 	.word	.L252,.L310
 	.byte	5
+<<<<<<< Updated upstream
 	.word	.L90,.L308
+=======
+	.word	.L139,.L397
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_speed_to_target_count')
+	.sect	'.debug_abbrev'
+.L298:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_speed_to_target_count')
+	.sect	'.debug_line'
+.L299:
+	.word	.L828-.L827
+.L827:
+	.half	3
+	.word	.L830-.L829
+.L829:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L830:
+	.byte	5,24,7,0,5,2
+	.word	.L139
+	.byte	3,152,1,1,5,22,9
+	.half	.L831-.L139
+	.byte	1,5,43,9
+	.half	.L832-.L831
+	.byte	1,5,41,9
+	.half	.L833-.L832
+	.byte	1,5,5,9
+	.half	.L834-.L833
+	.byte	1,5,1,9
+	.half	.L80-.L834
+	.byte	3,1,1,7,9
+	.half	.L301-.L80
+	.byte	0,1,1
+.L828:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_speed_to_target_count')
+	.sect	'.debug_ranges'
+.L300:
+	.word	-1,.L139,0,.L301-.L139,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_meter_to_count')
+	.sect	'.debug_info'
+.L302:
+	.word	233
+	.half	3
+	.word	.L303
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L305,.L304
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_meter_to_count',0,1,158,1,14
+	.word	.L372
+	.byte	1,1
+	.word	.L141,.L399,.L140
+	.byte	4
+	.byte	'distance_m',0,1,158,1,39
+	.word	.L332,.L400
+	.byte	5
+	.word	.L141,.L399
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_meter_to_count')
+	.sect	'.debug_abbrev'
+.L303:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_meter_to_count')
+	.sect	'.debug_line'
+.L304:
+	.word	.L836-.L835
+.L835:
+	.half	3
+	.word	.L838-.L837
+.L837:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L838:
+	.byte	5,22,7,0,5,2
+	.word	.L141
+	.byte	3,159,1,1,5,19,9
+	.half	.L839-.L141
+	.byte	1,5,5,9
+	.half	.L840-.L839
+	.byte	1,5,16,7,9
+	.half	.L841-.L840
+	.byte	3,2,1,5,9,9
+	.half	.L842-.L841
+	.byte	1,5,33,9
+	.half	.L81-.L842
+	.byte	3,3,1,5,31,9
+	.half	.L843-.L81
+	.byte	1,5,12,9
+	.half	.L844-.L843
+	.byte	1,5,5,9
+	.half	.L845-.L844
+	.byte	1,5,1,9
+	.half	.L82-.L845
+	.byte	3,1,1,7,9
+	.half	.L306-.L82
+	.byte	0,1,1
+.L836:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_meter_to_count')
+	.sect	'.debug_ranges'
+.L305:
+	.word	-1,.L141,0,.L306-.L141,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_enter_state')
+	.sect	'.debug_info'
+.L307:
+	.word	221
+	.half	3
+	.word	.L308
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L310,.L309
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_enter_state',0,1,170,1,13,1,1
+	.word	.L143,.L401,.L142
+	.byte	4
+	.byte	'state',0,1,170,1,44
+	.word	.L394,.L402
+	.byte	5
+	.word	.L143,.L401
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_enter_state')
+	.sect	'.debug_abbrev'
+.L308:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_enter_state')
+	.sect	'.debug_line'
+.L309:
+	.word	.L847-.L846
+.L846:
+	.half	3
+	.word	.L849-.L848
+.L848:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L849:
+	.byte	5,5,7,0,5,2
+	.word	.L143
+	.byte	3,171,1,1,5,15,9
+	.half	.L850-.L143
+	.byte	1,5,5,9
+	.half	.L851-.L850
+	.byte	3,1,1,5,41,9
+	.half	.L852-.L851
+	.byte	1,5,26,9
+	.half	.L407-.L852
+	.byte	1,5,1,9
+	.half	.L853-.L407
+	.byte	3,1,1,7,9
+	.half	.L311-.L853
+	.byte	0,1,1
+.L847:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_enter_state')
+	.sect	'.debug_ranges'
+.L310:
+	.word	-1,.L143,0,.L311-.L143,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_lock_distance_reached')
+	.sect	'.debug_info'
+.L312:
+	.word	301
+	.half	3
+	.word	.L313
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L315,.L314
+	.byte	2
+	.word	.L168
+	.byte	3
+	.byte	'yqj_lock_distance_reached',0,1,178,1,14
+	.word	.L335
+	.byte	1,1
+	.word	.L145,.L403,.L144
+	.byte	4
+	.byte	'encoder_total_sum',0,1,178,1,46
+	.word	.L372,.L404
+	.byte	4
+	.byte	'lock_distance_m',0,1,178,1,71
+	.word	.L332,.L405
+	.byte	5
+	.word	.L145,.L403
+>>>>>>> Stashed changes
 	.byte	6
 	.byte	'need_count',0,1,131,1,11
 	.word	.L282,.L311
@@ -22022,7 +23557,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.word	-1,.L90,0,.L236-.L90,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_flag')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L237:
+=======
+.L317:
+>>>>>>> Stashed changes
 	.word	173
 	.half	3
 	.word	.L238
@@ -22030,7 +23569,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_flag',0,22,6,8
 	.word	.L295
@@ -22044,7 +23587,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_state')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L239:
+=======
+.L319:
+>>>>>>> Stashed changes
 	.word	174
 	.half	3
 	.word	.L240
@@ -22052,7 +23599,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_state',0,22,7,16
 	.word	.L299
@@ -22066,7 +23617,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_action_trigger')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L241:
+=======
+.L321:
+>>>>>>> Stashed changes
 	.word	183
 	.half	3
 	.word	.L242
@@ -22074,7 +23629,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_action_trigger',0,22,8,7
 	.word	.L255
@@ -22088,7 +23647,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_state_start_time')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L243:
+=======
+.L323:
+>>>>>>> Stashed changes
 	.word	185
 	.half	3
 	.word	.L244
@@ -22096,7 +23659,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_state_start_time',0,22,9,8
 	.word	.L276
@@ -22110,7 +23677,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_lock_start_count')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L245:
+=======
+.L325:
+>>>>>>> Stashed changes
 	.word	185
 	.half	3
 	.word	.L246
@@ -22118,7 +23689,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_lock_start_count',0,22,10,7
 	.word	.L282
@@ -22132,7 +23707,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	0,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_pid_period_s')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L247:
+=======
+.L327:
+>>>>>>> Stashed changes
 	.word	180
 	.half	3
 	.word	.L248
@@ -22140,7 +23719,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_pid_period_s',0,22,12,14
 	.word	.L252
@@ -22153,7 +23736,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_encoder_count_per_meter')
 	.sect	'.debug_info'
+<<<<<<< Updated upstream
 .L249:
+=======
+.L329:
+>>>>>>> Stashed changes
 	.word	191
 	.half	3
 	.word	.L250
@@ -22161,7 +23748,11 @@ yqj_encoder_count_per_meter:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\Lenovo\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+<<<<<<< Updated upstream
 	.word	.L113
+=======
+	.word	.L168
+>>>>>>> Stashed changes
 	.byte	3
 	.byte	'yqj_encoder_count_per_meter',0,22,13,14
 	.word	.L252

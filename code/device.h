@@ -5,6 +5,7 @@
 
 // ==================== TB6612  µº “˝Ω≈∑÷≈‰ ====================
 
+<<<<<<< Updated upstream
 // ◊ÛµÁª˙
 #define LEFT_IN1        P20_6
 #define LEFT_IN2        P20_7
@@ -14,6 +15,15 @@
 #define RIGHT_IN1       P21_4
 #define RIGHT_IN2       P21_5
 #define RIGHT_PWM       ATOM0_CH7_P20_8
+=======
+// Â∑¶ÁîµÊú∫
+#define LEFT_IN         P21_4
+#define LEFT_PWM        ATOM0_CH7_P20_8
+
+// Âè≥ÁîµÊú∫
+#define RIGHT_IN        P21_5
+#define RIGHT_PWM       ATOM1_CH5_P20_9
+>>>>>>> Stashed changes
 
 #define MOTOR_PWM_FREQ  50000
 

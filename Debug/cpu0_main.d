@@ -330,7 +330,18 @@ cpu0_main.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
 cpu0_main.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\code\pid.h"
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\code\pid.h" :
+<<<<<<< Updated upstream
 cpu0_main.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\code\pid_debug.h"
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\code\pid_debug.h" :
+=======
+cpu0_main.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
+"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
+cpu0_main.o :	..\code\yqj.h
+..\code\yqj.h :
+cpu0_main.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
+"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
+cpu0_main.o :	..\code\xunji.h
+..\code\xunji.h :
+>>>>>>> Stashed changes
 cpu0_main.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :

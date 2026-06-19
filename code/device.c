@@ -38,6 +38,7 @@ void motor_set_left(int16 pwm)
 
     if(pwm > 0)
     {
+        // 正转
         duty = pwm;
 
         gpio_set_level(LEFT_IN1, GPIO_HIGH);
@@ -46,6 +47,7 @@ void motor_set_left(int16 pwm)
     }
     else if(pwm < 0)
     {
+        // 反转
         duty = -pwm;
 
         gpio_set_level(LEFT_IN1, GPIO_LOW);
@@ -69,6 +71,7 @@ void motor_set_right(int16 pwm)
 
     if(pwm > 0)
     {
+        // 正转
         duty = pwm;
 
         gpio_set_level(RIGHT_IN1, GPIO_HIGH);
@@ -77,6 +80,7 @@ void motor_set_right(int16 pwm)
     }
     else if(pwm < 0)
     {
+        // 反转
         duty = -pwm;
 
         gpio_set_level(RIGHT_IN1, GPIO_LOW);
