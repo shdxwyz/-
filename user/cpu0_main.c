@@ -23,34 +23,31 @@
 
 // ==================== 速度 PID 参数 ====================
 
-// 实测：小车走 1 米约 12106 个编码器计数
-#define ENCODER_COUNT_PER_METER (12106.0f)
+// 实测（强磁电机）：小车走 0.5 米约 27000 个编码器计数
+// 1 米 = 27000 * 2 = 54000
+#define ENCODER_COUNT_PER_METER (54000.0f)
 
-// 目标基础速度�?.6 m/s
-#define TARGET_SPEED_MPS (1.6f)
+// 目标基础速度 2.0 m/s
+#define TARGET_SPEED_MPS (2.0f)
 
-// PID 周期�?0ms
+// PID 周期 20ms
 #define PID_PERIOD_MS (20)
 #define PID_PERIOD_S (0.02f)
 
-// 20ms 内基础目标计数�?.6 * 0.02 * 12106 �?145.3
+// 20ms 内基础目标计数 2.0 * 0.02 * 54000 = 2160
 #define BASE_TARGET_COUNT (TARGET_SPEED_MPS * PID_PERIOD_S * ENCODER_COUNT_PER_METER)
 
 // PID 输出范围
-#define SPEED_PID_MAX_OUT (5000.0f)
-#define SPEED_PID_MAX_IOUT (2000.0f)
+#define SPEED_PID_MAX_OUT (8000.0f)
+#define SPEED_PID_MAX_IOUT (800.0f)
 
 // 速度 PID 参数
-// 电机电源�?7.6V 升到 12V，电压提�?58%，系统增益变�?
-// 降低 Kp 和前馈系�?
-#define SPEED_KP (15.0f)
-#define SPEED_KI (0.01f)
+#define SPEED_KP (0.5f)
+#define SPEED_KI (0.002f)
 #define SPEED_KD (0.0f)
 
-// 前馈系数：PWM = FEEDFORWARD_GAIN * target_speed
-// 电压�?7.6V 升到 12V，同样的 PWM 转速更快，前馈系数按比例降�?
-// 10000 * 7.6 / 12 �?6300
-#define FEEDFORWARD_GAIN (1000.0f)
+// 前馈系数：2.0 m/s 需要约 1300 PWM，前馈提供基础量
+#define FEEDFORWARD_GAIN (500.0f)
 
 // ==================== 巡线参数 ====================
 
