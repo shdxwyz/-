@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc28304a --dep-file=device.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/device.src ../code/device.c"
+	.compiler_invocation	"ctc -f cc36892a --dep-file=device.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/device.src ../code/device.c"
 	.compiler_name		"ctc"
 	;source	'../code/device.c'
 
@@ -15,19 +15,19 @@ $TC16X
 .L16:
 motor_limit:	.type	func
 	mov	d15,#10000
-.L180:
+.L160:
 	jge	d15,d4,.L2
-.L181:
+.L161:
 	mov	d2,#10000
-.L182:
+.L162:
 	j	.L3
 .L2:
 	mov	d15,#-10000
-.L183:
+.L163:
 	jge	d4,d15,.L4
-.L184:
+.L164:
 	mov	d2,#-10000
-.L185:
+.L165:
 	j	.L5
 .L4:
 	mov	d2,d4
@@ -52,7 +52,7 @@ __motor_limit_function_end:
 ; Function motor_init
 .L18:
 motor_init:	.type	func
-	mov	d4,#646
+	mov	d4,#676
 .L106:
 	mov	d5,#1
 .L107:
@@ -61,7 +61,7 @@ motor_init:	.type	func
 	mov	d7,#3
 	call	gpio_init
 .L109:
-	mov	d4,#647
+	mov	d4,#677
 .L110:
 	mov	d5,#1
 .L111:
@@ -70,38 +70,20 @@ motor_init:	.type	func
 	mov	d7,#3
 	call	gpio_init
 .L113:
-	mov	d4,#676
+	mov	d4,#44
 .L114:
-	mov	d5,#1
+	mov	d5,#17000
 .L115:
 	mov	d6,#0
+	call	pwm_init
 .L116:
-	mov	d7,#3
-	call	gpio_init
-.L117:
-	mov	d4,#677
-.L118:
-	mov	d5,#1
-.L119:
-	mov	d6,#0
-.L120:
-	mov	d7,#3
-	call	gpio_init
-.L121:
 	mov	d4,#88
-.L122:
-	mov.u	d5,#50000
-.L123:
+.L117:
+	mov	d5,#17000
+.L118:
 	mov	d6,#0
 	call	pwm_init
-.L124:
-	mov	d4,#44
-.L125:
-	mov.u	d5,#50000
-.L126:
-	mov	d6,#0
-	call	pwm_init
-.L127:
+.L119:
 	ret
 .L61:
 	
@@ -123,19 +105,14 @@ motor_set_left:	.type	func
 	mov	d15,d2
 .L78:
 	jlt	d15,#1,.L7
-.L132:
-	mov	d4,#646
-.L133:
+.L124:
+	mov	d4,#676
+.L125:
 	mov	d5,#1
 	call	gpio_set_level
 .L77:
-	mov	d4,#647
-.L134:
-	mov	d5,#0
-	call	gpio_set_level
-.L135:
-	mov	d4,#88
-.L136:
+	mov	d4,#44
+.L126:
 	mov	d5,d15
 .L79:
 	call	pwm_set_duty
@@ -143,39 +120,29 @@ motor_set_left:	.type	func
 	j	.L8
 .L7:
 	jge	d15,#0,.L9
-.L137:
+.L127:
 	rsub	d15,#0
 .L81:
-	mov	d4,#646
-.L138:
+	mov	d4,#676
+.L128:
 	mov	d5,#0
 	call	gpio_set_level
-.L139:
-	mov	d4,#647
-.L140:
-	mov	d5,#1
-	call	gpio_set_level
-.L141:
-	mov	d4,#88
-.L142:
+.L129:
+	mov	d4,#44
+.L130:
 	mov	d5,d15
 .L82:
 	call	pwm_set_duty
 .L83:
 	j	.L10
 .L9:
-	mov	d4,#646
-.L143:
+	mov	d4,#676
+.L131:
 	mov	d5,#0
 	call	gpio_set_level
 .L84:
-	mov	d4,#647
-.L144:
-	mov	d5,#0
-	call	gpio_set_level
-.L145:
-	mov	d4,#88
-.L146:
+	mov	d4,#44
+.L132:
 	mov	d5,#0
 	call	pwm_set_duty
 .L10:
@@ -201,19 +168,14 @@ motor_set_right:	.type	func
 	mov	d15,d2
 .L87:
 	jlt	d15,#1,.L11
-.L151:
-	mov	d4,#676
-.L152:
+.L137:
+	mov	d4,#677
+.L138:
 	mov	d5,#1
 	call	gpio_set_level
 .L86:
-	mov	d4,#677
-.L153:
-	mov	d5,#0
-	call	gpio_set_level
-.L154:
-	mov	d4,#44
-.L155:
+	mov	d4,#88
+.L139:
 	mov	d5,d15
 .L88:
 	call	pwm_set_duty
@@ -221,39 +183,29 @@ motor_set_right:	.type	func
 	j	.L12
 .L11:
 	jge	d15,#0,.L13
-.L156:
+.L140:
 	rsub	d15,#0
 .L90:
-	mov	d4,#676
-.L157:
+	mov	d4,#677
+.L141:
 	mov	d5,#0
 	call	gpio_set_level
-.L158:
-	mov	d4,#677
-.L159:
-	mov	d5,#1
-	call	gpio_set_level
-.L160:
-	mov	d4,#44
-.L161:
+.L142:
+	mov	d4,#88
+.L143:
 	mov	d5,d15
 .L91:
 	call	pwm_set_duty
 .L92:
 	j	.L14
 .L13:
-	mov	d4,#676
-.L162:
+	mov	d4,#677
+.L144:
 	mov	d5,#0
 	call	gpio_set_level
 .L93:
-	mov	d4,#677
-.L163:
-	mov	d5,#0
-	call	gpio_set_level
-.L164:
-	mov	d4,#44
-.L165:
+	mov	d4,#88
+.L145:
 	mov	d5,#0
 	call	pwm_set_duty
 .L14:
@@ -300,10 +252,10 @@ __motor_control_function_end:
 motor_stop:	.type	func
 	mov	d4,#0
 	call	motor_set_left
-.L174:
+.L154:
 	mov	d4,#0
 	call	motor_set_right
-.L175:
+.L155:
 	ret
 .L72:
 	
@@ -19880,52 +19832,36 @@ __motor_stop_function_end:
 .L105:
 	.byte	5,15,7,0,5,2
 	.word	.L18
-	.byte	3,22,1,5,26,9
+	.byte	3,22,1,5,25,9
 	.half	.L106-.L18
-	.byte	1,5,31,9
+	.byte	1,5,30,9
 	.half	.L107-.L106
-	.byte	1,5,41,9
+	.byte	1,5,40,9
 	.half	.L108-.L107
 	.byte	1,5,15,9
 	.half	.L109-.L108
-	.byte	3,1,1,5,26,9
-	.half	.L110-.L109
-	.byte	1,5,31,9
-	.half	.L111-.L110
-	.byte	1,5,41,9
-	.half	.L112-.L111
-	.byte	1,5,15,9
-	.half	.L113-.L112
-	.byte	3,1,1,5,26,9
-	.half	.L114-.L113
-	.byte	1,5,31,9
-	.half	.L115-.L114
-	.byte	1,5,41,9
-	.half	.L116-.L115
-	.byte	1,5,15,9
-	.half	.L117-.L116
-	.byte	3,1,1,5,26,9
-	.half	.L118-.L117
-	.byte	1,5,31,9
-	.half	.L119-.L118
-	.byte	1,5,41,9
-	.half	.L120-.L119
-	.byte	1,5,14,9
-	.half	.L121-.L120
-	.byte	3,2,1,5,25,9
-	.half	.L122-.L121
-	.byte	1,5,41,9
-	.half	.L123-.L122
-	.byte	1,5,14,9
-	.half	.L124-.L123
 	.byte	3,1,1,5,25,9
-	.half	.L125-.L124
+	.half	.L110-.L109
+	.byte	1,5,30,9
+	.half	.L111-.L110
+	.byte	1,5,40,9
+	.half	.L112-.L111
+	.byte	1,5,14,9
+	.half	.L113-.L112
+	.byte	3,2,1,5,25,9
+	.half	.L114-.L113
 	.byte	1,5,41,9
-	.half	.L126-.L125
+	.half	.L115-.L114
+	.byte	1,5,14,9
+	.half	.L116-.L115
+	.byte	3,1,1,5,25,9
+	.half	.L117-.L116
+	.byte	1,5,41,9
+	.half	.L118-.L117
 	.byte	1,5,1,9
-	.half	.L127-.L126
+	.half	.L119-.L118
 	.byte	3,1,1,7,9
-	.half	.L35-.L127
+	.half	.L35-.L119
 	.byte	0,1,1
 .L103:
 	.sdecl	'.debug_ranges',debug,cluster('motor_init')
@@ -19946,15 +19882,15 @@ __motor_stop_function_end:
 	.byte	2
 	.word	.L27
 	.byte	3
-	.byte	'motor_set_left',0,1,33,6,1,1,1
+	.byte	'motor_set_left',0,1,31,6,1,1,1
 	.word	.L20,.L62,.L19
 	.byte	4
-	.byte	'pwm',0,1,33,27
+	.byte	'pwm',0,1,31,27
 	.word	.L63,.L64
 	.byte	5
 	.word	.L20,.L62
 	.byte	6
-	.byte	'duty',0,1,35,11
+	.byte	'duty',0,1,33,11
 	.word	.L63,.L65
 	.byte	0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('motor_set_left')
@@ -19966,70 +19902,58 @@ __motor_stop_function_end:
 	.sdecl	'.debug_line',debug,cluster('motor_set_left')
 	.sect	'.debug_line'
 .L38:
-	.word	.L129-.L128
-.L128:
+	.word	.L121-.L120
+.L120:
 	.half	3
-	.word	.L131-.L130
-.L130:
+	.word	.L123-.L122
+.L122:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/device.c',0,0,0,0,0
-.L131:
+.L123:
 	.byte	5,23,7,0,5,2
 	.word	.L20
-	.byte	3,36,1,5,9,9
+	.byte	3,34,1,5,9,9
 	.half	.L76-.L20
 	.byte	1,5,5,9
 	.half	.L78-.L76
 	.byte	3,2,1,5,24,7,9
-	.half	.L132-.L78
-	.byte	3,4,1,5,34,9
-	.half	.L133-.L132
-	.byte	1,5,24,9
-	.half	.L77-.L133
-	.byte	3,1,1,5,34,9
-	.half	.L134-.L77
+	.half	.L124-.L78
+	.byte	3,4,1,5,33,9
+	.half	.L125-.L124
 	.byte	1,5,22,9
-	.half	.L135-.L134
+	.half	.L77-.L125
 	.byte	3,1,1,5,32,9
-	.half	.L136-.L135
+	.half	.L126-.L77
 	.byte	1,5,19,9
-	.half	.L80-.L136
-	.byte	3,124,1,5,10,9
+	.half	.L80-.L126
+	.byte	3,125,1,5,10,9
 	.half	.L7-.L80
-	.byte	3,6,1,5,16,7,9
-	.half	.L137-.L7
+	.byte	3,5,1,5,16,7,9
+	.half	.L127-.L7
 	.byte	3,2,1,5,24,9
-	.half	.L81-.L137
-	.byte	3,2,1,5,34,9
-	.half	.L138-.L81
-	.byte	1,5,24,9
-	.half	.L139-.L138
-	.byte	3,1,1,5,34,9
-	.half	.L140-.L139
+	.half	.L81-.L127
+	.byte	3,2,1,5,33,9
+	.half	.L128-.L81
 	.byte	1,5,22,9
-	.half	.L141-.L140
+	.half	.L129-.L128
 	.byte	3,1,1,5,32,9
-	.half	.L142-.L141
+	.half	.L130-.L129
 	.byte	1,5,20,9
-	.half	.L83-.L142
-	.byte	3,124,1,5,24,9
+	.half	.L83-.L130
+	.byte	3,125,1,5,24,9
 	.half	.L9-.L83
-	.byte	3,8,1,5,34,9
-	.half	.L143-.L9
-	.byte	1,5,24,9
-	.half	.L84-.L143
-	.byte	3,1,1,5,34,9
-	.half	.L144-.L84
+	.byte	3,7,1,5,33,9
+	.half	.L131-.L9
 	.byte	1,5,22,9
-	.half	.L145-.L144
+	.half	.L84-.L131
 	.byte	3,1,1,5,32,9
-	.half	.L146-.L145
+	.half	.L132-.L84
 	.byte	1,5,1,9
-	.half	.L8-.L146
+	.half	.L8-.L132
 	.byte	3,2,1,7,9
 	.half	.L40-.L8
 	.byte	0,1,1
-.L129:
+.L121:
 	.sdecl	'.debug_ranges',debug,cluster('motor_set_left')
 	.sect	'.debug_ranges'
 .L39:
@@ -20048,15 +19972,15 @@ __motor_stop_function_end:
 	.byte	2
 	.word	.L27
 	.byte	3
-	.byte	'motor_set_right',0,1,64,6,1,1,1
+	.byte	'motor_set_right',0,1,59,6,1,1,1
 	.word	.L22,.L66,.L21
 	.byte	4
-	.byte	'pwm',0,1,64,28
+	.byte	'pwm',0,1,59,28
 	.word	.L63,.L67
 	.byte	5
 	.word	.L22,.L66
 	.byte	6
-	.byte	'duty',0,1,66,11
+	.byte	'duty',0,1,61,11
 	.word	.L63,.L68
 	.byte	0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('motor_set_right')
@@ -20068,70 +19992,58 @@ __motor_stop_function_end:
 	.sdecl	'.debug_line',debug,cluster('motor_set_right')
 	.sect	'.debug_line'
 .L43:
-	.word	.L148-.L147
-.L147:
+	.word	.L134-.L133
+.L133:
 	.half	3
-	.word	.L150-.L149
-.L149:
+	.word	.L136-.L135
+.L135:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/device.c',0,0,0,0,0
-.L150:
+.L136:
 	.byte	5,23,7,0,5,2
 	.word	.L22
-	.byte	3,195,0,1,5,9,9
+	.byte	3,62,1,5,9,9
 	.half	.L85-.L22
 	.byte	1,5,5,9
 	.half	.L87-.L85
 	.byte	3,2,1,5,24,7,9
-	.half	.L151-.L87
-	.byte	3,4,1,5,35,9
-	.half	.L152-.L151
-	.byte	1,5,24,9
-	.half	.L86-.L152
-	.byte	3,1,1,5,35,9
-	.half	.L153-.L86
+	.half	.L137-.L87
+	.byte	3,4,1,5,34,9
+	.half	.L138-.L137
 	.byte	1,5,22,9
-	.half	.L154-.L153
+	.half	.L86-.L138
 	.byte	3,1,1,5,33,9
-	.half	.L155-.L154
+	.half	.L139-.L86
 	.byte	1,5,19,9
-	.half	.L89-.L155
-	.byte	3,124,1,5,10,9
+	.half	.L89-.L139
+	.byte	3,125,1,5,10,9
 	.half	.L11-.L89
-	.byte	3,6,1,5,16,7,9
-	.half	.L156-.L11
+	.byte	3,5,1,5,16,7,9
+	.half	.L140-.L11
 	.byte	3,2,1,5,24,9
-	.half	.L90-.L156
-	.byte	3,2,1,5,35,9
-	.half	.L157-.L90
-	.byte	1,5,24,9
-	.half	.L158-.L157
-	.byte	3,1,1,5,35,9
-	.half	.L159-.L158
+	.half	.L90-.L140
+	.byte	3,2,1,5,34,9
+	.half	.L141-.L90
 	.byte	1,5,22,9
-	.half	.L160-.L159
+	.half	.L142-.L141
 	.byte	3,1,1,5,33,9
-	.half	.L161-.L160
+	.half	.L143-.L142
 	.byte	1,5,20,9
-	.half	.L92-.L161
-	.byte	3,124,1,5,24,9
+	.half	.L92-.L143
+	.byte	3,125,1,5,24,9
 	.half	.L13-.L92
-	.byte	3,8,1,5,35,9
-	.half	.L162-.L13
-	.byte	1,5,24,9
-	.half	.L93-.L162
-	.byte	3,1,1,5,35,9
-	.half	.L163-.L93
+	.byte	3,7,1,5,34,9
+	.half	.L144-.L13
 	.byte	1,5,22,9
-	.half	.L164-.L163
+	.half	.L93-.L144
 	.byte	3,1,1,5,33,9
-	.half	.L165-.L164
+	.half	.L145-.L93
 	.byte	1,5,1,9
-	.half	.L12-.L165
+	.half	.L12-.L145
 	.byte	3,2,1,7,9
 	.half	.L45-.L12
 	.byte	0,1,1
-.L148:
+.L134:
 	.sdecl	'.debug_ranges',debug,cluster('motor_set_right')
 	.sect	'.debug_ranges'
 .L44:
@@ -20150,13 +20062,13 @@ __motor_stop_function_end:
 	.byte	2
 	.word	.L27
 	.byte	3
-	.byte	'motor_control',0,1,95,6,1,1,1
+	.byte	'motor_control',0,1,87,6,1,1,1
 	.word	.L24,.L69,.L23
 	.byte	4
-	.byte	'left_pwm',0,1,95,26
+	.byte	'left_pwm',0,1,87,26
 	.word	.L63,.L70
 	.byte	4
-	.byte	'right_pwm',0,1,95,42
+	.byte	'right_pwm',0,1,87,42
 	.word	.L63,.L71
 	.byte	5
 	.word	.L24,.L69
@@ -20169,17 +20081,17 @@ __motor_stop_function_end:
 	.sdecl	'.debug_line',debug,cluster('motor_control')
 	.sect	'.debug_line'
 .L48:
-	.word	.L167-.L166
-.L166:
+	.word	.L147-.L146
+.L146:
 	.half	3
-	.word	.L169-.L168
-.L168:
+	.word	.L149-.L148
+.L148:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/device.c',0,0,0,0,0
-.L169:
+.L149:
 	.byte	5,6,7,0,5,2
 	.word	.L24
-	.byte	3,222,0,1,5,20,9
+	.byte	3,214,0,1,5,20,9
 	.half	.L95-.L24
 	.byte	3,2,1,5,21,9
 	.half	.L94-.L95
@@ -20188,7 +20100,7 @@ __motor_stop_function_end:
 	.byte	3,1,1,7,9
 	.half	.L50-.L97
 	.byte	0,1,1
-.L167:
+.L147:
 	.sdecl	'.debug_ranges',debug,cluster('motor_control')
 	.sect	'.debug_ranges'
 .L49:
@@ -20207,7 +20119,7 @@ __motor_stop_function_end:
 	.byte	2
 	.word	.L27
 	.byte	3
-	.byte	'motor_stop',0,1,102,6,1,1,1
+	.byte	'motor_stop',0,1,94,6,1,1,1
 	.word	.L26,.L72,.L25
 	.byte	4
 	.word	.L26,.L72
@@ -20220,24 +20132,24 @@ __motor_stop_function_end:
 	.sdecl	'.debug_line',debug,cluster('motor_stop')
 	.sect	'.debug_line'
 .L53:
-	.word	.L171-.L170
-.L170:
+	.word	.L151-.L150
+.L150:
 	.half	3
-	.word	.L173-.L172
-.L172:
+	.word	.L153-.L152
+.L152:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/device.c',0,0,0,0,0
-.L173:
+.L153:
 	.byte	5,20,7,0,5,2
 	.word	.L26
-	.byte	3,231,0,1,5,21,9
-	.half	.L174-.L26
+	.byte	3,223,0,1,5,21,9
+	.half	.L154-.L26
 	.byte	3,1,1,5,1,9
-	.half	.L175-.L174
+	.half	.L155-.L154
 	.byte	3,1,1,7,9
-	.half	.L55-.L175
+	.half	.L55-.L155
 	.byte	0,1,1
-.L171:
+.L151:
 	.sdecl	'.debug_ranges',debug,cluster('motor_stop')
 	.sect	'.debug_ranges'
 .L54:
@@ -20274,38 +20186,38 @@ __motor_stop_function_end:
 	.sdecl	'.debug_line',debug,cluster('motor_limit')
 	.sect	'.debug_line'
 .L58:
-	.word	.L177-.L176
-.L176:
+	.word	.L157-.L156
+.L156:
 	.half	3
-	.word	.L179-.L178
-.L178:
+	.word	.L159-.L158
+.L158:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/device.c',0,0,0,0,0
-.L179:
+.L159:
 	.byte	5,14,7,0,5,2
 	.word	.L16
 	.byte	3,5,1,5,5,9
-	.half	.L180-.L16
+	.half	.L160-.L16
 	.byte	1,5,16,7,9
-	.half	.L181-.L180
+	.half	.L161-.L160
 	.byte	3,2,1,5,9,9
-	.half	.L182-.L181
+	.half	.L162-.L161
 	.byte	1,5,19,9
-	.half	.L2-.L182
+	.half	.L2-.L162
 	.byte	3,2,1,5,10,9
-	.half	.L183-.L2
+	.half	.L163-.L2
 	.byte	1,5,16,7,9
-	.half	.L184-.L183
+	.half	.L164-.L163
 	.byte	3,2,1,5,9,9
-	.half	.L185-.L184
+	.half	.L165-.L164
 	.byte	1,9
-	.half	.L4-.L185
+	.half	.L4-.L165
 	.byte	3,4,1,5,1,9
 	.half	.L3-.L4
 	.byte	3,2,1,7,9
 	.half	.L60-.L3
 	.byte	0,1,1
-.L177:
+.L157:
 	.sdecl	'.debug_ranges',debug,cluster('motor_limit')
 	.sect	'.debug_ranges'
 .L59:
@@ -20428,7 +20340,7 @@ __motor_stop_function_end:
 	.word	0,0
 	.sdecl	'.debug_frame',debug
 	.sect	'.debug_frame'
-.L186:
+.L166:
 	.word	48
 	.word	-1
 	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
@@ -20436,26 +20348,26 @@ __motor_stop_function_end:
 	.sdecl	'.debug_frame',debug,cluster('motor_limit')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L186,.L16,.L73-.L16
+	.word	.L166,.L16,.L73-.L16
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('motor_init')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L186,.L18,.L61-.L18
+	.word	.L166,.L18,.L61-.L18
 	.sdecl	'.debug_frame',debug,cluster('motor_set_left')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L186,.L20,.L62-.L20
+	.word	.L166,.L20,.L62-.L20
 	.sdecl	'.debug_frame',debug,cluster('motor_set_right')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L186,.L22,.L66-.L22
+	.word	.L166,.L22,.L66-.L22
 	.sdecl	'.debug_frame',debug,cluster('motor_control')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L186,.L24,.L69-.L24
+	.word	.L166,.L24,.L69-.L24
 	.sdecl	'.debug_frame',debug,cluster('motor_stop')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L186,.L26,.L72-.L26
+	.word	.L166,.L26,.L72-.L26
 	; Module end

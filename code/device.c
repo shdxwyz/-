@@ -20,10 +20,8 @@ static int16 motor_limit(int16 pwm)
 
 void motor_init(void)
 {
-    gpio_init(LEFT_IN1,  GPO, GPIO_LOW, GPO_PUSH_PULL);
-    gpio_init(LEFT_IN2,  GPO, GPIO_LOW, GPO_PUSH_PULL);
-    gpio_init(RIGHT_IN1, GPO, GPIO_LOW, GPO_PUSH_PULL);
-    gpio_init(RIGHT_IN2, GPO, GPIO_LOW, GPO_PUSH_PULL);
+    gpio_init(LEFT_IN,  GPO, GPIO_LOW, GPO_PUSH_PULL);
+    gpio_init(RIGHT_IN, GPO, GPIO_LOW, GPO_PUSH_PULL);
 
     pwm_init(LEFT_PWM,  MOTOR_PWM_FREQ, 0);
     pwm_init(RIGHT_PWM, MOTOR_PWM_FREQ, 0);
@@ -40,22 +38,19 @@ void motor_set_left(int16 pwm)
     {
         duty = pwm;
 
-        gpio_set_level(LEFT_IN1, GPIO_HIGH);
-        gpio_set_level(LEFT_IN2, GPIO_LOW);
+        gpio_set_level(LEFT_IN, GPIO_HIGH);
         pwm_set_duty(LEFT_PWM, duty);
     }
     else if(pwm < 0)
     {
         duty = -pwm;
 
-        gpio_set_level(LEFT_IN1, GPIO_LOW);
-        gpio_set_level(LEFT_IN2, GPIO_HIGH);
+        gpio_set_level(LEFT_IN, GPIO_LOW);
         pwm_set_duty(LEFT_PWM, duty);
     }
     else
     {
-        gpio_set_level(LEFT_IN1, GPIO_LOW);
-        gpio_set_level(LEFT_IN2, GPIO_LOW);
+        gpio_set_level(LEFT_IN, GPIO_LOW);
         pwm_set_duty(LEFT_PWM, 0);
     }
 }
@@ -71,22 +66,19 @@ void motor_set_right(int16 pwm)
     {
         duty = pwm;
 
-        gpio_set_level(RIGHT_IN1, GPIO_HIGH);
-        gpio_set_level(RIGHT_IN2, GPIO_LOW);
+        gpio_set_level(RIGHT_IN, GPIO_HIGH);
         pwm_set_duty(RIGHT_PWM, duty);
     }
     else if(pwm < 0)
     {
         duty = -pwm;
 
-        gpio_set_level(RIGHT_IN1, GPIO_LOW);
-        gpio_set_level(RIGHT_IN2, GPIO_HIGH);
+        gpio_set_level(RIGHT_IN, GPIO_LOW);
         pwm_set_duty(RIGHT_PWM, duty);
     }
     else
     {
-        gpio_set_level(RIGHT_IN1, GPIO_LOW);
-        gpio_set_level(RIGHT_IN2, GPIO_LOW);
+        gpio_set_level(RIGHT_IN, GPIO_LOW);
         pwm_set_duty(RIGHT_PWM, 0);
     }
 }

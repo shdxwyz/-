@@ -3,19 +3,17 @@
 
 #include "zf_common_headfile.h"
 
-// ==================== TB6612 实际引脚分配 ====================
+// ==================== DRV8701 actual pin map ====================
 
 // 左电机
-#define LEFT_IN1        P20_6
-#define LEFT_IN2        P20_7
-#define LEFT_PWM        ATOM1_CH5_P20_9
+#define LEFT_IN         P21_4
+#define LEFT_PWM        ATOM0_CH7_P20_8
 
 // 右电机
-#define RIGHT_IN1       P21_4
-#define RIGHT_IN2       P21_5
-#define RIGHT_PWM       ATOM0_CH7_P20_8
+#define RIGHT_IN        P21_5
+#define RIGHT_PWM       ATOM1_CH5_P20_9
 
-#define MOTOR_PWM_FREQ  50000
+#define MOTOR_PWM_FREQ  17000
 
 void motor_init(void);
 
