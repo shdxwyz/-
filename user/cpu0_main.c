@@ -28,7 +28,7 @@
 #define ENCODER_COUNT_PER_METER (54000.0f)
 
 // 目标基础速度 1.0 m/s
-#define TARGET_SPEED_MPS (1.0f)
+#define TARGET_SPEED_MPS (1.5f)
 
 // PID 周期 20ms
 #define PID_PERIOD_MS (20)
@@ -39,11 +39,11 @@
 
 // PID 输出范围
 #define SPEED_PID_MAX_OUT (8000.0f)
-#define SPEED_PID_MAX_IOUT (800.0f)
+#define SPEED_PID_MAX_IOUT (2000.0f)
 
 // 速度 PID 参数
-#define SPEED_KP (0.5f)
-#define SPEED_KI (0.002f)
+#define SPEED_KP (0.8f)
+#define SPEED_KI (0.02f)
 #define SPEED_KD (0.0f)
 
 // 前馈系数：1.0 m/s 需要约 1300 PWM，前馈提供基础量
@@ -156,10 +156,12 @@ int core0_main(void)
 
     // 20ms 速度 PID
     pit_ms_init(PIT0, PID_PERIOD_MS);
-
+ yqj_init(PID_PERIOD_S, ENCODER_COUNT_PER_METER);
+    pwm_init(ATOM0_CH6_P02_6, 100, 1500);
+    system_delay_ms(2000); // 等待系统稳定
     cpu_wait_event_ready();
-    yqj_init(PID_PERIOD_S, ENCODER_COUNT_PER_METER);
-
+   
+        
     while (TRUE)
     {
         // ==================== 读取 10 �?ADC ====================
@@ -185,7 +187,7 @@ int core0_main(void)
 
         switch (yqj_flag)
         {
-        case 1:
+      /*se 1:
             // 开关
             yqj_condition = yqj_kaiguang0_1trigger(adc_value);
             yqj_case_trigger = 1;
@@ -195,23 +197,23 @@ int core0_main(void)
             yqj_run_ms = 100;
             yqj_lock_ms = 140;
             yqj_lock_distance_m = 0.5f;
-            break;
-        case 2:
+            break;*/
+        case 1:
             // 电源
             yqj_condition = yqj_dianyuan_trigger(adc_value);
             yqj_case_trigger = 1;
-            yqj_left_speed_mps = 0.8f;
-            yqj_right_speed_mps = 0.8f;
+            yqj_left_speed_mps = 1.5f;
+            yqj_right_speed_mps = 1.5f; 
             yqj_delay_ms = 0;
             yqj_run_ms = 100;
             yqj_lock_ms = 140;
             yqj_lock_distance_m = 0.5f;
             break;
-        case 3:
+        case 2:
             // 右转
             yqj_condition = yqj_right_turn_trigger(adc_value);
             yqj_case_trigger = 1;
-            yqj_left_speed_mps = 1.5f;
+            yqj_left_speed_mps = 3.5f       ;
             yqj_right_speed_mps = 0.0f;
             yqj_delay_ms = 0;
             yqj_run_ms = 400;
@@ -220,14 +222,14 @@ int core0_main(void)
             break;
         case 4:
             // 电阻
-            yqj_condition = yqj_dianzu_trigger(adc_value);
+            yqj_condition = yqj_right_turn_trigger(adc_value);
             yqj_case_trigger = 1;
-            yqj_left_speed_mps = 0.3f;
-            yqj_right_speed_mps = 0.3f;
+            yqj_left_speed_mps = 1.5f;
+            yqj_right_speed_mps = 0.0f;
             yqj_delay_ms = 0;
-            yqj_run_ms = 350;
-            yqj_lock_ms = 1;
-            yqj_lock_distance_m = 0.1f;
+            yqj_run_ms = 400;
+            yqj_lock_ms = 33;
+            yqj_lock_distance_m = 0.2f;
             break;
         case 5:
             // 支角弯左转：左边检测到白线，右边没有�?
