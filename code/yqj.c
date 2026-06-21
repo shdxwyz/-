@@ -28,26 +28,18 @@ uint8 yqj_right_turn_trigger(const uint16 adc_value[])
 uint8 yqj_dianzu_trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 电源
 uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
 {
-    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+    return (adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
+            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 线圈电阻
@@ -83,12 +75,6 @@ uint8 yqj_kaiguang_trigger(const uint16 adc_value[])
 uint8 yqj_erjiguan_trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
@@ -146,8 +132,6 @@ uint8 yqj_sanjiguan0_2trigger(const uint16 adc_value[])
 uint8 yqj_double_trigger(const uint16 adc_value[])
 {
     return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
@@ -182,25 +166,20 @@ uint8 yqj_xianquan_trigger(const uint16 adc_value[])
 uint8 yqj_erji_trigger(const uint16 adc_value[])
 {
     return (adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
+            adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 电池
 uint8 yqj_dianchi_trigger(const uint16 adc_value[])
 {
-    return (
-        adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-        adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-        adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-        adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE);
+    return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE&&
+            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 // 非门
 
 uint8 yqj_feimen_trigger(const uint16 adc_value[])
 {
     return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 // 电容
@@ -208,8 +187,6 @@ uint8 yqj_feimen_trigger(const uint16 adc_value[])
 uint8 yqj_dianrong_trigger(const uint16 adc_value[])
 {
     return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 // ==================== 内部工具函数 ====================

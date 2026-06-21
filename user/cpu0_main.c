@@ -215,6 +215,7 @@ int core0_main(void)
 
         switch (yqj_flag)
         {
+      /* kaiguang case disabled
       case 1:
             // 开关
             yqj_condition = yqj_kaiguang0_1trigger(adc_value);
@@ -226,7 +227,8 @@ int core0_main(void)
             yqj_lock_ms = 140;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 2:
+      */
+        case 1:
             // 电源
             yqj_condition = yqj_dianyuan_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -234,10 +236,10 @@ int core0_main(void)
             yqj_right_speed_mps = 1.0f;
             yqj_delay_ms = 0;
             yqj_run_ms = 100;
-            yqj_lock_ms = 140;
+            yqj_lock_ms = 66;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 3:
+        case 2:
             // 右转
             yqj_condition = yqj_right_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -245,10 +247,10 @@ int core0_main(void)
             yqj_right_speed_mps = 0.0f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
-            yqj_lock_distance_m = 0.2f;
+            yqj_lock_ms = 150;
+            yqj_lock_distance_m = 0.4f;
             break;
-        case 4:
+        case 3:
                     // 右转
                     yqj_condition = yqj_right_turn_trigger(adc_value);
                     yqj_case_trigger = 1;
@@ -256,10 +258,10 @@ int core0_main(void)
                     yqj_right_speed_mps = 0.0f;
                     yqj_delay_ms = 0;
                     yqj_run_ms = 120;
-                    yqj_lock_ms = 33;
-                    yqj_lock_distance_m = 0.2f;
+                    yqj_lock_ms = 150;
+                    yqj_lock_distance_m = 0.4f;
                     break;
-        case 5:
+        case 4:
             // 电阻
             yqj_condition = yqj_dianzu_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -270,6 +272,17 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
+        case 5:
+            // 左转
+            yqj_condition = yqj_left_turn_trigger(adc_value);
+            yqj_case_trigger = 1;
+            yqj_left_speed_mps = 0.0f;
+            yqj_right_speed_mps = 3.5f;
+            yqj_delay_ms = 0;
+            yqj_run_ms = 120;
+            yqj_lock_ms = 150;
+            yqj_lock_distance_m = 0.4f;
+            break;
         case 6:
             // 左转
             yqj_condition = yqj_left_turn_trigger(adc_value);
@@ -278,21 +291,10 @@ int core0_main(void)
             yqj_right_speed_mps = 3.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
-            yqj_lock_distance_m = 0.2f;
+            yqj_lock_ms = 150;
+            yqj_lock_distance_m = 0.4f;
             break;
         case 7:
-            // 左转
-            yqj_condition = yqj_left_turn_trigger(adc_value);
-            yqj_case_trigger = 1;
-            yqj_left_speed_mps = 0.0f;
-            yqj_right_speed_mps = 3.5f;
-            yqj_delay_ms = 0;
-            yqj_run_ms = 120;
-            yqj_lock_ms = 33;
-            yqj_lock_distance_m = 0.2f;
-            break;
-        case 8:
             // 二级管
             yqj_condition = yqj_erjiguan_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -303,7 +305,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 9:
+        case 8:
             // 三极管
             yqj_condition = yqj_sanjiguan0_1trigger(adc_value);
             yqj_case_trigger = 1;
@@ -314,7 +316,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 10:
+        case 9:
             // 二级管
             yqj_condition = yqj_erjiguan_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -325,7 +327,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 11:
+        case 10:
             // 线圈电阻
             yqj_condition = yqj_xianquandianzu_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -336,7 +338,7 @@ int core0_main(void)
             yqj_lock_ms = 140;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 12:
+        case 11:
             // 右转
             yqj_condition = yqj_right_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -344,21 +346,21 @@ int core0_main(void)
             yqj_right_speed_mps = 0.0f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
-            yqj_lock_distance_m = 0.2f;
+            yqj_lock_ms = 150;
+            yqj_lock_distance_m = 0.4f;
             break;
-        case 13:
+        case 12:
                    // 左电感
                    yqj_condition = yqj_ldiangan_trigger(adc_value);
                    yqj_case_trigger = 1;
                    yqj_left_speed_mps = 1.0f;
                    yqj_right_speed_mps = 1.0f;
                    yqj_delay_ms = 0;
-                   yqj_run_ms = 100;
-                   yqj_lock_ms = 66;
-                   yqj_lock_distance_m = 0.2f;
+                   yqj_run_ms = 80;
+                   yqj_lock_ms = 120;
+                   yqj_lock_distance_m = 0.4f;
                    break;
-        case 14:
+        case 13:
             // 右转
             yqj_condition = yqj_right_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -366,10 +368,10 @@ int core0_main(void)
             yqj_right_speed_mps = 0.0f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
-            yqj_lock_distance_m = 0.2f;
+            yqj_lock_ms = 150;
+            yqj_lock_distance_m = 0.4f;
             break;
-        case 15:
+        case 14:
             // 三极管
             yqj_condition = yqj_sanjiguan0_1trigger(adc_value);
             yqj_case_trigger = 1;
@@ -380,7 +382,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 16:
+        case 15:
                     // 电阻
                     yqj_condition = yqj_dianzu_trigger(adc_value);
                     yqj_case_trigger = 1;
@@ -391,17 +393,18 @@ int core0_main(void)
                     yqj_lock_ms = 33;
                     yqj_lock_distance_m = 0.2f;
                     break;
-        case 17:
+        case 16:
                     // 右转
-                    yqj_condition = yqj_double_trigger(adc_value);
+                    yqj_condition = yqj_right_turn_trigger(adc_value);
                     yqj_case_trigger = 1;
                     yqj_left_speed_mps = 3.5f;
                     yqj_right_speed_mps = 0.0f;
                     yqj_delay_ms = 0;
                     yqj_run_ms = 120;
-                    yqj_lock_ms = 33;
-                    yqj_lock_distance_m = 0.2f;
+                    yqj_lock_ms = 150;
+                    yqj_lock_distance_m = 0.4f;
                     break;
+        /* kaiguang case disabled
         case 18:
                     // 开关
                     yqj_condition = yqj_kaiguang0_1trigger(adc_value);
@@ -413,7 +416,8 @@ int core0_main(void)
                     yqj_lock_ms = 140;
                     yqj_lock_distance_m = 0.5f;
                     break;
-        case 19:
+        */
+        case 17:
                     // 电源
                     yqj_condition = yqj_dianyuan_trigger(adc_value);
                     yqj_case_trigger = 1;
@@ -425,7 +429,7 @@ int core0_main(void)
                     yqj_lock_distance_m = 0.2f;
                     break;
 
-        case 20:
+        case 18:
             // 左转
             yqj_condition = yqj_double_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -433,10 +437,10 @@ int core0_main(void)
             yqj_right_speed_mps = 3.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
+            yqj_lock_ms = 100;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 21:
+        case 19:
             // 左转
             yqj_condition = yqj_left_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -444,8 +448,8 @@ int core0_main(void)
             yqj_right_speed_mps = 3.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
-            yqj_lock_distance_m = 0.2f;
+            yqj_lock_ms = 150;
+            yqj_lock_distance_m = 0.4f;
             break;
         /*case 22:
             // 开关
@@ -458,7 +462,7 @@ int core0_main(void)
                                 yqj_lock_ms = 140;
                                 yqj_lock_distance_m = 0.5f;
                                 break;*/
-        case 22:
+        case 20:
                             // 电阻
                             yqj_condition = yqj_dianzu_trigger(adc_value);
                             yqj_case_trigger = 1;
@@ -469,7 +473,7 @@ int core0_main(void)
                             yqj_lock_ms = 33;
                             yqj_lock_distance_m = 0.2f;
                             break;
-        case 23:
+        case 21:
             //二极管
             yqj_condition = yqj_erji_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -480,7 +484,7 @@ int core0_main(void)
             yqj_lock_ms = 140;
             yqj_lock_distance_m = 0.5f;
             break;
-        case 24:
+        case 22:
             // 电容
             yqj_condition = yqj_dianrong_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -491,7 +495,7 @@ int core0_main(void)
             yqj_lock_ms = 140;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 25:
+        case 23:
             // 左转
             yqj_condition = yqj_left_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -499,12 +503,12 @@ int core0_main(void)
             yqj_right_speed_mps = 3.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
+            yqj_lock_ms = 150;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 26:
+        case 24:
             // 电池
-            yqj_dianchi_trigger(adc_value);
+            yqj_condition = yqj_dianchi_trigger(adc_value);
             yqj_case_trigger = 1;
             yqj_left_speed_mps = 1.0f;
             yqj_right_speed_mps = 1.0f;
@@ -513,7 +517,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 27:
+        case 25:
             //电容
             yqj_condition = yqj_dianrong_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -524,7 +528,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 28:
+        case 26:
             // 电容
             yqj_condition = yqj_dianrong_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -535,7 +539,7 @@ int core0_main(void)
             yqj_lock_ms = 33;
             yqj_lock_distance_m = 0.2f;
             break;
-        case 29:
+        case 27:
             //左转
             yqj_condition = yqj_left_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -543,10 +547,10 @@ int core0_main(void)
             yqj_right_speed_mps = 3.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
+            yqj_lock_ms = 150;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 30:
+        case 28:
         
             //左转
             yqj_condition = yqj_left_turn_trigger(adc_value);
@@ -555,21 +559,21 @@ int core0_main(void)
             yqj_right_speed_mps = 3.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 33;
+            yqj_lock_ms = 150;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 31:
+        case 29:
             // 左电感
             yqj_condition = yqj_ldiangan_trigger(adc_value);
             yqj_case_trigger = 1;
             yqj_left_speed_mps = 1.0f;
             yqj_right_speed_mps = 1.0f;
             yqj_delay_ms = 0;
-            yqj_run_ms = 100;
-            yqj_lock_ms = 66;
+            yqj_run_ms = 120;
+            yqj_lock_ms =80;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 32:
+        case 30:
             //非门
             yqj_condition = yqj_feimen_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -578,9 +582,9 @@ int core0_main(void)
             yqj_delay_ms = 0;
             yqj_run_ms = 100;
             yqj_lock_ms = 66;
-            yqj_lock_distance_m = 0.4f;
+            yqj_lock_distance_m = 0.1f;
             break;
-        case 33:
+        case 31:
             //右转
             yqj_condition = yqj_right_turn_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -588,10 +592,10 @@ int core0_main(void)
             yqj_right_speed_mps = 0.0f;
             yqj_delay_ms = 0;
             yqj_run_ms = 120;
-            yqj_lock_ms = 66;
+            yqj_lock_ms = 150;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 34:
+        case 32:
                     // 电阻
                     yqj_condition = yqj_dianzu_trigger(adc_value);
                     yqj_case_trigger = 1;
@@ -602,7 +606,7 @@ int core0_main(void)
                     yqj_lock_ms = 33;
                     yqj_lock_distance_m = 0.2f;
                     break;
-        case 35:
+        case 33:
                     //不右转
                     yqj_condition = yqj_right_turn_trigger(adc_value);
                     yqj_case_trigger = 1;
@@ -610,9 +614,10 @@ int core0_main(void)
                     yqj_right_speed_mps = 1.0f;
                     yqj_delay_ms = 0;
                     yqj_run_ms = 50;
-                    yqj_lock_ms = 66;
+                    yqj_lock_ms = 150;
                     yqj_lock_distance_m = 0.4f;
                     break;
+        /* kaiguang case disabled
         case 36:
             // 开关
             yqj_condition = yqj_kaiguang1_0trigger(adc_value);
@@ -624,7 +629,8 @@ int core0_main(void)
             yqj_lock_ms = 66;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 37:
+        */
+        case 34:
             // 电源
             yqj_condition = yqj_dianyuan_trigger(adc_value);
             yqj_case_trigger = 1;
@@ -635,7 +641,7 @@ int core0_main(void)
             yqj_lock_ms = 66;
             yqj_lock_distance_m = 0.4f;
             break;
-        case 38:
+        case 35:
                     //右转
                     yqj_condition = yqj_right_turn_trigger(adc_value);
                     yqj_case_trigger = 1;
@@ -643,9 +649,10 @@ int core0_main(void)
                     yqj_right_speed_mps = 0.0f;
                     yqj_delay_ms = 0;
                     yqj_run_ms = 120;
-                    yqj_lock_ms = 66;
+                    yqj_lock_ms = 150;
                     yqj_lock_distance_m = 0.4f;
                     break;
+        /* kaiguang case disabled
         case 39:
                     // 开关
                     yqj_condition = yqj_kaiguang_trigger(adc_value);
@@ -657,7 +664,8 @@ int core0_main(void)
                     yqj_lock_ms = 66;
                     yqj_lock_distance_m = 0.4f;
                     break;
-                case 40:
+        */
+                case 36:
                     // 电源
                     yqj_condition = yqj_dianyuan_trigger(adc_value);
                     yqj_case_trigger = 1;
