@@ -6,7 +6,7 @@
 
 // ADC 小于该阈值时认为传感器压到白线。
 // 速度提高后需要更早触发转弯，因此阈值可以适当调高。
-#define YQJ_TURN_TRIGGER_ADC_VALUE      (800)
+#define YQJ_TURN_TRIGGER_ADC_VALUE      (500)
 
 
 
@@ -38,8 +38,10 @@ uint8 yqj_left_turn_trigger(const uint16 adc_value[]);
 uint8 yqj_right_turn_trigger(const uint16 adc_value[]);
 uint8 yqj_dianzu_trigger(const uint16 adc_value[]);
 uint8 yqj_dianyuan_trigger(const uint16 adc_value[]);
+uint8 yqj_xianquandianzu_trigger(const uint16 adc_value[]);
 uint8 yqj_kaiguang1_0trigger(const uint16 adc_value[]);
 uint8 yqj_kaiguang0_1trigger(const uint16 adc_value[]);
+uint8 yqj_kaiguang_trigger(const uint16 adc_value[]);
 uint8 yqj_erjiguan_trigger(const uint16 adc_value[]);
 uint8 yqj_sanjiguan1_2trigger(const uint16 adc_value[]);
 uint8 yqj_sanjiguan2_1trigger(const uint16 adc_value[]);

@@ -12,13 +12,16 @@
 
 // ADC 差值转换成左右轮目标编码器计数差的比例。
 // 当前 1m/s 对应 1080 count/20ms，转向修正不宜过小。
-#define XUNJI_LINE_TURN_KP              (0.01f)
+#define XUNJI_LINE_TURN_KP              (0.02f)
 
 // 左右轮目标计数的最大修正量，单位：count/20ms。
 #define XUNJI_LINE_TURN_LIMIT           (500.0f)
 
 // 防止某一侧目标速度过低导致电机不稳定。
 #define XUNJI_MIN_TARGET_COUNT          (200.0f)
+
+// 10 路 ADC 同时大于该阈值时停止电机。
+#define XUNJI_STOP_ADC_THRESHOLD        (1800)
 
 
 // ==================== 巡线结果 ====================

@@ -1,7 +1,7 @@
 #include "xunji.h"
 
 
-// ==================== 内部工具函数 ====================
+// ==================== ?????????? ====================
 
 static float xunji_limit_float(float value, float min, float max)
 {
@@ -20,38 +20,62 @@ static float xunji_limit_float(float value, float min, float max)
 }
 
 
-// ==================== 不加权巡线误差 ====================
+// ==================== ????????? ====================
 
 int32 xunji_get_line_error_simple(const uint16 adc_value[])
 {
-    int32 left_sum = 0;
-    int32 right_sum = 0;
+    float left_sum = 0.0f;
+    float right_sum = 0.0f;
 
-    // 左 5 路：A1 A2 A3 A4 A5
-    for(uint8 i = 0; i < 5; i++)
+    left_sum = (float)adc_value[0] * 4.0f +
+               (float)adc_value[1] * 3.0f +
+               (float)adc_value[2] * 2.0f +
+               (float)adc_value[3] * 1.0f +
+               (float)adc_value[4] * 0.5f;
+
+    right_sum = (float)adc_value[5] * 0.5f +
+                (float)adc_value[6] * 1.0f +
+                (float)adc_value[7] * 2.0f +
+                (float)adc_value[8] * 3.0f +
+                (float)adc_value[9] * 4.0f;
+
+    // ???? ADC С
+    // left_sum - right_sum > 0??????????????
+    // left_sum - right_sum < 0??????????????
+    return (int32)(left_sum - right_sum);
+}
+
+static uint8 xunji_all_adc_over_stop_threshold(const uint16 adc_value[])
+{
+    uint8 i;
+
+    for(i = 0; i < XUNJI_SENSOR_NUM; i++)
     {
-        left_sum += adc_value[i];
+        if(adc_value[i] <= XUNJI_STOP_ADC_THRESHOLD)
+        {
+            return 0;
+        }
     }
 
-    // 右 5 路：A6 A7 A8 A10 A11
-    for(uint8 i = 5; i < XUNJI_SENSOR_NUM; i++)
-    {
-        right_sum += adc_value[i];
-    }
-
-    // 白线 ADC 小
-    // left_sum - right_sum > 0：右边更白，线偏右
-    // left_sum - right_sum < 0：左边更白，线偏左
-    return left_sum - right_sum;
+    return 1;
 }
 
 
-// ==================== 巡线目标计算 ====================
+// ==================== ????????? ====================
 
 void xunji_update(const uint16 adc_value[],
                   float base_target_count,
                   xunji_result_struct *result)
 {
+    if(xunji_all_adc_over_stop_threshold(adc_value))
+    {
+        result->line_error = 0;
+        result->turn_count = 0;
+        result->left_target_count = 0;
+        result->right_target_count = 0;
+        return;
+    }
+
     result->line_error = xunji_get_line_error_simple(adc_value);
 
     if(result->line_error > -XUNJI_LINE_DEAD_ZONE && result->line_error < XUNJI_LINE_DEAD_ZONE)
@@ -71,8 +95,8 @@ void xunji_update(const uint16 adc_value[],
                                            -XUNJI_LINE_TURN_LIMIT,
                                            XUNJI_LINE_TURN_LIMIT);
 
-    // 线偏右：line_error > 0，左轮目标增大，右轮目标减小
-    // 线偏左：line_error < 0，左轮目标减小，右轮目标增大
+    // ??????line_error > 0?????????????????????С
+    // ?????line_error < 0??????????С?????????????
     result->left_target_count = base_target_count + result->turn_count;
     result->right_target_count = base_target_count - result->turn_count;
 
