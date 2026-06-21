@@ -4,8 +4,8 @@
 #include "zf_common_headfile.h"
 
 
-// ADC 小于这个值认为压到白线
-// 速度从 0.3 提到 1.0 m/s，需要更早触发转弯，提高阈值
+// ADC 小于该阈值时认为传感器压到白线。
+// 速度提高后需要更早触发转弯，因此阈值可以适当调高。
 #define YQJ_TURN_TRIGGER_ADC_VALUE      (800)
 
 
@@ -14,10 +14,10 @@
 
 typedef enum
 {
-    YQJ_STATE_LINE = 0,       // 正常巡线，同时只判断当前 flag 的条件
-    YQJ_STATE_DELAY,          // 条件触发后的延时，仍然正常巡线
-    YQJ_STATE_RUN,            // 正在执行当前 flag 对应动作
-    YQJ_STATE_LOCK            // 动作结束后的自锁，仍然正常巡线，但不判断新条件
+    YQJ_STATE_LINE = 0,       // 正常巡线，同时只判断当前 flag 对应的触发条件。
+    YQJ_STATE_DELAY,          // 条件触发后的延时阶段，仍然保持正常巡线。
+    YQJ_STATE_RUN,            // 正在执行当前 flag 对应的动作。
+    YQJ_STATE_LOCK            // 动作结束后的自锁阶段，继续巡线但不判断新条件。
 } yqj_state_enum;
 
 

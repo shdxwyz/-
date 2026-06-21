@@ -7,17 +7,17 @@
 
 #define XUNJI_SENSOR_NUM                (10)
 
-// 左右 ADC 总和差值在 ±300 内，认为不用修正
-#define XUNJI_LINE_DEAD_ZONE            (300)
+// 左右 ADC 总和差值在正负 500 以内时认为居中，不做修正。
+#define XUNJI_LINE_DEAD_ZONE            (500)
 
-// 差值转成目标速度差
-// 编码器 54000，基础目标 2160，转向强度需要加大
-#define XUNJI_LINE_TURN_KP              (0.5f)
+// ADC 差值转换成左右轮目标编码器计数差的比例。
+// 当前 1m/s 对应 1080 count/20ms，转向修正不宜过小。
+#define XUNJI_LINE_TURN_KP              (0.02f)
 
-// 最大左右目标差，单位：20ms 编码器计数
+// 左右轮目标计数的最大修正量，单位：count/20ms。
 #define XUNJI_LINE_TURN_LIMIT           (500.0f)
 
-// 防止某一边目标速度太低
+// 防止某一侧目标速度过低导致电机不稳定。
 #define XUNJI_MIN_TARGET_COUNT          (200.0f)
 
 
