@@ -5,11 +5,11 @@
 
 // ==================== DRV8701 actual pin map ====================
 
-// ×óµç»ú
+// ï¿½ï¿½ï¿½ï¿½
 #define LEFT_IN         P21_4
 #define LEFT_PWM        ATOM0_CH7_P20_8
 
-// ÓÒµç»ú
+// ï¿½Òµï¿½ï¿½
 #define RIGHT_IN        P21_5
 #define RIGHT_PWM       ATOM1_CH5_P20_9
 

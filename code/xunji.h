@@ -12,7 +12,7 @@
 
 // ADC 差值转换成左右轮目标编码器计数差的比例。
 // 当前 1m/s 对应 1080 count/20ms，转向修正不宜过小。
-#define XUNJI_LINE_TURN_KP              (0.02f)
+#define XUNJI_LINE_TURN_KP              (0.01f)
 
 // 左右轮目标计数的最大修正量，单位：count/20ms。
 #define XUNJI_LINE_TURN_LIMIT           (500.0f)

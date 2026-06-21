@@ -99,6 +99,9 @@ volatile float right_target_count = BASE_TARGET_COUNT;
 volatile float left_base_pwm = 0;
 volatile float right_base_pwm = 0;
 
+volatile uint8 left_speed_decel_flag = 0;
+volatile uint8 right_speed_decel_flag = 0;
+
 PidTypeDef left_speed_pid;
 PidTypeDef right_speed_pid;
 
@@ -110,6 +113,10 @@ void adc_all_read(void);
 int16 limit_int16(int16 value, int16 min, int16 max);
 float ramp_target_count(float current, float target);
 int16 ramp_pwm_int16(int16 current, int16 target, int16 step);
+void set_speed_change_flags(float next_left_target,
+                            float next_right_target,
+                            float current_left_target,
+                            float current_right_target);
 
 // ==================== 主函数 ====================
 
@@ -121,12 +128,16 @@ int core0_main(void)
     int16 right_pwm = 0;
     int16 target_left_pwm = 0;
     int16 target_right_pwm = 0;
+    int16 left_pwm_min = 0;
+    int16 right_pwm_min = 0;
 
     uint32 print_count = 0;
     float final_left_target = BASE_TARGET_COUNT;
     float final_right_target = BASE_TARGET_COUNT;
     float ramped_left_target = 0.0f;
     float ramped_right_target = 0.0f;
+    float action_left_target = BASE_TARGET_COUNT;
+    float action_right_target = BASE_TARGET_COUNT;
     int16 startup_left_pwm = 0;
     int16 startup_right_pwm = 0;
     uint8 startup_ramp_done = 0;
@@ -917,6 +928,16 @@ int core0_main(void)
         {
             if (yqj_time_reached(yqj_state_start_time, yqj_delay_ms))
             {
+                if (yqj_get_action_trigger())
+                {
+                    action_left_target = yqj_left_speed_mps * PID_PERIOD_S * ENCODER_COUNT_PER_METER;
+                    action_right_target = yqj_right_speed_mps * PID_PERIOD_S * ENCODER_COUNT_PER_METER;
+                    set_speed_change_flags(action_left_target,
+                                           action_right_target,
+                                           final_left_target,
+                                           final_right_target);
+                }
+
                 yqj_state = YQJ_STATE_RUN;
                 yqj_state_start_time = system_getval();
             }
@@ -925,6 +946,14 @@ int core0_main(void)
         {
             if (yqj_time_reached(yqj_state_start_time, yqj_run_ms))
             {
+                if (yqj_get_action_trigger())
+                {
+                    set_speed_change_flags(final_left_target,
+                                           final_right_target,
+                                           left_target_count,
+                                           right_target_count);
+                }
+
                 yqj_start_lock(left_encoder_total + right_encoder_total);
             }
         }
@@ -934,6 +963,8 @@ int core0_main(void)
                               yqj_lock_ms,
                               yqj_lock_distance_m))
             {
+                left_speed_decel_flag = 0;
+                right_speed_decel_flag = 0;
                 yqj_finish_case();
             }
         }
@@ -972,13 +1003,22 @@ int core0_main(void)
             right_target_count = final_right_target;
         }
 
+        if (!startup_ramp_done)
+        {
+            left_speed_decel_flag = 0;
+            right_speed_decel_flag = 0;
+        }
+
+        left_pwm_min = left_speed_decel_flag ? -PWM_DUTY_MAX : 0;
+        right_pwm_min = right_speed_decel_flag ? -PWM_DUTY_MAX : 0;
+
         // ==================== 输出电机 ====================
         // PID 在 20ms 中断里根据左右目标计数输出 PWM
 
         if (!startup_ramp_done)
         {
-            target_left_pwm = limit_int16((int16)left_base_pwm, 0, PWM_DUTY_MAX);
-            target_right_pwm = limit_int16((int16)right_base_pwm, 0, PWM_DUTY_MAX);
+            target_left_pwm = limit_int16((int16)left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
+            target_right_pwm = limit_int16((int16)right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
 
             startup_left_pwm = ramp_pwm_int16(startup_left_pwm, target_left_pwm, STARTUP_PWM_STEP);
             startup_right_pwm = ramp_pwm_int16(startup_right_pwm, target_right_pwm, STARTUP_PWM_STEP);
@@ -995,8 +1035,8 @@ int core0_main(void)
         }
         else
         {
-            left_pwm = limit_int16((int16)left_base_pwm, -PWM_DUTY_MAX, PWM_DUTY_MAX);
-            right_pwm = limit_int16((int16)right_base_pwm, -PWM_DUTY_MAX, PWM_DUTY_MAX);
+            left_pwm = limit_int16((int16)left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
+            right_pwm = limit_int16((int16)right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
         }
 
         motor_control(left_pwm, right_pwm);
@@ -1176,6 +1216,15 @@ int16 ramp_pwm_int16(int16 current, int16 target, int16 step)
     }
 
     return current;
+}
+
+void set_speed_change_flags(float next_left_target,
+                            float next_right_target,
+                            float current_left_target,
+                            float current_right_target)
+{
+    left_speed_decel_flag = (next_left_target < current_left_target) ? 1 : 0;
+    right_speed_decel_flag = (next_right_target < current_right_target) ? 1 : 0;
 }
 
 #pragma section all restore
