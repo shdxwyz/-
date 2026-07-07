@@ -28,7 +28,7 @@
 #define ENCODER_COUNT_PER_METER (54000.0f)
 
 // 目标基础速度 1.0 m/s
-#define TARGET_SPEED_MPS (1.0f)
+#define TARGET_SPEED_MPS (3.0f)
 
 // PID 周期 20ms
 #define PID_PERIOD_MS (20)
@@ -49,24 +49,22 @@
 // 前馈系数：PWM = FEEDFORWARD_GAIN * target_speed
 #define FEEDFORWARD_GAIN (500.0f)
 
-// Startup soft-start parameters.
+// 主循环周期
 #define MAIN_LOOP_PERIOD_MS (2)
-#define TARGET_RAMP_ACCEL_MPS2 (2.0f)
-#define TARGET_RAMP_STEP_COUNT (TARGET_RAMP_ACCEL_MPS2 * ((float)MAIN_LOOP_PERIOD_MS / 1000.0f) * PID_PERIOD_S * ENCODER_COUNT_PER_METER)
-#define TARGET_START_EPS_COUNT (1.0f)
-#define STARTUP_PWM_STEP (10)
 
 // ==================== 巡线参数 ====================
 
-#define SENSOR_NUM (XUNJI_SENSOR_NUM)
+#define SENSOR_NUM (XUNJI_SENSOR_TOTAL)
 
 // ==================== ADC 变量 ====================
 
-// 从左到右：A1 A2 A3 A4 A5 A6 A7 A8 A10 A11
+// 从左到右：A0 A1 A2 A3 A4 A5 A6 A7 A8 A10 A11 A12 A13 A16 A17
+// A0 A1 和 A16 A17 不用于巡线，用于转弯操作
 uint16 adc_value[SENSOR_NUM];
 
 adc_channel_enum adc_list[SENSOR_NUM] =
     {
+        ADC0_CH0_A0,
         ADC0_CH1_A1,
         ADC0_CH2_A2,
         ADC0_CH3_A3,
@@ -76,7 +74,11 @@ adc_channel_enum adc_list[SENSOR_NUM] =
         ADC0_CH7_A7,
         ADC0_CH8_A8,
         ADC0_CH10_A10,
-        ADC0_CH11_A11};
+        ADC0_CH11_A11,
+        ADC0_CH12_A12,
+        ADC0_CH13_A13,
+        ADC1_CH0_A16,
+        ADC1_CH1_A17};
 
 // ==================== 编码器与 PID 变量 ====================
 
@@ -111,8 +113,6 @@ void adc_all_init(void);
 void adc_all_read(void);
 
 int16 limit_int16(int16 value, int16 min, int16 max);
-float ramp_target_count(float current, float target);
-int16 ramp_pwm_int16(int16 current, int16 target, int16 step);
 void set_speed_change_flags(float next_left_target,
                             float next_right_target,
                             float current_left_target,
@@ -126,22 +126,14 @@ int core0_main(void)
 
     int16 left_pwm = 0;
     int16 right_pwm = 0;
-    int16 target_left_pwm = 0;
-    int16 target_right_pwm = 0;
     int16 left_pwm_min = 0;
     int16 right_pwm_min = 0;
 
     uint32 print_count = 0;
     float final_left_target = BASE_TARGET_COUNT;
     float final_right_target = BASE_TARGET_COUNT;
-    float ramped_left_target = 0.0f;
-    float ramped_right_target = 0.0f;
     float action_left_target = BASE_TARGET_COUNT;
     float action_right_target = BASE_TARGET_COUNT;
-    int16 startup_left_pwm = 0;
-    int16 startup_right_pwm = 0;
-    uint8 startup_ramp_done = 0;
-    uint8 target_ramp_reached = 0;
 
     uint8 yqj_condition = 0;
     uint8 yqj_case_trigger = 0;
@@ -192,12 +184,13 @@ int core0_main(void)
     pit_ms_init(PIT0, PID_PERIOD_MS);
     while (TRUE)
     {
-        // ==================== 读取 10 路 ADC ====================
+        // ==================== 读取 15 路 ADC ====================
 
         adc_all_read();
         // ==================== 巡线层 ====================
         // xunji 只根据 ADC 计算普通巡线目标，不处理特殊动作命令。
-        xunji_update(adc_value, BASE_TARGET_COUNT, &line_result);
+        // 传入 &adc_value[XUNJI_LINE_START_IDX] 跳过 A0,A1，只使用巡线用的 11 路
+        xunji_update(&adc_value[XUNJI_LINE_START_IDX], BASE_TARGET_COUNT, &line_result);
 
         // ==================== 元器件顺序层 ====================
         // 总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
@@ -746,66 +739,15 @@ int core0_main(void)
             yqj_apply_action(yqj_left_speed_mps, yqj_right_speed_mps, &final_left_target, &final_right_target);
         }
 
-        target_ramp_reached = 1;
-        if (!startup_ramp_done)
-        {
-            target_ramp_reached = 0;
-            ramped_left_target = ramp_target_count(ramped_left_target, final_left_target);
-            ramped_right_target = ramp_target_count(ramped_right_target, final_right_target);
-
-            left_target_count = ramped_left_target;
-            right_target_count = ramped_right_target;
-
-            if (ramped_left_target == final_left_target &&
-                ramped_right_target == final_right_target)
-            {
-                target_ramp_reached = 1;
-            }
-        }
-        else
-        {
-            ramped_left_target = final_left_target;
-            ramped_right_target = final_right_target;
-
-            left_target_count = final_left_target;
-            right_target_count = final_right_target;
-        }
-
-        if (!startup_ramp_done)
-        {
-            left_speed_decel_flag = 0;
-            right_speed_decel_flag = 0;
-        }
+        // ==================== 直接使用巡线结果，不做软启动 ====================
+        left_target_count = final_left_target;
+        right_target_count = final_right_target;
 
         left_pwm_min = left_speed_decel_flag ? -PWM_DUTY_MAX : 0;
         right_pwm_min = right_speed_decel_flag ? -PWM_DUTY_MAX : 0;
 
-        // ==================== 输出电机 ====================
-        // PID 在 20ms 中断里根据左右目标计数输出 PWM
-
-        if (!startup_ramp_done)
-        {
-            target_left_pwm = limit_int16((int16)left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
-            target_right_pwm = limit_int16((int16)right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
-
-            startup_left_pwm = ramp_pwm_int16(startup_left_pwm, target_left_pwm, STARTUP_PWM_STEP);
-            startup_right_pwm = ramp_pwm_int16(startup_right_pwm, target_right_pwm, STARTUP_PWM_STEP);
-
-            left_pwm = startup_left_pwm;
-            right_pwm = startup_right_pwm;
-
-            if (target_ramp_reached &&
-                startup_left_pwm == target_left_pwm &&
-                startup_right_pwm == target_right_pwm)
-            {
-                startup_ramp_done = 1;
-            }
-        }
-        else
-        {
-            left_pwm = limit_int16((int16)left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
-            right_pwm = limit_int16((int16)right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
-        }
+        left_pwm = limit_int16((int16)left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
+        right_pwm = limit_int16((int16)right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
 
         motor_control(left_pwm, right_pwm);
 
@@ -887,18 +829,6 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     encoder_clear_count(LEFT_ENCODER);
     encoder_clear_count(RIGHT_ENCODER);
 
-    // ==================== 保留：如需只看速度大小，可在这里取绝对值 ====================
-
-    /*if(left_encoder_count < 0)
-    {
-        left_encoder_count = -left_encoder_count;
-    }
-
-    if(right_encoder_count < 0)
-    {
-        right_encoder_count = -right_encoder_count;
-    }*/
-
     // ==================== 软件累计总路程 ====================
 
     left_encoder_total += left_encoder_count;
@@ -928,26 +858,6 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 
 // ==================== 限幅函数 ====================
 
-float ramp_target_count(float current, float target)
-{
-    if (target <= TARGET_START_EPS_COUNT)
-    {
-        return 0.0f;
-    }
-
-    if (current < target)
-    {
-        current += TARGET_RAMP_STEP_COUNT;
-        if (current > target)
-        {
-            current = target;
-        }
-        return current;
-    }
-
-    return target;
-}
-
 int16 limit_int16(int16 value, int16 min, int16 max)
 {
     if (value > max)
@@ -962,28 +872,6 @@ int16 limit_int16(int16 value, int16 min, int16 max)
     {
         return value;
     }
-}
-
-int16 ramp_pwm_int16(int16 current, int16 target, int16 step)
-{
-    if (current < target)
-    {
-        current += step;
-        if (current > target)
-        {
-            current = target;
-        }
-    }
-    else if (current > target)
-    {
-        current -= step;
-        if (current < target)
-        {
-            current = target;
-        }
-    }
-
-    return current;
 }
 
 void set_speed_change_flags(float next_left_target,

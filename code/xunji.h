@@ -5,22 +5,28 @@
 
 // ==================== 巡线参数 ====================
 
-#define XUNJI_SENSOR_NUM                (10)
+// 总传感器数量（A0~A8, A10~A13, A16, A17）
+#define XUNJI_SENSOR_TOTAL             (15)
+
+// 巡线用的传感器数量（A2~A8, A10~A13，跳过两边的 A0,A1 和 A16,A17）
+#define XUNJI_SENSOR_NUM               (11)
+
+// 巡线传感器在 adc_value 数组中的起始索引（跳过 A0, A1）
+#define XUNJI_LINE_START_IDX           (2)
 
 // 左右 ADC 总和差值在正负 500 以内时认为居中，不做修正。
 #define XUNJI_LINE_DEAD_ZONE            (500)
 
 // ADC 差值转换成左右轮目标编码器计数差的比例。
-// 当前 1m/s 对应 1080 count/20ms，转向修正不宜过小。
-#define XUNJI_LINE_TURN_KP              (0.02f)
+#define XUNJI_LINE_TURN_KP              (0.05f)
 
 // 左右轮目标计数的最大修正量，单位：count/20ms。
-#define XUNJI_LINE_TURN_LIMIT           (500.0f)
+#define XUNJI_LINE_TURN_LIMIT           (800.0f)
 
 // 防止某一侧目标速度过低导致电机不稳定。
 #define XUNJI_MIN_TARGET_COUNT          (200.0f)
 
-// 10 路 ADC 同时大于该阈值时停止电机。
+// 所有巡线 ADC 同时大于该阈值时停止电机。
 #define XUNJI_STOP_ADC_THRESHOLD        (1800)
 
 
