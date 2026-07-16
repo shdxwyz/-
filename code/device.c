@@ -1,5 +1,7 @@
 #include "device.h"
 
+// 一旦触发只能通过重新上电清除，防止控制程序反复重启电机。
+static volatile uint8 motor_emergency_latched = 0;
 
 static int16 motor_limit(int16 pwm)
 {
@@ -20,6 +22,7 @@ static int16 motor_limit(int16 pwm)
 
 void motor_init(void)
 {
+    motor_emergency_latched = 0;
     gpio_init(LEFT_IN,  GPO, GPIO_LOW, GPO_PUSH_PULL);
     gpio_init(RIGHT_IN, GPO, GPIO_LOW, GPO_PUSH_PULL);
 
@@ -31,6 +34,11 @@ void motor_init(void)
 void motor_set_left(int16 pwm)
 {
     int16 duty = 0;
+
+    if(motor_emergency_latched)
+    {
+        pwm = 0;
+    }
 
     pwm = motor_limit(pwm);
 
@@ -60,6 +68,11 @@ void motor_set_right(int16 pwm)
 {
     int16 duty = 0;
 
+    if(motor_emergency_latched)
+    {
+        pwm = 0;
+    }
+
     pwm = motor_limit(pwm);
 
     if(pwm > 0)
@@ -86,8 +99,12 @@ void motor_set_right(int16 pwm)
 
 void motor_control(int16 left_pwm, int16 right_pwm)
 {
+    // 两路输出作为一个整体更新，避免超速中断在两次写入之间触发后，
+    // 主循环又用中断前的旧命令短暂重启其中一路电机。
+    interrupt_global_disable();
     motor_set_left(left_pwm);
     motor_set_right(right_pwm);
+    interrupt_global_enable(0);
 }
 
 
@@ -95,5 +112,20 @@ void motor_stop(void)
 {
     motor_set_left(0);
     motor_set_right(0);
+}
+
+
+void motor_emergency_stop(void)
+{
+    // 先锁存，再关闭两侧输出；之后任何非零输出命令都会被拒绝。
+    motor_emergency_latched = 1;
+    motor_set_left(0);
+    motor_set_right(0);
+}
+
+
+uint8 motor_emergency_is_latched(void)
+{
+    return motor_emergency_latched;
 }
 

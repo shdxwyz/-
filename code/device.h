@@ -22,5 +22,7 @@ void motor_set_right(int16 pwm);
 
 void motor_control(int16 left_pwm, int16 right_pwm);
 void motor_stop(void);
+void motor_emergency_stop(void);
+uint8 motor_emergency_is_latched(void);
 
 #endif

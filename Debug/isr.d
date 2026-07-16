@@ -326,3 +326,13 @@ isr.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_components\seekf
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_components\seekfree_assistant.h" :
 isr.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_components\seekfree_assistant_interface.h"
 "C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_components\seekfree_assistant_interface.h" :
+isr.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_device\zf_device_imu660rc.h"
+"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_device\zf_device_imu660rc.h" :
+isr.o :	..\code\yqj.h
+..\code\yqj.h :
+isr.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
+"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
+isr.o :	..\code\pid.h
+..\code\pid.h :
+isr.o :	"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
+"C:\\Users\\Lenovo\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
