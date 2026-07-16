@@ -29,14 +29,14 @@
 #define ENCODER_COUNT_PER_METER (54000.0f)
 
 // 目标基础速度 1.0 m/s
-#define TARGET_SPEED_MPS (1.0f)
+#define TARGET_SPEED_MPS (1.5f)
 
 // PID 周期 20ms
 #define PID_PERIOD_MS (20)
 #define PID_PERIOD_S (0.02f)
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
-#define MOTOR_MAX_SAFE_SPEED_MPS (3.0f)
+#define MOTOR_MAX_SAFE_SPEED_MPS (5.0f)
 #define MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 
@@ -48,7 +48,7 @@
 #define SPEED_PID_MAX_IOUT (2000.0f)
 
 // 速度 PID 参数
-#define SPEED_KP (2.5f)
+#define SPEED_KP (2.8f)
 #define SPEED_KI (0.02f)
 #define SPEED_KD (0.0f)
 
@@ -181,7 +181,7 @@ int core0_main(void)
 
     cpu_wait_event_ready();
 
-    pwm_init(ATOM0_CH6_P02_6, 100, 1500);
+    pwm_init(ATOM0_CH6_P02_6, 100, 1600);
     system_delay_ms(2000);
 
     // IMU660RC 初始化（120Hz 四元数输出）
@@ -243,7 +243,7 @@ int core0_main(void)
             break;*/
             yqj_condition = yqj_left_turn_trigger(adc_value);
             yqj_case_trigger = 1;
-            yqj_turn_base_speed = 1.0f;
+            yqj_turn_base_speed = 1.5f;
             yqj_delay_ms = 0;
             yqj_run_ms = 0;
             yqj_lock_ms = 0;
@@ -830,7 +830,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 
     // ==================== 电机超速保护 ====================
     // 使用编码器实测速度而不是目标速度；正转、反转均按绝对值判断。
-    // 20ms 内任一编码器计数超过 3m/s 对应阈值，立即锁存并关闭两侧电机。
+    // 20ms 内任一编码器计数超过 5m/s 对应阈值，立即锁存并关闭两侧电机。
     if(((float)left_encoder_count > MOTOR_MAX_SAFE_COUNT) ||
        ((float)left_encoder_count < -MOTOR_MAX_SAFE_COUNT) ||
        ((float)right_encoder_count > MOTOR_MAX_SAFE_COUNT) ||

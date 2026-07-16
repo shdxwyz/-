@@ -12,7 +12,7 @@
 // ==================== 陀螺仪转弯参数 ====================
 
 // 直角转弯目标角度（度）
-#define YQJ_TURN_TARGET_ANGLE          (90.0f)
+#define YQJ_TURN_TARGET_ANGLE          (85.0f)
 
 // 转弯完成允许的角度误差（度），防止过冲
 #define YQJ_TURN_ANGLE_TOLERANCE       (5.0f)
@@ -30,7 +30,7 @@
 #define ANGLE_PID_MAX_IOUT             (1.0f)
 
 // 角度环 PID 参数（角度误差 → 速度差）
-#define ANGLE_KP                       (0.01f)
+#define ANGLE_KP                       (0.018f)
 #define ANGLE_KI                       (0.00f)
 #define ANGLE_KD                       (0.00f)
 

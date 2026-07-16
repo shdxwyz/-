@@ -33,17 +33,17 @@ int32 xunji_get_line_error_simple(const uint16 adc_value[])
     // 右侧：idx 6~10，权重从边缘向中心递减 1,2,3,4,5
     // A7（idx 5）是中心，不参与左右加权计算
 
-    left_sum = (float)adc_value[0] * 2.0f +
-               (float)adc_value[1] * 2.0f +
-               (float)adc_value[2] * 1.0f +
+    left_sum = (float)adc_value[0] * 3.0f +
+               (float)adc_value[1] * 3.0f +
+               (float)adc_value[2] * 2.0f +
                (float)adc_value[3] * 1.0f +
                (float)adc_value[4] * 1.0f;
 
     right_sum = (float)adc_value[6] * 1.0f +
                 (float)adc_value[7] * 1.0f +
-                (float)adc_value[8] * 1.0f +
-                (float)adc_value[9] * 2.0f +
-                (float)adc_value[10] * 2.0f;
+                (float)adc_value[8] * 2.0f +
+                (float)adc_value[9] * 3.0f +
+                (float)adc_value[10] * 3.0f;
 
     // left_sum - right_sum > 0：黑线偏左，需要右转
     // left_sum - right_sum < 0：黑线偏右，需要左转
