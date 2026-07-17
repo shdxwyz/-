@@ -374,7 +374,7 @@ uint8 yqj_turn_target_reached(void)
 }
 
 // 根据当前 case 给出的转弯基础速度，用角度环闭环控制转弯。
-// turn_base_speed：转弯基础速度（m/s），正数=左转，负数=右转
+// turn_base_speed：符号表示方向（正=左、负=右），绝对值表示向前基础速度
 // left_target_count/right_target_count：输出左右轮目标编码器计数
 void yqj_apply_action(float turn_base_speed,
                       float *left_target_count,
@@ -382,6 +382,9 @@ void yqj_apply_action(float turn_base_speed,
 {
     if (yqj_action_trigger)
     {
+        float forward_base_speed = (turn_base_speed >= 0.0f) ?
+                                   turn_base_speed : -turn_base_speed;
+
         // 第一次进入转弯：根据 turn_base_speed 判断方向
         // 正速度 = 左转（右轮快左轮慢），负速度 = 右转（左轮快右轮慢）
         if (yqj_turn_direction == 0)
@@ -396,8 +399,8 @@ void yqj_apply_action(float turn_base_speed,
 
         // 左转：speed_diff 为负 → 左轮减速、右轮加速
         // 右转：speed_diff 为正 → 左轮加速、右轮减速
-        float final_left_speed = turn_base_speed + speed_diff;
-        float final_right_speed = turn_base_speed - speed_diff;
+        float final_left_speed = forward_base_speed + speed_diff;
+        float final_right_speed = forward_base_speed - speed_diff;
 
         // 限幅到正负 3.5 m/s
         if (final_left_speed > 3.5f) final_left_speed = 3.5f;
