@@ -15,13 +15,30 @@
 #define YQJ_TURN_TARGET_ANGLE          (90.0f)
 
 // 转弯完成允许的角度误差（度），防止过冲
-#define YQJ_TURN_ANGLE_TOLERANCE       (4.0f)
+#define YQJ_TURN_ANGLE_TOLERANCE       (8.0f)
 
 // 转弯完成时角速度阈值（°/s），角速度低于此值且角度在目标范围内才算稳定完成
 #define YQJ_TURN_GYRO_STABLE_THRESHOLD  (1500.0f)//未用
 
 // yaw 异常或车辆堵转时的转向超时保护（ms）
 #define YQJ_TURN_TIMEOUT_MS             (2000u)
+
+// ==================== 角速度滤波参数 ====================
+
+// 一阶低通滤波系数：越小越平滑，但转弯角度响应越慢（建议 0.15~0.40）
+#define YQJ_GYRO_FILTER_ALPHA            (0.40f)
+
+// 单次采样允许的最大角速度，超过部分按干扰尖峰处理（°/s）
+#define YQJ_GYRO_MAX_RATE_DPS            (1000.0f)
+
+// 静止噪声死区，低于该值时按 0°/s 处理
+#define YQJ_GYRO_DEADBAND_DPS            (10.0f)
+
+// 连续掉零时允许保持上一次角速度的采样数；120Hz 下 1 次约为 8.3ms
+#define YQJ_GYRO_DROPOUT_HOLD_SAMPLES    (1u)
+
+// 允许按真实间隔补偿的最大时间；120Hz 下 0.025s 约为 3 个采样周期
+#define YQJ_GYRO_MAX_DT_S                 (0.025f)
 
 // ==================== 角度环 PID 参数 ====================
 
@@ -56,7 +73,8 @@ extern int32 yqj_lock_start_count;
 
 // 角度环相关变量
 extern volatile float yqj_integrated_angle; // 三轴角速度模长积分得到的相对转角（度）
-extern volatile float yqj_gyro_rate_dps;    // 三轴角速度合成值（度/秒）
+extern volatile float yqj_gyro_raw_rate_dps;// 未滤波的原始三轴角速度合成值（度/秒）
+extern volatile float yqj_gyro_rate_dps;    // 滤波后的三轴角速度合成值（度/秒）
 extern PidTypeDef yqj_angle_pid;         // 角度环 PID
 extern float yqj_angle_pid_output;       // 角度环 PID 输出（速度差，m/s）
 

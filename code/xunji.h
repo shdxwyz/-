@@ -27,7 +27,7 @@
 #define XUNJI_MIN_TARGET_COUNT          (200.0f)
 
 // 所有巡线 ADC 同时大于该阈值时停止电机。
-#define XUNJI_STOP_ADC_THRESHOLD        (18000)
+#define XUNJI_STOP_ADC_THRESHOLD        (8000)
 
 
 // ==================== 巡线结果 ====================

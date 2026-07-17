@@ -15,9 +15,19 @@ static float yqj_encoder_count_per_meter = 12106.0f;
 
 // 角度环相关变量
 volatile float yqj_integrated_angle = 0.0f; // 三轴角速度模长积分得到的相对转角（度）
-volatile float yqj_gyro_rate_dps = 0.0f;    // 三轴角速度合成值（度/秒）
+volatile float yqj_gyro_raw_rate_dps = 0.0f;// 未滤波的原始三轴角速度合成值（度/秒）
+volatile float yqj_gyro_rate_dps = 0.0f;    // 滤波后的三轴角速度合成值（度/秒）
 PidTypeDef yqj_angle_pid;                // 角度环 PID
 float yqj_angle_pid_output = 0.0f;       // 角度环 PID 输出（速度差，m/s）
+
+// 角速度滤波状态，只在 IMU 数据就绪中断内更新。
+static float yqj_gyro_samples[3] = {0.0f, 0.0f, 0.0f};
+static uint8 yqj_gyro_sample_index = 0;
+static uint8 yqj_gyro_sample_count = 0;
+static uint8 yqj_gyro_dropout_count = 0;
+static uint32 yqj_gyro_last_time = 0;
+// 主循环只置位，具体清零在下一次 IMU 中断完成，避免主循环与中断同时修改滤波状态。
+static volatile uint8 yqj_gyro_filter_reset = 1;
 
 // 转弯方向：1=左转，2=右转
 static uint8 yqj_turn_direction = 0;
@@ -56,8 +66,8 @@ uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
     return (adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[10] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
@@ -227,6 +237,7 @@ void yqj_angle_pid_init(void)
 // 重置角度环 PID 和积分角度
 void yqj_angle_pid_reset(void)
 {
+    yqj_gyro_filter_reset = 1;
     PID_clear(&yqj_angle_pid);
     yqj_integrated_angle = 0.0f;
     yqj_angle_pid_output = 0.0f;
@@ -239,17 +250,123 @@ float yqj_angle_pid_calc(float target_angle, float current_angle)
     return yqj_angle_pid_output;
 }
 
+// 三点中值：剔除一个孤立的过大尖峰或掉零点。
+static float yqj_median3(float a, float b, float c)
+{
+    float temp;
+
+    if (a > b)
+    {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+    if (b > c)
+    {
+        temp = b;
+        b = c;
+        c = temp;
+    }
+    if (a > b)
+    {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+
+    return b;
+}
+
 // 在 120Hz IMU 数据就绪中断中调用，每个原始角速度样本只积分一次。
+// 处理顺序：角速度限幅 -> 三点中值 -> 短时掉零保持 -> 一阶低通 -> 积分。
 // 平面转弯只关心角速度大小；使用三轴向量模长可避免模块安装方向选错轴。
 void yqj_integrate_gyro(float gyro_x_dps,
                         float gyro_y_dps,
                         float gyro_z_dps,
                         float dt_s)
 {
-    yqj_gyro_rate_dps = sqrtf(gyro_x_dps * gyro_x_dps +
-                              gyro_y_dps * gyro_y_dps +
-                              gyro_z_dps * gyro_z_dps);
-    yqj_integrated_angle += yqj_gyro_rate_dps * dt_s;
+    float raw_rate;
+    float filter_input;
+    float actual_dt_s;
+    uint32 now;
+
+    now = system_getval();
+
+    if (yqj_gyro_filter_reset)
+    {
+        yqj_gyro_samples[0] = 0.0f;
+        yqj_gyro_samples[1] = 0.0f;
+        yqj_gyro_samples[2] = 0.0f;
+        yqj_gyro_sample_index = 0;
+        yqj_gyro_sample_count = 0;
+        yqj_gyro_dropout_count = 0;
+        yqj_gyro_raw_rate_dps = 0.0f;
+        yqj_gyro_rate_dps = 0.0f;
+        yqj_gyro_last_time = now;
+        yqj_gyro_filter_reset = 0;
+    }
+
+    raw_rate = sqrtf(gyro_x_dps * gyro_x_dps +
+                     gyro_y_dps * gyro_y_dps +
+                     gyro_z_dps * gyro_z_dps);
+    yqj_gyro_raw_rate_dps = raw_rate;
+    if (raw_rate > YQJ_GYRO_MAX_RATE_DPS)
+    {
+        raw_rate = YQJ_GYRO_MAX_RATE_DPS;
+    }
+
+    yqj_gyro_samples[yqj_gyro_sample_index] = raw_rate;
+    yqj_gyro_sample_index = (uint8)((yqj_gyro_sample_index + 1u) % 3u);
+    if (yqj_gyro_sample_count < 3u)
+    {
+        yqj_gyro_sample_count++;
+    }
+    if (yqj_gyro_sample_count < 3u)
+    {
+        filter_input = raw_rate;
+    }
+    else
+    {
+        filter_input = yqj_median3(yqj_gyro_samples[0],
+                                   yqj_gyro_samples[1],
+                                   yqj_gyro_samples[2]);
+    }
+
+    if (filter_input < YQJ_GYRO_DEADBAND_DPS)
+    {
+        filter_input = 0.0f;
+    }
+
+    // 只保持极短的掉零，持续异常时立即让滤波值衰减，避免角度继续虚假累加。
+    if ((filter_input == 0.0f) &&
+        (yqj_gyro_rate_dps > YQJ_GYRO_DEADBAND_DPS) &&
+        (yqj_gyro_dropout_count < YQJ_GYRO_DROPOUT_HOLD_SAMPLES))
+    {
+        filter_input = yqj_gyro_rate_dps;
+        yqj_gyro_dropout_count++;
+    }
+    else if (filter_input > 0.0f)
+    {
+        yqj_gyro_dropout_count = 0;
+    }
+
+    yqj_gyro_rate_dps += YQJ_GYRO_FILTER_ALPHA *
+                         (filter_input - yqj_gyro_rate_dps);
+    if ((filter_input == 0.0f) &&
+        (yqj_gyro_rate_dps < YQJ_GYRO_DEADBAND_DPS))
+    {
+        yqj_gyro_rate_dps = 0.0f;
+    }
+
+    // 用真实回调间隔补偿短时漏采；长时间丢信号则只按一个正常周期积分。
+    actual_dt_s = (float)(now - yqj_gyro_last_time) * 0.00000001f;
+    yqj_gyro_last_time = now;
+    if ((actual_dt_s < 0.001f) || (actual_dt_s > YQJ_GYRO_MAX_DT_S))
+    {
+        actual_dt_s = dt_s;
+    }
+
+    yqj_integrated_angle += yqj_gyro_rate_dps * actual_dt_s;
 }
 
 // ==================== 内部工具函数 ====================

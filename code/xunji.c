@@ -33,17 +33,17 @@ int32 xunji_get_line_error_simple(const uint16 adc_value[])
     // 鍙充晶锛歩dx 6~10锛屾潈閲嶄粠杈圭紭鍚戜腑蹇冮�掑噺 1,2,3,4,5
     // A7锛坕dx 5锛夋槸涓績锛屼笉鍙備笌宸﹀彸鍔犳潈璁＄畻
 
-    left_sum = (float)adc_value[0] * 3.0f +
+    left_sum = (float)adc_value[0] * 3.3f +
                (float)adc_value[1] * 3.0f +
                (float)adc_value[2] * 2.0f +
-               (float)adc_value[3] * 1.5f +
+               (float)adc_value[3] * 1.0f +
                (float)adc_value[4] * 1.0f;
 
     right_sum = (float)adc_value[6] * 1.0f +
-                (float)adc_value[7] * 1.5f +
+                (float)adc_value[7] * 1.0f +
                 (float)adc_value[8] * 2.0f +
                 (float)adc_value[9] * 3.0f +
-                (float)adc_value[10] * 3.0f;
+                (float)adc_value[10] * 3.3f;
 
     // left_sum - right_sum > 0锛氶粦绾垮亸宸︼紝闇�瑕佸彸杞�
     // left_sum - right_sum < 0锛氶粦绾垮亸鍙筹紝闇�瑕佸乏杞�
