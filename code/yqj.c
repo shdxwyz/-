@@ -1,5 +1,4 @@
 #include "yqj.h"
-#include "device.h"
 
 // system_getval() 的计时单位为 10ns，1ms 对应 100000 个计数。
 #define YQJ_MS_TO_10NS(ms) ((uint32)((ms) * 100000UL))
@@ -10,19 +9,12 @@ uint16 yqj_flag = 1;                         // 上电后从 case 1 开始。
 yqj_state_enum yqj_state = YQJ_STATE_LINE;   // 初始在普通巡线等待状态。
 uint8 yqj_action_trigger = 0;                // 初始不覆盖巡线目标。
 uint32 yqj_state_start_time = 0;             // 当前状态的起始计时值。
+int32 yqj_delay_start_count = 0;             // DELAY 开始时的左右总计数。
 int32 yqj_lock_start_count = 0;              // LOCK 开始时的左右总计数。
 
 // yqj_init() 会用主程序的实际参数覆盖下面的默认值。
 static float yqj_pid_period_s = 0.02f;               // 速度 PID 周期，单位 s。
 static float yqj_encoder_count_per_meter = 12106.0f; // 单轮行驶 1m 的编码器计数。
-
-// 角度环相关变量
-volatile float yqj_integrated_angle = 0.0f; // 原始 Z 轴角速度积分得到的相对转角（度）
-PidTypeDef yqj_angle_pid;                // 角度环 PID
-float yqj_angle_pid_output = 0.0f;       // 角度环 PID 输出（速度差，m/s）
-
-// 转弯方向：0=未开始，1=左转，2=右转。
-static uint8 yqj_turn_direction = 0;
 
 // ==================== 传感器索引说明 ====================
 // 数组索引：       0  1  2  3  4  5  6  7  8   9  10  11  12  13  14
@@ -216,45 +208,6 @@ uint8 yqj_dianrong_trigger(const uint16 adc_value[])
             adc_value[13] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// ==================== 角度环相关函数 ====================
-
-// 初始化角度环 PID
-void yqj_angle_pid_init(void)
-{
-    // 角度误差经过位置式 PID，输出单位为 m/s 的左右轮速度修正量。
-    PID_Init(&yqj_angle_pid,
-             PID_POSITION,
-             ANGLE_PID_MAX_OUT,
-             ANGLE_PID_MAX_IOUT,
-             ANGLE_KP,
-             ANGLE_KI,
-             ANGLE_KD);
-}
-
-// 重置角度环 PID 和积分角度
-void yqj_angle_pid_reset(void)
-{
-    // 每次新转弯开始前必须清空上次的角度积分和 PID 状态。
-    PID_clear(&yqj_angle_pid);
-    yqj_integrated_angle = 0.0f;
-    yqj_angle_pid_output = 0.0f;
-}
-
-// 角度环 PID 计算：输入目标角度和当前角度，输出速度差（m/s）
-float yqj_angle_pid_calc(float target_angle, float current_angle)
-{
-    yqj_angle_pid_output = PID_Calc(&yqj_angle_pid, current_angle, target_angle);
-    return yqj_angle_pid_output;
-}
-
-// 在 120Hz IMU 数据就绪中断中调用，每个原始角速度样本只积分一次。
-// 实车左转时 Z 轴角速度为负，直接积分后与左转目标 -90 度一致。
-void yqj_integrate_gyro_z(float gyro_z_dps, float dt_s)
-{
-    // angle(degree) += angular_speed(degree/s) * sample_period(s)。
-    yqj_integrated_angle += gyro_z_dps * dt_s;
-}
-
 // ==================== 内部工具函数 ====================
 
 // 将速度 m/s 换算成一个 PID 周期内的编码器目标计数。
@@ -264,10 +217,10 @@ static float yqj_speed_to_target_count(float speed_mps)
     return speed_mps * yqj_pid_period_s * yqj_encoder_count_per_meter;
 }
 
-// 将自锁距离 m 换算成左右轮里程和需要增加的编码器计数。
+// 将距离 m 换算成左右轮里程和需要增加的编码器计数。
 static int32 yqj_meter_to_count(float distance_m)
 {
-    // lock_distance_m 定义为左右轮距离之和，因此这里不再额外乘 2。
+    // 延迟距离和自锁距离都定义为左右轮距离之和，因此这里不再额外乘 2。
     if (distance_m <= 0.0f)
     {
         return 0;
@@ -283,18 +236,19 @@ static void yqj_enter_state(yqj_state_enum state)
     yqj_state_start_time = system_getval();
 }
 
-// 判断动作后的自锁距离是否已经走够。
-static uint8 yqj_lock_distance_reached(int32 encoder_total_sum, float lock_distance_m)
+// 判断从指定起点开始，左右轮累计距离之和是否已经达到要求。
+static uint8 yqj_distance_reached(int32 encoder_total_sum,
+                                  int32 start_count,
+                                  float distance_m)
 {
-    int32 need_count = yqj_meter_to_count(lock_distance_m);
+    int32 need_count = yqj_meter_to_count(distance_m);
 
     if (need_count <= 0)
     {
         return 1;
     }
 
-    // 只比较进入 LOCK 以后新增的左右轮总计数。
-    return ((encoder_total_sum - yqj_lock_start_count) >= need_count);
+    return ((encoder_total_sum - start_count) >= need_count);
 }
 
 // ==================== 对外工具函数 ====================
@@ -309,12 +263,8 @@ void yqj_init(float pid_period_s, float encoder_count_per_meter)
     yqj_state = YQJ_STATE_LINE;
     yqj_action_trigger = 0;
     yqj_state_start_time = 0;
+    yqj_delay_start_count = 0;
     yqj_lock_start_count = 0;
-    yqj_turn_direction = 0;
-
-    // 初始化角度环 PID
-    yqj_angle_pid_init();
-    yqj_angle_pid_reset();
 
     // 启动 system_getval() 使用的高精度计时器。
     system_start();
@@ -331,10 +281,11 @@ uint8 yqj_time_reached(uint32 start_time, uint32 duration_ms)
     return ((uint32)(system_getval() - start_time) >= YQJ_MS_TO_10NS(duration_ms));
 }
 
-// 当前 case 的条件成立后，记录是否执行动作，并进入触发延时。
-void yqj_start_case(uint8 action_trigger)
+// 当前 case 的条件成立后，记录延迟起点并进入触发延时。
+void yqj_start_case(uint8 action_trigger, int32 encoder_total_sum)
 {
     yqj_action_trigger = action_trigger;
+    yqj_delay_start_count = encoder_total_sum;
     yqj_enter_state(YQJ_STATE_DELAY);
 }
 
@@ -342,7 +293,6 @@ void yqj_start_case(uint8 action_trigger)
 void yqj_start_lock(int32 encoder_total_sum)
 {
     yqj_lock_start_count = encoder_total_sum;
-    yqj_turn_direction = 0;  // 转弯结束，清除方向
     yqj_enter_state(YQJ_STATE_LOCK);
 }
 
@@ -354,8 +304,18 @@ void yqj_finish_case(void)
         yqj_flag++;
     }
     yqj_action_trigger = 0;
-    yqj_turn_direction = 0;
     yqj_enter_state(YQJ_STATE_LINE);
+}
+
+// 判断动作前延迟是否结束；时间和距离两个条件都满足才进入 RUN。
+uint8 yqj_delay_done(int32 encoder_total_sum,
+                     uint32 delay_ms,
+                     float delay_distance_m)
+{
+    return (yqj_time_reached(yqj_state_start_time, delay_ms) &&
+            yqj_distance_reached(encoder_total_sum,
+                                 yqj_delay_start_count,
+                                 delay_distance_m));
 }
 
 // 判断当前 case 的自锁是否结束；时间和距离两个条件都满足才解锁。
@@ -363,64 +323,21 @@ uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance
 {
     // 时间和距离两项必须同时达标才解锁。
     return (yqj_time_reached(yqj_state_start_time, lock_ms) &&
-            yqj_lock_distance_reached(encoder_total_sum, lock_distance_m));
+            yqj_distance_reached(encoder_total_sum,
+                                 yqj_lock_start_count,
+                                 lock_distance_m));
 }
 
-// 角速度积分得到的相对转角进入目标容差范围后结束转向。
-uint8 yqj_turn_target_reached(void)
-{
-    if(yqj_turn_direction == 0)
-    {
-        return 0;
-    }
-
-    // 使用单向阈值而不是狭窄的绝对误差窗口：即使一个采样周期
-    // 直接跨过目标角度，也能立即结束，不会因错过窗口而继续转圈。
-    if(yqj_turn_direction == 1)
-    {
-        return (yqj_integrated_angle <=
-                (-YQJ_TURN_TARGET_ANGLE + YQJ_TURN_ANGLE_TOLERANCE));
-    }
-
-    return (yqj_integrated_angle >=
-            (YQJ_TURN_TARGET_ANGLE - YQJ_TURN_ANGLE_TOLERANCE));
-}
-
-// 根据当前 case 给出的转弯基础速度，用角度环闭环控制转弯。
-// turn_base_speed：转弯基础速度（m/s），正数=左转，负数=右转
-// left_target_count/right_target_count：输出左右轮目标编码器计数
-void yqj_apply_action(float turn_base_speed,
+// 将当前 case 的左右轮目标速度换算成速度 PID 使用的目标计数。
+void yqj_apply_action(float left_speed_mps,
+                      float right_speed_mps,
                       float *left_target_count,
                       float *right_target_count)
 {
     if (yqj_action_trigger)
     {
-        // 第一次进入转弯：根据 turn_base_speed 判断方向
-        // 正速度 = 左转（右轮快左轮慢），负速度 = 右转（左轮快右轮慢）
-        if (yqj_turn_direction == 0)
-        {
-            yqj_turn_direction = (turn_base_speed >= 0.0f) ? 1 : 2;  // 1=左转, 2=右转
-            yqj_angle_pid_reset();
-        }
-
-        // 计算角度环 PID 输出（单轮速度修正量）。
-        float target_angle = (yqj_turn_direction == 1) ? -YQJ_TURN_TARGET_ANGLE : YQJ_TURN_TARGET_ANGLE;
-        float speed_diff = yqj_angle_pid_calc(target_angle, yqj_integrated_angle);
-
-        // 左转：speed_diff 为负 → 左轮减速、右轮加速
-        // 右转：speed_diff 为正 → 左轮加速、右轮减速
-        float final_left_speed = turn_base_speed + speed_diff;
-        float final_right_speed = turn_base_speed - speed_diff;
-
-        // 限幅到正负 3.5 m/s
-        if (final_left_speed > 3.5f) final_left_speed = 3.5f;
-        if (final_left_speed < -3.5f) final_left_speed = -3.5f;
-        if (final_right_speed > 3.5f) final_right_speed = 3.5f;
-        if (final_right_speed < -3.5f) final_right_speed = -3.5f;
-
-        // 最后把 m/s 转换成速度 PID 使用的 count/周期。
-        *left_target_count = yqj_speed_to_target_count(final_left_speed);
-        *right_target_count = yqj_speed_to_target_count(final_right_speed);
+        *left_target_count = yqj_speed_to_target_count(left_speed_mps);
+        *right_target_count = yqj_speed_to_target_count(right_speed_mps);
     }
 }
 
@@ -435,7 +352,6 @@ void yqj_set_flag(uint16 flag)
 {
     yqj_flag = flag;
     yqj_action_trigger = 0;
-    yqj_turn_direction = 0;
     yqj_enter_state(YQJ_STATE_LINE);
 }
 
