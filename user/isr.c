@@ -100,9 +100,11 @@ IFX_INTERRUPT(exti_ch0_ch4_isr, 0, EXTI_CH0_CH4_INT_PRIO)
         // IMU660RC 数据采集回调（读取四元数、角速度、加速度）
         imu660rc_callback();
         // 四元数模式下角速度随 120Hz 数据就绪信号一同更新。
-        // 直接积分原始 Z 轴角速度，不使用 IMU 内部解算的 yaw。
-        yqj_integrate_gyro_z(imu660rc_gyro_transition(imu660rc_gyro_z),
-                             1.0f / 120.0f);
+        // 使用三轴角速度模长积分，不依赖模块哪一轴朝向车辆竖直方向。
+        yqj_integrate_gyro(imu660rc_gyro_transition(imu660rc_gyro_x),
+                           imu660rc_gyro_transition(imu660rc_gyro_y),
+                           imu660rc_gyro_transition(imu660rc_gyro_z),
+                           1.0f / 120.0f);
     }
 
 }

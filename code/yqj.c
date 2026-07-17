@@ -1,5 +1,6 @@
 #include "yqj.h"
 #include "device.h"
+#include <math.h>
 
 #define YQJ_MS_TO_10NS(ms) ((uint32)((ms) * 100000UL))
 
@@ -13,7 +14,8 @@ static float yqj_pid_period_s = 0.02f;
 static float yqj_encoder_count_per_meter = 12106.0f;
 
 // 角度环相关变量
-volatile float yqj_integrated_angle = 0.0f; // 原始 Z 轴角速度积分得到的相对转角（度）
+volatile float yqj_integrated_angle = 0.0f; // 三轴角速度模长积分得到的相对转角（度）
+volatile float yqj_gyro_rate_dps = 0.0f;    // 三轴角速度合成值（度/秒）
 PidTypeDef yqj_angle_pid;                // 角度环 PID
 float yqj_angle_pid_output = 0.0f;       // 角度环 PID 输出（速度差，m/s）
 
@@ -100,7 +102,7 @@ uint8 yqj_erjiguan_trigger(const uint16 adc_value[])
 uint8 yqj_sanjiguan1_2trigger(const uint16 adc_value[])
 {
     return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE);
+            adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 三极管 2_1：A8 和 A10 同时检测到白线
@@ -113,8 +115,8 @@ uint8 yqj_sanjiguan2_1trigger(const uint16 adc_value[])
 // 三极管 2_0：A8 和 A10 同时检测到白线
 uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[])
 {
-    return (adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
+    return (adc_value[12] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[13] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 三极管 0_1：A2~A8 同时检测到白线
@@ -122,10 +124,6 @@ uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[])
 {
     return (adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[6] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[7] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
@@ -242,10 +240,16 @@ float yqj_angle_pid_calc(float target_angle, float current_angle)
 }
 
 // 在 120Hz IMU 数据就绪中断中调用，每个原始角速度样本只积分一次。
-// 实车左转时 Z 轴角速度为负，直接积分后与左转目标 -90 度一致。
-void yqj_integrate_gyro_z(float gyro_z_dps, float dt_s)
+// 平面转弯只关心角速度大小；使用三轴向量模长可避免模块安装方向选错轴。
+void yqj_integrate_gyro(float gyro_x_dps,
+                        float gyro_y_dps,
+                        float gyro_z_dps,
+                        float dt_s)
 {
-    yqj_integrated_angle += gyro_z_dps * dt_s;
+    yqj_gyro_rate_dps = sqrtf(gyro_x_dps * gyro_x_dps +
+                              gyro_y_dps * gyro_y_dps +
+                              gyro_z_dps * gyro_z_dps);
+    yqj_integrated_angle += yqj_gyro_rate_dps * dt_s;
 }
 
 // ==================== 内部工具函数 ====================
@@ -334,6 +338,14 @@ void yqj_start_lock(int32 encoder_total_sum)
     yqj_enter_state(YQJ_STATE_LOCK);
 }
 
+// 转弯完成后进入不循线直行阶段，并记录起始里程。
+void yqj_start_blind(int32 encoder_total_sum)
+{
+    yqj_lock_start_count = encoder_total_sum;
+    yqj_turn_direction = 0;
+    yqj_enter_state(YQJ_STATE_BLIND);
+}
+
 // 当前 case 完全结束后，flag 加 1，开始等待下一个元器件条件。
 void yqj_finish_case(void)
 {
@@ -353,23 +365,35 @@ uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance
             yqj_lock_distance_reached(encoder_total_sum, lock_distance_m));
 }
 
+// 判断不循线直行距离是否已经达到。
+uint8 yqj_blind_done(int32 encoder_total_sum, float blind_distance_m)
+{
+    int32 need_count = 2 * yqj_meter_to_count(blind_distance_m);
+
+    if(need_count <= 0)
+    {
+        return 1;
+    }
+
+    return ((encoder_total_sum - yqj_lock_start_count) >= need_count);
+}
+
 // 角速度积分得到的相对转角进入目标容差范围后结束转向。
 uint8 yqj_turn_target_reached(void)
 {
+    float turn_angle_abs;
+
     if(yqj_turn_direction == 0)
     {
         return 0;
     }
 
-    // 使用单向阈值而不是狭窄的绝对误差窗口：即使一个采样周期
-    // 直接跨过目标角度，也能立即结束，不会因错过窗口而继续转圈。
-    if(yqj_turn_direction == 1)
-    {
-        return (yqj_integrated_angle <=
-                (-YQJ_TURN_TARGET_ANGLE + YQJ_TURN_ANGLE_TOLERANCE));
-    }
+    turn_angle_abs = yqj_integrated_angle;
+    if(turn_angle_abs < 0.0f) turn_angle_abs = -turn_angle_abs;
 
-    return (yqj_integrated_angle >=
+    // 转向方向由电机命令决定；结束条件只判断已经转过的角度大小，
+    // 避免 IMU 安装方向导致右转积分符号与预期相反而只能等超时。
+    return (turn_angle_abs >=
             (YQJ_TURN_TARGET_ANGLE - YQJ_TURN_ANGLE_TOLERANCE));
 }
 
@@ -384,6 +408,7 @@ void yqj_apply_action(float turn_base_speed,
     {
         float forward_base_speed = (turn_base_speed >= 0.0f) ?
                                    turn_base_speed : -turn_base_speed;
+        float current_angle_abs;
 
         // 第一次进入转弯：根据 turn_base_speed 判断方向
         // 正速度 = 左转（右轮快左轮慢），负速度 = 右转（左轮快右轮慢）
@@ -393,20 +418,35 @@ void yqj_apply_action(float turn_base_speed,
             yqj_angle_pid_reset();
         }
 
-        // 计算角度环 PID 输出（速度差）
-        float target_angle = (yqj_turn_direction == 1) ? -YQJ_TURN_TARGET_ANGLE : YQJ_TURN_TARGET_ANGLE;
-        float speed_diff = yqj_angle_pid_calc(target_angle, yqj_integrated_angle);
+        current_angle_abs = yqj_integrated_angle;
+        if(current_angle_abs < 0.0f) current_angle_abs = -current_angle_abs;
 
-        // 左转：speed_diff 为负 → 左轮减速、右轮加速
-        // 右转：speed_diff 为正 → 左轮加速、右轮减速
-        float final_left_speed = forward_base_speed + speed_diff;
-        float final_right_speed = forward_base_speed - speed_diff;
+        // 角度环只计算还差多少转角，左右方向由下面的轮速分配决定。
+        float speed_diff = yqj_angle_pid_calc(YQJ_TURN_TARGET_ANGLE,
+                                              current_angle_abs);
+        if(speed_diff < 0.0f) speed_diff = 0.0f;
+
+        float final_left_speed;
+        float final_right_speed;
+
+        if(yqj_turn_direction == 1)
+        {
+            // 左转：左轮慢，右轮快。
+            final_left_speed = forward_base_speed - speed_diff;
+            final_right_speed = forward_base_speed + speed_diff;
+        }
+        else
+        {
+            // 右转：左轮快，右轮慢。
+            final_left_speed = forward_base_speed + speed_diff;
+            final_right_speed = forward_base_speed - speed_diff;
+        }
 
         // 限幅到正负 3.5 m/s
-        if (final_left_speed > 3.5f) final_left_speed = 3.5f;
-        if (final_left_speed < -3.5f) final_left_speed = -3.5f;
-        if (final_right_speed > 3.5f) final_right_speed = 3.5f;
-        if (final_right_speed < -3.5f) final_right_speed = -3.5f;
+        if (final_left_speed > 5.0f) final_left_speed = 5.0f;
+        if (final_left_speed < -5.0f) final_left_speed = -5.0f;
+        if (final_right_speed > 5.0f) final_right_speed = 5.0f;
+        if (final_right_speed < -5.0f) final_right_speed = -5.0f;
 
         *left_target_count = yqj_speed_to_target_count(final_left_speed);
         *right_target_count = yqj_speed_to_target_count(final_right_speed);
