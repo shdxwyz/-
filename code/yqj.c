@@ -1,31 +1,35 @@
 #include "yqj.h"
 #include "device.h"
 
+// system_getval() 的计时单位为 10ns，1ms 对应 100000 个计数。
 #define YQJ_MS_TO_10NS(ms) ((uint32)((ms) * 100000UL))
 
-uint16 yqj_flag = 1;
-yqj_state_enum yqj_state = YQJ_STATE_LINE;
-uint8 yqj_action_trigger = 0;
-uint32 yqj_state_start_time = 0;
-int32 yqj_lock_start_count = 0;
+// ==================== 顺序状态机 ====================
 
-static float yqj_pid_period_s = 0.02f;
-static float yqj_encoder_count_per_meter = 12106.0f;
+uint16 yqj_flag = 1;                         // 上电后从 case 1 开始。
+yqj_state_enum yqj_state = YQJ_STATE_LINE;   // 初始在普通巡线等待状态。
+uint8 yqj_action_trigger = 0;                // 初始不覆盖巡线目标。
+uint32 yqj_state_start_time = 0;             // 当前状态的起始计时值。
+int32 yqj_lock_start_count = 0;              // LOCK 开始时的左右总计数。
+
+// yqj_init() 会用主程序的实际参数覆盖下面的默认值。
+static float yqj_pid_period_s = 0.02f;               // 速度 PID 周期，单位 s。
+static float yqj_encoder_count_per_meter = 12106.0f; // 单轮行驶 1m 的编码器计数。
 
 // 角度环相关变量
 volatile float yqj_integrated_angle = 0.0f; // 原始 Z 轴角速度积分得到的相对转角（度）
 PidTypeDef yqj_angle_pid;                // 角度环 PID
 float yqj_angle_pid_output = 0.0f;       // 角度环 PID 输出（速度差，m/s）
 
-// 转弯方向：1=左转，2=右转
+// 转弯方向：0=未开始，1=左转，2=右转。
 static uint8 yqj_turn_direction = 0;
 
 // ==================== 传感器索引说明 ====================
-// 15 路传感器：A0 A1 A2 A3 A4 A5 A6 A7 A8 A10 A11 A12 A13 A16 A17
-// 索引：        0  1  2  3  4  5  6  7  8  9  10  11  12  13  14
+// 数组索引：       0  1  2  3  4  5  6  7  8   9  10  11  12  13  14
+// 实际 ADC 引脚：  A0 A1 A2 A3 A4 A5 A6 A7 A8 A10 A11 A12 A13 A16 A17
 // A0(0), A1(1) 用于左转弯检测
 // A16(13), A17(14) 用于右转弯检测
-// A2~A13(2~12) 用于巡线和元器件识别
+// 数组 [2]~[12]（引脚 A2~A8、A10~A13）用于巡线和元器件识别
 
 // 左转触发：A0 或 A1 检测到白线
 uint8 yqj_left_turn_trigger(const uint16 adc_value[])
@@ -117,7 +121,7 @@ uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[])
             adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// 三极管 0_1：A2~A8 同时检测到白线
+// 三极管 0_1：数组 [2]~[9]（A2~A8 和 A10）同时检测到白线
 uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[])
 {
     return (adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -137,7 +141,7 @@ uint8 yqj_sanjiguan1_0trigger(const uint16 adc_value[])
             adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// 三极管 0_2：A2~A8 同时检测到白线
+// 三极管 0_2：数组 [2]~[9]（A2~A8 和 A10）同时检测到白线
 uint8 yqj_sanjiguan0_2trigger(const uint16 adc_value[])
 {
     return (adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -171,7 +175,7 @@ uint8 yqj_rdiangan_trigger(const uint16 adc_value[])
             adc_value[14] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
-// 线圈：A2~A8 同时检测到白线
+// 线圈：数组 [2]~[9]（A2~A8 和 A10）同时检测到白线
 uint8 yqj_xianquan_trigger(const uint16 adc_value[])
 {
     return (adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
@@ -217,6 +221,7 @@ uint8 yqj_dianrong_trigger(const uint16 adc_value[])
 // 初始化角度环 PID
 void yqj_angle_pid_init(void)
 {
+    // 角度误差经过位置式 PID，输出单位为 m/s 的左右轮速度修正量。
     PID_Init(&yqj_angle_pid,
              PID_POSITION,
              ANGLE_PID_MAX_OUT,
@@ -229,6 +234,7 @@ void yqj_angle_pid_init(void)
 // 重置角度环 PID 和积分角度
 void yqj_angle_pid_reset(void)
 {
+    // 每次新转弯开始前必须清空上次的角度积分和 PID 状态。
     PID_clear(&yqj_angle_pid);
     yqj_integrated_angle = 0.0f;
     yqj_angle_pid_output = 0.0f;
@@ -245,6 +251,7 @@ float yqj_angle_pid_calc(float target_angle, float current_angle)
 // 实车左转时 Z 轴角速度为负，直接积分后与左转目标 -90 度一致。
 void yqj_integrate_gyro_z(float gyro_z_dps, float dt_s)
 {
+    // angle(degree) += angular_speed(degree/s) * sample_period(s)。
     yqj_integrated_angle += gyro_z_dps * dt_s;
 }
 
@@ -253,12 +260,14 @@ void yqj_integrate_gyro_z(float gyro_z_dps, float dt_s)
 // 将速度 m/s 换算成一个 PID 周期内的编码器目标计数。
 static float yqj_speed_to_target_count(float speed_mps)
 {
+    // count/周期 = m/s * s/周期 * count/m。
     return speed_mps * yqj_pid_period_s * yqj_encoder_count_per_meter;
 }
 
 // 将自锁距离 m 换算成左右轮里程和需要增加的编码器计数。
 static int32 yqj_meter_to_count(float distance_m)
 {
+    // lock_distance_m 定义为左右轮距离之和，因此这里不再额外乘 2。
     if (distance_m <= 0.0f)
     {
         return 0;
@@ -284,6 +293,7 @@ static uint8 yqj_lock_distance_reached(int32 encoder_total_sum, float lock_dista
         return 1;
     }
 
+    // 只比较进入 LOCK 以后新增的左右轮总计数。
     return ((encoder_total_sum - yqj_lock_start_count) >= need_count);
 }
 
@@ -292,6 +302,7 @@ static uint8 yqj_lock_distance_reached(int32 encoder_total_sum, float lock_dista
 // 初始化元器件顺序框架，把 flag、状态、动作都复位到起点。
 void yqj_init(float pid_period_s, float encoder_count_per_meter)
 {
+    // 保存主程序的实际标定值，确保 m/s、距离和编码器计数换算一致。
     yqj_pid_period_s = pid_period_s;
     yqj_encoder_count_per_meter = encoder_count_per_meter;
     yqj_flag = 1;
@@ -305,6 +316,7 @@ void yqj_init(float pid_period_s, float encoder_count_per_meter)
     yqj_angle_pid_init();
     yqj_angle_pid_reset();
 
+    // 启动 system_getval() 使用的高精度计时器。
     system_start();
 }
 
@@ -349,6 +361,7 @@ void yqj_finish_case(void)
 // 判断当前 case 的自锁是否结束；时间和距离两个条件都满足才解锁。
 uint8 yqj_lock_done(int32 encoder_total_sum, uint32 lock_ms, float lock_distance_m)
 {
+    // 时间和距离两项必须同时达标才解锁。
     return (yqj_time_reached(yqj_state_start_time, lock_ms) &&
             yqj_lock_distance_reached(encoder_total_sum, lock_distance_m));
 }
@@ -390,7 +403,7 @@ void yqj_apply_action(float turn_base_speed,
             yqj_angle_pid_reset();
         }
 
-        // 计算角度环 PID 输出（速度差）
+        // 计算角度环 PID 输出（单轮速度修正量）。
         float target_angle = (yqj_turn_direction == 1) ? -YQJ_TURN_TARGET_ANGLE : YQJ_TURN_TARGET_ANGLE;
         float speed_diff = yqj_angle_pid_calc(target_angle, yqj_integrated_angle);
 
@@ -405,6 +418,7 @@ void yqj_apply_action(float turn_base_speed,
         if (final_right_speed > 3.5f) final_right_speed = 3.5f;
         if (final_right_speed < -3.5f) final_right_speed = -3.5f;
 
+        // 最后把 m/s 转换成速度 PID 使用的 count/周期。
         *left_target_count = yqj_speed_to_target_count(final_left_speed);
         *right_target_count = yqj_speed_to_target_count(final_right_speed);
     }

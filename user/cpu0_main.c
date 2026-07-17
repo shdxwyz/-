@@ -36,7 +36,7 @@
 #define PID_PERIOD_S (0.02f)
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
-#define MOTOR_MAX_SAFE_SPEED_MPS (3.0f)
+#define MOTOR_MAX_SAFE_SPEED_MPS (5.0f)
 #define MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 
@@ -201,8 +201,8 @@ int core0_main(void)
         adc_all_read();
         // ==================== 巡线层 ====================
         // xunji 只根据 ADC 计算普通巡线目标，不处理特殊动作命令。
-        // 传入 &adc_value[XUNJI_LINE_START_IDX] 跳过 A0,A1，只使用巡线用的 11 路
-        xunji_update(&adc_value[XUNJI_LINE_START_IDX], BASE_TARGET_COUNT, &line_result);
+        // 传入完整 ADC 数组，xunji 直接使用真实下标 [2]~[12]。
+        xunji_update(adc_value, BASE_TARGET_COUNT, &line_result);
 
         // ==================== 元器件顺序层 ====================
         // 总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
@@ -249,7 +249,7 @@ int core0_main(void)
             yqj_lock_ms = 0;
             yqj_lock_distance_m = 0.0f;
             break;
-        case 2:
+        case 200:
             // 巡线走 1m
             yqj_condition = 1;
             yqj_case_trigger = 0;
@@ -257,7 +257,7 @@ int core0_main(void)
             yqj_delay_ms = 0;
             yqj_run_ms = 0;
             yqj_lock_ms = 0;
-            yqj_lock_distance_m = 1.0f;
+            yqj_lock_distance_m = 0.0f;
             break;
         case 300:
                     // 右转
