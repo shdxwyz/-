@@ -36,7 +36,7 @@
 #include "isr_config.h"
 #include "isr.h"
 #include "zf_device_imu660rc.h"
-#include "../code/yqj.h"
+#include "../code/turn_control.h"
 
 // 对于TC系列默认是不支持中断嵌套的，希望支持中断嵌套需要在中断内使用 interrupt_global_enable(0); 来开启中断嵌套
 // 简单点说实际上进入中断后TC系列的硬件自动调用了 interrupt_global_disable(); 来拒绝响应任何的中断，因此需要我们自己手动调用 interrupt_global_enable(0); 来开启中断的响应。
@@ -99,12 +99,8 @@ IFX_INTERRUPT(exti_ch0_ch4_isr, 0, EXTI_CH0_CH4_INT_PRIO)
         exti_flag_clear(ERU_CH0_REQ0_P15_4);
         // IMU660RC 数据采集回调（读取四元数、角速度、加速度）
         imu660rc_callback();
-        // 四元数模式下角速度随 120Hz 数据就绪信号一同更新。
-        // 使用三轴角速度模长积分，不依赖模块哪一轴朝向车辆竖直方向。
-        yqj_integrate_gyro(imu660rc_gyro_transition(imu660rc_gyro_x),
-                           imu660rc_gyro_transition(imu660rc_gyro_y),
-                           imu660rc_gyro_transition(imu660rc_gyro_z),
-                           1.0f / 120.0f);
+        // 四元数回调已经更新 yaw；转弯角度使用相对起始 yaw 计算。
+        turn_control_update_yaw(imu660rc_yaw);
     }
 
 }

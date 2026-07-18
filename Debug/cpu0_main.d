@@ -336,6 +336,10 @@ cpu0_main.o :	..\code\yqj.h
 ..\code\yqj.h :
 cpu0_main.o :	"C:\\Users\\a1529\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
 "C:\\Users\\a1529\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
+cpu0_main.o :	..\code\turn_control.h
+..\code\turn_control.h :
+cpu0_main.o :	"C:\\Users\\a1529\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h"
+"C:\\Users\\a1529\\Documents\\GitHub\\-\\libraries\\zf_common\zf_common_headfile.h" :
 cpu0_main.o :	..\code\pid.h
 ..\code\pid.h :
 cpu0_main.o :	..\code\xunji.h

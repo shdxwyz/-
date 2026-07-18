@@ -29,7 +29,7 @@
 
 // 死区外 ADC 差值到单轮目标修正量的比例。
 // turn_count = (去掉死区后的 line_error) * XUNJI_LINE_TURN_KP。
-#define XUNJI_LINE_TURN_KP              (0.02f)
+#define XUNJI_LINE_TURN_KP              (0.03f)
 
 // 左右轮目标计数的最大修正量，单位：count/20ms。
 #define XUNJI_LINE_TURN_LIMIT           (800.0f)
