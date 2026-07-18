@@ -104,8 +104,8 @@ uint8 yqj_kaiguang_trigger(const uint16 adc_value[])
 // 二极管：A2 和 A10 同时检测到白线
 uint8 yqj_erjiguan_trigger(const uint16 adc_value[])
 {
-    return (adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE);
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+            adc_value[13] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 三极管 1_2：A1 和 A2 同时检测到白线
@@ -216,7 +216,7 @@ uint8 yqj_feimen_trigger(const uint16 adc_value[])
 // 电容：A0 和 A16 同时检测到白线
 uint8 yqj_dianrong_trigger(const uint16 adc_value[])
 {
-    return (adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[13] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
@@ -237,10 +237,17 @@ void yqj_angle_pid_init(void)
 // 重置角度环 PID 和积分角度
 void yqj_angle_pid_reset(void)
 {
-    yqj_gyro_filter_reset = 1;
+    uint32 interrupt_state;
+
+    // 角度和滤波复位请求必须原子更新，避免 IMU 中断在清零过程中插入。
+    interrupt_state = interrupt_global_disable();
     PID_clear(&yqj_angle_pid);
     yqj_integrated_angle = 0.0f;
+    yqj_gyro_raw_rate_dps = 0.0f;
+    yqj_gyro_rate_dps = 0.0f;
     yqj_angle_pid_output = 0.0f;
+    yqj_gyro_filter_reset = 1;
+    interrupt_global_enable(interrupt_state);
 }
 
 // 角度环 PID 计算：输入目标角度和当前角度，输出速度差（m/s）
@@ -278,7 +285,7 @@ static float yqj_median3(float a, float b, float c)
 }
 
 // 在 120Hz IMU 数据就绪中断中调用，每个原始角速度样本只积分一次。
-// 处理顺序：角速度限幅 -> 三点中值 -> 短时掉零保持 -> 一阶低通 -> 积分。
+// 处理顺序：角速度限幅 -> 转弯掉零保持 -> 三点中值 -> 一阶低通 -> 积分。
 // 平面转弯只关心角速度大小；使用三轴向量模长可避免模块安装方向选错轴。
 void yqj_integrate_gyro(float gyro_x_dps,
                         float gyro_y_dps,
@@ -315,6 +322,22 @@ void yqj_integrate_gyro(float gyro_x_dps,
         raw_rate = YQJ_GYRO_MAX_RATE_DPS;
     }
 
+    // 只有正在转弯且之前角速度有效时，才把极短的连续零值当作掉样。
+    // 超过保持上限后恢复使用真实零值，防止堵转时无限虚假积分。
+    if ((yqj_turn_direction != 0u) &&
+        (raw_rate <= YQJ_GYRO_DROPOUT_ZERO_DPS) &&
+        (yqj_gyro_rate_dps > YQJ_GYRO_DEADBAND_DPS) &&
+        (yqj_gyro_dropout_count < YQJ_GYRO_DROPOUT_HOLD_SAMPLES))
+    {
+        raw_rate = yqj_gyro_rate_dps;
+        yqj_gyro_dropout_count++;
+    }
+    else if ((yqj_turn_direction == 0u) ||
+             (raw_rate > YQJ_GYRO_DROPOUT_ZERO_DPS))
+    {
+        yqj_gyro_dropout_count = 0;
+    }
+
     yqj_gyro_samples[yqj_gyro_sample_index] = raw_rate;
     yqj_gyro_sample_index = (uint8)((yqj_gyro_sample_index + 1u) % 3u);
     if (yqj_gyro_sample_count < 3u)
@@ -337,19 +360,6 @@ void yqj_integrate_gyro(float gyro_x_dps,
         filter_input = 0.0f;
     }
 
-    // 只保持极短的掉零，持续异常时立即让滤波值衰减，避免角度继续虚假累加。
-    if ((filter_input == 0.0f) &&
-        (yqj_gyro_rate_dps > YQJ_GYRO_DEADBAND_DPS) &&
-        (yqj_gyro_dropout_count < YQJ_GYRO_DROPOUT_HOLD_SAMPLES))
-    {
-        filter_input = yqj_gyro_rate_dps;
-        yqj_gyro_dropout_count++;
-    }
-    else if (filter_input > 0.0f)
-    {
-        yqj_gyro_dropout_count = 0;
-    }
-
     yqj_gyro_rate_dps += YQJ_GYRO_FILTER_ALPHA *
                          (filter_input - yqj_gyro_rate_dps);
     if ((filter_input == 0.0f) &&
@@ -358,12 +368,16 @@ void yqj_integrate_gyro(float gyro_x_dps,
         yqj_gyro_rate_dps = 0.0f;
     }
 
-    // 用真实回调间隔补偿短时漏采；长时间丢信号则只按一个正常周期积分。
+    // 用真实回调间隔补偿短时漏采；长间隔限制在上限，避免无界的单次跳变。
     actual_dt_s = (float)(now - yqj_gyro_last_time) * 0.00000001f;
     yqj_gyro_last_time = now;
-    if ((actual_dt_s < 0.001f) || (actual_dt_s > YQJ_GYRO_MAX_DT_S))
+    if (actual_dt_s < 0.001f)
     {
         actual_dt_s = dt_s;
+    }
+    else if (actual_dt_s > YQJ_GYRO_MAX_DT_S)
+    {
+        actual_dt_s = YQJ_GYRO_MAX_DT_S;
     }
 
     yqj_integrated_angle += yqj_gyro_rate_dps * actual_dt_s;
@@ -499,6 +513,7 @@ uint8 yqj_blind_done(int32 encoder_total_sum, float blind_distance_m)
 uint8 yqj_turn_target_reached(void)
 {
     float turn_angle_abs;
+    float stop_lead_angle;
 
     if(yqj_turn_direction == 0)
     {
@@ -508,10 +523,18 @@ uint8 yqj_turn_target_reached(void)
     turn_angle_abs = yqj_integrated_angle;
     if(turn_angle_abs < 0.0f) turn_angle_abs = -turn_angle_abs;
 
-    // 转向方向由电机命令决定；结束条件只判断已经转过的角度大小，
-    // 避免 IMU 安装方向导致右转积分符号与预期相反而只能等超时。
-    return (turn_angle_abs >=
-            (YQJ_TURN_TARGET_ANGLE - YQJ_TURN_ANGLE_TOLERANCE));
+    // 快速转弯时按当前角速度增大提前量，补偿滤波、速度环和车身惯性的滞后。
+    stop_lead_angle = yqj_gyro_rate_dps * YQJ_TURN_STOP_LOOKAHEAD_S;
+    if(stop_lead_angle < YQJ_TURN_ANGLE_TOLERANCE)
+    {
+        stop_lead_angle = YQJ_TURN_ANGLE_TOLERANCE;
+    }
+    if(stop_lead_angle > YQJ_TURN_MAX_STOP_LEAD_ANGLE)
+    {
+        stop_lead_angle = YQJ_TURN_MAX_STOP_LEAD_ANGLE;
+    }
+
+    return (turn_angle_abs >= (YQJ_TURN_TARGET_ANGLE - stop_lead_angle));
 }
 
 // 根据当前 case 给出的转弯基础速度，用角度环闭环控制转弯。

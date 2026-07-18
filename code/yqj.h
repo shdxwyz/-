@@ -14,31 +14,40 @@
 // 直角转弯目标角度（度）
 #define YQJ_TURN_TARGET_ANGLE          (90.0f)
 
-// 转弯完成允许的角度误差（度），防止过冲
+// 转弯停止的最小提前角（度），用于补偿滤波和电机响应滞后
 #define YQJ_TURN_ANGLE_TOLERANCE       (8.0f)
+
+// 根据当前角速度预估未来转角；转得越快，停止得越早（s）
+#define YQJ_TURN_STOP_LOOKAHEAD_S       (0.035f)
+
+// 动态提前角上限，防止短时角速度扰动导致过早结束（度）
+#define YQJ_TURN_MAX_STOP_LEAD_ANGLE    (20.0f)
 
 // 转弯完成时角速度阈值（°/s），角速度低于此值且角度在目标范围内才算稳定完成
 #define YQJ_TURN_GYRO_STABLE_THRESHOLD  (1500.0f)//未用
 
 // yaw 异常或车辆堵转时的转向超时保护（ms）
-#define YQJ_TURN_TIMEOUT_MS             (2000u)
+#define YQJ_TURN_TIMEOUT_MS             (500u)
 
 // ==================== 角速度滤波参数 ====================
 
 // 一阶低通滤波系数：越小越平滑，但转弯角度响应越慢（建议 0.15~0.40）
-#define YQJ_GYRO_FILTER_ALPHA            (0.40f)
+#define YQJ_GYRO_FILTER_ALPHA            (0.30f)
 
 // 单次采样允许的最大角速度，超过部分按干扰尖峰处理（°/s）
-#define YQJ_GYRO_MAX_RATE_DPS            (1000.0f)
+#define YQJ_GYRO_MAX_RATE_DPS            (2000.0f)
 
 // 静止噪声死区，低于该值时按 0°/s 处理
-#define YQJ_GYRO_DEADBAND_DPS            (10.0f)
+#define YQJ_GYRO_DEADBAND_DPS            (1.0f)
 
-// 连续掉零时允许保持上一次角速度的采样数；120Hz 下 1 次约为 8.3ms
-#define YQJ_GYRO_DROPOUT_HOLD_SAMPLES    (1u)
+// 原始角速度低于此值时，视为 IMU 可能连续返回零值（°/s）
+#define YQJ_GYRO_DROPOUT_ZERO_DPS        (0.5f)
 
-// 允许按真实间隔补偿的最大时间；120Hz 下 0.025s 约为 3 个采样周期
-#define YQJ_GYRO_MAX_DT_S                 (0.025f)
+// 仅在转弯期间保持最后有效角速度；4 次加上三点中值约可覆盖 50ms 掉零
+#define YQJ_GYRO_DROPOUT_HOLD_SAMPLES    (4u)
+
+// 单次允许补偿的最大丢样时间，超过时只补偿到此上限（s）
+#define YQJ_GYRO_MAX_DT_S                 (0.15f)
 
 // ==================== 角度环 PID 参数 ====================
 

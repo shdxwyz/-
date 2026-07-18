@@ -1,0 +1,32 @@
+# AURIX Development Studio / TASKING build outputs
+/Debug/
+/Release/
+/build/
+/out/
+
+# Compiler and linker generated files
+*.o
+*.obj
+*.d
+*.elf
+*.hex
+*.map
+*.mdf
+*.bin
+*.srec
+*.lst
+
+# Local IDE/debugger state
+/.ads/
+/.vscode/
+
+# Temporary files and logs
+*.log
+*.tmp
+*.bak
+*~
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
