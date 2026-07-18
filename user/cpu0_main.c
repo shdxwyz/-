@@ -213,8 +213,8 @@ int core0_main(void)
         adc_all_read();
         // ==================== 巡线层 ====================
         // xunji 只根据 ADC 计算普通巡线目标，不处理特殊动作命令。
-        // 传入 &adc_value[XUNJI_LINE_START_IDX] 跳过 A0,A1，只使用巡线用的 11 路
-        xunji_update(&adc_value[XUNJI_LINE_START_IDX], BASE_TARGET_COUNT, &line_result);
+        // 传入完整 ADC 数组，xunji 直接使用真实下标 [2]~[12]。
+        xunji_update(adc_value, BASE_TARGET_COUNT, &line_result);
 
         // ==================== 元器件顺序层 ====================
         // 总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
