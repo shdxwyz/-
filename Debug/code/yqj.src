@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc26140a --dep-file=yqj.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/yqj.src ../code/yqj.c"
+	.compiler_invocation	"ctc -f cc28344a --dep-file=yqj.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\- -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\code -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Configurations -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_common -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_components -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_device -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver -IC:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o code/yqj.src ../code/yqj.c"
 	.compiler_name		"ctc"
 	;source	'../code/yqj.c'
 
@@ -13,20 +13,20 @@ $TC16X
 	
 	.global	yqj_left_turn_trigger
 ; Function yqj_left_turn_trigger
-.L121:
+.L119:
 yqj_left_turn_trigger:	.type	func
 	mov	d2,#0
-.L604:
+.L602:
 	ld.hu	d15,[a4]0
-.L605:
+.L603:
 	mov	d0,#500
-.L606:
+.L604:
 	jlt.u	d15,d0,.L2
-.L607:
+.L605:
 	ld.hu	d15,[a4]2
-.L608:
+.L606:
 	mov	d0,#500
-.L609:
+.L607:
 	jge.u	d15,d0,.L3
 .L2:
 	mov	d2,#1
@@ -34,11 +34,11 @@ yqj_left_turn_trigger:	.type	func
 	j	.L4
 .L4:
 	ret
-.L436:
+.L434:
 	
 __yqj_left_turn_trigger_function_end:
 	.size	yqj_left_turn_trigger,__yqj_left_turn_trigger_function_end-yqj_left_turn_trigger
-.L217:
+.L215:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_right_turn_trigger',code,cluster('yqj_right_turn_trigger')
@@ -47,20 +47,20 @@ __yqj_left_turn_trigger_function_end:
 	
 	.global	yqj_right_turn_trigger
 ; Function yqj_right_turn_trigger
-.L123:
+.L121:
 yqj_right_turn_trigger:	.type	func
 	mov	d2,#0
-.L614:
+.L612:
 	ld.hu	d15,[a4]26
-.L615:
+.L613:
 	mov	d0,#500
-.L616:
+.L614:
 	jlt.u	d15,d0,.L5
-.L617:
+.L615:
 	ld.hu	d15,[a4]28
-.L618:
+.L616:
 	mov	d0,#500
-.L619:
+.L617:
 	jge.u	d15,d0,.L6
 .L5:
 	mov	d2,#1
@@ -68,11 +68,11 @@ yqj_right_turn_trigger:	.type	func
 	j	.L7
 .L7:
 	ret
-.L439:
+.L437:
 	
 __yqj_right_turn_trigger_function_end:
 	.size	yqj_right_turn_trigger,__yqj_right_turn_trigger_function_end-yqj_right_turn_trigger
-.L222:
+.L220:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_dianzu_trigger',code,cluster('yqj_dianzu_trigger')
@@ -81,33 +81,33 @@ __yqj_right_turn_trigger_function_end:
 	
 	.global	yqj_dianzu_trigger
 ; Function yqj_dianzu_trigger
-.L125:
+.L123:
 yqj_dianzu_trigger:	.type	func
 	mov	d2,#0
-.L624:
+.L622:
 	ld.hu	d15,[a4]4
-.L625:
+.L623:
 	mov	d0,#500
-.L626:
+.L624:
 	jge.u	d15,d0,.L8
-.L627:
+.L625:
 	ld.hu	d15,[a4]18
-.L628:
+.L626:
 	mov	d0,#500
-.L629:
+.L627:
 	jge.u	d15,d0,.L9
-.L630:
+.L628:
 	mov	d2,#1
 .L9:
 .L8:
 	j	.L10
 .L10:
 	ret
-.L441:
+.L439:
 	
 __yqj_dianzu_trigger_function_end:
 	.size	yqj_dianzu_trigger,__yqj_dianzu_trigger_function_end-yqj_dianzu_trigger
-.L227:
+.L225:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_dianyuan_trigger',code,cluster('yqj_dianyuan_trigger')
@@ -116,46 +116,46 @@ __yqj_dianzu_trigger_function_end:
 	
 	.global	yqj_dianyuan_trigger
 ; Function yqj_dianyuan_trigger
-.L127:
+.L125:
 yqj_dianyuan_trigger:	.type	func
 	mov	d2,#0
-.L635:
+.L633:
 	ld.hu	d15,[a4]6
-.L636:
+.L634:
 	mov	d0,#500
-.L637:
+.L635:
 	jge.u	d15,d0,.L11
-.L638:
+.L636:
 	ld.hu	d15,[a4]8
-.L639:
+.L637:
 	mov	d0,#500
-.L640:
+.L638:
 	jge.u	d15,d0,.L12
-.L641:
+.L639:
 	ld.hu	d15,[a4]10
-.L642:
+.L640:
 	mov	d0,#500
-.L643:
+.L641:
 	jge.u	d15,d0,.L13
-.L644:
+.L642:
 	ld.hu	d15,[a4]20
-.L645:
+.L643:
 	mov	d0,#500
-.L646:
+.L644:
 	jge.u	d15,d0,.L14
-.L647:
+.L645:
 	ld.hu	d15,[a4]18
-.L648:
+.L646:
 	mov	d0,#500
-.L649:
+.L647:
 	jge.u	d15,d0,.L15
-.L650:
+.L648:
 	ld.hu	d15,[a4]16
-.L651:
+.L649:
 	mov	d0,#500
-.L652:
+.L650:
 	jge.u	d15,d0,.L16
-.L653:
+.L651:
 	mov	d2,#1
 .L16:
 .L15:
@@ -166,11 +166,11 @@ yqj_dianyuan_trigger:	.type	func
 	j	.L17
 .L17:
 	ret
-.L443:
+.L441:
 	
 __yqj_dianyuan_trigger_function_end:
 	.size	yqj_dianyuan_trigger,__yqj_dianyuan_trigger_function_end-yqj_dianyuan_trigger
-.L232:
+.L230:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_xianquandianzu0_trigger',code,cluster('yqj_xianquandianzu0_trigger')
@@ -179,33 +179,20 @@ __yqj_dianyuan_trigger_function_end:
 	
 	.global	yqj_xianquandianzu0_trigger
 ; Function yqj_xianquandianzu0_trigger
-.L129:
+.L127:
 yqj_xianquandianzu0_trigger:	.type	func
-	mov	d2,#0
-.L658:
 	ld.hu	d15,[a4]2
-.L659:
-	mov	d0,#500
-.L660:
-	jge.u	d15,d0,.L18
-.L661:
-	ld.hu	d15,[a4]10
-.L662:
-	mov	d0,#500
-.L663:
-	jge.u	d15,d0,.L19
-.L664:
-	mov	d2,#1
-.L19:
+.L656:
+	lt.u	d2,d15,#500
+.L657:
+	j	.L18
 .L18:
-	j	.L20
-.L20:
 	ret
-.L445:
+.L443:
 	
 __yqj_xianquandianzu0_trigger_function_end:
 	.size	yqj_xianquandianzu0_trigger,__yqj_xianquandianzu0_trigger_function_end-yqj_xianquandianzu0_trigger
-.L237:
+.L235:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_kaiguang1_0trigger',code,cluster('yqj_kaiguang1_0trigger')
@@ -214,33 +201,33 @@ __yqj_xianquandianzu0_trigger_function_end:
 	
 	.global	yqj_kaiguang1_0trigger
 ; Function yqj_kaiguang1_0trigger
-.L131:
+.L129:
 yqj_kaiguang1_0trigger:	.type	func
 	mov	d2,#0
-.L669:
+.L662:
 	ld.hu	d15,[a4]16
-.L670:
+.L663:
 	mov	d0,#500
-.L671:
-	jge.u	d15,d0,.L21
-.L672:
+.L664:
+	jge.u	d15,d0,.L19
+.L665:
 	ld.hu	d15,[a4]18
-.L673:
+.L666:
 	mov	d0,#500
-.L674:
-	jge.u	d15,d0,.L22
-.L675:
+.L667:
+	jge.u	d15,d0,.L20
+.L668:
 	mov	d2,#1
-.L22:
+.L20:
+.L19:
+	j	.L21
 .L21:
-	j	.L23
-.L23:
 	ret
-.L447:
+.L445:
 	
 __yqj_kaiguang1_0trigger_function_end:
 	.size	yqj_kaiguang1_0trigger,__yqj_kaiguang1_0trigger_function_end-yqj_kaiguang1_0trigger
-.L242:
+.L240:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_kaiguang0_1trigger',code,cluster('yqj_kaiguang0_1trigger')
@@ -249,33 +236,33 @@ __yqj_kaiguang1_0trigger_function_end:
 	
 	.global	yqj_kaiguang0_1trigger
 ; Function yqj_kaiguang0_1trigger
-.L133:
+.L131:
 yqj_kaiguang0_1trigger:	.type	func
 	mov	d2,#0
-.L680:
+.L673:
 	ld.hu	d15,[a4]4
-.L681:
+.L674:
 	mov	d0,#500
-.L682:
-	jge.u	d15,d0,.L24
-.L683:
+.L675:
+	jge.u	d15,d0,.L22
+.L676:
 	ld.hu	d15,[a4]6
-.L684:
+.L677:
 	mov	d0,#500
-.L685:
-	jge.u	d15,d0,.L25
-.L686:
+.L678:
+	jge.u	d15,d0,.L23
+.L679:
 	mov	d2,#1
-.L25:
+.L23:
+.L22:
+	j	.L24
 .L24:
-	j	.L26
-.L26:
 	ret
-.L449:
+.L447:
 	
 __yqj_kaiguang0_1trigger_function_end:
 	.size	yqj_kaiguang0_1trigger,__yqj_kaiguang0_1trigger_function_end-yqj_kaiguang0_1trigger
-.L247:
+.L245:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_kaiguang_trigger',code,cluster('yqj_kaiguang_trigger')
@@ -284,47 +271,47 @@ __yqj_kaiguang0_1trigger_function_end:
 	
 	.global	yqj_kaiguang_trigger
 ; Function yqj_kaiguang_trigger
-.L135:
+.L133:
 yqj_kaiguang_trigger:	.type	func
 	mov	d2,#0
-.L691:
+.L684:
 	ld.hu	d15,[a4]10
-.L692:
+.L685:
 	mov	d0,#500
-.L693:
-	jge.u	d15,d0,.L27
-.L694:
+.L686:
+	jge.u	d15,d0,.L25
+.L687:
 	ld.hu	d15,[a4]12
-.L695:
+.L688:
 	mov	d0,#500
-.L696:
-	jge.u	d15,d0,.L28
-.L697:
+.L689:
+	jge.u	d15,d0,.L26
+.L690:
 	ld.hu	d15,[a4]14
-.L698:
+.L691:
 	mov	d0,#500
-.L699:
-	jge.u	d15,d0,.L29
-.L700:
+.L692:
+	jge.u	d15,d0,.L27
+.L693:
 	ld.hu	d15,[a4]16
-.L701:
+.L694:
 	mov	d0,#500
-.L702:
-	jge.u	d15,d0,.L30
-.L703:
+.L695:
+	jge.u	d15,d0,.L28
+.L696:
 	mov	d2,#1
-.L30:
-.L29:
 .L28:
 .L27:
-	j	.L31
-.L31:
+.L26:
+.L25:
+	j	.L29
+.L29:
 	ret
-.L451:
+.L449:
 	
 __yqj_kaiguang_trigger_function_end:
 	.size	yqj_kaiguang_trigger,__yqj_kaiguang_trigger_function_end-yqj_kaiguang_trigger
-.L252:
+.L250:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_erjiguan_trigger',code,cluster('yqj_erjiguan_trigger')
@@ -333,33 +320,33 @@ __yqj_kaiguang_trigger_function_end:
 	
 	.global	yqj_erjiguan_trigger
 ; Function yqj_erjiguan_trigger
-.L137:
+.L135:
 yqj_erjiguan_trigger:	.type	func
 	mov	d2,#0
-.L708:
+.L701:
 	ld.hu	d15,[a4]2
-.L709:
+.L702:
 	mov	d0,#500
-.L710:
-	jge.u	d15,d0,.L32
-.L711:
+.L703:
+	jge.u	d15,d0,.L30
+.L704:
 	ld.hu	d15,[a4]26
-.L712:
+.L705:
 	mov	d0,#500
-.L713:
-	jge.u	d15,d0,.L33
-.L714:
+.L706:
+	jge.u	d15,d0,.L31
+.L707:
 	mov	d2,#1
-.L33:
+.L31:
+.L30:
+	j	.L32
 .L32:
-	j	.L34
-.L34:
 	ret
-.L453:
+.L451:
 	
 __yqj_erjiguan_trigger_function_end:
 	.size	yqj_erjiguan_trigger,__yqj_erjiguan_trigger_function_end-yqj_erjiguan_trigger
-.L257:
+.L255:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_tberjiguan_trigger',code,cluster('yqj_tberjiguan_trigger')
@@ -368,20 +355,20 @@ __yqj_erjiguan_trigger_function_end:
 	
 	.global	yqj_tberjiguan_trigger
 ; Function yqj_tberjiguan_trigger
-.L139:
+.L137:
 yqj_tberjiguan_trigger:	.type	func
 	ld.hu	d15,[a4]28
-.L719:
+.L712:
 	lt.u	d2,d15,#500
-.L720:
-	j	.L35
-.L35:
+.L713:
+	j	.L33
+.L33:
 	ret
-.L455:
+.L453:
 	
 __yqj_tberjiguan_trigger_function_end:
 	.size	yqj_tberjiguan_trigger,__yqj_tberjiguan_trigger_function_end-yqj_tberjiguan_trigger
-.L262:
+.L260:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_sanjiguan1_2trigger',code,cluster('yqj_sanjiguan1_2trigger')
@@ -390,33 +377,33 @@ __yqj_tberjiguan_trigger_function_end:
 	
 	.global	yqj_sanjiguan1_2trigger
 ; Function yqj_sanjiguan1_2trigger
-.L141:
+.L139:
 yqj_sanjiguan1_2trigger:	.type	func
 	mov	d2,#0
-.L725:
+.L718:
 	ld.hu	d15,[a4]2
-.L726:
+.L719:
 	mov	d0,#500
-.L727:
-	jge.u	d15,d0,.L36
-.L728:
+.L720:
+	jge.u	d15,d0,.L34
+.L721:
 	ld.hu	d15,[a4]0
-.L729:
+.L722:
 	mov	d0,#500
-.L730:
-	jge.u	d15,d0,.L37
-.L731:
+.L723:
+	jge.u	d15,d0,.L35
+.L724:
 	mov	d2,#1
-.L37:
+.L35:
+.L34:
+	j	.L36
 .L36:
-	j	.L38
-.L38:
 	ret
-.L457:
+.L455:
 	
 __yqj_sanjiguan1_2trigger_function_end:
 	.size	yqj_sanjiguan1_2trigger,__yqj_sanjiguan1_2trigger_function_end-yqj_sanjiguan1_2trigger
-.L267:
+.L265:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_sanjiguan2_1trigger',code,cluster('yqj_sanjiguan2_1trigger')
@@ -425,33 +412,33 @@ __yqj_sanjiguan1_2trigger_function_end:
 	
 	.global	yqj_sanjiguan2_1trigger
 ; Function yqj_sanjiguan2_1trigger
-.L143:
+.L141:
 yqj_sanjiguan2_1trigger:	.type	func
 	mov	d2,#0
-.L736:
+.L729:
 	ld.hu	d15,[a4]16
-.L737:
+.L730:
 	mov	d0,#500
-.L738:
-	jge.u	d15,d0,.L39
-.L739:
+.L731:
+	jge.u	d15,d0,.L37
+.L732:
 	ld.hu	d15,[a4]18
-.L740:
+.L733:
 	mov	d0,#500
-.L741:
-	jge.u	d15,d0,.L40
-.L742:
+.L734:
+	jge.u	d15,d0,.L38
+.L735:
 	mov	d2,#1
-.L40:
+.L38:
+.L37:
+	j	.L39
 .L39:
-	j	.L41
-.L41:
 	ret
-.L459:
+.L457:
 	
 __yqj_sanjiguan2_1trigger_function_end:
 	.size	yqj_sanjiguan2_1trigger,__yqj_sanjiguan2_1trigger_function_end-yqj_sanjiguan2_1trigger
-.L272:
+.L270:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_sanjiguan2_0trigger',code,cluster('yqj_sanjiguan2_0trigger')
@@ -460,33 +447,33 @@ __yqj_sanjiguan2_1trigger_function_end:
 	
 	.global	yqj_sanjiguan2_0trigger
 ; Function yqj_sanjiguan2_0trigger
-.L145:
+.L143:
 yqj_sanjiguan2_0trigger:	.type	func
 	mov	d2,#0
-.L804:
+.L797:
 	ld.hu	d15,[a4]24
-.L805:
+.L798:
 	mov	d0,#500
-.L806:
-	jge.u	d15,d0,.L42
-.L807:
+.L799:
+	jge.u	d15,d0,.L40
+.L800:
 	ld.hu	d15,[a4]26
-.L808:
+.L801:
 	mov	d0,#500
-.L809:
-	jge.u	d15,d0,.L43
-.L810:
+.L802:
+	jge.u	d15,d0,.L41
+.L803:
 	mov	d2,#1
-.L43:
+.L41:
+.L40:
+	j	.L42
 .L42:
-	j	.L44
-.L44:
 	ret
-.L467:
+.L465:
 	
 __yqj_sanjiguan2_0trigger_function_end:
 	.size	yqj_sanjiguan2_0trigger,__yqj_sanjiguan2_0trigger_function_end-yqj_sanjiguan2_0trigger
-.L292:
+.L290:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_sanjiguan0_1trigger',code,cluster('yqj_sanjiguan0_1trigger')
@@ -495,47 +482,47 @@ __yqj_sanjiguan2_0trigger_function_end:
 	
 	.global	yqj_sanjiguan0_1trigger
 ; Function yqj_sanjiguan0_1trigger
-.L147:
+.L145:
 yqj_sanjiguan0_1trigger:	.type	func
 	mov	d2,#0
-.L747:
+.L740:
 	ld.hu	d15,[a4]4
-.L748:
+.L741:
 	mov	d0,#500
-.L749:
-	jge.u	d15,d0,.L45
-.L750:
+.L742:
+	jge.u	d15,d0,.L43
+.L743:
 	ld.hu	d15,[a4]6
-.L751:
+.L744:
 	mov	d0,#500
-.L752:
-	jge.u	d15,d0,.L46
-.L753:
+.L745:
+	jge.u	d15,d0,.L44
+.L746:
 	ld.hu	d15,[a4]16
-.L754:
+.L747:
 	mov	d0,#500
-.L755:
-	jge.u	d15,d0,.L47
-.L756:
+.L748:
+	jge.u	d15,d0,.L45
+.L749:
 	ld.hu	d15,[a4]18
-.L757:
+.L750:
 	mov	d0,#500
-.L758:
-	jge.u	d15,d0,.L48
-.L759:
+.L751:
+	jge.u	d15,d0,.L46
+.L752:
 	mov	d2,#1
-.L48:
-.L47:
 .L46:
 .L45:
-	j	.L49
-.L49:
+.L44:
+.L43:
+	j	.L47
+.L47:
 	ret
-.L461:
+.L459:
 	
 __yqj_sanjiguan0_1trigger_function_end:
 	.size	yqj_sanjiguan0_1trigger,__yqj_sanjiguan0_1trigger_function_end-yqj_sanjiguan0_1trigger
-.L277:
+.L275:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_sanjiguan1_0trigger',code,cluster('yqj_sanjiguan1_0trigger')
@@ -544,33 +531,33 @@ __yqj_sanjiguan0_1trigger_function_end:
 	
 	.global	yqj_sanjiguan1_0trigger
 ; Function yqj_sanjiguan1_0trigger
-.L149:
+.L147:
 yqj_sanjiguan1_0trigger:	.type	func
 	mov	d2,#0
-.L793:
+.L786:
 	ld.hu	d15,[a4]2
-.L794:
+.L787:
 	mov	d0,#500
-.L795:
-	jge.u	d15,d0,.L50
-.L796:
+.L788:
+	jge.u	d15,d0,.L48
+.L789:
 	ld.hu	d15,[a4]4
-.L797:
+.L790:
 	mov	d0,#500
-.L798:
-	jge.u	d15,d0,.L51
-.L799:
+.L791:
+	jge.u	d15,d0,.L49
+.L792:
 	mov	d2,#1
-.L51:
+.L49:
+.L48:
+	j	.L50
 .L50:
-	j	.L52
-.L52:
 	ret
-.L465:
+.L463:
 	
 __yqj_sanjiguan1_0trigger_function_end:
 	.size	yqj_sanjiguan1_0trigger,__yqj_sanjiguan1_0trigger_function_end-yqj_sanjiguan1_0trigger
-.L287:
+.L285:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_sanjiguan0_2trigger',code,cluster('yqj_sanjiguan0_2trigger')
@@ -579,75 +566,75 @@ __yqj_sanjiguan1_0trigger_function_end:
 	
 	.global	yqj_sanjiguan0_2trigger
 ; Function yqj_sanjiguan0_2trigger
-.L151:
+.L149:
 yqj_sanjiguan0_2trigger:	.type	func
 	mov	d2,#0
-.L764:
+.L757:
 	ld.hu	d15,[a4]4
-.L765:
+.L758:
 	mov	d0,#500
-.L766:
-	jge.u	d15,d0,.L53
-.L767:
+.L759:
+	jge.u	d15,d0,.L51
+.L760:
 	ld.hu	d15,[a4]6
-.L768:
+.L761:
 	mov	d0,#500
-.L769:
-	jge.u	d15,d0,.L54
-.L770:
+.L762:
+	jge.u	d15,d0,.L52
+.L763:
 	ld.hu	d15,[a4]8
-.L771:
+.L764:
 	mov	d0,#500
-.L772:
-	jge.u	d15,d0,.L55
-.L773:
+.L765:
+	jge.u	d15,d0,.L53
+.L766:
 	ld.hu	d15,[a4]10
-.L774:
+.L767:
 	mov	d0,#500
-.L775:
-	jge.u	d15,d0,.L56
-.L776:
+.L768:
+	jge.u	d15,d0,.L54
+.L769:
 	ld.hu	d15,[a4]12
-.L777:
+.L770:
 	mov	d0,#500
-.L778:
-	jge.u	d15,d0,.L57
-.L779:
+.L771:
+	jge.u	d15,d0,.L55
+.L772:
 	ld.hu	d15,[a4]14
-.L780:
+.L773:
 	mov	d0,#500
-.L781:
-	jge.u	d15,d0,.L58
-.L782:
+.L774:
+	jge.u	d15,d0,.L56
+.L775:
 	ld.hu	d15,[a4]16
-.L783:
+.L776:
 	mov	d0,#500
-.L784:
-	jge.u	d15,d0,.L59
-.L785:
+.L777:
+	jge.u	d15,d0,.L57
+.L778:
 	ld.hu	d15,[a4]18
-.L786:
+.L779:
 	mov	d0,#500
-.L787:
-	jge.u	d15,d0,.L60
-.L788:
+.L780:
+	jge.u	d15,d0,.L58
+.L781:
 	mov	d2,#1
-.L60:
-.L59:
 .L58:
 .L57:
 .L56:
 .L55:
 .L54:
 .L53:
-	j	.L61
-.L61:
+.L52:
+.L51:
+	j	.L59
+.L59:
 	ret
-.L463:
+.L461:
 	
 __yqj_sanjiguan0_2trigger_function_end:
 	.size	yqj_sanjiguan0_2trigger,__yqj_sanjiguan0_2trigger_function_end-yqj_sanjiguan0_2trigger
-.L282:
+.L280:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_double_trigger',code,cluster('yqj_double_trigger')
@@ -656,33 +643,33 @@ __yqj_sanjiguan0_2trigger_function_end:
 	
 	.global	yqj_double_trigger
 ; Function yqj_double_trigger
-.L153:
+.L151:
 yqj_double_trigger:	.type	func
 	mov	d2,#0
-.L815:
+.L808:
 	ld.hu	d15,[a4]0
-.L816:
+.L809:
 	mov	d0,#500
-.L817:
-	jge.u	d15,d0,.L62
-.L818:
+.L810:
+	jge.u	d15,d0,.L60
+.L811:
 	ld.hu	d15,[a4]26
-.L819:
+.L812:
 	mov	d0,#500
-.L820:
-	jge.u	d15,d0,.L63
-.L821:
+.L813:
+	jge.u	d15,d0,.L61
+.L814:
 	mov	d2,#1
-.L63:
+.L61:
+.L60:
+	j	.L62
 .L62:
-	j	.L64
-.L64:
 	ret
-.L469:
+.L467:
 	
 __yqj_double_trigger_function_end:
 	.size	yqj_double_trigger,__yqj_double_trigger_function_end-yqj_double_trigger
-.L297:
+.L295:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_ldiangan_trigger',code,cluster('yqj_ldiangan_trigger')
@@ -691,32 +678,32 @@ __yqj_double_trigger_function_end:
 	
 	.global	yqj_ldiangan_trigger
 ; Function yqj_ldiangan_trigger
-.L155:
+.L153:
 yqj_ldiangan_trigger:	.type	func
 	mov	d2,#0
-.L826:
+.L819:
 	ld.hu	d15,[a4]0
-.L827:
+.L820:
 	mov	d0,#500
-.L828:
-	jlt.u	d15,d0,.L65
-.L829:
+.L821:
+	jlt.u	d15,d0,.L63
+.L822:
 	ld.hu	d15,[a4]2
-.L830:
+.L823:
 	mov	d0,#500
-.L831:
-	jge.u	d15,d0,.L66
-.L65:
+.L824:
+	jge.u	d15,d0,.L64
+.L63:
 	mov	d2,#1
-.L66:
-	j	.L67
-.L67:
+.L64:
+	j	.L65
+.L65:
 	ret
-.L471:
+.L469:
 	
 __yqj_ldiangan_trigger_function_end:
 	.size	yqj_ldiangan_trigger,__yqj_ldiangan_trigger_function_end-yqj_ldiangan_trigger
-.L302:
+.L300:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_rdiangan_trigger',code,cluster('yqj_rdiangan_trigger')
@@ -725,32 +712,32 @@ __yqj_ldiangan_trigger_function_end:
 	
 	.global	yqj_rdiangan_trigger
 ; Function yqj_rdiangan_trigger
-.L157:
+.L155:
 yqj_rdiangan_trigger:	.type	func
 	mov	d2,#0
-.L836:
+.L829:
 	ld.hu	d15,[a4]26
-.L837:
+.L830:
 	mov	d0,#500
-.L838:
-	jlt.u	d15,d0,.L68
-.L839:
+.L831:
+	jlt.u	d15,d0,.L66
+.L832:
 	ld.hu	d15,[a4]28
-.L840:
+.L833:
 	mov	d0,#500
-.L841:
-	jge.u	d15,d0,.L69
-.L68:
+.L834:
+	jge.u	d15,d0,.L67
+.L66:
 	mov	d2,#1
-.L69:
-	j	.L70
-.L70:
+.L67:
+	j	.L68
+.L68:
 	ret
-.L473:
+.L471:
 	
 __yqj_rdiangan_trigger_function_end:
 	.size	yqj_rdiangan_trigger,__yqj_rdiangan_trigger_function_end-yqj_rdiangan_trigger
-.L307:
+.L305:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_xianquan_trigger',code,cluster('yqj_xianquan_trigger')
@@ -759,75 +746,75 @@ __yqj_rdiangan_trigger_function_end:
 	
 	.global	yqj_xianquan_trigger
 ; Function yqj_xianquan_trigger
-.L159:
+.L157:
 yqj_xianquan_trigger:	.type	func
 	mov	d2,#0
-.L846:
+.L839:
 	ld.hu	d15,[a4]4
-.L847:
+.L840:
 	mov	d0,#500
-.L848:
-	jge.u	d15,d0,.L71
-.L849:
+.L841:
+	jge.u	d15,d0,.L69
+.L842:
 	ld.hu	d15,[a4]6
-.L850:
+.L843:
 	mov	d0,#500
-.L851:
-	jge.u	d15,d0,.L72
-.L852:
+.L844:
+	jge.u	d15,d0,.L70
+.L845:
 	ld.hu	d15,[a4]8
-.L853:
+.L846:
 	mov	d0,#500
-.L854:
-	jge.u	d15,d0,.L73
-.L855:
+.L847:
+	jge.u	d15,d0,.L71
+.L848:
 	ld.hu	d15,[a4]10
-.L856:
+.L849:
 	mov	d0,#500
-.L857:
-	jge.u	d15,d0,.L74
-.L858:
+.L850:
+	jge.u	d15,d0,.L72
+.L851:
 	ld.hu	d15,[a4]12
-.L859:
+.L852:
 	mov	d0,#500
-.L860:
-	jge.u	d15,d0,.L75
-.L861:
+.L853:
+	jge.u	d15,d0,.L73
+.L854:
 	ld.hu	d15,[a4]14
-.L862:
+.L855:
 	mov	d0,#500
-.L863:
-	jge.u	d15,d0,.L76
-.L864:
+.L856:
+	jge.u	d15,d0,.L74
+.L857:
 	ld.hu	d15,[a4]16
-.L865:
+.L858:
 	mov	d0,#500
-.L866:
-	jge.u	d15,d0,.L77
-.L867:
+.L859:
+	jge.u	d15,d0,.L75
+.L860:
 	ld.hu	d15,[a4]18
-.L868:
+.L861:
 	mov	d0,#500
-.L869:
-	jge.u	d15,d0,.L78
-.L870:
+.L862:
+	jge.u	d15,d0,.L76
+.L863:
 	mov	d2,#1
-.L78:
-.L77:
 .L76:
 .L75:
 .L74:
 .L73:
 .L72:
 .L71:
-	j	.L79
-.L79:
+.L70:
+.L69:
+	j	.L77
+.L77:
 	ret
-.L475:
+.L473:
 	
 __yqj_xianquan_trigger_function_end:
 	.size	yqj_xianquan_trigger,__yqj_xianquan_trigger_function_end-yqj_xianquan_trigger
-.L312:
+.L310:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_erji_trigger',code,cluster('yqj_erji_trigger')
@@ -836,33 +823,33 @@ __yqj_xianquan_trigger_function_end:
 	
 	.global	yqj_erji_trigger
 ; Function yqj_erji_trigger
-.L161:
+.L159:
 yqj_erji_trigger:	.type	func
 	mov	d2,#0
-.L875:
+.L868:
 	ld.hu	d15,[a4]0
-.L876:
+.L869:
 	mov	d0,#500
-.L877:
-	jge.u	d15,d0,.L80
-.L878:
+.L870:
+	jge.u	d15,d0,.L78
+.L871:
 	ld.hu	d15,[a4]26
-.L879:
+.L872:
 	mov	d0,#500
-.L880:
-	jge.u	d15,d0,.L81
-.L881:
+.L873:
+	jge.u	d15,d0,.L79
+.L874:
 	mov	d2,#1
-.L81:
+.L79:
+.L78:
+	j	.L80
 .L80:
-	j	.L82
-.L82:
 	ret
-.L477:
+.L475:
 	
 __yqj_erji_trigger_function_end:
 	.size	yqj_erji_trigger,__yqj_erji_trigger_function_end-yqj_erji_trigger
-.L317:
+.L315:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_dianchi_trigger',code,cluster('yqj_dianchi_trigger')
@@ -871,33 +858,33 @@ __yqj_erji_trigger_function_end:
 	
 	.global	yqj_dianchi_trigger
 ; Function yqj_dianchi_trigger
-.L163:
+.L161:
 yqj_dianchi_trigger:	.type	func
 	mov	d2,#0
-.L886:
+.L879:
 	ld.hu	d15,[a4]0
-.L887:
+.L880:
 	mov	d0,#500
-.L888:
-	jge.u	d15,d0,.L83
-.L889:
+.L881:
+	jge.u	d15,d0,.L81
+.L882:
 	ld.hu	d15,[a4]26
-.L890:
+.L883:
 	mov	d0,#500
-.L891:
-	jge.u	d15,d0,.L84
-.L892:
+.L884:
+	jge.u	d15,d0,.L82
+.L885:
 	mov	d2,#1
-.L84:
+.L82:
+.L81:
+	j	.L83
 .L83:
-	j	.L85
-.L85:
 	ret
-.L479:
+.L477:
 	
 __yqj_dianchi_trigger_function_end:
 	.size	yqj_dianchi_trigger,__yqj_dianchi_trigger_function_end-yqj_dianchi_trigger
-.L322:
+.L320:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_feimen_trigger',code,cluster('yqj_feimen_trigger')
@@ -906,33 +893,33 @@ __yqj_dianchi_trigger_function_end:
 	
 	.global	yqj_feimen_trigger
 ; Function yqj_feimen_trigger
-.L165:
+.L163:
 yqj_feimen_trigger:	.type	func
 	mov	d2,#0
-.L897:
+.L890:
 	ld.hu	d15,[a4]0
-.L898:
+.L891:
 	mov	d0,#500
-.L899:
-	jge.u	d15,d0,.L86
-.L900:
+.L892:
+	jge.u	d15,d0,.L84
+.L893:
 	ld.hu	d15,[a4]26
-.L901:
+.L894:
 	mov	d0,#500
-.L902:
-	jge.u	d15,d0,.L87
-.L903:
+.L895:
+	jge.u	d15,d0,.L85
+.L896:
 	mov	d2,#1
-.L87:
+.L85:
+.L84:
+	j	.L86
 .L86:
-	j	.L88
-.L88:
 	ret
-.L481:
+.L479:
 	
 __yqj_feimen_trigger_function_end:
 	.size	yqj_feimen_trigger,__yqj_feimen_trigger_function_end-yqj_feimen_trigger
-.L327:
+.L325:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_dianrong_trigger',code,cluster('yqj_dianrong_trigger')
@@ -941,33 +928,33 @@ __yqj_feimen_trigger_function_end:
 	
 	.global	yqj_dianrong_trigger
 ; Function yqj_dianrong_trigger
-.L167:
+.L165:
 yqj_dianrong_trigger:	.type	func
 	mov	d2,#0
-.L908:
+.L901:
 	ld.hu	d15,[a4]2
-.L909:
+.L902:
 	mov	d0,#500
-.L910:
-	jge.u	d15,d0,.L89
-.L911:
+.L903:
+	jge.u	d15,d0,.L87
+.L904:
 	ld.hu	d15,[a4]26
-.L912:
+.L905:
 	mov	d0,#500
-.L913:
-	jge.u	d15,d0,.L90
-.L914:
+.L906:
+	jge.u	d15,d0,.L88
+.L907:
 	mov	d2,#1
-.L90:
+.L88:
+.L87:
+	j	.L89
 .L89:
-	j	.L91
-.L91:
 	ret
-.L483:
+.L481:
 	
 __yqj_dianrong_trigger_function_end:
 	.size	yqj_dianrong_trigger,__yqj_dianrong_trigger_function_end-yqj_dianrong_trigger
-.L332:
+.L330:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_meter_to_count',code,cluster('yqj_meter_to_count')
@@ -975,37 +962,37 @@ __yqj_dianrong_trigger_function_end:
 	.align	2
 	
 ; Function yqj_meter_to_count
-.L169:
+.L167:
 yqj_meter_to_count:	.type	func
 	mov	d15,#0
-.L1010:
+.L1003:
 	cmp.f	d15,d4,d15
 	and	d15,#3
 	ne	d15,d15,#0
-.L1011:
-	jeq	d15,#0,.L92
-.L1012:
+.L1004:
+	jeq	d15,#0,.L90
+.L1005:
 	mov	d2,#0
-.L1013:
-	j	.L93
-.L92:
+.L1006:
+	j	.L91
+.L90:
 	movh.a	a15,#@his(yqj_encoder_count_per_meter)
 	lea	a15,[a15]@los(yqj_encoder_count_per_meter)
 	ld.w	d15,[a15]
-.L1014:
+.L1007:
 	mul.f	d15,d4,d15
-.L1015:
+.L1008:
 	ftoiz	d2,d15
-.L1016:
-	j	.L94
-.L94:
-.L93:
+.L1009:
+	j	.L92
+.L92:
+.L91:
 	ret
-.L517:
+.L515:
 	
 __yqj_meter_to_count_function_end:
 	.size	yqj_meter_to_count,__yqj_meter_to_count_function_end-yqj_meter_to_count
-.L397:
+.L395:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_enter_state',code,cluster('yqj_enter_state')
@@ -1013,26 +1000,26 @@ __yqj_meter_to_count_function_end:
 	.align	2
 	
 ; Function yqj_enter_state
-.L171:
+.L169:
 yqj_enter_state:	.type	func
 	movh.a	a15,#@his(yqj_state)
 	lea	a15,[a15]@los(yqj_state)
-.L1021:
+.L1014:
 	st.b	[a15],d4
-.L1022:
+.L1015:
 	movh.a	a15,#@his(yqj_state_start_time)
 	lea	a15,[a15]@los(yqj_state_start_time)
-.L1023:
+.L1016:
 	call	system_getval
-.L533:
+.L531:
 	st.w	[a15],d2
-.L1024:
+.L1017:
 	ret
-.L519:
+.L517:
 	
 __yqj_enter_state_function_end:
 	.size	yqj_enter_state,__yqj_enter_state_function_end-yqj_enter_state
-.L402:
+.L400:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_lock_distance_reached',code,cluster('yqj_lock_distance_reached')
@@ -1040,37 +1027,37 @@ __yqj_enter_state_function_end:
 	.align	2
 	
 ; Function yqj_lock_distance_reached
-.L173:
+.L171:
 yqj_lock_distance_reached:	.type	func
 	mov	d15,d4
-.L536:
-	mov	d4,d5
 .L534:
+	mov	d4,d5
+.L532:
 	call	yqj_meter_to_count
-.L535:
-	jge	d2,#1,.L95
-.L1029:
+.L533:
+	jge	d2,#1,.L93
+.L1022:
 	mov	d2,#1
-.L538:
-	j	.L96
-.L95:
+.L536:
+	j	.L94
+.L93:
 	movh.a	a15,#@his(yqj_lock_start_count)
 	lea	a15,[a15]@los(yqj_lock_start_count)
 	ld.w	d0,[a15]
-.L1030:
+.L1023:
 	sub	d15,d0
-.L537:
+.L535:
 	ge	d2,d15,d2
-.L539:
-	j	.L97
-.L97:
-.L96:
+.L537:
+	j	.L95
+.L95:
+.L94:
 	ret
-.L521:
+.L519:
 	
 __yqj_lock_distance_reached_function_end:
 	.size	yqj_lock_distance_reached,__yqj_lock_distance_reached_function_end-yqj_lock_distance_reached
-.L407:
+.L405:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_run_distance_reached',code,cluster('yqj_run_distance_reached')
@@ -1078,39 +1065,39 @@ __yqj_lock_distance_reached_function_end:
 	.align	2
 	
 ; Function yqj_run_distance_reached
-.L175:
+.L173:
 yqj_run_distance_reached:	.type	func
 	mov	d15,d4
-.L542:
-	mov	d4,d5
 .L540:
+	mov	d4,d5
+.L538:
 	call	yqj_meter_to_count
-.L541:
+.L539:
 	mul	d0,d2,#2
-.L544:
-	jge	d0,#1,.L98
-.L1035:
+.L542:
+	jge	d0,#1,.L96
+.L1028:
 	mov	d2,#1
-.L1036:
-	j	.L99
-.L98:
+.L1029:
+	j	.L97
+.L96:
 	movh.a	a15,#@his(yqj_lock_start_count)
 	lea	a15,[a15]@los(yqj_lock_start_count)
 	ld.w	d1,[a15]
-.L1037:
+.L1030:
 	sub	d15,d1
-.L543:
+.L541:
 	ge	d2,d15,d0
-.L1038:
-	j	.L100
-.L100:
-.L99:
+.L1031:
+	j	.L98
+.L98:
+.L97:
 	ret
-.L525:
+.L523:
 	
 __yqj_run_distance_reached_function_end:
 	.size	yqj_run_distance_reached,__yqj_run_distance_reached_function_end-yqj_run_distance_reached
-.L412:
+.L410:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_delay_distance_reached',code,cluster('yqj_delay_distance_reached')
@@ -1118,39 +1105,39 @@ __yqj_run_distance_reached_function_end:
 	.align	2
 	
 ; Function yqj_delay_distance_reached
-.L177:
+.L175:
 yqj_delay_distance_reached:	.type	func
 	mov	d15,d4
-.L547:
-	mov	d4,d5
-.L546:
-	call	yqj_meter_to_count
 .L545:
+	mov	d4,d5
+.L544:
+	call	yqj_meter_to_count
+.L543:
 	mul	d0,d2,#2
-.L549:
-	jge	d0,#1,.L101
-.L1043:
+.L547:
+	jge	d0,#1,.L99
+.L1036:
 	mov	d2,#1
-.L1044:
-	j	.L102
-.L101:
+.L1037:
+	j	.L100
+.L99:
 	movh.a	a15,#@his(yqj_delay_start_count)
 	lea	a15,[a15]@los(yqj_delay_start_count)
 	ld.w	d1,[a15]
-.L1045:
+.L1038:
 	sub	d15,d1
-.L548:
+.L546:
 	ge	d2,d15,d0
-.L1046:
-	j	.L103
-.L103:
-.L102:
+.L1039:
+	j	.L101
+.L101:
+.L100:
 	ret
-.L529:
+.L527:
 	
 __yqj_delay_distance_reached_function_end:
 	.size	yqj_delay_distance_reached,__yqj_delay_distance_reached_function_end-yqj_delay_distance_reached
-.L417:
+.L415:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_init',code,cluster('yqj_init')
@@ -1159,63 +1146,63 @@ __yqj_delay_distance_reached_function_end:
 	
 	.global	yqj_init
 ; Function yqj_init
-.L179:
+.L177:
 yqj_init:	.type	func
 	movh.a	a15,#@his(yqj_encoder_count_per_meter)
 	lea	a15,[a15]@los(yqj_encoder_count_per_meter)
-.L580:
+.L578:
 	st.w	[a15],d4
-.L581:
+.L579:
 	movh.a	a15,#@his(yqj_flag)
 	lea	a15,[a15]@los(yqj_flag)
-.L582:
+.L580:
 	mov	d15,#1
-.L583:
+.L581:
 	st.h	[a15],d15
-.L584:
+.L582:
 	movh.a	a15,#@his(yqj_state)
 	lea	a15,[a15]@los(yqj_state)
-.L585:
+.L583:
 	mov	d15,#0
-.L586:
+.L584:
 	st.b	[a15],d15
-.L587:
+.L585:
 	movh.a	a15,#@his(yqj_action_trigger)
 	lea	a15,[a15]@los(yqj_action_trigger)
-.L588:
+.L586:
 	mov	d15,#0
-.L589:
+.L587:
 	st.b	[a15],d15
-.L590:
+.L588:
 	movh.a	a15,#@his(yqj_state_start_time)
 	lea	a15,[a15]@los(yqj_state_start_time)
-.L591:
+.L589:
 	mov	d15,#0
-.L592:
+.L590:
 	st.w	[a15],d15
-.L593:
+.L591:
 	movh.a	a15,#@his(yqj_lock_start_count)
 	lea	a15,[a15]@los(yqj_lock_start_count)
-.L594:
+.L592:
 	mov	d15,#0
-.L595:
+.L593:
 	st.w	[a15],d15
-.L596:
+.L594:
 	movh.a	a15,#@his(yqj_delay_start_count)
 	lea	a15,[a15]@los(yqj_delay_start_count)
-.L597:
+.L595:
 	mov	d15,#0
-.L598:
+.L596:
 	st.w	[a15],d15
-.L599:
+.L597:
 	call	system_start
-.L550:
+.L548:
 	ret
-.L432:
+.L430:
 	
 __yqj_init_function_end:
 	.size	yqj_init,__yqj_init_function_end-yqj_init
-.L212:
+.L210:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_time_reached',code,cluster('yqj_time_reached')
@@ -1224,37 +1211,37 @@ __yqj_init_function_end:
 	
 	.global	yqj_time_reached
 ; Function yqj_time_reached
-.L181:
+.L179:
 yqj_time_reached:	.type	func
 	mov	d8,d4
-.L552:
+.L550:
 	mov	d15,d5
-.L553:
-	jne	d15,#0,.L104
-.L919:
-	mov	d2,#1
-.L920:
-	j	.L105
-.L104:
-	call	system_getval
 .L551:
+	jne	d15,#0,.L102
+.L912:
+	mov	d2,#1
+.L913:
+	j	.L103
+.L102:
+	call	system_getval
+.L549:
 	sub	d2,d8
-.L921:
+.L914:
 	mov	d0,#3125
 	sh	d0,#5
 	mul	d15,d0
-.L554:
+.L552:
 	ge.u	d2,d2,d15
-.L922:
-	j	.L106
-.L106:
-.L105:
+.L915:
+	j	.L104
+.L104:
+.L103:
 	ret
-.L485:
+.L483:
 	
 __yqj_time_reached_function_end:
 	.size	yqj_time_reached,__yqj_time_reached_function_end-yqj_time_reached
-.L337:
+.L335:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_start_case',code,cluster('yqj_start_case')
@@ -1263,28 +1250,28 @@ __yqj_time_reached_function_end:
 	
 	.global	yqj_start_case
 ; Function yqj_start_case
-.L183:
+.L181:
 yqj_start_case:	.type	func
 	movh.a	a15,#@his(yqj_action_trigger)
 	lea	a15,[a15]@los(yqj_action_trigger)
-.L927:
+.L920:
 	st.b	[a15],d4
-.L928:
+.L921:
 	movh.a	a15,#@his(yqj_delay_start_count)
 	lea	a15,[a15]@los(yqj_delay_start_count)
-.L929:
+.L922:
 	st.w	[a15],d5
-.L930:
+.L923:
 	mov	d4,#1
-.L555:
+.L553:
 	call	yqj_enter_state
-.L556:
+.L554:
 	ret
-.L489:
+.L487:
 	
 __yqj_start_case_function_end:
 	.size	yqj_start_case,__yqj_start_case_function_end-yqj_start_case
-.L342:
+.L340:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_start_run',code,cluster('yqj_start_run')
@@ -1293,23 +1280,23 @@ __yqj_start_case_function_end:
 	
 	.global	yqj_start_run
 ; Function yqj_start_run
-.L185:
+.L183:
 yqj_start_run:	.type	func
 	movh.a	a15,#@his(yqj_lock_start_count)
 	lea	a15,[a15]@los(yqj_lock_start_count)
-.L935:
+.L928:
 	st.w	[a15],d4
-.L936:
+.L929:
 	mov	d4,#2
-.L557:
+.L555:
 	call	yqj_enter_state
-.L937:
+.L930:
 	ret
-.L493:
+.L491:
 	
 __yqj_start_run_function_end:
 	.size	yqj_start_run,__yqj_start_run_function_end-yqj_start_run
-.L347:
+.L345:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_start_lock',code,cluster('yqj_start_lock')
@@ -1318,23 +1305,23 @@ __yqj_start_run_function_end:
 	
 	.global	yqj_start_lock
 ; Function yqj_start_lock
-.L187:
+.L185:
 yqj_start_lock:	.type	func
 	movh.a	a15,#@his(yqj_lock_start_count)
 	lea	a15,[a15]@los(yqj_lock_start_count)
-.L942:
+.L935:
 	st.w	[a15],d4
-.L943:
+.L936:
 	mov	d4,#3
-.L558:
+.L556:
 	call	yqj_enter_state
-.L944:
+.L937:
 	ret
-.L495:
+.L493:
 	
 __yqj_start_lock_function_end:
 	.size	yqj_start_lock,__yqj_start_lock_function_end-yqj_start_lock
-.L352:
+.L350:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_finish_case',code,cluster('yqj_finish_case')
@@ -1343,41 +1330,41 @@ __yqj_start_lock_function_end:
 	
 	.global	yqj_finish_case
 ; Function yqj_finish_case
-.L189:
+.L187:
 yqj_finish_case:	.type	func
 	movh.a	a15,#@his(yqj_flag)
 	lea	a15,[a15]@los(yqj_flag)
 	ld.hu	d15,[a15]0
-.L949:
+.L942:
 	mov.u	d0,#65535
-.L950:
-	jge.u	d15,d0,.L107
-.L951:
+.L943:
+	jge.u	d15,d0,.L105
+.L944:
 	movh.a	a15,#@his(yqj_flag)
 	lea	a15,[a15]@los(yqj_flag)
 	movh.a	a2,#@his(yqj_flag)
 	lea	a2,[a2]@los(yqj_flag)
 	ld.hu	d15,[a2]0
-.L952:
+.L945:
 	add	d15,#1
 	st.h	[a15],d15
-.L107:
+.L105:
 	movh.a	a15,#@his(yqj_action_trigger)
 	lea	a15,[a15]@los(yqj_action_trigger)
-.L953:
+.L946:
 	mov	d15,#0
-.L954:
+.L947:
 	st.b	[a15],d15
-.L955:
+.L948:
 	mov	d4,#0
 	call	yqj_enter_state
-.L956:
+.L949:
 	ret
-.L497:
+.L495:
 	
 __yqj_finish_case_function_end:
 	.size	yqj_finish_case,__yqj_finish_case_function_end-yqj_finish_case
-.L357:
+.L355:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_delay_done',code,cluster('yqj_delay_done')
@@ -1386,39 +1373,39 @@ __yqj_finish_case_function_end:
 	
 	.global	yqj_delay_done
 ; Function yqj_delay_done
-.L191:
+.L189:
 yqj_delay_done:	.type	func
 	mov	d15,d4
-.L561:
+.L559:
 	mov	d8,d6
-.L562:
+.L560:
 	mov	d9,#0
-.L961:
+.L954:
 	movh.a	a15,#@his(yqj_state_start_time)
 	lea	a15,[a15]@los(yqj_state_start_time)
 	ld.w	d4,[a15]
-.L560:
+.L558:
 	call	yqj_time_reached
-.L559:
-	jeq	d2,#0,.L108
-.L962:
+.L557:
+	jeq	d2,#0,.L106
+.L955:
 	mov	e4,d8,d15
 	call	yqj_delay_distance_reached
-.L963:
-	jeq	d2,#0,.L109
-.L964:
+.L956:
+	jeq	d2,#0,.L107
+.L957:
 	mov	d9,#1
-.L109:
-.L108:
+.L107:
+.L106:
 	mov	d2,d9
-	j	.L110
-.L110:
+	j	.L108
+.L108:
 	ret
-.L498:
+.L496:
 	
 __yqj_delay_done_function_end:
 	.size	yqj_delay_done,__yqj_delay_done_function_end-yqj_delay_done
-.L362:
+.L360:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_run_done',code,cluster('yqj_run_done')
@@ -1427,39 +1414,39 @@ __yqj_delay_done_function_end:
 	
 	.global	yqj_run_done
 ; Function yqj_run_done
-.L193:
+.L191:
 yqj_run_done:	.type	func
 	mov	d15,d4
-.L565:
+.L563:
 	mov	d8,d6
-.L566:
+.L564:
 	mov	d9,#0
-.L969:
+.L962:
 	movh.a	a15,#@his(yqj_state_start_time)
 	lea	a15,[a15]@los(yqj_state_start_time)
 	ld.w	d4,[a15]
-.L563:
+.L561:
 	call	yqj_time_reached
-.L564:
-	jeq	d2,#0,.L111
-.L970:
+.L562:
+	jeq	d2,#0,.L109
+.L963:
 	mov	e4,d8,d15
 	call	yqj_run_distance_reached
-.L971:
-	jeq	d2,#0,.L112
-.L972:
+.L964:
+	jeq	d2,#0,.L110
+.L965:
 	mov	d9,#1
-.L112:
-.L111:
+.L110:
+.L109:
 	mov	d2,d9
-	j	.L113
-.L113:
+	j	.L111
+.L111:
 	ret
-.L502:
+.L500:
 	
 __yqj_run_done_function_end:
 	.size	yqj_run_done,__yqj_run_done_function_end-yqj_run_done
-.L367:
+.L365:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_lock_done',code,cluster('yqj_lock_done')
@@ -1468,39 +1455,39 @@ __yqj_run_done_function_end:
 	
 	.global	yqj_lock_done
 ; Function yqj_lock_done
-.L195:
+.L193:
 yqj_lock_done:	.type	func
 	mov	d15,d4
-.L569:
+.L567:
 	mov	d8,d6
-.L570:
+.L568:
 	mov	d9,#0
-.L977:
+.L970:
 	movh.a	a15,#@his(yqj_state_start_time)
 	lea	a15,[a15]@los(yqj_state_start_time)
 	ld.w	d4,[a15]
-.L567:
+.L565:
 	call	yqj_time_reached
-.L568:
-	jeq	d2,#0,.L114
-.L978:
+.L566:
+	jeq	d2,#0,.L112
+.L971:
 	mov	e4,d8,d15
 	call	yqj_lock_distance_reached
-.L979:
-	jeq	d2,#0,.L115
-.L980:
+.L972:
+	jeq	d2,#0,.L113
+.L973:
 	mov	d9,#1
-.L115:
-.L114:
+.L113:
+.L112:
 	mov	d2,d9
-	j	.L116
-.L116:
+	j	.L114
+.L114:
 	ret
-.L506:
+.L504:
 	
 __yqj_lock_done_function_end:
 	.size	yqj_lock_done,__yqj_lock_done_function_end-yqj_lock_done
-.L372:
+.L370:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_get_flag',code,cluster('yqj_get_flag')
@@ -1509,20 +1496,20 @@ __yqj_lock_done_function_end:
 	
 	.global	yqj_get_flag
 ; Function yqj_get_flag
-.L197:
+.L195:
 yqj_get_flag:	.type	func
 	movh.a	a15,#@his(yqj_flag)
 	lea	a15,[a15]@los(yqj_flag)
 	ld.hu	d2,[a15]0
-.L985:
-	j	.L117
-.L117:
+.L978:
+	j	.L115
+.L115:
 	ret
-.L511:
+.L509:
 	
 __yqj_get_flag_function_end:
 	.size	yqj_get_flag,__yqj_get_flag_function_end-yqj_get_flag
-.L377:
+.L375:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_set_flag',code,cluster('yqj_set_flag')
@@ -1531,30 +1518,30 @@ __yqj_get_flag_function_end:
 	
 	.global	yqj_set_flag
 ; Function yqj_set_flag
-.L199:
+.L197:
 yqj_set_flag:	.type	func
 	movh.a	a15,#@his(yqj_flag)
 	lea	a15,[a15]@los(yqj_flag)
-.L990:
+.L983:
 	st.h	[a15],d4
-.L991:
+.L984:
 	movh.a	a15,#@his(yqj_action_trigger)
 	lea	a15,[a15]@los(yqj_action_trigger)
-.L992:
+.L985:
 	mov	d15,#0
-.L993:
+.L986:
 	st.b	[a15],d15
-.L994:
+.L987:
 	mov	d4,#0
-.L571:
+.L569:
 	call	yqj_enter_state
-.L995:
+.L988:
 	ret
-.L512:
+.L510:
 	
 __yqj_set_flag_function_end:
 	.size	yqj_set_flag,__yqj_set_flag_function_end-yqj_set_flag
-.L382:
+.L380:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_get_state',code,cluster('yqj_get_state')
@@ -1563,20 +1550,20 @@ __yqj_set_flag_function_end:
 	
 	.global	yqj_get_state
 ; Function yqj_get_state
-.L201:
+.L199:
 yqj_get_state:	.type	func
 	movh.a	a15,#@his(yqj_state)
 	lea	a15,[a15]@los(yqj_state)
 	ld.bu	d2,[a15]
-.L1000:
-	j	.L118
-.L118:
+.L993:
+	j	.L116
+.L116:
 	ret
-.L515:
+.L513:
 	
 __yqj_get_state_function_end:
 	.size	yqj_get_state,__yqj_get_state_function_end-yqj_get_state
-.L387:
+.L385:
 	; End of function
 	
 	.sdecl	'.text.yqj.yqj_get_action_trigger',code,cluster('yqj_get_action_trigger')
@@ -1585,20 +1572,20 @@ __yqj_get_state_function_end:
 	
 	.global	yqj_get_action_trigger
 ; Function yqj_get_action_trigger
-.L203:
+.L201:
 yqj_get_action_trigger:	.type	func
 	movh.a	a15,#@his(yqj_action_trigger)
 	lea	a15,[a15]@los(yqj_action_trigger)
 	ld.bu	d2,[a15]
-.L1005:
-	j	.L119
-.L119:
+.L998:
+	j	.L117
+.L117:
 	ret
-.L516:
+.L514:
 	
 __yqj_get_action_trigger_function_end:
 	.size	yqj_get_action_trigger,__yqj_get_action_trigger_function_end-yqj_get_action_trigger
-.L392:
+.L390:
 	; End of function
 	
 	.sdecl	'.data.yqj.yqj_flag',data,cluster('yqj_flag')
@@ -1709,17 +1696,17 @@ yqj_delay_start_count:	.type	object
 	.calls	'yqj_get_action_trigger','',0
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
-.L205:
+.L203:
 	.word	140545
 	.half	3
-	.word	.L206
+	.word	.L204
 	.byte	4
-.L204:
+.L202:
 	.byte	1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L207
+	.word	.L205
 	.byte	2,1,1,3
 	.word	150
 	.byte	4
@@ -1728,7 +1715,7 @@ yqj_delay_start_count:	.type	object
 	.word	153
 	.byte	6,0,7
 	.byte	'__fract',0,4,128,1
-.L433:
+.L431:
 	.byte	7
 	.byte	'float',0,4,4,8
 	.byte	'Ifx__float_to_fract',0,3,1,152,2,18
@@ -1756,7 +1743,7 @@ yqj_delay_start_count:	.type	object
 	.word	296
 	.byte	6,0,7
 	.byte	'unsigned int',0,4,7
-.L491:
+.L489:
 	.byte	7
 	.byte	'int',0,4,5,7
 	.byte	'unsigned int',0,4,7,10
@@ -1782,10 +1769,10 @@ yqj_delay_start_count:	.type	object
 	.byte	'B',0
 	.word	453
 	.byte	4,2,35,0,0
-.L435:
+.L433:
 	.byte	7
 	.byte	'unsigned char',0,1,8
-.L510:
+.L508:
 	.byte	7
 	.byte	'unsigned short int',0,2,7,10
 	.byte	'_Ifx_SCU_WDTCPU_CON1_Bits',0,4,250,8,16,4,11
@@ -3334,7 +3321,7 @@ yqj_delay_start_count:	.type	object
 	.byte	'enabled',0,8,168,7,50
 	.word	589
 	.byte	6,0
-.L486:
+.L484:
 	.byte	7
 	.byte	'unsigned long int',0,4,7,8
 	.byte	'IfxCpu_getPerformanceCounter',0,3,8,161,6,19
@@ -7140,10 +7127,10 @@ yqj_delay_start_count:	.type	object
 	.word	10470
 	.byte	1,1,1,1,28
 	.word	606
-.L437:
+.L435:
 	.byte	3
 	.word	33771
-.L514:
+.L512:
 	.byte	17,21,12,9,1,18
 	.byte	'YQJ_STATE_LINE',0,0,18
 	.byte	'YQJ_STATE_DELAY',0,1,18
@@ -20915,7 +20902,7 @@ yqj_delay_start_count:	.type	object
 	.byte	0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
-.L206:
+.L204:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,21,0,54,15,39,12,0,0,3,15,0,73,19,0,0,4,46,1,3,8,32,13
 	.byte	58,15,59,15,57,15,54,15,39,12,0,0,5,5,0,3,8,58,15,59,15,57,15,73,19,0,0,6,11,0,0,0,7,36,0,3,8,11,15,62
 	.byte	15,0,0,8,46,1,3,8,32,13,58,15,59,15,57,15,73,19,54,15,39,12,0,0,9,59,0,3,8,0,0,10,19,1,3,8,58,15,59,15
@@ -20928,12 +20915,12 @@ yqj_delay_start_count:	.type	object
 	.byte	19,0,0,33,21,1,73,19,54,15,39,12,0,0,0
 	.sdecl	'.debug_line',debug
 	.sect	'.debug_line'
-.L207:
+.L205:
+	.word	.L571-.L570
+.L570:
+	.half	3
 	.word	.L573-.L572
 .L572:
-	.half	3
-	.word	.L575-.L574
-.L574:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
 	.byte	'C:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg',0
 	.byte	'C:\\\\Users\\\\a1529\\\\Documents\\\\GitHub\\\\-\\\\libraries\\\\zf_driver',0
@@ -21016,2000 +21003,2042 @@ yqj_delay_start_count:	.type	object
 	.byte	'zf_device_wifi_uart.h',0,8,0,0
 	.byte	'zf_device_wifi_spi.h',0,8,0,0
 	.byte	'seekfree_assistant.h',0,9,0,0,0
-.L575:
 .L573:
+.L571:
 	.sdecl	'.debug_info',debug,cluster('yqj_init')
 	.sect	'.debug_info'
-.L208:
+.L206:
 	.word	232
 	.half	3
-	.word	.L209
+	.word	.L207
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L211,.L210
+	.word	.L209,.L208
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_init',0,1,143,2,6,1,1,1
-	.word	.L179,.L432,.L178
+	.byte	'yqj_init',0,1,142,2,6,1,1,1
+	.word	.L177,.L430,.L176
 	.byte	4
-	.byte	'encoder_count_per_meter',0,1,143,2,21
-	.word	.L433,.L434
+	.byte	'encoder_count_per_meter',0,1,142,2,21
+	.word	.L431,.L432
 	.byte	5
-	.word	.L179,.L432
+	.word	.L177,.L430
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_init')
 	.sect	'.debug_abbrev'
-.L209:
+.L207:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_init')
 	.sect	'.debug_line'
-.L210:
+.L208:
+	.word	.L575-.L574
+.L574:
+	.half	3
 	.word	.L577-.L576
 .L576:
-	.half	3
-	.word	.L579-.L578
-.L578:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L579:
-	.byte	5,5,7,0,5,2
-	.word	.L179
-	.byte	3,144,2,1,5,33,9
-	.half	.L580-.L179
-	.byte	1,5,5,9
-	.half	.L581-.L580
-	.byte	3,1,1,5,16,9
-	.half	.L582-.L581
-	.byte	1,5,14,9
-	.half	.L583-.L582
-	.byte	1,5,5,9
-	.half	.L584-.L583
-	.byte	3,1,1,5,17,9
-	.half	.L585-.L584
-	.byte	1,5,15,9
-	.half	.L586-.L585
-	.byte	1,5,5,9
-	.half	.L587-.L586
-	.byte	3,1,1,5,26,9
-	.half	.L588-.L587
-	.byte	1,5,24,9
-	.half	.L589-.L588
-	.byte	1,5,5,9
-	.half	.L590-.L589
-	.byte	3,1,1,5,28,9
-	.half	.L591-.L590
-	.byte	1,5,26,9
-	.half	.L592-.L591
-	.byte	1,5,5,9
-	.half	.L593-.L592
-	.byte	3,1,1,5,28,9
-	.half	.L594-.L593
-	.byte	1,5,26,9
-	.half	.L595-.L594
-	.byte	1,5,5,9
-	.half	.L596-.L595
-	.byte	3,1,1,5,29,9
-	.half	.L597-.L596
-	.byte	1,5,27,9
-	.half	.L598-.L597
-	.byte	1,5,17,9
-	.half	.L599-.L598
-	.byte	3,1,1,5,1,9
-	.half	.L550-.L599
-	.byte	3,1,1,7,9
-	.half	.L212-.L550
-	.byte	0,1,1
 .L577:
+	.byte	5,5,7,0,5,2
+	.word	.L177
+	.byte	3,143,2,1,5,33,9
+	.half	.L578-.L177
+	.byte	1,5,5,9
+	.half	.L579-.L578
+	.byte	3,1,1,5,16,9
+	.half	.L580-.L579
+	.byte	1,5,14,9
+	.half	.L581-.L580
+	.byte	1,5,5,9
+	.half	.L582-.L581
+	.byte	3,1,1,5,17,9
+	.half	.L583-.L582
+	.byte	1,5,15,9
+	.half	.L584-.L583
+	.byte	1,5,5,9
+	.half	.L585-.L584
+	.byte	3,1,1,5,26,9
+	.half	.L586-.L585
+	.byte	1,5,24,9
+	.half	.L587-.L586
+	.byte	1,5,5,9
+	.half	.L588-.L587
+	.byte	3,1,1,5,28,9
+	.half	.L589-.L588
+	.byte	1,5,26,9
+	.half	.L590-.L589
+	.byte	1,5,5,9
+	.half	.L591-.L590
+	.byte	3,1,1,5,28,9
+	.half	.L592-.L591
+	.byte	1,5,26,9
+	.half	.L593-.L592
+	.byte	1,5,5,9
+	.half	.L594-.L593
+	.byte	3,1,1,5,29,9
+	.half	.L595-.L594
+	.byte	1,5,27,9
+	.half	.L596-.L595
+	.byte	1,5,17,9
+	.half	.L597-.L596
+	.byte	3,1,1,5,1,9
+	.half	.L548-.L597
+	.byte	3,1,1,7,9
+	.half	.L210-.L548
+	.byte	0,1,1
+.L575:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_init')
 	.sect	'.debug_ranges'
-.L211:
-	.word	-1,.L179,0,.L212-.L179,0,0
+.L209:
+	.word	-1,.L177,0,.L210-.L177,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_left_turn_trigger')
 	.sect	'.debug_info'
-.L213:
+.L211:
 	.word	233
 	.half	3
-	.word	.L214
+	.word	.L212
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L216,.L215
+	.word	.L214,.L213
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
 	.byte	'yqj_left_turn_trigger',0,1,23,7
-	.word	.L435
+	.word	.L433
 	.byte	1,1,1
-	.word	.L121,.L436,.L120
+	.word	.L119,.L434,.L118
 	.byte	4
 	.byte	'adc_value',0,1,23,42
-	.word	.L437,.L438
+	.word	.L435,.L436
 	.byte	5
-	.word	.L121,.L436
+	.word	.L119,.L434
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_left_turn_trigger')
 	.sect	'.debug_abbrev'
-.L214:
+.L212:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_left_turn_trigger')
 	.sect	'.debug_line'
-.L215:
+.L213:
+	.word	.L599-.L598
+.L598:
+	.half	3
 	.word	.L601-.L600
 .L600:
-	.half	3
-	.word	.L603-.L602
-.L602:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L603:
+.L601:
 	.byte	5,55,7,0,5,2
-	.word	.L121
+	.word	.L119
 	.byte	3,24,1,5,22,9
-	.half	.L604-.L121
+	.half	.L602-.L119
 	.byte	1,5,28,9
-	.half	.L605-.L604
+	.half	.L603-.L602
 	.byte	1,5,13,9
-	.half	.L606-.L605
+	.half	.L604-.L603
 	.byte	1,5,22,7,9
-	.half	.L607-.L606
+	.half	.L605-.L604
 	.byte	3,1,1,5,28,9
-	.half	.L608-.L607
+	.half	.L606-.L605
 	.byte	1,5,26,9
-	.half	.L609-.L608
+	.half	.L607-.L606
 	.byte	1,5,55,7,9
-	.half	.L2-.L609
+	.half	.L2-.L607
 	.byte	3,127,1,5,5,9
 	.half	.L3-.L2
 	.byte	1,5,1,9
 	.half	.L4-.L3
 	.byte	3,2,1,7,9
-	.half	.L217-.L4
+	.half	.L215-.L4
 	.byte	0,1,1
-.L601:
+.L599:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_left_turn_trigger')
 	.sect	'.debug_ranges'
-.L216:
-	.word	-1,.L121,0,.L217-.L121,0,0
+.L214:
+	.word	-1,.L119,0,.L215-.L119,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_right_turn_trigger')
 	.sect	'.debug_info'
-.L218:
+.L216:
 	.word	234
 	.half	3
-	.word	.L219
+	.word	.L217
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L221,.L220
+	.word	.L219,.L218
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
 	.byte	'yqj_right_turn_trigger',0,1,30,7
-	.word	.L435
+	.word	.L433
 	.byte	1,1,1
-	.word	.L123,.L439,.L122
+	.word	.L121,.L437,.L120
 	.byte	4
 	.byte	'adc_value',0,1,30,43
-	.word	.L437,.L440
+	.word	.L435,.L438
 	.byte	5
-	.word	.L123,.L439
+	.word	.L121,.L437
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_right_turn_trigger')
 	.sect	'.debug_abbrev'
-.L219:
+.L217:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_right_turn_trigger')
 	.sect	'.debug_line'
-.L220:
+.L218:
+	.word	.L609-.L608
+.L608:
+	.half	3
 	.word	.L611-.L610
 .L610:
-	.half	3
-	.word	.L613-.L612
-.L612:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L613:
+.L611:
 	.byte	5,56,7,0,5,2
-	.word	.L123
+	.word	.L121
 	.byte	3,31,1,5,22,9
-	.half	.L614-.L123
+	.half	.L612-.L121
 	.byte	1,5,29,9
-	.half	.L615-.L614
+	.half	.L613-.L612
 	.byte	1,5,13,9
-	.half	.L616-.L615
+	.half	.L614-.L613
 	.byte	1,5,22,7,9
-	.half	.L617-.L616
+	.half	.L615-.L614
 	.byte	3,1,1,5,29,9
-	.half	.L618-.L617
+	.half	.L616-.L615
 	.byte	1,5,27,9
-	.half	.L619-.L618
+	.half	.L617-.L616
 	.byte	1,5,56,7,9
-	.half	.L5-.L619
+	.half	.L5-.L617
 	.byte	3,127,1,5,5,9
 	.half	.L6-.L5
 	.byte	1,5,1,9
 	.half	.L7-.L6
 	.byte	3,2,1,7,9
-	.half	.L222-.L7
+	.half	.L220-.L7
 	.byte	0,1,1
-.L611:
+.L609:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_right_turn_trigger')
 	.sect	'.debug_ranges'
-.L221:
-	.word	-1,.L123,0,.L222-.L123,0,0
+.L219:
+	.word	-1,.L121,0,.L220-.L121,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_dianzu_trigger')
 	.sect	'.debug_info'
-.L223:
+.L221:
 	.word	230
 	.half	3
-	.word	.L224
+	.word	.L222
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L226,.L225
+	.word	.L224,.L223
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
 	.byte	'yqj_dianzu_trigger',0,1,37,7
-	.word	.L435
+	.word	.L433
 	.byte	1,1,1
-	.word	.L125,.L441,.L124
+	.word	.L123,.L439,.L122
 	.byte	4
 	.byte	'adc_value',0,1,37,39
-	.word	.L437,.L442
+	.word	.L435,.L440
 	.byte	5
-	.word	.L125,.L441
+	.word	.L123,.L439
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_dianzu_trigger')
 	.sect	'.debug_abbrev'
-.L224:
+.L222:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_dianzu_trigger')
 	.sect	'.debug_line'
-.L225:
+.L223:
+	.word	.L619-.L618
+.L618:
+	.half	3
 	.word	.L621-.L620
 .L620:
-	.half	3
-	.word	.L623-.L622
-.L622:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L623:
+.L621:
 	.byte	5,55,7,0,5,2
-	.word	.L125
+	.word	.L123
 	.byte	3,38,1,5,22,9
-	.half	.L624-.L125
+	.half	.L622-.L123
 	.byte	1,5,28,9
-	.half	.L625-.L624
+	.half	.L623-.L622
 	.byte	1,5,13,9
-	.half	.L626-.L625
+	.half	.L624-.L623
 	.byte	1,5,22,7,9
-	.half	.L627-.L626
+	.half	.L625-.L624
 	.byte	3,1,1,5,28,9
-	.half	.L628-.L627
+	.half	.L626-.L625
 	.byte	1,5,26,9
-	.half	.L629-.L628
+	.half	.L627-.L626
 	.byte	1,5,55,7,9
-	.half	.L630-.L629
+	.half	.L628-.L627
 	.byte	3,127,1,5,5,9
-	.half	.L8-.L630
+	.half	.L8-.L628
 	.byte	1,5,1,9
 	.half	.L10-.L8
 	.byte	3,2,1,7,9
-	.half	.L227-.L10
+	.half	.L225-.L10
 	.byte	0,1,1
-.L621:
+.L619:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_dianzu_trigger')
 	.sect	'.debug_ranges'
-.L226:
-	.word	-1,.L125,0,.L227-.L125,0,0
+.L224:
+	.word	-1,.L123,0,.L225-.L123,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_dianyuan_trigger')
 	.sect	'.debug_info'
-.L228:
+.L226:
 	.word	232
 	.half	3
-	.word	.L229
+	.word	.L227
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L231,.L230
+	.word	.L229,.L228
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
 	.byte	'yqj_dianyuan_trigger',0,1,44,7
-	.word	.L435
+	.word	.L433
 	.byte	1,1,1
-	.word	.L127,.L443,.L126
+	.word	.L125,.L441,.L124
 	.byte	4
 	.byte	'adc_value',0,1,44,41
-	.word	.L437,.L444
+	.word	.L435,.L442
 	.byte	5
-	.word	.L127,.L443
+	.word	.L125,.L441
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_dianyuan_trigger')
 	.sect	'.debug_abbrev'
-.L229:
+.L227:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_dianyuan_trigger')
 	.sect	'.debug_line'
-.L230:
+.L228:
+	.word	.L630-.L629
+.L629:
+	.half	3
 	.word	.L632-.L631
 .L631:
-	.half	3
-	.word	.L634-.L633
-.L633:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L634:
+.L632:
 	.byte	5,55,7,0,5,2
-	.word	.L127
+	.word	.L125
 	.byte	3,49,1,5,22,9
-	.half	.L635-.L127
+	.half	.L633-.L125
 	.byte	3,124,1,5,28,9
-	.half	.L636-.L635
+	.half	.L634-.L633
 	.byte	1,5,13,9
+	.half	.L635-.L634
+	.byte	1,5,22,7,9
+	.half	.L636-.L635
+	.byte	3,1,1,5,28,9
 	.half	.L637-.L636
-	.byte	1,5,22,7,9
+	.byte	1,5,26,9
 	.half	.L638-.L637
-	.byte	3,1,1,5,28,9
+	.byte	1,5,22,7,9
 	.half	.L639-.L638
-	.byte	1,5,26,9
+	.byte	3,1,1,5,28,9
 	.half	.L640-.L639
-	.byte	1,5,22,7,9
+	.byte	1,5,26,9
 	.half	.L641-.L640
-	.byte	3,1,1,5,28,9
+	.byte	1,5,22,7,9
 	.half	.L642-.L641
-	.byte	1,5,26,9
-	.half	.L643-.L642
-	.byte	1,5,22,7,9
-	.half	.L644-.L643
 	.byte	3,1,1,5,29,9
-	.half	.L645-.L644
+	.half	.L643-.L642
 	.byte	1,5,27,9
+	.half	.L644-.L643
+	.byte	1,5,22,7,9
+	.half	.L645-.L644
+	.byte	3,1,1,5,28,9
 	.half	.L646-.L645
-	.byte	1,5,22,7,9
+	.byte	1,5,26,9
 	.half	.L647-.L646
-	.byte	3,1,1,5,28,9
-	.half	.L648-.L647
-	.byte	1,5,26,9
-	.half	.L649-.L648
 	.byte	1,5,22,7,9
-	.half	.L650-.L649
+	.half	.L648-.L647
 	.byte	3,1,1,5,28,9
-	.half	.L651-.L650
+	.half	.L649-.L648
 	.byte	1,5,26,9
-	.half	.L652-.L651
+	.half	.L650-.L649
 	.byte	1,5,55,7,9
-	.half	.L653-.L652
+	.half	.L651-.L650
 	.byte	3,127,1,5,5,9
-	.half	.L11-.L653
+	.half	.L11-.L651
 	.byte	3,124,1,5,1,9
 	.half	.L17-.L11
 	.byte	3,6,1,7,9
-	.half	.L232-.L17
+	.half	.L230-.L17
 	.byte	0,1,1
-.L632:
+.L630:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_dianyuan_trigger')
 	.sect	'.debug_ranges'
-.L231:
-	.word	-1,.L127,0,.L232-.L127,0,0
+.L229:
+	.word	-1,.L125,0,.L230-.L125,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_xianquandianzu0_trigger')
 	.sect	'.debug_info'
-.L233:
+.L231:
 	.word	239
 	.half	3
-	.word	.L234
+	.word	.L232
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L236,.L235
+	.word	.L234,.L233
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
 	.byte	'yqj_xianquandianzu0_trigger',0,1,55,7
-	.word	.L435
+	.word	.L433
 	.byte	1,1,1
-	.word	.L129,.L445,.L128
+	.word	.L127,.L443,.L126
 	.byte	4
 	.byte	'adc_value',0,1,55,48
-	.word	.L437,.L446
+	.word	.L435,.L444
 	.byte	5
-	.word	.L129,.L445
+	.word	.L127,.L443
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_xianquandianzu0_trigger')
 	.sect	'.debug_abbrev'
-.L234:
+.L232:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_xianquandianzu0_trigger')
 	.sect	'.debug_line'
-.L235:
+.L233:
+	.word	.L653-.L652
+.L652:
+	.half	3
 	.word	.L655-.L654
 .L654:
-	.half	3
-	.word	.L657-.L656
-.L656:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L657:
-	.byte	5,55,7,0,5,2
-	.word	.L129
-	.byte	3,56,1,5,22,9
-	.half	.L658-.L129
-	.byte	1,5,28,9
-	.half	.L659-.L658
-	.byte	1,5,13,9
-	.half	.L660-.L659
-	.byte	1,5,22,7,9
-	.half	.L661-.L660
-	.byte	3,1,1,5,28,9
-	.half	.L662-.L661
-	.byte	1,5,26,9
-	.half	.L663-.L662
-	.byte	1,5,55,7,9
-	.half	.L664-.L663
-	.byte	3,127,1,5,5,9
-	.half	.L18-.L664
-	.byte	1,5,1,9
-	.half	.L20-.L18
-	.byte	3,2,1,7,9
-	.half	.L237-.L20
-	.byte	0,1,1
 .L655:
+	.byte	5,22,7,0,5,2
+	.word	.L127
+	.byte	3,56,1,5,26,9
+	.half	.L656-.L127
+	.byte	1,5,5,9
+	.half	.L657-.L656
+	.byte	1,5,1,9
+	.half	.L18-.L657
+	.byte	3,1,1,7,9
+	.half	.L235-.L18
+	.byte	0,1,1
+.L653:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_xianquandianzu0_trigger')
 	.sect	'.debug_ranges'
-.L236:
-	.word	-1,.L129,0,.L237-.L129,0,0
+.L234:
+	.word	-1,.L127,0,.L235-.L127,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_kaiguang1_0trigger')
 	.sect	'.debug_info'
-.L238:
+.L236:
 	.word	234
 	.half	3
-	.word	.L239
+	.word	.L237
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L241,.L240
+	.word	.L239,.L238
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_kaiguang1_0trigger',0,1,62,7
-	.word	.L435
+	.byte	'yqj_kaiguang1_0trigger',0,1,61,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L131,.L447,.L130
+	.word	.L129,.L445,.L128
 	.byte	4
-	.byte	'adc_value',0,1,62,43
-	.word	.L437,.L448
+	.byte	'adc_value',0,1,61,43
+	.word	.L435,.L446
 	.byte	5
-	.word	.L131,.L447
+	.word	.L129,.L445
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_kaiguang1_0trigger')
 	.sect	'.debug_abbrev'
-.L239:
+.L237:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_kaiguang1_0trigger')
 	.sect	'.debug_line'
-.L240:
-	.word	.L666-.L665
-.L665:
+.L238:
+	.word	.L659-.L658
+.L658:
 	.half	3
-	.word	.L668-.L667
-.L667:
+	.word	.L661-.L660
+.L660:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L668:
+.L661:
 	.byte	5,55,7,0,5,2
-	.word	.L131
-	.byte	3,63,1,5,22,9
-	.half	.L669-.L131
+	.word	.L129
+	.byte	3,62,1,5,22,9
+	.half	.L662-.L129
 	.byte	1,5,28,9
-	.half	.L670-.L669
+	.half	.L663-.L662
 	.byte	1,5,13,9
-	.half	.L671-.L670
+	.half	.L664-.L663
 	.byte	1,5,22,7,9
-	.half	.L672-.L671
+	.half	.L665-.L664
 	.byte	3,1,1,5,28,9
-	.half	.L673-.L672
+	.half	.L666-.L665
 	.byte	1,5,26,9
-	.half	.L674-.L673
+	.half	.L667-.L666
 	.byte	1,5,55,7,9
-	.half	.L675-.L674
+	.half	.L668-.L667
 	.byte	3,127,1,5,5,9
-	.half	.L21-.L675
+	.half	.L19-.L668
 	.byte	1,5,1,9
-	.half	.L23-.L21
+	.half	.L21-.L19
 	.byte	3,2,1,7,9
-	.half	.L242-.L23
+	.half	.L240-.L21
 	.byte	0,1,1
-.L666:
+.L659:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_kaiguang1_0trigger')
 	.sect	'.debug_ranges'
-.L241:
-	.word	-1,.L131,0,.L242-.L131,0,0
+.L239:
+	.word	-1,.L129,0,.L240-.L129,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_kaiguang0_1trigger')
 	.sect	'.debug_info'
-.L243:
+.L241:
 	.word	234
 	.half	3
-	.word	.L244
+	.word	.L242
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L246,.L245
+	.word	.L244,.L243
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_kaiguang0_1trigger',0,1,69,7
-	.word	.L435
+	.byte	'yqj_kaiguang0_1trigger',0,1,68,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L133,.L449,.L132
+	.word	.L131,.L447,.L130
 	.byte	4
-	.byte	'adc_value',0,1,69,43
-	.word	.L437,.L450
+	.byte	'adc_value',0,1,68,43
+	.word	.L435,.L448
 	.byte	5
-	.word	.L133,.L449
+	.word	.L131,.L447
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_kaiguang0_1trigger')
 	.sect	'.debug_abbrev'
-.L244:
+.L242:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_kaiguang0_1trigger')
 	.sect	'.debug_line'
-.L245:
-	.word	.L677-.L676
-.L676:
+.L243:
+	.word	.L670-.L669
+.L669:
 	.half	3
-	.word	.L679-.L678
-.L678:
+	.word	.L672-.L671
+.L671:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L679:
+.L672:
 	.byte	5,55,7,0,5,2
-	.word	.L133
-	.byte	3,198,0,1,5,22,9
-	.half	.L680-.L133
+	.word	.L131
+	.byte	3,197,0,1,5,22,9
+	.half	.L673-.L131
 	.byte	1,5,28,9
-	.half	.L681-.L680
+	.half	.L674-.L673
 	.byte	1,5,13,9
-	.half	.L682-.L681
+	.half	.L675-.L674
 	.byte	1,5,22,7,9
-	.half	.L683-.L682
+	.half	.L676-.L675
 	.byte	3,1,1,5,28,9
-	.half	.L684-.L683
+	.half	.L677-.L676
 	.byte	1,5,26,9
-	.half	.L685-.L684
+	.half	.L678-.L677
 	.byte	1,5,55,7,9
-	.half	.L686-.L685
+	.half	.L679-.L678
 	.byte	3,127,1,5,5,9
-	.half	.L24-.L686
+	.half	.L22-.L679
 	.byte	1,5,1,9
-	.half	.L26-.L24
+	.half	.L24-.L22
 	.byte	3,2,1,7,9
-	.half	.L247-.L26
+	.half	.L245-.L24
 	.byte	0,1,1
-.L677:
+.L670:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_kaiguang0_1trigger')
 	.sect	'.debug_ranges'
-.L246:
-	.word	-1,.L133,0,.L247-.L133,0,0
+.L244:
+	.word	-1,.L131,0,.L245-.L131,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_kaiguang_trigger')
 	.sect	'.debug_info'
-.L248:
+.L246:
 	.word	232
 	.half	3
-	.word	.L249
+	.word	.L247
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L251,.L250
+	.word	.L249,.L248
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_kaiguang_trigger',0,1,76,7
-	.word	.L435
+	.byte	'yqj_kaiguang_trigger',0,1,75,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L135,.L451,.L134
+	.word	.L133,.L449,.L132
 	.byte	4
-	.byte	'adc_value',0,1,76,41
-	.word	.L437,.L452
+	.byte	'adc_value',0,1,75,41
+	.word	.L435,.L450
 	.byte	5
-	.word	.L135,.L451
+	.word	.L133,.L449
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_kaiguang_trigger')
 	.sect	'.debug_abbrev'
-.L249:
+.L247:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_kaiguang_trigger')
 	.sect	'.debug_line'
-.L250:
-	.word	.L688-.L687
-.L687:
+.L248:
+	.word	.L681-.L680
+.L680:
 	.half	3
-	.word	.L690-.L689
-.L689:
+	.word	.L683-.L682
+.L682:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L690:
+.L683:
 	.byte	5,55,7,0,5,2
-	.word	.L135
-	.byte	3,207,0,1,5,22,9
-	.half	.L691-.L135
+	.word	.L133
+	.byte	3,206,0,1,5,22,9
+	.half	.L684-.L133
 	.byte	3,126,1,5,28,9
-	.half	.L692-.L691
+	.half	.L685-.L684
 	.byte	1,5,13,9
+	.half	.L686-.L685
+	.byte	1,5,22,7,9
+	.half	.L687-.L686
+	.byte	3,1,1,5,28,9
+	.half	.L688-.L687
+	.byte	1,5,26,9
+	.half	.L689-.L688
+	.byte	1,5,22,7,9
+	.half	.L690-.L689
+	.byte	3,1,1,5,28,9
+	.half	.L691-.L690
+	.byte	1,5,26,9
+	.half	.L692-.L691
+	.byte	1,5,22,7,9
 	.half	.L693-.L692
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L694-.L693
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L695-.L694
-	.byte	1,5,26,9
-	.half	.L696-.L695
-	.byte	1,5,22,7,9
-	.half	.L697-.L696
-	.byte	3,1,1,5,28,9
-	.half	.L698-.L697
-	.byte	1,5,26,9
-	.half	.L699-.L698
-	.byte	1,5,22,7,9
-	.half	.L700-.L699
-	.byte	3,1,1,5,28,9
-	.half	.L701-.L700
-	.byte	1,5,26,9
-	.half	.L702-.L701
 	.byte	1,5,55,7,9
-	.half	.L703-.L702
+	.half	.L696-.L695
 	.byte	3,127,1,5,5,9
-	.half	.L27-.L703
+	.half	.L25-.L696
 	.byte	3,126,1,5,1,9
-	.half	.L31-.L27
+	.half	.L29-.L25
 	.byte	3,4,1,7,9
-	.half	.L252-.L31
+	.half	.L250-.L29
 	.byte	0,1,1
-.L688:
+.L681:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_kaiguang_trigger')
 	.sect	'.debug_ranges'
-.L251:
-	.word	-1,.L135,0,.L252-.L135,0,0
+.L249:
+	.word	-1,.L133,0,.L250-.L133,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_erjiguan_trigger')
 	.sect	'.debug_info'
-.L253:
+.L251:
 	.word	232
 	.half	3
-	.word	.L254
+	.word	.L252
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L256,.L255
+	.word	.L254,.L253
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_erjiguan_trigger',0,1,85,7
-	.word	.L435
+	.byte	'yqj_erjiguan_trigger',0,1,84,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L137,.L453,.L136
+	.word	.L135,.L451,.L134
 	.byte	4
-	.byte	'adc_value',0,1,85,41
-	.word	.L437,.L454
+	.byte	'adc_value',0,1,84,41
+	.word	.L435,.L452
 	.byte	5
-	.word	.L137,.L453
+	.word	.L135,.L451
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_erjiguan_trigger')
 	.sect	'.debug_abbrev'
-.L254:
+.L252:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_erjiguan_trigger')
 	.sect	'.debug_line'
-.L255:
-	.word	.L705-.L704
-.L704:
+.L253:
+	.word	.L698-.L697
+.L697:
 	.half	3
-	.word	.L707-.L706
-.L706:
+	.word	.L700-.L699
+.L699:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L707:
+.L700:
 	.byte	5,55,7,0,5,2
-	.word	.L137
-	.byte	3,214,0,1,5,22,9
-	.half	.L708-.L137
+	.word	.L135
+	.byte	3,213,0,1,5,22,9
+	.half	.L701-.L135
 	.byte	1,5,28,9
-	.half	.L709-.L708
+	.half	.L702-.L701
 	.byte	1,5,13,9
-	.half	.L710-.L709
+	.half	.L703-.L702
 	.byte	1,5,22,7,9
-	.half	.L711-.L710
+	.half	.L704-.L703
 	.byte	3,1,1,5,29,9
-	.half	.L712-.L711
+	.half	.L705-.L704
 	.byte	1,5,27,9
-	.half	.L713-.L712
+	.half	.L706-.L705
 	.byte	1,5,55,7,9
-	.half	.L714-.L713
+	.half	.L707-.L706
 	.byte	3,127,1,5,5,9
-	.half	.L32-.L714
+	.half	.L30-.L707
 	.byte	1,5,1,9
-	.half	.L34-.L32
+	.half	.L32-.L30
 	.byte	3,2,1,7,9
-	.half	.L257-.L34
+	.half	.L255-.L32
 	.byte	0,1,1
-.L705:
+.L698:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_erjiguan_trigger')
 	.sect	'.debug_ranges'
-.L256:
-	.word	-1,.L137,0,.L257-.L137,0,0
+.L254:
+	.word	-1,.L135,0,.L255-.L135,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_tberjiguan_trigger')
 	.sect	'.debug_info'
-.L258:
+.L256:
 	.word	234
 	.half	3
-	.word	.L259
+	.word	.L257
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L261,.L260
+	.word	.L259,.L258
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_tberjiguan_trigger',0,1,92,7
-	.word	.L435
+	.byte	'yqj_tberjiguan_trigger',0,1,91,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L139,.L455,.L138
+	.word	.L137,.L453,.L136
 	.byte	4
-	.byte	'adc_value',0,1,92,43
-	.word	.L437,.L456
+	.byte	'adc_value',0,1,91,43
+	.word	.L435,.L454
 	.byte	5
-	.word	.L139,.L455
+	.word	.L137,.L453
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_tberjiguan_trigger')
 	.sect	'.debug_abbrev'
-.L259:
+.L257:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_tberjiguan_trigger')
 	.sect	'.debug_line'
-.L260:
-	.word	.L716-.L715
-.L715:
+.L258:
+	.word	.L709-.L708
+.L708:
 	.half	3
-	.word	.L718-.L717
-.L717:
+	.word	.L711-.L710
+.L710:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L718:
+.L711:
 	.byte	5,22,7,0,5,2
-	.word	.L139
-	.byte	3,220,0,1,5,27,9
-	.half	.L719-.L139
+	.word	.L137
+	.byte	3,219,0,1,5,27,9
+	.half	.L712-.L137
 	.byte	1,5,5,9
-	.half	.L720-.L719
+	.half	.L713-.L712
 	.byte	1,5,57,9
-	.half	.L35-.L720
+	.half	.L33-.L713
 	.byte	1,7,9
-	.half	.L262-.L35
+	.half	.L260-.L33
 	.byte	0,1,1
-.L716:
+.L709:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_tberjiguan_trigger')
 	.sect	'.debug_ranges'
-.L261:
-	.word	-1,.L139,0,.L262-.L139,0,0
+.L259:
+	.word	-1,.L137,0,.L260-.L137,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan1_2trigger')
 	.sect	'.debug_info'
-.L263:
+.L261:
 	.word	235
 	.half	3
-	.word	.L264
+	.word	.L262
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L266,.L265
+	.word	.L264,.L263
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_sanjiguan1_2trigger',0,1,96,7
-	.word	.L435
+	.byte	'yqj_sanjiguan1_2trigger',0,1,95,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L141,.L457,.L140
+	.word	.L139,.L455,.L138
 	.byte	4
-	.byte	'adc_value',0,1,96,44
-	.word	.L437,.L458
+	.byte	'adc_value',0,1,95,44
+	.word	.L435,.L456
 	.byte	5
-	.word	.L141,.L457
+	.word	.L139,.L455
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan1_2trigger')
 	.sect	'.debug_abbrev'
-.L264:
+.L262:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan1_2trigger')
 	.sect	'.debug_line'
-.L265:
-	.word	.L722-.L721
-.L721:
+.L263:
+	.word	.L715-.L714
+.L714:
 	.half	3
-	.word	.L724-.L723
-.L723:
+	.word	.L717-.L716
+.L716:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L724:
+.L717:
 	.byte	5,55,7,0,5,2
-	.word	.L141
-	.byte	3,225,0,1,5,22,9
-	.half	.L725-.L141
+	.word	.L139
+	.byte	3,224,0,1,5,22,9
+	.half	.L718-.L139
 	.byte	1,5,28,9
-	.half	.L726-.L725
+	.half	.L719-.L718
 	.byte	1,5,13,9
-	.half	.L727-.L726
+	.half	.L720-.L719
 	.byte	1,5,22,7,9
-	.half	.L728-.L727
+	.half	.L721-.L720
 	.byte	3,1,1,5,28,9
-	.half	.L729-.L728
+	.half	.L722-.L721
 	.byte	1,5,26,9
-	.half	.L730-.L729
+	.half	.L723-.L722
 	.byte	1,5,55,7,9
-	.half	.L731-.L730
+	.half	.L724-.L723
 	.byte	3,127,1,5,5,9
-	.half	.L36-.L731
+	.half	.L34-.L724
 	.byte	1,5,1,9
-	.half	.L38-.L36
+	.half	.L36-.L34
 	.byte	3,2,1,7,9
-	.half	.L267-.L38
+	.half	.L265-.L36
 	.byte	0,1,1
-.L722:
+.L715:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan1_2trigger')
 	.sect	'.debug_ranges'
-.L266:
-	.word	-1,.L141,0,.L267-.L141,0,0
+.L264:
+	.word	-1,.L139,0,.L265-.L139,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan2_1trigger')
 	.sect	'.debug_info'
-.L268:
+.L266:
 	.word	235
 	.half	3
-	.word	.L269
+	.word	.L267
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L271,.L270
+	.word	.L269,.L268
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_sanjiguan2_1trigger',0,1,103,7
-	.word	.L435
+	.byte	'yqj_sanjiguan2_1trigger',0,1,102,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L143,.L459,.L142
+	.word	.L141,.L457,.L140
 	.byte	4
-	.byte	'adc_value',0,1,103,44
-	.word	.L437,.L460
+	.byte	'adc_value',0,1,102,44
+	.word	.L435,.L458
 	.byte	5
-	.word	.L143,.L459
+	.word	.L141,.L457
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan2_1trigger')
 	.sect	'.debug_abbrev'
-.L269:
+.L267:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan2_1trigger')
 	.sect	'.debug_line'
-.L270:
-	.word	.L733-.L732
-.L732:
+.L268:
+	.word	.L726-.L725
+.L725:
 	.half	3
-	.word	.L735-.L734
-.L734:
+	.word	.L728-.L727
+.L727:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L735:
+.L728:
 	.byte	5,55,7,0,5,2
-	.word	.L143
-	.byte	3,232,0,1,5,22,9
-	.half	.L736-.L143
+	.word	.L141
+	.byte	3,231,0,1,5,22,9
+	.half	.L729-.L141
 	.byte	1,5,28,9
-	.half	.L737-.L736
+	.half	.L730-.L729
 	.byte	1,5,13,9
-	.half	.L738-.L737
+	.half	.L731-.L730
 	.byte	1,5,22,7,9
-	.half	.L739-.L738
+	.half	.L732-.L731
 	.byte	3,1,1,5,28,9
-	.half	.L740-.L739
+	.half	.L733-.L732
 	.byte	1,5,26,9
-	.half	.L741-.L740
+	.half	.L734-.L733
 	.byte	1,5,55,7,9
-	.half	.L742-.L741
+	.half	.L735-.L734
 	.byte	3,127,1,5,5,9
-	.half	.L39-.L742
+	.half	.L37-.L735
 	.byte	1,5,1,9
-	.half	.L41-.L39
+	.half	.L39-.L37
 	.byte	3,2,1,7,9
-	.half	.L272-.L41
+	.half	.L270-.L39
 	.byte	0,1,1
-.L733:
+.L726:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan2_1trigger')
 	.sect	'.debug_ranges'
-.L271:
-	.word	-1,.L143,0,.L272-.L143,0,0
+.L269:
+	.word	-1,.L141,0,.L270-.L141,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan0_1trigger')
 	.sect	'.debug_info'
-.L273:
+.L271:
 	.word	235
 	.half	3
-	.word	.L274
+	.word	.L272
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L276,.L275
+	.word	.L274,.L273
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_sanjiguan0_1trigger',0,1,117,7
-	.word	.L435
+	.byte	'yqj_sanjiguan0_1trigger',0,1,116,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L147,.L461,.L146
+	.word	.L145,.L459,.L144
 	.byte	4
-	.byte	'adc_value',0,1,117,44
-	.word	.L437,.L462
+	.byte	'adc_value',0,1,116,44
+	.word	.L435,.L460
 	.byte	5
-	.word	.L147,.L461
+	.word	.L145,.L459
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan0_1trigger')
 	.sect	'.debug_abbrev'
-.L274:
+.L272:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan0_1trigger')
 	.sect	'.debug_line'
-.L275:
-	.word	.L744-.L743
-.L743:
+.L273:
+	.word	.L737-.L736
+.L736:
 	.half	3
-	.word	.L746-.L745
-.L745:
+	.word	.L739-.L738
+.L738:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L746:
+.L739:
 	.byte	5,55,7,0,5,2
-	.word	.L147
-	.byte	3,248,0,1,5,22,9
-	.half	.L747-.L147
+	.word	.L145
+	.byte	3,247,0,1,5,22,9
+	.half	.L740-.L145
 	.byte	3,126,1,5,28,9
-	.half	.L748-.L747
+	.half	.L741-.L740
 	.byte	1,5,13,9
+	.half	.L742-.L741
+	.byte	1,5,22,7,9
+	.half	.L743-.L742
+	.byte	3,1,1,5,28,9
+	.half	.L744-.L743
+	.byte	1,5,26,9
+	.half	.L745-.L744
+	.byte	1,5,22,7,9
+	.half	.L746-.L745
+	.byte	3,1,1,5,28,9
+	.half	.L747-.L746
+	.byte	1,5,26,9
+	.half	.L748-.L747
+	.byte	1,5,22,7,9
 	.half	.L749-.L748
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L750-.L749
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L751-.L750
-	.byte	1,5,26,9
-	.half	.L752-.L751
-	.byte	1,5,22,7,9
-	.half	.L753-.L752
-	.byte	3,1,1,5,28,9
-	.half	.L754-.L753
-	.byte	1,5,26,9
-	.half	.L755-.L754
-	.byte	1,5,22,7,9
-	.half	.L756-.L755
-	.byte	3,1,1,5,28,9
-	.half	.L757-.L756
-	.byte	1,5,26,9
-	.half	.L758-.L757
 	.byte	1,5,55,7,9
-	.half	.L759-.L758
+	.half	.L752-.L751
 	.byte	3,127,1,5,5,9
-	.half	.L45-.L759
+	.half	.L43-.L752
 	.byte	3,126,1,5,1,9
-	.half	.L49-.L45
+	.half	.L47-.L43
 	.byte	3,4,1,7,9
-	.half	.L277-.L49
+	.half	.L275-.L47
 	.byte	0,1,1
-.L744:
+.L737:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan0_1trigger')
 	.sect	'.debug_ranges'
-.L276:
-	.word	-1,.L147,0,.L277-.L147,0,0
+.L274:
+	.word	-1,.L145,0,.L275-.L145,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan0_2trigger')
 	.sect	'.debug_info'
-.L278:
+.L276:
 	.word	237
 	.half	3
-	.word	.L279
+	.word	.L277
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L281,.L280
+	.word	.L279,.L278
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_sanjiguan0_2trigger',0,1,133,1,7
-	.word	.L435
+	.byte	'yqj_sanjiguan0_2trigger',0,1,132,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L151,.L463,.L150
+	.word	.L149,.L461,.L148
 	.byte	4
-	.byte	'adc_value',0,1,133,1,44
-	.word	.L437,.L464
+	.byte	'adc_value',0,1,132,1,44
+	.word	.L435,.L462
 	.byte	5
-	.word	.L151,.L463
+	.word	.L149,.L461
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan0_2trigger')
 	.sect	'.debug_abbrev'
-.L279:
+.L277:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan0_2trigger')
 	.sect	'.debug_line'
-.L280:
-	.word	.L761-.L760
-.L760:
+.L278:
+	.word	.L754-.L753
+.L753:
 	.half	3
-	.word	.L763-.L762
-.L762:
+	.word	.L756-.L755
+.L755:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L763:
+.L756:
 	.byte	5,55,7,0,5,2
-	.word	.L151
-	.byte	3,140,1,1,5,22,9
-	.half	.L764-.L151
+	.word	.L149
+	.byte	3,139,1,1,5,22,9
+	.half	.L757-.L149
 	.byte	3,122,1,5,28,9
-	.half	.L765-.L764
+	.half	.L758-.L757
 	.byte	1,5,13,9
+	.half	.L759-.L758
+	.byte	1,5,22,7,9
+	.half	.L760-.L759
+	.byte	3,1,1,5,28,9
+	.half	.L761-.L760
+	.byte	1,5,26,9
+	.half	.L762-.L761
+	.byte	1,5,22,7,9
+	.half	.L763-.L762
+	.byte	3,1,1,5,28,9
+	.half	.L764-.L763
+	.byte	1,5,26,9
+	.half	.L765-.L764
+	.byte	1,5,22,7,9
 	.half	.L766-.L765
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L767-.L766
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L768-.L767
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L769-.L768
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L770-.L769
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L771-.L770
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L772-.L771
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L773-.L772
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L774-.L773
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L775-.L774
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L776-.L775
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L777-.L776
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L778-.L777
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L779-.L778
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L780-.L779
-	.byte	1,5,26,9
-	.half	.L781-.L780
-	.byte	1,5,22,7,9
-	.half	.L782-.L781
-	.byte	3,1,1,5,28,9
-	.half	.L783-.L782
-	.byte	1,5,26,9
-	.half	.L784-.L783
-	.byte	1,5,22,7,9
-	.half	.L785-.L784
-	.byte	3,1,1,5,28,9
-	.half	.L786-.L785
-	.byte	1,5,26,9
-	.half	.L787-.L786
 	.byte	1,5,55,7,9
-	.half	.L788-.L787
+	.half	.L781-.L780
 	.byte	3,127,1,5,5,9
-	.half	.L53-.L788
+	.half	.L51-.L781
 	.byte	3,122,1,5,1,9
-	.half	.L61-.L53
+	.half	.L59-.L51
 	.byte	3,8,1,7,9
-	.half	.L282-.L61
+	.half	.L280-.L59
 	.byte	0,1,1
-.L761:
+.L754:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan0_2trigger')
 	.sect	'.debug_ranges'
-.L281:
-	.word	-1,.L151,0,.L282-.L151,0,0
+.L279:
+	.word	-1,.L149,0,.L280-.L149,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan1_0trigger')
 	.sect	'.debug_info'
-.L283:
+.L281:
 	.word	235
 	.half	3
-	.word	.L284
+	.word	.L282
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L286,.L285
+	.word	.L284,.L283
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_sanjiguan1_0trigger',0,1,126,7
-	.word	.L435
+	.byte	'yqj_sanjiguan1_0trigger',0,1,125,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L149,.L465,.L148
+	.word	.L147,.L463,.L146
 	.byte	4
-	.byte	'adc_value',0,1,126,44
-	.word	.L437,.L466
+	.byte	'adc_value',0,1,125,44
+	.word	.L435,.L464
 	.byte	5
-	.word	.L149,.L465
+	.word	.L147,.L463
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan1_0trigger')
 	.sect	'.debug_abbrev'
-.L284:
+.L282:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan1_0trigger')
 	.sect	'.debug_line'
-.L285:
-	.word	.L790-.L789
-.L789:
+.L283:
+	.word	.L783-.L782
+.L782:
 	.half	3
-	.word	.L792-.L791
-.L791:
+	.word	.L785-.L784
+.L784:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L792:
+.L785:
 	.byte	5,55,7,0,5,2
-	.word	.L149
-	.byte	3,255,0,1,5,22,9
-	.half	.L793-.L149
+	.word	.L147
+	.byte	3,254,0,1,5,22,9
+	.half	.L786-.L147
 	.byte	1,5,28,9
-	.half	.L794-.L793
+	.half	.L787-.L786
 	.byte	1,5,13,9
-	.half	.L795-.L794
+	.half	.L788-.L787
 	.byte	1,5,22,7,9
-	.half	.L796-.L795
+	.half	.L789-.L788
 	.byte	3,1,1,5,28,9
-	.half	.L797-.L796
+	.half	.L790-.L789
 	.byte	1,5,26,9
-	.half	.L798-.L797
+	.half	.L791-.L790
 	.byte	1,5,55,7,9
-	.half	.L799-.L798
+	.half	.L792-.L791
 	.byte	3,127,1,5,5,9
-	.half	.L50-.L799
+	.half	.L48-.L792
 	.byte	1,5,1,9
-	.half	.L52-.L50
+	.half	.L50-.L48
 	.byte	3,2,1,7,9
-	.half	.L287-.L52
+	.half	.L285-.L50
 	.byte	0,1,1
-.L790:
+.L783:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan1_0trigger')
 	.sect	'.debug_ranges'
-.L286:
-	.word	-1,.L149,0,.L287-.L149,0,0
+.L284:
+	.word	-1,.L147,0,.L285-.L147,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_sanjiguan2_0trigger')
 	.sect	'.debug_info'
-.L288:
+.L286:
 	.word	235
 	.half	3
-	.word	.L289
+	.word	.L287
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L291,.L290
+	.word	.L289,.L288
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_sanjiguan2_0trigger',0,1,110,7
-	.word	.L435
+	.byte	'yqj_sanjiguan2_0trigger',0,1,109,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L145,.L467,.L144
+	.word	.L143,.L465,.L142
 	.byte	4
-	.byte	'adc_value',0,1,110,44
-	.word	.L437,.L468
+	.byte	'adc_value',0,1,109,44
+	.word	.L435,.L466
 	.byte	5
-	.word	.L145,.L467
+	.word	.L143,.L465
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_sanjiguan2_0trigger')
 	.sect	'.debug_abbrev'
-.L289:
+.L287:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_sanjiguan2_0trigger')
 	.sect	'.debug_line'
-.L290:
-	.word	.L801-.L800
-.L800:
+.L288:
+	.word	.L794-.L793
+.L793:
 	.half	3
-	.word	.L803-.L802
-.L802:
+	.word	.L796-.L795
+.L795:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L803:
+.L796:
 	.byte	5,56,7,0,5,2
-	.word	.L145
-	.byte	3,239,0,1,5,22,9
-	.half	.L804-.L145
+	.word	.L143
+	.byte	3,238,0,1,5,22,9
+	.half	.L797-.L143
 	.byte	1,5,29,9
-	.half	.L805-.L804
+	.half	.L798-.L797
 	.byte	1,5,13,9
-	.half	.L806-.L805
+	.half	.L799-.L798
 	.byte	1,5,22,7,9
-	.half	.L807-.L806
+	.half	.L800-.L799
 	.byte	3,1,1,5,29,9
-	.half	.L808-.L807
+	.half	.L801-.L800
 	.byte	1,5,27,9
-	.half	.L809-.L808
+	.half	.L802-.L801
 	.byte	1,5,56,7,9
-	.half	.L810-.L809
+	.half	.L803-.L802
 	.byte	3,127,1,5,5,9
-	.half	.L42-.L810
+	.half	.L40-.L803
 	.byte	1,5,1,9
-	.half	.L44-.L42
+	.half	.L42-.L40
 	.byte	3,2,1,7,9
-	.half	.L292-.L44
+	.half	.L290-.L42
 	.byte	0,1,1
-.L801:
+.L794:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_sanjiguan2_0trigger')
 	.sect	'.debug_ranges'
-.L291:
-	.word	-1,.L145,0,.L292-.L145,0,0
+.L289:
+	.word	-1,.L143,0,.L290-.L143,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_double_trigger')
 	.sect	'.debug_info'
-.L293:
+.L291:
 	.word	232
 	.half	3
-	.word	.L294
+	.word	.L292
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L296,.L295
+	.word	.L294,.L293
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_double_trigger',0,1,146,1,7
-	.word	.L435
+	.byte	'yqj_double_trigger',0,1,145,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L153,.L469,.L152
+	.word	.L151,.L467,.L150
 	.byte	4
-	.byte	'adc_value',0,1,146,1,39
-	.word	.L437,.L470
+	.byte	'adc_value',0,1,145,1,39
+	.word	.L435,.L468
 	.byte	5
-	.word	.L153,.L469
+	.word	.L151,.L467
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_double_trigger')
 	.sect	'.debug_abbrev'
-.L294:
+.L292:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_double_trigger')
 	.sect	'.debug_line'
-.L295:
-	.word	.L812-.L811
-.L811:
+.L293:
+	.word	.L805-.L804
+.L804:
 	.half	3
-	.word	.L814-.L813
-.L813:
+	.word	.L807-.L806
+.L806:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L814:
+.L807:
 	.byte	5,55,7,0,5,2
-	.word	.L153
-	.byte	3,147,1,1,5,22,9
-	.half	.L815-.L153
+	.word	.L151
+	.byte	3,146,1,1,5,22,9
+	.half	.L808-.L151
 	.byte	1,5,28,9
-	.half	.L816-.L815
+	.half	.L809-.L808
 	.byte	1,5,13,9
-	.half	.L817-.L816
+	.half	.L810-.L809
 	.byte	1,5,22,7,9
-	.half	.L818-.L817
+	.half	.L811-.L810
 	.byte	3,1,1,5,29,9
-	.half	.L819-.L818
+	.half	.L812-.L811
 	.byte	1,5,27,9
-	.half	.L820-.L819
+	.half	.L813-.L812
 	.byte	1,5,55,7,9
-	.half	.L821-.L820
+	.half	.L814-.L813
 	.byte	3,127,1,5,5,9
-	.half	.L62-.L821
+	.half	.L60-.L814
 	.byte	1,5,1,9
-	.half	.L64-.L62
+	.half	.L62-.L60
 	.byte	3,2,1,7,9
-	.half	.L297-.L64
+	.half	.L295-.L62
 	.byte	0,1,1
-.L812:
+.L805:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_double_trigger')
 	.sect	'.debug_ranges'
-.L296:
-	.word	-1,.L153,0,.L297-.L153,0,0
+.L294:
+	.word	-1,.L151,0,.L295-.L151,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_ldiangan_trigger')
 	.sect	'.debug_info'
-.L298:
+.L296:
 	.word	234
 	.half	3
-	.word	.L299
+	.word	.L297
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L301,.L300
+	.word	.L299,.L298
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_ldiangan_trigger',0,1,153,1,7
-	.word	.L435
+	.byte	'yqj_ldiangan_trigger',0,1,152,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L155,.L471,.L154
+	.word	.L153,.L469,.L152
 	.byte	4
-	.byte	'adc_value',0,1,153,1,41
-	.word	.L437,.L472
+	.byte	'adc_value',0,1,152,1,41
+	.word	.L435,.L470
 	.byte	5
-	.word	.L155,.L471
+	.word	.L153,.L469
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_ldiangan_trigger')
 	.sect	'.debug_abbrev'
-.L299:
+.L297:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_ldiangan_trigger')
 	.sect	'.debug_line'
-.L300:
-	.word	.L823-.L822
-.L822:
+.L298:
+	.word	.L816-.L815
+.L815:
 	.half	3
-	.word	.L825-.L824
-.L824:
+	.word	.L818-.L817
+.L817:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L825:
+.L818:
 	.byte	5,55,7,0,5,2
-	.word	.L155
-	.byte	3,154,1,1,5,22,9
-	.half	.L826-.L155
+	.word	.L153
+	.byte	3,153,1,1,5,22,9
+	.half	.L819-.L153
 	.byte	1,5,28,9
-	.half	.L827-.L826
+	.half	.L820-.L819
 	.byte	1,5,13,9
-	.half	.L828-.L827
+	.half	.L821-.L820
 	.byte	1,5,22,7,9
-	.half	.L829-.L828
+	.half	.L822-.L821
 	.byte	3,1,1,5,28,9
-	.half	.L830-.L829
+	.half	.L823-.L822
 	.byte	1,5,26,9
-	.half	.L831-.L830
+	.half	.L824-.L823
 	.byte	1,5,55,7,9
-	.half	.L65-.L831
+	.half	.L63-.L824
 	.byte	3,127,1,5,5,9
-	.half	.L66-.L65
+	.half	.L64-.L63
 	.byte	1,5,1,9
-	.half	.L67-.L66
+	.half	.L65-.L64
 	.byte	3,2,1,7,9
-	.half	.L302-.L67
+	.half	.L300-.L65
 	.byte	0,1,1
-.L823:
+.L816:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_ldiangan_trigger')
 	.sect	'.debug_ranges'
-.L301:
-	.word	-1,.L155,0,.L302-.L155,0,0
+.L299:
+	.word	-1,.L153,0,.L300-.L153,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_rdiangan_trigger')
 	.sect	'.debug_info'
-.L303:
+.L301:
 	.word	234
 	.half	3
-	.word	.L304
+	.word	.L302
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L306,.L305
+	.word	.L304,.L303
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_rdiangan_trigger',0,1,160,1,7
-	.word	.L435
+	.byte	'yqj_rdiangan_trigger',0,1,159,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L157,.L473,.L156
+	.word	.L155,.L471,.L154
 	.byte	4
-	.byte	'adc_value',0,1,160,1,41
-	.word	.L437,.L474
+	.byte	'adc_value',0,1,159,1,41
+	.word	.L435,.L472
 	.byte	5
-	.word	.L157,.L473
+	.word	.L155,.L471
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_rdiangan_trigger')
 	.sect	'.debug_abbrev'
-.L304:
+.L302:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_rdiangan_trigger')
 	.sect	'.debug_line'
-.L305:
-	.word	.L833-.L832
-.L832:
+.L303:
+	.word	.L826-.L825
+.L825:
 	.half	3
-	.word	.L835-.L834
-.L834:
+	.word	.L828-.L827
+.L827:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L835:
+.L828:
 	.byte	5,56,7,0,5,2
-	.word	.L157
-	.byte	3,161,1,1,5,22,9
-	.half	.L836-.L157
+	.word	.L155
+	.byte	3,160,1,1,5,22,9
+	.half	.L829-.L155
 	.byte	1,5,29,9
-	.half	.L837-.L836
+	.half	.L830-.L829
 	.byte	1,5,13,9
-	.half	.L838-.L837
+	.half	.L831-.L830
 	.byte	1,5,22,7,9
-	.half	.L839-.L838
+	.half	.L832-.L831
 	.byte	3,1,1,5,29,9
-	.half	.L840-.L839
+	.half	.L833-.L832
 	.byte	1,5,27,9
-	.half	.L841-.L840
+	.half	.L834-.L833
 	.byte	1,5,56,7,9
-	.half	.L68-.L841
+	.half	.L66-.L834
 	.byte	3,127,1,5,5,9
-	.half	.L69-.L68
+	.half	.L67-.L66
 	.byte	1,5,1,9
-	.half	.L70-.L69
+	.half	.L68-.L67
 	.byte	3,2,1,7,9
-	.half	.L307-.L70
+	.half	.L305-.L68
 	.byte	0,1,1
-.L833:
+.L826:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_rdiangan_trigger')
 	.sect	'.debug_ranges'
-.L306:
-	.word	-1,.L157,0,.L307-.L157,0,0
+.L304:
+	.word	-1,.L155,0,.L305-.L155,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_xianquan_trigger')
 	.sect	'.debug_info'
-.L308:
+.L306:
 	.word	234
 	.half	3
-	.word	.L309
+	.word	.L307
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L311,.L310
+	.word	.L309,.L308
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_xianquan_trigger',0,1,167,1,7
-	.word	.L435
+	.byte	'yqj_xianquan_trigger',0,1,166,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L159,.L475,.L158
+	.word	.L157,.L473,.L156
 	.byte	4
-	.byte	'adc_value',0,1,167,1,41
-	.word	.L437,.L476
+	.byte	'adc_value',0,1,166,1,41
+	.word	.L435,.L474
 	.byte	5
-	.word	.L159,.L475
+	.word	.L157,.L473
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_xianquan_trigger')
 	.sect	'.debug_abbrev'
-.L309:
+.L307:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_xianquan_trigger')
 	.sect	'.debug_line'
-.L310:
-	.word	.L843-.L842
-.L842:
+.L308:
+	.word	.L836-.L835
+.L835:
 	.half	3
-	.word	.L845-.L844
-.L844:
+	.word	.L838-.L837
+.L837:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L845:
+.L838:
 	.byte	5,55,7,0,5,2
-	.word	.L159
-	.byte	3,174,1,1,5,22,9
-	.half	.L846-.L159
+	.word	.L157
+	.byte	3,173,1,1,5,22,9
+	.half	.L839-.L157
 	.byte	3,122,1,5,28,9
-	.half	.L847-.L846
+	.half	.L840-.L839
 	.byte	1,5,13,9
+	.half	.L841-.L840
+	.byte	1,5,22,7,9
+	.half	.L842-.L841
+	.byte	3,1,1,5,28,9
+	.half	.L843-.L842
+	.byte	1,5,26,9
+	.half	.L844-.L843
+	.byte	1,5,22,7,9
+	.half	.L845-.L844
+	.byte	3,1,1,5,28,9
+	.half	.L846-.L845
+	.byte	1,5,26,9
+	.half	.L847-.L846
+	.byte	1,5,22,7,9
 	.half	.L848-.L847
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L849-.L848
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L850-.L849
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L851-.L850
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L852-.L851
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L853-.L852
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L854-.L853
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L855-.L854
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L856-.L855
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L857-.L856
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L858-.L857
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L859-.L858
-	.byte	1,5,26,9
+	.byte	1,5,22,7,9
 	.half	.L860-.L859
-	.byte	1,5,22,7,9
+	.byte	3,1,1,5,28,9
 	.half	.L861-.L860
-	.byte	3,1,1,5,28,9
+	.byte	1,5,26,9
 	.half	.L862-.L861
-	.byte	1,5,26,9
-	.half	.L863-.L862
-	.byte	1,5,22,7,9
-	.half	.L864-.L863
-	.byte	3,1,1,5,28,9
-	.half	.L865-.L864
-	.byte	1,5,26,9
-	.half	.L866-.L865
-	.byte	1,5,22,7,9
-	.half	.L867-.L866
-	.byte	3,1,1,5,28,9
-	.half	.L868-.L867
-	.byte	1,5,26,9
-	.half	.L869-.L868
 	.byte	1,5,55,7,9
-	.half	.L870-.L869
+	.half	.L863-.L862
 	.byte	3,127,1,5,5,9
-	.half	.L71-.L870
+	.half	.L69-.L863
 	.byte	3,122,1,5,1,9
-	.half	.L79-.L71
+	.half	.L77-.L69
 	.byte	3,8,1,7,9
-	.half	.L312-.L79
+	.half	.L310-.L77
 	.byte	0,1,1
-.L843:
+.L836:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_xianquan_trigger')
 	.sect	'.debug_ranges'
-.L311:
-	.word	-1,.L159,0,.L312-.L159,0,0
+.L309:
+	.word	-1,.L157,0,.L310-.L157,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_info'
-.L313:
+.L311:
 	.word	230
 	.half	3
-	.word	.L314
+	.word	.L312
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L316,.L315
+	.word	.L314,.L313
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_erji_trigger',0,1,180,1,7
-	.word	.L435
+	.byte	'yqj_erji_trigger',0,1,179,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L161,.L477,.L160
+	.word	.L159,.L475,.L158
 	.byte	4
-	.byte	'adc_value',0,1,180,1,37
-	.word	.L437,.L478
+	.byte	'adc_value',0,1,179,1,37
+	.word	.L435,.L476
 	.byte	5
-	.word	.L161,.L477
+	.word	.L159,.L475
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_abbrev'
-.L314:
+.L312:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_line'
-.L315:
-	.word	.L872-.L871
-.L871:
+.L313:
+	.word	.L865-.L864
+.L864:
 	.half	3
-	.word	.L874-.L873
-.L873:
+	.word	.L867-.L866
+.L866:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L874:
+.L867:
 	.byte	5,55,7,0,5,2
-	.word	.L161
-	.byte	3,181,1,1,5,22,9
-	.half	.L875-.L161
+	.word	.L159
+	.byte	3,180,1,1,5,22,9
+	.half	.L868-.L159
 	.byte	1,5,28,9
-	.half	.L876-.L875
+	.half	.L869-.L868
 	.byte	1,5,13,9
-	.half	.L877-.L876
+	.half	.L870-.L869
 	.byte	1,5,22,7,9
-	.half	.L878-.L877
+	.half	.L871-.L870
 	.byte	3,1,1,5,29,9
-	.half	.L879-.L878
+	.half	.L872-.L871
 	.byte	1,5,27,9
-	.half	.L880-.L879
+	.half	.L873-.L872
 	.byte	1,5,55,7,9
-	.half	.L881-.L880
+	.half	.L874-.L873
 	.byte	3,127,1,5,5,9
-	.half	.L80-.L881
+	.half	.L78-.L874
 	.byte	1,5,1,9
-	.half	.L82-.L80
+	.half	.L80-.L78
 	.byte	3,2,1,7,9
-	.half	.L317-.L82
+	.half	.L315-.L80
 	.byte	0,1,1
-.L872:
+.L865:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_ranges'
-.L316:
-	.word	-1,.L161,0,.L317-.L161,0,0
+.L314:
+	.word	-1,.L159,0,.L315-.L159,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_dianchi_trigger')
 	.sect	'.debug_info'
-.L318:
+.L316:
 	.word	233
 	.half	3
-	.word	.L319
+	.word	.L317
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L321,.L320
+	.word	.L319,.L318
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_dianchi_trigger',0,1,187,1,7
-	.word	.L435
+	.byte	'yqj_dianchi_trigger',0,1,186,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L163,.L479,.L162
+	.word	.L161,.L477,.L160
 	.byte	4
-	.byte	'adc_value',0,1,187,1,40
-	.word	.L437,.L480
+	.byte	'adc_value',0,1,186,1,40
+	.word	.L435,.L478
 	.byte	5
-	.word	.L163,.L479
+	.word	.L161,.L477
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_dianchi_trigger')
 	.sect	'.debug_abbrev'
-.L319:
+.L317:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_dianchi_trigger')
 	.sect	'.debug_line'
-.L320:
-	.word	.L883-.L882
-.L882:
+.L318:
+	.word	.L876-.L875
+.L875:
 	.half	3
-	.word	.L885-.L884
-.L884:
+	.word	.L878-.L877
+.L877:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L885:
+.L878:
 	.byte	5,55,7,0,5,2
-	.word	.L163
-	.byte	3,188,1,1,5,22,9
-	.half	.L886-.L163
+	.word	.L161
+	.byte	3,187,1,1,5,22,9
+	.half	.L879-.L161
 	.byte	1,5,28,9
-	.half	.L887-.L886
+	.half	.L880-.L879
 	.byte	1,5,13,9
-	.half	.L888-.L887
+	.half	.L881-.L880
 	.byte	1,5,22,7,9
-	.half	.L889-.L888
+	.half	.L882-.L881
 	.byte	3,1,1,5,29,9
-	.half	.L890-.L889
+	.half	.L883-.L882
 	.byte	1,5,27,9
-	.half	.L891-.L890
+	.half	.L884-.L883
 	.byte	1,5,55,7,9
-	.half	.L892-.L891
+	.half	.L885-.L884
 	.byte	3,127,1,5,5,9
-	.half	.L83-.L892
+	.half	.L81-.L885
 	.byte	1,5,1,9
-	.half	.L85-.L83
+	.half	.L83-.L81
 	.byte	3,2,1,7,9
-	.half	.L322-.L85
+	.half	.L320-.L83
 	.byte	0,1,1
-.L883:
+.L876:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_dianchi_trigger')
 	.sect	'.debug_ranges'
-.L321:
-	.word	-1,.L163,0,.L322-.L163,0,0
+.L319:
+	.word	-1,.L161,0,.L320-.L161,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_feimen_trigger')
 	.sect	'.debug_info'
-.L323:
+.L321:
 	.word	232
 	.half	3
-	.word	.L324
+	.word	.L322
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L326,.L325
+	.word	.L324,.L323
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_feimen_trigger',0,1,194,1,7
-	.word	.L435
+	.byte	'yqj_feimen_trigger',0,1,193,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L165,.L481,.L164
+	.word	.L163,.L479,.L162
 	.byte	4
-	.byte	'adc_value',0,1,194,1,39
-	.word	.L437,.L482
+	.byte	'adc_value',0,1,193,1,39
+	.word	.L435,.L480
 	.byte	5
-	.word	.L165,.L481
+	.word	.L163,.L479
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_feimen_trigger')
 	.sect	'.debug_abbrev'
-.L324:
+.L322:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_feimen_trigger')
 	.sect	'.debug_line'
-.L325:
-	.word	.L894-.L893
-.L893:
+.L323:
+	.word	.L887-.L886
+.L886:
 	.half	3
-	.word	.L896-.L895
-.L895:
+	.word	.L889-.L888
+.L888:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L896:
+.L889:
 	.byte	5,55,7,0,5,2
-	.word	.L165
-	.byte	3,195,1,1,5,22,9
-	.half	.L897-.L165
+	.word	.L163
+	.byte	3,194,1,1,5,22,9
+	.half	.L890-.L163
 	.byte	1,5,28,9
-	.half	.L898-.L897
+	.half	.L891-.L890
 	.byte	1,5,13,9
-	.half	.L899-.L898
+	.half	.L892-.L891
 	.byte	1,5,22,7,9
-	.half	.L900-.L899
+	.half	.L893-.L892
 	.byte	3,1,1,5,29,9
-	.half	.L901-.L900
+	.half	.L894-.L893
 	.byte	1,5,27,9
-	.half	.L902-.L901
+	.half	.L895-.L894
 	.byte	1,5,55,7,9
-	.half	.L903-.L902
+	.half	.L896-.L895
 	.byte	3,127,1,5,5,9
-	.half	.L86-.L903
+	.half	.L84-.L896
 	.byte	1,5,1,9
-	.half	.L88-.L86
+	.half	.L86-.L84
 	.byte	3,2,1,7,9
-	.half	.L327-.L88
+	.half	.L325-.L86
 	.byte	0,1,1
-.L894:
+.L887:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_feimen_trigger')
 	.sect	'.debug_ranges'
-.L326:
-	.word	-1,.L165,0,.L327-.L165,0,0
+.L324:
+	.word	-1,.L163,0,.L325-.L163,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_dianrong_trigger')
 	.sect	'.debug_info'
-.L328:
+.L326:
 	.word	234
 	.half	3
-	.word	.L329
+	.word	.L327
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L331,.L330
+	.word	.L329,.L328
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_dianrong_trigger',0,1,201,1,7
-	.word	.L435
+	.byte	'yqj_dianrong_trigger',0,1,200,1,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L167,.L483,.L166
+	.word	.L165,.L481,.L164
 	.byte	4
-	.byte	'adc_value',0,1,201,1,41
-	.word	.L437,.L484
+	.byte	'adc_value',0,1,200,1,41
+	.word	.L435,.L482
 	.byte	5
-	.word	.L167,.L483
+	.word	.L165,.L481
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_dianrong_trigger')
 	.sect	'.debug_abbrev'
-.L329:
+.L327:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_dianrong_trigger')
 	.sect	'.debug_line'
-.L330:
-	.word	.L905-.L904
-.L904:
+.L328:
+	.word	.L898-.L897
+.L897:
 	.half	3
-	.word	.L907-.L906
-.L906:
+	.word	.L900-.L899
+.L899:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L907:
+.L900:
 	.byte	5,55,7,0,5,2
-	.word	.L167
-	.byte	3,202,1,1,5,22,9
-	.half	.L908-.L167
+	.word	.L165
+	.byte	3,201,1,1,5,22,9
+	.half	.L901-.L165
 	.byte	1,5,28,9
-	.half	.L909-.L908
+	.half	.L902-.L901
 	.byte	1,5,13,9
-	.half	.L910-.L909
+	.half	.L903-.L902
 	.byte	1,5,22,7,9
-	.half	.L911-.L910
+	.half	.L904-.L903
 	.byte	3,1,1,5,29,9
-	.half	.L912-.L911
+	.half	.L905-.L904
 	.byte	1,5,27,9
-	.half	.L913-.L912
+	.half	.L906-.L905
 	.byte	1,5,55,7,9
-	.half	.L914-.L913
+	.half	.L907-.L906
 	.byte	3,127,1,5,5,9
-	.half	.L89-.L914
+	.half	.L87-.L907
 	.byte	1,5,1,9
-	.half	.L91-.L89
+	.half	.L89-.L87
 	.byte	3,2,1,7,9
-	.half	.L332-.L91
+	.half	.L330-.L89
 	.byte	0,1,1
-.L905:
+.L898:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_dianrong_trigger')
 	.sect	'.debug_ranges'
-.L331:
-	.word	-1,.L167,0,.L332-.L167,0,0
+.L329:
+	.word	-1,.L165,0,.L330-.L165,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_time_reached')
 	.sect	'.debug_info'
-.L333:
+.L331:
 	.word	256
 	.half	3
-	.word	.L334
+	.word	.L332
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L336,.L335
+	.word	.L334,.L333
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_time_reached',0,1,156,2,7
-	.word	.L435
+	.byte	'yqj_time_reached',0,1,155,2,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L181,.L485,.L180
+	.word	.L179,.L483,.L178
 	.byte	4
-	.byte	'start_time',0,1,156,2,31
-	.word	.L486,.L487
+	.byte	'start_time',0,1,155,2,31
+	.word	.L484,.L485
 	.byte	4
-	.byte	'duration_ms',0,1,156,2,50
-	.word	.L486,.L488
+	.byte	'duration_ms',0,1,155,2,50
+	.word	.L484,.L486
 	.byte	5
-	.word	.L181,.L485
+	.word	.L179,.L483
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_time_reached')
 	.sect	'.debug_abbrev'
-.L334:
+.L332:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_time_reached')
 	.sect	'.debug_line'
-.L335:
-	.word	.L916-.L915
-.L915:
+.L333:
+	.word	.L909-.L908
+.L908:
 	.half	3
-	.word	.L918-.L917
-.L917:
+	.word	.L911-.L910
+.L910:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L918:
+.L911:
 	.byte	5,7,7,0,5,2
-	.word	.L181
-	.byte	3,155,2,1,5,5,9
-	.half	.L553-.L181
+	.word	.L179
+	.byte	3,154,2,1,5,5,9
+	.half	.L551-.L179
 	.byte	3,2,1,5,16,7,9
-	.half	.L919-.L553
+	.half	.L912-.L551
 	.byte	3,2,1,5,9,9
-	.half	.L920-.L919
+	.half	.L913-.L912
 	.byte	1,5,35,9
-	.half	.L104-.L920
+	.half	.L102-.L913
 	.byte	3,3,1,5,38,9
-	.half	.L551-.L104
+	.half	.L549-.L102
 	.byte	1,5,55,9
-	.half	.L921-.L551
+	.half	.L914-.L549
 	.byte	1,5,52,9
-	.half	.L554-.L921
+	.half	.L552-.L914
 	.byte	1,5,5,9
-	.half	.L922-.L554
+	.half	.L915-.L552
 	.byte	1,5,1,9
-	.half	.L105-.L922
+	.half	.L103-.L915
 	.byte	3,1,1,7,9
-	.half	.L337-.L105
+	.half	.L335-.L103
 	.byte	0,1,1
-.L916:
+.L909:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_time_reached')
 	.sect	'.debug_ranges'
-.L336:
-	.word	-1,.L181,0,.L337-.L181,0,0
+.L334:
+	.word	-1,.L179,0,.L335-.L179,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_start_case')
 	.sect	'.debug_info'
-.L338:
+.L336:
 	.word	260
 	.half	3
-	.word	.L339
+	.word	.L337
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L341,.L340
+	.word	.L339,.L338
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_start_case',0,1,167,2,6,1,1,1
-	.word	.L183,.L489,.L182
+	.byte	'yqj_start_case',0,1,166,2,6,1,1,1
+	.word	.L181,.L487,.L180
 	.byte	4
-	.byte	'action_trigger',0,1,167,2,27
-	.word	.L435,.L490
+	.byte	'action_trigger',0,1,166,2,27
+	.word	.L433,.L488
 	.byte	4
-	.byte	'encoder_total_sum',0,1,167,2,49
-	.word	.L491,.L492
+	.byte	'encoder_total_sum',0,1,166,2,49
+	.word	.L489,.L490
 	.byte	5
-	.word	.L183,.L489
+	.word	.L181,.L487
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_start_case')
 	.sect	'.debug_abbrev'
-.L339:
+.L337:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_start_case')
 	.sect	'.debug_line'
-.L340:
-	.word	.L924-.L923
-.L923:
+.L338:
+	.word	.L917-.L916
+.L916:
 	.half	3
-	.word	.L926-.L925
-.L925:
+	.word	.L919-.L918
+.L918:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L926:
+.L919:
 	.byte	5,5,7,0,5,2
-	.word	.L183
-	.byte	3,168,2,1,5,24,9
-	.half	.L927-.L183
+	.word	.L181
+	.byte	3,167,2,1,5,24,9
+	.half	.L920-.L181
 	.byte	1,5,5,9
-	.half	.L928-.L927
+	.half	.L921-.L920
 	.byte	3,1,1,5,27,9
-	.half	.L929-.L928
+	.half	.L922-.L921
 	.byte	1,5,21,9
-	.half	.L930-.L929
+	.half	.L923-.L922
 	.byte	3,1,1,5,1,9
-	.half	.L556-.L930
+	.half	.L554-.L923
 	.byte	3,1,1,7,9
-	.half	.L342-.L556
+	.half	.L340-.L554
 	.byte	0,1,1
-.L924:
+.L917:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_start_case')
 	.sect	'.debug_ranges'
-.L341:
-	.word	-1,.L183,0,.L342-.L183,0,0
+.L339:
+	.word	-1,.L181,0,.L340-.L181,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_start_run')
 	.sect	'.debug_info'
-.L343:
+.L341:
 	.word	231
 	.half	3
-	.word	.L344
+	.word	.L342
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L346,.L345
+	.word	.L344,.L343
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_start_run',0,1,175,2,6,1,1,1
-	.word	.L185,.L493,.L184
+	.byte	'yqj_start_run',0,1,174,2,6,1,1,1
+	.word	.L183,.L491,.L182
 	.byte	4
-	.byte	'encoder_total_sum',0,1,175,2,26
-	.word	.L491,.L494
+	.byte	'encoder_total_sum',0,1,174,2,26
+	.word	.L489,.L492
 	.byte	5
-	.word	.L185,.L493
+	.word	.L183,.L491
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_start_run')
 	.sect	'.debug_abbrev'
-.L344:
+.L342:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_start_run')
 	.sect	'.debug_line'
-.L345:
+.L343:
+	.word	.L925-.L924
+.L924:
+	.half	3
+	.word	.L927-.L926
+.L926:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../code/yqj.c',0,0,0,0,0
+.L927:
+	.byte	5,5,7,0,5,2
+	.word	.L183
+	.byte	3,175,2,1,5,26,9
+	.half	.L928-.L183
+	.byte	1,5,21,9
+	.half	.L929-.L928
+	.byte	3,1,1,5,1,9
+	.half	.L930-.L929
+	.byte	3,1,1,7,9
+	.half	.L345-.L930
+	.byte	0,1,1
+.L925:
+	.sdecl	'.debug_ranges',debug,cluster('yqj_start_run')
+	.sect	'.debug_ranges'
+.L344:
+	.word	-1,.L183,0,.L345-.L183,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_start_lock')
+	.sect	'.debug_info'
+.L346:
+	.word	232
+	.half	3
+	.word	.L347
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
+	.word	.L349,.L348
+	.byte	2
+	.word	.L202
+	.byte	3
+	.byte	'yqj_start_lock',0,1,181,2,6,1,1,1
+	.word	.L185,.L493,.L184
+	.byte	4
+	.byte	'encoder_total_sum',0,1,181,2,27
+	.word	.L489,.L494
+	.byte	5
+	.word	.L185,.L493
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_start_lock')
+	.sect	'.debug_abbrev'
+.L347:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_start_lock')
+	.sect	'.debug_line'
+.L348:
 	.word	.L932-.L931
 .L931:
 	.half	3
@@ -23020,50 +23049,47 @@ yqj_delay_start_count:	.type	object
 .L934:
 	.byte	5,5,7,0,5,2
 	.word	.L185
-	.byte	3,176,2,1,5,26,9
+	.byte	3,182,2,1,5,26,9
 	.half	.L935-.L185
 	.byte	1,5,21,9
 	.half	.L936-.L935
 	.byte	3,1,1,5,1,9
 	.half	.L937-.L936
 	.byte	3,1,1,7,9
-	.half	.L347-.L937
+	.half	.L350-.L937
 	.byte	0,1,1
 .L932:
-	.sdecl	'.debug_ranges',debug,cluster('yqj_start_run')
+	.sdecl	'.debug_ranges',debug,cluster('yqj_start_lock')
 	.sect	'.debug_ranges'
-.L346:
-	.word	-1,.L185,0,.L347-.L185,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_start_lock')
+.L349:
+	.word	-1,.L185,0,.L350-.L185,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_finish_case')
 	.sect	'.debug_info'
-.L348:
-	.word	232
+.L351:
+	.word	202
 	.half	3
-	.word	.L349
+	.word	.L352
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L351,.L350
+	.word	.L354,.L353
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_start_lock',0,1,182,2,6,1,1,1
+	.byte	'yqj_finish_case',0,1,188,2,6,1,1,1
 	.word	.L187,.L495,.L186
 	.byte	4
-	.byte	'encoder_total_sum',0,1,182,2,27
-	.word	.L491,.L496
-	.byte	5
 	.word	.L187,.L495
 	.byte	0,0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_start_lock')
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_finish_case')
 	.sect	'.debug_abbrev'
-.L349:
+.L352:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
-	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
-	.sdecl	'.debug_line',debug,cluster('yqj_start_lock')
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('yqj_finish_case')
 	.sect	'.debug_line'
-.L350:
+.L353:
 	.word	.L939-.L938
 .L938:
 	.half	3
@@ -23072,942 +23098,913 @@ yqj_delay_start_count:	.type	object
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
 .L941:
-	.byte	5,5,7,0,5,2
+	.byte	5,9,7,0,5,2
 	.word	.L187
-	.byte	3,183,2,1,5,26,9
+	.byte	3,189,2,1,5,20,9
 	.half	.L942-.L187
-	.byte	1,5,21,9
+	.byte	1,5,5,9
 	.half	.L943-.L942
-	.byte	3,1,1,5,1,9
+	.byte	1,5,9,7,9
 	.half	.L944-.L943
+	.byte	3,2,1,5,17,9
+	.half	.L945-.L944
+	.byte	1,5,5,9
+	.half	.L105-.L945
+	.byte	3,2,1,5,26,9
+	.half	.L946-.L105
+	.byte	1,5,24,9
+	.half	.L947-.L946
+	.byte	1,5,21,9
+	.half	.L948-.L947
+	.byte	3,1,1,5,1,9
+	.half	.L949-.L948
 	.byte	3,1,1,7,9
-	.half	.L352-.L944
+	.half	.L355-.L949
 	.byte	0,1,1
 .L939:
-	.sdecl	'.debug_ranges',debug,cluster('yqj_start_lock')
-	.sect	'.debug_ranges'
-.L351:
-	.word	-1,.L187,0,.L352-.L187,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_finish_case')
-	.sect	'.debug_info'
-.L353:
-	.word	202
-	.half	3
-	.word	.L354
-	.byte	4,1
-	.byte	'../code/yqj.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L356,.L355
-	.byte	2
-	.word	.L204
-	.byte	3
-	.byte	'yqj_finish_case',0,1,189,2,6,1,1,1
-	.word	.L189,.L497,.L188
-	.byte	4
-	.word	.L189,.L497
-	.byte	0,0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_finish_case')
-	.sect	'.debug_abbrev'
-.L354:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
-	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
-	.sdecl	'.debug_line',debug,cluster('yqj_finish_case')
-	.sect	'.debug_line'
-.L355:
-	.word	.L946-.L945
-.L945:
-	.half	3
-	.word	.L948-.L947
-.L947:
-	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
-	.byte	'../code/yqj.c',0,0,0,0,0
-.L948:
-	.byte	5,9,7,0,5,2
-	.word	.L189
-	.byte	3,190,2,1,5,20,9
-	.half	.L949-.L189
-	.byte	1,5,5,9
-	.half	.L950-.L949
-	.byte	1,5,9,7,9
-	.half	.L951-.L950
-	.byte	3,2,1,5,17,9
-	.half	.L952-.L951
-	.byte	1,5,5,9
-	.half	.L107-.L952
-	.byte	3,2,1,5,26,9
-	.half	.L953-.L107
-	.byte	1,5,24,9
-	.half	.L954-.L953
-	.byte	1,5,21,9
-	.half	.L955-.L954
-	.byte	3,1,1,5,1,9
-	.half	.L956-.L955
-	.byte	3,1,1,7,9
-	.half	.L357-.L956
-	.byte	0,1,1
-.L946:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_finish_case')
 	.sect	'.debug_ranges'
-.L356:
-	.word	-1,.L189,0,.L357-.L189,0,0
+.L354:
+	.word	-1,.L187,0,.L355-.L187,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_delay_done')
 	.sect	'.debug_info'
-.L358:
+.L356:
 	.word	288
 	.half	3
-	.word	.L359
+	.word	.L357
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L361,.L360
+	.word	.L359,.L358
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_delay_done',0,1,201,2,7
-	.word	.L435
+	.byte	'yqj_delay_done',0,1,200,2,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L191,.L498,.L190
+	.word	.L189,.L496,.L188
 	.byte	4
-	.byte	'encoder_total_sum',0,1,201,2,28
-	.word	.L491,.L499
+	.byte	'encoder_total_sum',0,1,200,2,28
+	.word	.L489,.L497
 	.byte	4
-	.byte	'delay_ms',0,1,202,2,29
-	.word	.L486,.L500
+	.byte	'delay_ms',0,1,201,2,29
+	.word	.L484,.L498
 	.byte	4
-	.byte	'delay_distance_m',0,1,203,2,28
-	.word	.L433,.L501
+	.byte	'delay_distance_m',0,1,202,2,28
+	.word	.L431,.L499
 	.byte	5
-	.word	.L191,.L498
+	.word	.L189,.L496
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_delay_done')
 	.sect	'.debug_abbrev'
-.L359:
+.L357:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_delay_done')
 	.sect	'.debug_line'
-.L360:
-	.word	.L958-.L957
-.L957:
+.L358:
+	.word	.L951-.L950
+.L950:
 	.half	3
-	.word	.L960-.L959
-.L959:
+	.word	.L953-.L952
+.L952:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L960:
+.L953:
 	.byte	5,7,7,0,5,2
-	.word	.L191
-	.byte	3,200,2,1,5,62,9
-	.half	.L562-.L191
+	.word	.L189
+	.byte	3,199,2,1,5,62,9
+	.half	.L560-.L189
 	.byte	3,4,1,5,30,9
-	.half	.L961-.L562
+	.half	.L954-.L560
 	.byte	1,5,52,9
-	.half	.L560-.L961
+	.half	.L558-.L954
 	.byte	1,5,13,9
-	.half	.L559-.L560
+	.half	.L557-.L558
 	.byte	1,5,40,7,9
-	.half	.L962-.L559
+	.half	.L955-.L557
 	.byte	3,2,1,5,39,9
-	.half	.L963-.L962
+	.half	.L956-.L955
 	.byte	3,127,1,5,62,7,9
-	.half	.L964-.L963
+	.half	.L957-.L956
 	.byte	3,127,1,5,5,9
-	.half	.L108-.L964
+	.half	.L106-.L957
 	.byte	1,5,1,9
-	.half	.L110-.L108
+	.half	.L108-.L106
 	.byte	3,3,1,7,9
-	.half	.L362-.L110
+	.half	.L360-.L108
 	.byte	0,1,1
-.L958:
+.L951:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_delay_done')
 	.sect	'.debug_ranges'
-.L361:
-	.word	-1,.L191,0,.L362-.L191,0,0
+.L359:
+	.word	-1,.L189,0,.L360-.L189,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_run_done')
 	.sect	'.debug_info'
-.L363:
+.L361:
 	.word	282
 	.half	3
-	.word	.L364
+	.word	.L362
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L366,.L365
+	.word	.L364,.L363
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_run_done',0,1,212,2,7
-	.word	.L435
+	.byte	'yqj_run_done',0,1,211,2,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L193,.L502,.L192
+	.word	.L191,.L500,.L190
 	.byte	4
-	.byte	'encoder_total_sum',0,1,212,2,26
-	.word	.L491,.L503
+	.byte	'encoder_total_sum',0,1,211,2,26
+	.word	.L489,.L501
 	.byte	4
-	.byte	'run_ms',0,1,213,2,27
-	.word	.L486,.L504
+	.byte	'run_ms',0,1,212,2,27
+	.word	.L484,.L502
 	.byte	4
-	.byte	'run_distance_m',0,1,214,2,26
-	.word	.L433,.L505
+	.byte	'run_distance_m',0,1,213,2,26
+	.word	.L431,.L503
 	.byte	5
-	.word	.L193,.L502
+	.word	.L191,.L500
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_run_done')
 	.sect	'.debug_abbrev'
-.L364:
+.L362:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_run_done')
 	.sect	'.debug_line'
-.L365:
-	.word	.L966-.L965
-.L965:
+.L363:
+	.word	.L959-.L958
+.L958:
 	.half	3
-	.word	.L968-.L967
-.L967:
+	.word	.L961-.L960
+.L960:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L968:
+.L961:
 	.byte	5,7,7,0,5,2
-	.word	.L193
-	.byte	3,211,2,1,5,60,9
-	.half	.L566-.L193
+	.word	.L191
+	.byte	3,210,2,1,5,60,9
+	.half	.L564-.L191
 	.byte	3,4,1,5,30,9
-	.half	.L969-.L566
+	.half	.L962-.L564
 	.byte	1,5,52,9
-	.half	.L563-.L969
+	.half	.L561-.L962
 	.byte	1,5,13,9
-	.half	.L564-.L563
+	.half	.L562-.L561
 	.byte	1,5,57,7,9
-	.half	.L970-.L564
+	.half	.L963-.L562
 	.byte	3,1,1,5,37,9
-	.half	.L971-.L970
+	.half	.L964-.L963
 	.byte	1,5,60,7,9
-	.half	.L972-.L971
+	.half	.L965-.L964
 	.byte	3,127,1,5,5,9
-	.half	.L111-.L972
+	.half	.L109-.L965
 	.byte	1,5,1,9
-	.half	.L113-.L111
+	.half	.L111-.L109
 	.byte	3,2,1,7,9
-	.half	.L367-.L113
+	.half	.L365-.L111
 	.byte	0,1,1
-.L966:
+.L959:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_run_done')
 	.sect	'.debug_ranges'
-.L366:
-	.word	-1,.L193,0,.L367-.L193,0,0
+.L364:
+	.word	-1,.L191,0,.L365-.L191,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_lock_done')
 	.sect	'.debug_info'
-.L368:
+.L366:
 	.word	285
 	.half	3
-	.word	.L369
+	.word	.L367
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L371,.L370
+	.word	.L369,.L368
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_lock_done',0,1,221,2,7
-	.word	.L435
+	.byte	'yqj_lock_done',0,1,220,2,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L195,.L506,.L194
+	.word	.L193,.L504,.L192
 	.byte	4
-	.byte	'encoder_total_sum',0,1,221,2,27
-	.word	.L491,.L507
+	.byte	'encoder_total_sum',0,1,220,2,27
+	.word	.L489,.L505
 	.byte	4
-	.byte	'lock_ms',0,1,221,2,53
-	.word	.L486,.L508
+	.byte	'lock_ms',0,1,220,2,53
+	.word	.L484,.L506
 	.byte	4
-	.byte	'lock_distance_m',0,1,221,2,68
-	.word	.L433,.L509
+	.byte	'lock_distance_m',0,1,220,2,68
+	.word	.L431,.L507
 	.byte	5
-	.word	.L195,.L506
+	.word	.L193,.L504
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_lock_done')
 	.sect	'.debug_abbrev'
-.L369:
+.L367:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_lock_done')
 	.sect	'.debug_line'
-.L370:
-	.word	.L974-.L973
-.L973:
+.L368:
+	.word	.L967-.L966
+.L966:
 	.half	3
-	.word	.L976-.L975
-.L975:
+	.word	.L969-.L968
+.L968:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L976:
+.L969:
 	.byte	5,7,7,0,5,2
-	.word	.L195
-	.byte	3,220,2,1,5,61,9
-	.half	.L570-.L195
+	.word	.L193
+	.byte	3,219,2,1,5,61,9
+	.half	.L568-.L193
 	.byte	3,2,1,5,30,9
-	.half	.L977-.L570
+	.half	.L970-.L568
 	.byte	1,5,52,9
-	.half	.L567-.L977
+	.half	.L565-.L970
 	.byte	1,5,13,9
-	.half	.L568-.L567
+	.half	.L566-.L565
 	.byte	1,5,58,7,9
-	.half	.L978-.L568
+	.half	.L971-.L566
 	.byte	3,1,1,5,38,9
-	.half	.L979-.L978
+	.half	.L972-.L971
 	.byte	1,5,61,7,9
-	.half	.L980-.L979
+	.half	.L973-.L972
 	.byte	3,127,1,5,5,9
-	.half	.L114-.L980
+	.half	.L112-.L973
 	.byte	1,5,1,9
-	.half	.L116-.L114
+	.half	.L114-.L112
 	.byte	3,2,1,7,9
-	.half	.L372-.L116
+	.half	.L370-.L114
 	.byte	0,1,1
-.L974:
+.L967:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_lock_done')
 	.sect	'.debug_ranges'
-.L371:
-	.word	-1,.L195,0,.L372-.L195,0,0
+.L369:
+	.word	-1,.L193,0,.L370-.L193,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_get_flag')
 	.sect	'.debug_info'
-.L373:
+.L371:
 	.word	203
 	.half	3
-	.word	.L374
+	.word	.L372
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L376,.L375
+	.word	.L374,.L373
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_get_flag',0,1,228,2,8
-	.word	.L510
+	.byte	'yqj_get_flag',0,1,227,2,8
+	.word	.L508
 	.byte	1,1,1
-	.word	.L197,.L511,.L196
+	.word	.L195,.L509,.L194
 	.byte	4
-	.word	.L197,.L511
+	.word	.L195,.L509
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_get_flag')
 	.sect	'.debug_abbrev'
-.L374:
+.L372:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_get_flag')
 	.sect	'.debug_line'
-.L375:
-	.word	.L982-.L981
-.L981:
+.L373:
+	.word	.L975-.L974
+.L974:
 	.half	3
-	.word	.L984-.L983
-.L983:
+	.word	.L977-.L976
+.L976:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L984:
+.L977:
 	.byte	5,12,7,0,5,2
-	.word	.L197
-	.byte	3,229,2,1,5,5,9
-	.half	.L985-.L197
+	.word	.L195
+	.byte	3,228,2,1,5,5,9
+	.half	.L978-.L195
 	.byte	1,5,1,9
-	.half	.L117-.L985
+	.half	.L115-.L978
 	.byte	3,1,1,7,9
-	.half	.L377-.L117
+	.half	.L375-.L115
 	.byte	0,1,1
-.L982:
+.L975:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_get_flag')
 	.sect	'.debug_ranges'
-.L376:
-	.word	-1,.L197,0,.L377-.L197,0,0
+.L374:
+	.word	-1,.L195,0,.L375-.L195,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_set_flag')
 	.sect	'.debug_info'
-.L378:
+.L376:
 	.word	217
 	.half	3
-	.word	.L379
+	.word	.L377
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L381,.L380
+	.word	.L379,.L378
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_set_flag',0,1,234,2,6,1,1,1
-	.word	.L199,.L512,.L198
+	.byte	'yqj_set_flag',0,1,233,2,6,1,1,1
+	.word	.L197,.L510,.L196
 	.byte	4
-	.byte	'flag',0,1,234,2,26
-	.word	.L510,.L513
+	.byte	'flag',0,1,233,2,26
+	.word	.L508,.L511
 	.byte	5
-	.word	.L199,.L512
+	.word	.L197,.L510
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_set_flag')
 	.sect	'.debug_abbrev'
-.L379:
+.L377:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_set_flag')
 	.sect	'.debug_line'
-.L380:
-	.word	.L987-.L986
-.L986:
+.L378:
+	.word	.L980-.L979
+.L979:
 	.half	3
-	.word	.L989-.L988
-.L988:
+	.word	.L982-.L981
+.L981:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L989:
+.L982:
 	.byte	5,5,7,0,5,2
-	.word	.L199
-	.byte	3,235,2,1,5,14,9
-	.half	.L990-.L199
+	.word	.L197
+	.byte	3,234,2,1,5,14,9
+	.half	.L983-.L197
 	.byte	1,5,5,9
-	.half	.L991-.L990
+	.half	.L984-.L983
 	.byte	3,1,1,5,26,9
-	.half	.L992-.L991
+	.half	.L985-.L984
 	.byte	1,5,24,9
-	.half	.L993-.L992
+	.half	.L986-.L985
 	.byte	1,5,21,9
-	.half	.L994-.L993
+	.half	.L987-.L986
 	.byte	3,1,1,5,1,9
-	.half	.L995-.L994
+	.half	.L988-.L987
 	.byte	3,1,1,7,9
-	.half	.L382-.L995
+	.half	.L380-.L988
 	.byte	0,1,1
-.L987:
+.L980:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_set_flag')
 	.sect	'.debug_ranges'
-.L381:
-	.word	-1,.L199,0,.L382-.L199,0,0
+.L379:
+	.word	-1,.L197,0,.L380-.L197,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_get_state')
 	.sect	'.debug_info'
-.L383:
+.L381:
 	.word	204
 	.half	3
-	.word	.L384
+	.word	.L382
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L386,.L385
+	.word	.L384,.L383
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_get_state',0,1,242,2,16
-	.word	.L514
+	.byte	'yqj_get_state',0,1,241,2,16
+	.word	.L512
 	.byte	1,1,1
-	.word	.L201,.L515,.L200
+	.word	.L199,.L513,.L198
 	.byte	4
-	.word	.L201,.L515
+	.word	.L199,.L513
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_get_state')
 	.sect	'.debug_abbrev'
-.L384:
+.L382:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_get_state')
 	.sect	'.debug_line'
-.L385:
-	.word	.L997-.L996
-.L996:
+.L383:
+	.word	.L990-.L989
+.L989:
 	.half	3
-	.word	.L999-.L998
-.L998:
+	.word	.L992-.L991
+.L991:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L999:
+.L992:
 	.byte	5,12,7,0,5,2
-	.word	.L201
-	.byte	3,243,2,1,5,5,9
-	.half	.L1000-.L201
+	.word	.L199
+	.byte	3,242,2,1,5,5,9
+	.half	.L993-.L199
 	.byte	1,5,1,9
-	.half	.L118-.L1000
+	.half	.L116-.L993
 	.byte	3,1,1,7,9
-	.half	.L387-.L118
+	.half	.L385-.L116
 	.byte	0,1,1
-.L997:
+.L990:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_get_state')
 	.sect	'.debug_ranges'
-.L386:
-	.word	-1,.L201,0,.L387-.L201,0,0
+.L384:
+	.word	-1,.L199,0,.L385-.L199,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_get_action_trigger')
 	.sect	'.debug_info'
-.L388:
+.L386:
 	.word	213
 	.half	3
-	.word	.L389
+	.word	.L387
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L391,.L390
+	.word	.L389,.L388
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_get_action_trigger',0,1,248,2,7
-	.word	.L435
+	.byte	'yqj_get_action_trigger',0,1,247,2,7
+	.word	.L433
 	.byte	1,1,1
-	.word	.L203,.L516,.L202
+	.word	.L201,.L514,.L200
 	.byte	4
-	.word	.L203,.L516
+	.word	.L201,.L514
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_get_action_trigger')
 	.sect	'.debug_abbrev'
-.L389:
+.L387:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_get_action_trigger')
 	.sect	'.debug_line'
-.L390:
-	.word	.L1002-.L1001
-.L1001:
+.L388:
+	.word	.L995-.L994
+.L994:
 	.half	3
-	.word	.L1004-.L1003
-.L1003:
+	.word	.L997-.L996
+.L996:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L1004:
+.L997:
 	.byte	5,12,7,0,5,2
-	.word	.L203
-	.byte	3,249,2,1,5,5,9
-	.half	.L1005-.L203
+	.word	.L201
+	.byte	3,248,2,1,5,5,9
+	.half	.L998-.L201
 	.byte	1,5,1,9
-	.half	.L119-.L1005
+	.half	.L117-.L998
 	.byte	3,1,1,7,9
-	.half	.L392-.L119
+	.half	.L390-.L117
 	.byte	0,1,1
-.L1002:
+.L995:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_get_action_trigger')
 	.sect	'.debug_ranges'
-.L391:
-	.word	-1,.L203,0,.L392-.L203,0,0
+.L389:
+	.word	-1,.L201,0,.L390-.L201,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_meter_to_count')
 	.sect	'.debug_info'
-.L393:
+.L391:
 	.word	232
 	.half	3
-	.word	.L394
+	.word	.L392
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L396,.L395
+	.word	.L394,.L393
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_meter_to_count',0,1,210,1,14
-	.word	.L491
+	.byte	'yqj_meter_to_count',0,1,209,1,14
+	.word	.L489
 	.byte	1,1
-	.word	.L169,.L517,.L168
+	.word	.L167,.L515,.L166
 	.byte	4
-	.byte	'distance_m',0,1,210,1,39
-	.word	.L433,.L518
+	.byte	'distance_m',0,1,209,1,39
+	.word	.L431,.L516
 	.byte	5
-	.word	.L169,.L517
+	.word	.L167,.L515
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_meter_to_count')
 	.sect	'.debug_abbrev'
-.L394:
+.L392:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_meter_to_count')
 	.sect	'.debug_line'
-.L395:
-	.word	.L1007-.L1006
-.L1006:
+.L393:
+	.word	.L1000-.L999
+.L999:
 	.half	3
-	.word	.L1009-.L1008
-.L1008:
+	.word	.L1002-.L1001
+.L1001:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L1009:
+.L1002:
 	.byte	5,23,7,0,5,2
-	.word	.L169
-	.byte	3,211,1,1,5,20,9
-	.half	.L1010-.L169
+	.word	.L167
+	.byte	3,210,1,1,5,20,9
+	.half	.L1003-.L167
 	.byte	1,5,5,9
-	.half	.L1011-.L1010
+	.half	.L1004-.L1003
 	.byte	1,5,16,7,9
-	.half	.L1012-.L1011
+	.half	.L1005-.L1004
 	.byte	3,2,1,5,9,9
-	.half	.L1013-.L1012
+	.half	.L1006-.L1005
 	.byte	1,5,33,9
-	.half	.L92-.L1013
+	.half	.L90-.L1006
 	.byte	3,3,1,5,31,9
-	.half	.L1014-.L92
+	.half	.L1007-.L90
 	.byte	1,5,12,9
-	.half	.L1015-.L1014
+	.half	.L1008-.L1007
 	.byte	1,5,5,9
-	.half	.L1016-.L1015
+	.half	.L1009-.L1008
 	.byte	1,5,1,9
-	.half	.L93-.L1016
+	.half	.L91-.L1009
 	.byte	3,1,1,7,9
-	.half	.L397-.L93
+	.half	.L395-.L91
 	.byte	0,1,1
-.L1007:
+.L1000:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_meter_to_count')
 	.sect	'.debug_ranges'
-.L396:
-	.word	-1,.L169,0,.L397-.L169,0,0
+.L394:
+	.word	-1,.L167,0,.L395-.L167,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_enter_state')
 	.sect	'.debug_info'
-.L398:
+.L396:
 	.word	220
 	.half	3
-	.word	.L399
+	.word	.L397
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L401,.L400
+	.word	.L399,.L398
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_enter_state',0,1,221,1,13,1,1
-	.word	.L171,.L519,.L170
+	.byte	'yqj_enter_state',0,1,220,1,13,1,1
+	.word	.L169,.L517,.L168
 	.byte	4
-	.byte	'state',0,1,221,1,44
-	.word	.L514,.L520
+	.byte	'state',0,1,220,1,44
+	.word	.L512,.L518
 	.byte	5
-	.word	.L171,.L519
+	.word	.L169,.L517
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_enter_state')
 	.sect	'.debug_abbrev'
-.L399:
+.L397:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_enter_state')
 	.sect	'.debug_line'
-.L400:
-	.word	.L1018-.L1017
-.L1017:
+.L398:
+	.word	.L1011-.L1010
+.L1010:
 	.half	3
-	.word	.L1020-.L1019
-.L1019:
+	.word	.L1013-.L1012
+.L1012:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L1020:
+.L1013:
 	.byte	5,5,7,0,5,2
-	.word	.L171
-	.byte	3,222,1,1,5,15,9
-	.half	.L1021-.L171
+	.word	.L169
+	.byte	3,221,1,1,5,15,9
+	.half	.L1014-.L169
 	.byte	1,5,5,9
-	.half	.L1022-.L1021
+	.half	.L1015-.L1014
 	.byte	3,1,1,5,41,9
-	.half	.L1023-.L1022
+	.half	.L1016-.L1015
 	.byte	1,5,26,9
-	.half	.L533-.L1023
+	.half	.L531-.L1016
 	.byte	1,5,1,9
-	.half	.L1024-.L533
+	.half	.L1017-.L531
 	.byte	3,1,1,7,9
-	.half	.L402-.L1024
+	.half	.L400-.L1017
 	.byte	0,1,1
-.L1018:
+.L1011:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_enter_state')
 	.sect	'.debug_ranges'
-.L401:
-	.word	-1,.L171,0,.L402-.L171,0,0
+.L399:
+	.word	-1,.L169,0,.L400-.L169,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_lock_distance_reached')
 	.sect	'.debug_info'
-.L403:
+.L401:
 	.word	300
 	.half	3
-	.word	.L404
+	.word	.L402
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L406,.L405
+	.word	.L404,.L403
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_lock_distance_reached',0,1,228,1,14
-	.word	.L435
+	.byte	'yqj_lock_distance_reached',0,1,227,1,14
+	.word	.L433
 	.byte	1,1
-	.word	.L173,.L521,.L172
+	.word	.L171,.L519,.L170
 	.byte	4
-	.byte	'encoder_total_sum',0,1,228,1,46
-	.word	.L491,.L522
+	.byte	'encoder_total_sum',0,1,227,1,46
+	.word	.L489,.L520
 	.byte	4
-	.byte	'lock_distance_m',0,1,228,1,71
-	.word	.L433,.L523
+	.byte	'lock_distance_m',0,1,227,1,71
+	.word	.L431,.L521
 	.byte	5
-	.word	.L173,.L521
+	.word	.L171,.L519
 	.byte	6
-	.byte	'need_count',0,1,230,1,11
-	.word	.L491,.L524
+	.byte	'need_count',0,1,229,1,11
+	.word	.L489,.L522
 	.byte	0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_lock_distance_reached')
 	.sect	'.debug_abbrev'
-.L404:
+.L402:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
 	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_lock_distance_reached')
 	.sect	'.debug_line'
-.L405:
-	.word	.L1026-.L1025
-.L1025:
+.L403:
+	.word	.L1019-.L1018
+.L1018:
 	.half	3
-	.word	.L1028-.L1027
-.L1027:
+	.word	.L1021-.L1020
+.L1020:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L1028:
+.L1021:
 	.byte	5,14,7,0,5,2
-	.word	.L173
-	.byte	3,227,1,1,5,43,9
-	.half	.L536-.L173
+	.word	.L171
+	.byte	3,226,1,1,5,43,9
+	.half	.L534-.L171
 	.byte	3,2,1,5,5,9
-	.half	.L535-.L536
+	.half	.L533-.L534
 	.byte	3,2,1,5,16,7,9
-	.half	.L1029-.L535
+	.half	.L1022-.L533
 	.byte	3,2,1,5,9,9
-	.half	.L538-.L1029
+	.half	.L536-.L1022
 	.byte	1,5,34,9
-	.half	.L95-.L538
+	.half	.L93-.L536
 	.byte	3,3,1,5,32,9
-	.half	.L1030-.L95
+	.half	.L1023-.L93
 	.byte	1,5,56,9
-	.half	.L537-.L1030
+	.half	.L535-.L1023
 	.byte	1,5,5,9
-	.half	.L539-.L537
+	.half	.L537-.L535
 	.byte	1,5,1,9
-	.half	.L96-.L539
+	.half	.L94-.L537
 	.byte	3,1,1,7,9
-	.half	.L407-.L96
+	.half	.L405-.L94
 	.byte	0,1,1
-.L1026:
+.L1019:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_lock_distance_reached')
 	.sect	'.debug_ranges'
-.L406:
-	.word	-1,.L173,0,.L407-.L173,0,0
+.L404:
+	.word	-1,.L171,0,.L405-.L171,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_run_distance_reached')
 	.sect	'.debug_info'
-.L408:
+.L406:
 	.word	298
 	.half	3
-	.word	.L409
+	.word	.L407
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L411,.L410
+	.word	.L409,.L408
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_run_distance_reached',0,1,241,1,14
-	.word	.L435
+	.byte	'yqj_run_distance_reached',0,1,240,1,14
+	.word	.L433
 	.byte	1,1
-	.word	.L175,.L525,.L174
+	.word	.L173,.L523,.L172
 	.byte	4
-	.byte	'encoder_total_sum',0,1,241,1,45
-	.word	.L491,.L526
+	.byte	'encoder_total_sum',0,1,240,1,45
+	.word	.L489,.L524
 	.byte	4
-	.byte	'run_distance_m',0,1,242,1,45
-	.word	.L433,.L527
+	.byte	'run_distance_m',0,1,241,1,45
+	.word	.L431,.L525
 	.byte	5
-	.word	.L175,.L525
+	.word	.L173,.L523
 	.byte	6
-	.byte	'need_count',0,1,244,1,11
-	.word	.L491,.L528
+	.byte	'need_count',0,1,243,1,11
+	.word	.L489,.L526
 	.byte	0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_run_distance_reached')
 	.sect	'.debug_abbrev'
-.L409:
+.L407:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
 	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_run_distance_reached')
 	.sect	'.debug_line'
-.L410:
-	.word	.L1032-.L1031
-.L1031:
+.L408:
+	.word	.L1025-.L1024
+.L1024:
 	.half	3
-	.word	.L1034-.L1033
-.L1033:
+	.word	.L1027-.L1026
+.L1026:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L1034:
+.L1027:
 	.byte	5,14,7,0,5,2
-	.word	.L175
-	.byte	3,240,1,1,5,47,9
-	.half	.L542-.L175
+	.word	.L173
+	.byte	3,239,1,1,5,47,9
+	.half	.L540-.L173
 	.byte	3,3,1,5,26,9
-	.half	.L541-.L542
+	.half	.L539-.L540
 	.byte	1,5,5,9
-	.half	.L544-.L541
+	.half	.L542-.L539
 	.byte	3,2,1,5,16,7,9
-	.half	.L1035-.L544
+	.half	.L1028-.L542
 	.byte	3,2,1,5,9,9
-	.half	.L1036-.L1035
+	.half	.L1029-.L1028
 	.byte	1,5,34,9
-	.half	.L98-.L1036
+	.half	.L96-.L1029
 	.byte	3,3,1,5,32,9
-	.half	.L1037-.L98
+	.half	.L1030-.L96
 	.byte	1,5,56,9
-	.half	.L543-.L1037
+	.half	.L541-.L1030
 	.byte	1,5,5,9
-	.half	.L1038-.L543
+	.half	.L1031-.L541
 	.byte	1,5,1,9
-	.half	.L99-.L1038
+	.half	.L97-.L1031
 	.byte	3,1,1,7,9
-	.half	.L412-.L99
+	.half	.L410-.L97
 	.byte	0,1,1
-.L1032:
+.L1025:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_run_distance_reached')
 	.sect	'.debug_ranges'
-.L411:
-	.word	-1,.L175,0,.L412-.L175,0,0
+.L409:
+	.word	-1,.L173,0,.L410-.L173,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_delay_distance_reached')
 	.sect	'.debug_info'
-.L413:
+.L411:
 	.word	302
 	.half	3
-	.word	.L414
+	.word	.L412
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1
-	.word	.L416,.L415
+	.word	.L414,.L413
 	.byte	2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_delay_distance_reached',0,1,255,1,14
-	.word	.L435
+	.byte	'yqj_delay_distance_reached',0,1,254,1,14
+	.word	.L433
 	.byte	1,1
-	.word	.L177,.L529,.L176
+	.word	.L175,.L527,.L174
 	.byte	4
-	.byte	'encoder_total_sum',0,1,255,1,47
-	.word	.L491,.L530
+	.byte	'encoder_total_sum',0,1,254,1,47
+	.word	.L489,.L528
 	.byte	4
-	.byte	'delay_distance_m',0,1,128,2,47
-	.word	.L433,.L531
+	.byte	'delay_distance_m',0,1,255,1,47
+	.word	.L431,.L529
 	.byte	5
-	.word	.L177,.L529
+	.word	.L175,.L527
 	.byte	6
-	.byte	'need_count',0,1,130,2,11
-	.word	.L491,.L532
+	.byte	'need_count',0,1,129,2,11
+	.word	.L489,.L530
 	.byte	0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_delay_distance_reached')
 	.sect	'.debug_abbrev'
-.L414:
+.L412:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
 	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('yqj_delay_distance_reached')
 	.sect	'.debug_line'
-.L415:
-	.word	.L1040-.L1039
-.L1039:
+.L413:
+	.word	.L1033-.L1032
+.L1032:
 	.half	3
-	.word	.L1042-.L1041
-.L1041:
+	.word	.L1035-.L1034
+.L1034:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../code/yqj.c',0,0,0,0,0
-.L1042:
+.L1035:
 	.byte	5,14,7,0,5,2
-	.word	.L177
-	.byte	3,254,1,1,5,47,9
-	.half	.L547-.L177
+	.word	.L175
+	.byte	3,253,1,1,5,47,9
+	.half	.L545-.L175
 	.byte	3,3,1,5,26,9
-	.half	.L545-.L547
+	.half	.L543-.L545
 	.byte	1,5,5,9
-	.half	.L549-.L545
+	.half	.L547-.L543
 	.byte	3,2,1,5,16,7,9
-	.half	.L1043-.L549
+	.half	.L1036-.L547
 	.byte	3,2,1,5,9,9
-	.half	.L1044-.L1043
+	.half	.L1037-.L1036
 	.byte	1,5,34,9
-	.half	.L101-.L1044
+	.half	.L99-.L1037
 	.byte	3,3,1,5,32,9
-	.half	.L1045-.L101
+	.half	.L1038-.L99
 	.byte	1,5,57,9
-	.half	.L548-.L1045
+	.half	.L546-.L1038
 	.byte	1,5,5,9
-	.half	.L1046-.L548
+	.half	.L1039-.L546
 	.byte	1,5,1,9
-	.half	.L102-.L1046
+	.half	.L100-.L1039
 	.byte	3,1,1,7,9
-	.half	.L417-.L102
+	.half	.L415-.L100
 	.byte	0,1,1
-.L1040:
+.L1033:
 	.sdecl	'.debug_ranges',debug,cluster('yqj_delay_distance_reached')
 	.sect	'.debug_ranges'
-.L416:
-	.word	-1,.L177,0,.L417-.L177,0,0
+.L414:
+	.word	-1,.L175,0,.L415-.L175,0,0
 	.sdecl	'.debug_info',debug,cluster('yqj_flag')
 	.sect	'.debug_info'
-.L418:
+.L416:
 	.word	172
+	.half	3
+	.word	.L417
+	.byte	4,1
+	.byte	'../code/yqj.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
+	.word	.L202
+	.byte	3
+	.byte	'yqj_flag',0,22,6,8
+	.word	.L508
+	.byte	1,5,3
+	.word	yqj_flag
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_flag')
+	.sect	'.debug_abbrev'
+.L417:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_state')
+	.sect	'.debug_info'
+.L418:
+	.word	173
 	.half	3
 	.word	.L419
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_flag',0,22,6,8
-	.word	.L510
+	.byte	'yqj_state',0,22,7,16
+	.word	.L512
 	.byte	1,5,3
-	.word	yqj_flag
+	.word	yqj_state
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_flag')
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_state')
 	.sect	'.debug_abbrev'
 .L419:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_state')
+	.sdecl	'.debug_info',debug,cluster('yqj_action_trigger')
 	.sect	'.debug_info'
 .L420:
-	.word	173
+	.word	182
 	.half	3
 	.word	.L421
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_state',0,22,7,16
-	.word	.L514
+	.byte	'yqj_action_trigger',0,22,8,7
+	.word	.L433
 	.byte	1,5,3
-	.word	yqj_state
+	.word	yqj_action_trigger
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_state')
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_action_trigger')
 	.sect	'.debug_abbrev'
 .L421:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_action_trigger')
+	.sdecl	'.debug_info',debug,cluster('yqj_state_start_time')
 	.sect	'.debug_info'
 .L422:
-	.word	182
+	.word	184
 	.half	3
 	.word	.L423
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_action_trigger',0,22,8,7
-	.word	.L435
+	.byte	'yqj_state_start_time',0,22,9,8
+	.word	.L484
 	.byte	1,5,3
-	.word	yqj_action_trigger
+	.word	yqj_state_start_time
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_action_trigger')
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_state_start_time')
 	.sect	'.debug_abbrev'
 .L423:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_state_start_time')
+	.sdecl	'.debug_info',debug,cluster('yqj_lock_start_count')
 	.sect	'.debug_info'
 .L424:
 	.word	184
@@ -24017,211 +24014,117 @@ yqj_delay_start_count:	.type	object
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_state_start_time',0,22,9,8
-	.word	.L486
+	.byte	'yqj_lock_start_count',0,22,10,7
+	.word	.L489
 	.byte	1,5,3
-	.word	yqj_state_start_time
+	.word	yqj_lock_start_count
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_state_start_time')
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_lock_start_count')
 	.sect	'.debug_abbrev'
 .L425:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_lock_start_count')
+	.sdecl	'.debug_info',debug,cluster('yqj_encoder_count_per_meter')
 	.sect	'.debug_info'
 .L426:
-	.word	184
+	.word	190
 	.half	3
 	.word	.L427
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
+	.word	.L202
 	.byte	3
-	.byte	'yqj_lock_start_count',0,22,10,7
-	.word	.L491
-	.byte	1,5,3
-	.word	yqj_lock_start_count
+	.byte	'yqj_encoder_count_per_meter',0,22,12,14
+	.word	.L431
+	.byte	5,3
+	.word	yqj_encoder_count_per_meter
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_lock_start_count')
+	.sdecl	'.debug_abbrev',debug,cluster('yqj_encoder_count_per_meter')
 	.sect	'.debug_abbrev'
 .L427:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_encoder_count_per_meter')
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
+	.sdecl	'.debug_info',debug,cluster('yqj_delay_start_count')
 	.sect	'.debug_info'
 .L428:
-	.word	190
+	.word	184
 	.half	3
 	.word	.L429
 	.byte	4,1
 	.byte	'../code/yqj.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
-	.byte	3
-	.byte	'yqj_encoder_count_per_meter',0,22,12,14
-	.word	.L433
-	.byte	5,3
-	.word	yqj_encoder_count_per_meter
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('yqj_encoder_count_per_meter')
-	.sect	'.debug_abbrev'
-.L429:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
-	.sdecl	'.debug_info',debug,cluster('yqj_delay_start_count')
-	.sect	'.debug_info'
-.L430:
-	.word	184
-	.half	3
-	.word	.L431
-	.byte	4,1
-	.byte	'../code/yqj.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'C:\\Users\\a1529\\Documents\\GitHub\\-\\Debug\\',0,12,1,2
-	.word	.L204
+	.word	.L202
 	.byte	3
 	.byte	'yqj_delay_start_count',0,22,13,14
-	.word	.L491
+	.word	.L489
 	.byte	5,3
 	.word	yqj_delay_start_count
 	.byte	0
 	.sdecl	'.debug_abbrev',debug,cluster('yqj_delay_start_count')
 	.sect	'.debug_abbrev'
-.L431:
+.L429:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
 	.sdecl	'.debug_loc',debug,cluster('yqj_delay_distance_reached')
 	.sect	'.debug_loc'
-.L531:
-	.word	-1,.L177,0,.L545-.L177
+.L529:
+	.word	-1,.L175,0,.L543-.L175
 	.half	1
 	.byte	85
-	.word	.L546-.L177,.L545-.L177
+	.word	.L544-.L175,.L543-.L175
 	.half	1
 	.byte	84
 	.word	0,0
-.L530:
-	.word	-1,.L177,0,.L546-.L177
+.L528:
+	.word	-1,.L175,0,.L544-.L175
 	.half	1
 	.byte	84
-	.word	.L547-.L177,.L548-.L177
+	.word	.L545-.L175,.L546-.L175
 	.half	1
 	.byte	95
 	.word	0,0
-.L532:
-	.word	-1,.L177,.L549-.L177,.L529-.L177
+.L530:
+	.word	-1,.L175,.L547-.L175,.L527-.L175
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L176:
-	.word	-1,.L177,0,.L529-.L177
+.L174:
+	.word	-1,.L175,0,.L527-.L175
 	.half	2
 	.byte	138,0
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('yqj_delay_done')
 	.sect	'.debug_loc'
-.L501:
-	.word	-1,.L191,0,.L559-.L191
+.L499:
+	.word	-1,.L189,0,.L557-.L189
 	.half	1
 	.byte	86
-	.word	.L562-.L191,.L498-.L191
+	.word	.L560-.L189,.L496-.L189
 	.half	1
 	.byte	88
 	.word	0,0
-.L500:
-	.word	-1,.L191,0,.L559-.L191
+.L498:
+	.word	-1,.L189,0,.L557-.L189
 	.half	1
 	.byte	85
 	.word	0,0
-.L499:
-	.word	-1,.L191,0,.L560-.L191
+.L497:
+	.word	-1,.L189,0,.L558-.L189
 	.half	1
 	.byte	84
-	.word	.L561-.L191,.L498-.L191
+	.word	.L559-.L189,.L496-.L189
 	.half	1
 	.byte	95
 	.word	0,0
-.L190:
-	.word	-1,.L191,0,.L498-.L191
+.L188:
+	.word	-1,.L189,0,.L496-.L189
 	.half	2
 	.byte	138,0
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('yqj_dianchi_trigger')
-	.sect	'.debug_loc'
-.L480:
-	.word	-1,.L163,0,.L479-.L163
-	.half	1
-	.byte	100
-	.word	0,0
-.L162:
-	.word	-1,.L163,0,.L479-.L163
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_dianrong_trigger')
-	.sect	'.debug_loc'
-.L484:
-	.word	-1,.L167,0,.L483-.L167
-	.half	1
-	.byte	100
-	.word	0,0
-.L166:
-	.word	-1,.L167,0,.L483-.L167
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_dianyuan_trigger')
-	.sect	'.debug_loc'
-.L444:
-	.word	-1,.L127,0,.L443-.L127
-	.half	1
-	.byte	100
-	.word	0,0
-.L126:
-	.word	-1,.L127,0,.L443-.L127
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_dianzu_trigger')
-	.sect	'.debug_loc'
-.L442:
-	.word	-1,.L125,0,.L441-.L125
-	.half	1
-	.byte	100
-	.word	0,0
-.L124:
-	.word	-1,.L125,0,.L441-.L125
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_double_trigger')
-	.sect	'.debug_loc'
-.L470:
-	.word	-1,.L153,0,.L469-.L153
-	.half	1
-	.byte	100
-	.word	0,0
-.L152:
-	.word	-1,.L153,0,.L469-.L153
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_enter_state')
-	.sect	'.debug_loc'
-.L520:
-	.word	-1,.L171,0,.L533-.L171
-	.half	1
-	.byte	84
-	.word	0,0
-.L170:
-	.word	-1,.L171,0,.L519-.L171
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_loc'
 .L478:
 	.word	-1,.L161,0,.L477-.L161
@@ -24233,19 +24136,7 @@ yqj_delay_start_count:	.type	object
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_erjiguan_trigger')
-	.sect	'.debug_loc'
-.L454:
-	.word	-1,.L137,0,.L453-.L137
-	.half	1
-	.byte	100
-	.word	0,0
-.L136:
-	.word	-1,.L137,0,.L453-.L137
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_feimen_trigger')
+	.sdecl	'.debug_loc',debug,cluster('yqj_dianrong_trigger')
 	.sect	'.debug_loc'
 .L482:
 	.word	-1,.L165,0,.L481-.L165
@@ -24257,190 +24148,19 @@ yqj_delay_start_count:	.type	object
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_finish_case')
+	.sdecl	'.debug_loc',debug,cluster('yqj_dianyuan_trigger')
 	.sect	'.debug_loc'
-.L188:
-	.word	-1,.L189,0,.L497-.L189
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_get_action_trigger')
-	.sect	'.debug_loc'
-.L202:
-	.word	-1,.L203,0,.L516-.L203
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_get_flag')
-	.sect	'.debug_loc'
-.L196:
-	.word	-1,.L197,0,.L511-.L197
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_get_state')
-	.sect	'.debug_loc'
-.L200:
-	.word	-1,.L201,0,.L515-.L201
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_init')
-	.sect	'.debug_loc'
-.L434:
-	.word	-1,.L179,0,.L550-.L179
-	.half	1
-	.byte	84
-	.word	0,0
-.L178:
-	.word	-1,.L179,0,.L432-.L179
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_kaiguang0_1trigger')
-	.sect	'.debug_loc'
-.L450:
-	.word	-1,.L133,0,.L449-.L133
+.L442:
+	.word	-1,.L125,0,.L441-.L125
 	.half	1
 	.byte	100
 	.word	0,0
-.L132:
-	.word	-1,.L133,0,.L449-.L133
+.L124:
+	.word	-1,.L125,0,.L441-.L125
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_kaiguang1_0trigger')
-	.sect	'.debug_loc'
-.L448:
-	.word	-1,.L131,0,.L447-.L131
-	.half	1
-	.byte	100
-	.word	0,0
-.L130:
-	.word	-1,.L131,0,.L447-.L131
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_kaiguang_trigger')
-	.sect	'.debug_loc'
-.L452:
-	.word	-1,.L135,0,.L451-.L135
-	.half	1
-	.byte	100
-	.word	0,0
-.L134:
-	.word	-1,.L135,0,.L451-.L135
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_ldiangan_trigger')
-	.sect	'.debug_loc'
-.L472:
-	.word	-1,.L155,0,.L471-.L155
-	.half	1
-	.byte	100
-	.word	0,0
-.L154:
-	.word	-1,.L155,0,.L471-.L155
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_left_turn_trigger')
-	.sect	'.debug_loc'
-.L438:
-	.word	-1,.L121,0,.L436-.L121
-	.half	1
-	.byte	100
-	.word	0,0
-.L120:
-	.word	-1,.L121,0,.L436-.L121
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_lock_distance_reached')
-	.sect	'.debug_loc'
-.L522:
-	.word	-1,.L173,0,.L534-.L173
-	.half	1
-	.byte	84
-	.word	.L536-.L173,.L537-.L173
-	.half	1
-	.byte	95
-	.word	0,0
-.L523:
-	.word	-1,.L173,0,.L535-.L173
-	.half	1
-	.byte	85
-	.word	.L534-.L173,.L535-.L173
-	.half	1
-	.byte	84
-	.word	0,0
-.L524:
-	.word	-1,.L173,.L535-.L173,.L538-.L173
-	.half	1
-	.byte	82
-	.word	.L95-.L173,.L539-.L173
-	.half	1
-	.byte	82
-	.word	0,0
-.L172:
-	.word	-1,.L173,0,.L521-.L173
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_lock_done')
-	.sect	'.debug_loc'
-.L507:
-	.word	-1,.L195,0,.L567-.L195
-	.half	1
-	.byte	84
-	.word	.L569-.L195,.L506-.L195
-	.half	1
-	.byte	95
-	.word	0,0
-.L509:
-	.word	-1,.L195,0,.L568-.L195
-	.half	1
-	.byte	86
-	.word	.L570-.L195,.L506-.L195
-	.half	1
-	.byte	88
-	.word	0,0
-.L508:
-	.word	-1,.L195,0,.L568-.L195
-	.half	1
-	.byte	85
-	.word	0,0
-.L194:
-	.word	-1,.L195,0,.L506-.L195
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_meter_to_count')
-	.sect	'.debug_loc'
-.L518:
-	.word	-1,.L169,0,.L517-.L169
-	.half	1
-	.byte	84
-	.word	0,0
-.L168:
-	.word	-1,.L169,0,.L517-.L169
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_rdiangan_trigger')
-	.sect	'.debug_loc'
-.L474:
-	.word	-1,.L157,0,.L473-.L157
-	.half	1
-	.byte	100
-	.word	0,0
-.L156:
-	.word	-1,.L157,0,.L473-.L157
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_right_turn_trigger')
+	.sdecl	'.debug_loc',debug,cluster('yqj_dianzu_trigger')
 	.sect	'.debug_loc'
 .L440:
 	.word	-1,.L123,0,.L439-.L123
@@ -24452,223 +24172,31 @@ yqj_delay_start_count:	.type	object
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_run_distance_reached')
+	.sdecl	'.debug_loc',debug,cluster('yqj_double_trigger')
 	.sect	'.debug_loc'
-.L526:
-	.word	-1,.L175,0,.L540-.L175
-	.half	1
-	.byte	84
-	.word	.L542-.L175,.L543-.L175
-	.half	1
-	.byte	95
-	.word	0,0
-.L528:
-	.word	-1,.L175,.L544-.L175,.L525-.L175
-	.half	5
-	.byte	144,32,157,32,0
-	.word	0,0
-.L527:
-	.word	-1,.L175,0,.L541-.L175
-	.half	1
-	.byte	85
-	.word	.L540-.L175,.L541-.L175
-	.half	1
-	.byte	84
-	.word	0,0
-.L174:
-	.word	-1,.L175,0,.L525-.L175
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_run_done')
-	.sect	'.debug_loc'
-.L503:
-	.word	-1,.L193,0,.L563-.L193
-	.half	1
-	.byte	84
-	.word	.L565-.L193,.L502-.L193
-	.half	1
-	.byte	95
-	.word	0,0
-.L505:
-	.word	-1,.L193,0,.L564-.L193
-	.half	1
-	.byte	86
-	.word	.L566-.L193,.L502-.L193
-	.half	1
-	.byte	88
-	.word	0,0
-.L504:
-	.word	-1,.L193,0,.L564-.L193
-	.half	1
-	.byte	85
-	.word	0,0
-.L192:
-	.word	-1,.L193,0,.L502-.L193
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan0_1trigger')
-	.sect	'.debug_loc'
-.L462:
-	.word	-1,.L147,0,.L461-.L147
-	.half	1
-	.byte	100
-	.word	0,0
-.L146:
-	.word	-1,.L147,0,.L461-.L147
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan0_2trigger')
-	.sect	'.debug_loc'
-.L464:
-	.word	-1,.L151,0,.L463-.L151
+.L468:
+	.word	-1,.L151,0,.L467-.L151
 	.half	1
 	.byte	100
 	.word	0,0
 .L150:
-	.word	-1,.L151,0,.L463-.L151
+	.word	-1,.L151,0,.L467-.L151
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan1_0trigger')
+	.sdecl	'.debug_loc',debug,cluster('yqj_enter_state')
 	.sect	'.debug_loc'
-.L466:
-	.word	-1,.L149,0,.L465-.L149
-	.half	1
-	.byte	100
-	.word	0,0
-.L148:
-	.word	-1,.L149,0,.L465-.L149
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan1_2trigger')
-	.sect	'.debug_loc'
-.L458:
-	.word	-1,.L141,0,.L457-.L141
-	.half	1
-	.byte	100
-	.word	0,0
-.L140:
-	.word	-1,.L141,0,.L457-.L141
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan2_0trigger')
-	.sect	'.debug_loc'
-.L468:
-	.word	-1,.L145,0,.L467-.L145
-	.half	1
-	.byte	100
-	.word	0,0
-.L144:
-	.word	-1,.L145,0,.L467-.L145
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan2_1trigger')
-	.sect	'.debug_loc'
-.L460:
-	.word	-1,.L143,0,.L459-.L143
-	.half	1
-	.byte	100
-	.word	0,0
-.L142:
-	.word	-1,.L143,0,.L459-.L143
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_set_flag')
-	.sect	'.debug_loc'
-.L513:
-	.word	-1,.L199,0,.L571-.L199
+.L518:
+	.word	-1,.L169,0,.L531-.L169
 	.half	1
 	.byte	84
 	.word	0,0
-.L198:
-	.word	-1,.L199,0,.L512-.L199
+.L168:
+	.word	-1,.L169,0,.L517-.L169
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_start_case')
-	.sect	'.debug_loc'
-.L490:
-	.word	-1,.L183,0,.L555-.L183
-	.half	1
-	.byte	84
-	.word	0,0
-.L492:
-	.word	-1,.L183,0,.L556-.L183
-	.half	1
-	.byte	85
-	.word	0,0
-.L182:
-	.word	-1,.L183,0,.L489-.L183
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_start_lock')
-	.sect	'.debug_loc'
-.L496:
-	.word	-1,.L187,0,.L558-.L187
-	.half	1
-	.byte	84
-	.word	0,0
-.L186:
-	.word	-1,.L187,0,.L495-.L187
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_start_run')
-	.sect	'.debug_loc'
-.L494:
-	.word	-1,.L185,0,.L557-.L185
-	.half	1
-	.byte	84
-	.word	0,0
-.L184:
-	.word	-1,.L185,0,.L493-.L185
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_tberjiguan_trigger')
-	.sect	'.debug_loc'
-.L456:
-	.word	-1,.L139,0,.L455-.L139
-	.half	1
-	.byte	100
-	.word	0,0
-.L138:
-	.word	-1,.L139,0,.L455-.L139
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_time_reached')
-	.sect	'.debug_loc'
-.L488:
-	.word	-1,.L181,0,.L551-.L181
-	.half	1
-	.byte	85
-	.word	.L553-.L181,.L554-.L181
-	.half	1
-	.byte	95
-	.word	0,0
-.L487:
-	.word	-1,.L181,0,.L551-.L181
-	.half	1
-	.byte	84
-	.word	.L552-.L181,.L485-.L181
-	.half	1
-	.byte	88
-	.word	0,0
-.L180:
-	.word	-1,.L181,0,.L485-.L181
-	.half	2
-	.byte	138,0
-	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_xianquan_trigger')
+	.sdecl	'.debug_loc',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_loc'
 .L476:
 	.word	-1,.L159,0,.L475-.L159
@@ -24680,7 +24208,83 @@ yqj_delay_start_count:	.type	object
 	.half	2
 	.byte	138,0
 	.word	0,0
-	.sdecl	'.debug_loc',debug,cluster('yqj_xianquandianzu0_trigger')
+	.sdecl	'.debug_loc',debug,cluster('yqj_erjiguan_trigger')
+	.sect	'.debug_loc'
+.L452:
+	.word	-1,.L135,0,.L451-.L135
+	.half	1
+	.byte	100
+	.word	0,0
+.L134:
+	.word	-1,.L135,0,.L451-.L135
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_feimen_trigger')
+	.sect	'.debug_loc'
+.L480:
+	.word	-1,.L163,0,.L479-.L163
+	.half	1
+	.byte	100
+	.word	0,0
+.L162:
+	.word	-1,.L163,0,.L479-.L163
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_finish_case')
+	.sect	'.debug_loc'
+.L186:
+	.word	-1,.L187,0,.L495-.L187
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_get_action_trigger')
+	.sect	'.debug_loc'
+.L200:
+	.word	-1,.L201,0,.L514-.L201
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_get_flag')
+	.sect	'.debug_loc'
+.L194:
+	.word	-1,.L195,0,.L509-.L195
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_get_state')
+	.sect	'.debug_loc'
+.L198:
+	.word	-1,.L199,0,.L513-.L199
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_init')
+	.sect	'.debug_loc'
+.L432:
+	.word	-1,.L177,0,.L548-.L177
+	.half	1
+	.byte	84
+	.word	0,0
+.L176:
+	.word	-1,.L177,0,.L430-.L177
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_kaiguang0_1trigger')
+	.sect	'.debug_loc'
+.L448:
+	.word	-1,.L131,0,.L447-.L131
+	.half	1
+	.byte	100
+	.word	0,0
+.L130:
+	.word	-1,.L131,0,.L447-.L131
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_kaiguang1_0trigger')
 	.sect	'.debug_loc'
 .L446:
 	.word	-1,.L129,0,.L445-.L129
@@ -24692,9 +24296,380 @@ yqj_delay_start_count:	.type	object
 	.half	2
 	.byte	138,0
 	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_kaiguang_trigger')
+	.sect	'.debug_loc'
+.L450:
+	.word	-1,.L133,0,.L449-.L133
+	.half	1
+	.byte	100
+	.word	0,0
+.L132:
+	.word	-1,.L133,0,.L449-.L133
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_ldiangan_trigger')
+	.sect	'.debug_loc'
+.L470:
+	.word	-1,.L153,0,.L469-.L153
+	.half	1
+	.byte	100
+	.word	0,0
+.L152:
+	.word	-1,.L153,0,.L469-.L153
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_left_turn_trigger')
+	.sect	'.debug_loc'
+.L436:
+	.word	-1,.L119,0,.L434-.L119
+	.half	1
+	.byte	100
+	.word	0,0
+.L118:
+	.word	-1,.L119,0,.L434-.L119
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_lock_distance_reached')
+	.sect	'.debug_loc'
+.L520:
+	.word	-1,.L171,0,.L532-.L171
+	.half	1
+	.byte	84
+	.word	.L534-.L171,.L535-.L171
+	.half	1
+	.byte	95
+	.word	0,0
+.L521:
+	.word	-1,.L171,0,.L533-.L171
+	.half	1
+	.byte	85
+	.word	.L532-.L171,.L533-.L171
+	.half	1
+	.byte	84
+	.word	0,0
+.L522:
+	.word	-1,.L171,.L533-.L171,.L536-.L171
+	.half	1
+	.byte	82
+	.word	.L93-.L171,.L537-.L171
+	.half	1
+	.byte	82
+	.word	0,0
+.L170:
+	.word	-1,.L171,0,.L519-.L171
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_lock_done')
+	.sect	'.debug_loc'
+.L505:
+	.word	-1,.L193,0,.L565-.L193
+	.half	1
+	.byte	84
+	.word	.L567-.L193,.L504-.L193
+	.half	1
+	.byte	95
+	.word	0,0
+.L507:
+	.word	-1,.L193,0,.L566-.L193
+	.half	1
+	.byte	86
+	.word	.L568-.L193,.L504-.L193
+	.half	1
+	.byte	88
+	.word	0,0
+.L506:
+	.word	-1,.L193,0,.L566-.L193
+	.half	1
+	.byte	85
+	.word	0,0
+.L192:
+	.word	-1,.L193,0,.L504-.L193
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_meter_to_count')
+	.sect	'.debug_loc'
+.L516:
+	.word	-1,.L167,0,.L515-.L167
+	.half	1
+	.byte	84
+	.word	0,0
+.L166:
+	.word	-1,.L167,0,.L515-.L167
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_rdiangan_trigger')
+	.sect	'.debug_loc'
+.L472:
+	.word	-1,.L155,0,.L471-.L155
+	.half	1
+	.byte	100
+	.word	0,0
+.L154:
+	.word	-1,.L155,0,.L471-.L155
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_right_turn_trigger')
+	.sect	'.debug_loc'
+.L438:
+	.word	-1,.L121,0,.L437-.L121
+	.half	1
+	.byte	100
+	.word	0,0
+.L120:
+	.word	-1,.L121,0,.L437-.L121
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_run_distance_reached')
+	.sect	'.debug_loc'
+.L524:
+	.word	-1,.L173,0,.L538-.L173
+	.half	1
+	.byte	84
+	.word	.L540-.L173,.L541-.L173
+	.half	1
+	.byte	95
+	.word	0,0
+.L526:
+	.word	-1,.L173,.L542-.L173,.L523-.L173
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L525:
+	.word	-1,.L173,0,.L539-.L173
+	.half	1
+	.byte	85
+	.word	.L538-.L173,.L539-.L173
+	.half	1
+	.byte	84
+	.word	0,0
+.L172:
+	.word	-1,.L173,0,.L523-.L173
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_run_done')
+	.sect	'.debug_loc'
+.L501:
+	.word	-1,.L191,0,.L561-.L191
+	.half	1
+	.byte	84
+	.word	.L563-.L191,.L500-.L191
+	.half	1
+	.byte	95
+	.word	0,0
+.L503:
+	.word	-1,.L191,0,.L562-.L191
+	.half	1
+	.byte	86
+	.word	.L564-.L191,.L500-.L191
+	.half	1
+	.byte	88
+	.word	0,0
+.L502:
+	.word	-1,.L191,0,.L562-.L191
+	.half	1
+	.byte	85
+	.word	0,0
+.L190:
+	.word	-1,.L191,0,.L500-.L191
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan0_1trigger')
+	.sect	'.debug_loc'
+.L460:
+	.word	-1,.L145,0,.L459-.L145
+	.half	1
+	.byte	100
+	.word	0,0
+.L144:
+	.word	-1,.L145,0,.L459-.L145
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan0_2trigger')
+	.sect	'.debug_loc'
+.L462:
+	.word	-1,.L149,0,.L461-.L149
+	.half	1
+	.byte	100
+	.word	0,0
+.L148:
+	.word	-1,.L149,0,.L461-.L149
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan1_0trigger')
+	.sect	'.debug_loc'
+.L464:
+	.word	-1,.L147,0,.L463-.L147
+	.half	1
+	.byte	100
+	.word	0,0
+.L146:
+	.word	-1,.L147,0,.L463-.L147
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan1_2trigger')
+	.sect	'.debug_loc'
+.L456:
+	.word	-1,.L139,0,.L455-.L139
+	.half	1
+	.byte	100
+	.word	0,0
+.L138:
+	.word	-1,.L139,0,.L455-.L139
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan2_0trigger')
+	.sect	'.debug_loc'
+.L466:
+	.word	-1,.L143,0,.L465-.L143
+	.half	1
+	.byte	100
+	.word	0,0
+.L142:
+	.word	-1,.L143,0,.L465-.L143
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_sanjiguan2_1trigger')
+	.sect	'.debug_loc'
+.L458:
+	.word	-1,.L141,0,.L457-.L141
+	.half	1
+	.byte	100
+	.word	0,0
+.L140:
+	.word	-1,.L141,0,.L457-.L141
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_set_flag')
+	.sect	'.debug_loc'
+.L511:
+	.word	-1,.L197,0,.L569-.L197
+	.half	1
+	.byte	84
+	.word	0,0
+.L196:
+	.word	-1,.L197,0,.L510-.L197
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_start_case')
+	.sect	'.debug_loc'
+.L488:
+	.word	-1,.L181,0,.L553-.L181
+	.half	1
+	.byte	84
+	.word	0,0
+.L490:
+	.word	-1,.L181,0,.L554-.L181
+	.half	1
+	.byte	85
+	.word	0,0
+.L180:
+	.word	-1,.L181,0,.L487-.L181
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_start_lock')
+	.sect	'.debug_loc'
+.L494:
+	.word	-1,.L185,0,.L556-.L185
+	.half	1
+	.byte	84
+	.word	0,0
+.L184:
+	.word	-1,.L185,0,.L493-.L185
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_start_run')
+	.sect	'.debug_loc'
+.L492:
+	.word	-1,.L183,0,.L555-.L183
+	.half	1
+	.byte	84
+	.word	0,0
+.L182:
+	.word	-1,.L183,0,.L491-.L183
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_tberjiguan_trigger')
+	.sect	'.debug_loc'
+.L454:
+	.word	-1,.L137,0,.L453-.L137
+	.half	1
+	.byte	100
+	.word	0,0
+.L136:
+	.word	-1,.L137,0,.L453-.L137
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_time_reached')
+	.sect	'.debug_loc'
+.L486:
+	.word	-1,.L179,0,.L549-.L179
+	.half	1
+	.byte	85
+	.word	.L551-.L179,.L552-.L179
+	.half	1
+	.byte	95
+	.word	0,0
+.L485:
+	.word	-1,.L179,0,.L549-.L179
+	.half	1
+	.byte	84
+	.word	.L550-.L179,.L483-.L179
+	.half	1
+	.byte	88
+	.word	0,0
+.L178:
+	.word	-1,.L179,0,.L483-.L179
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_xianquan_trigger')
+	.sect	'.debug_loc'
+.L474:
+	.word	-1,.L157,0,.L473-.L157
+	.half	1
+	.byte	100
+	.word	0,0
+.L156:
+	.word	-1,.L157,0,.L473-.L157
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('yqj_xianquandianzu0_trigger')
+	.sect	'.debug_loc'
+.L444:
+	.word	-1,.L127,0,.L443-.L127
+	.half	1
+	.byte	100
+	.word	0,0
+.L126:
+	.word	-1,.L127,0,.L443-.L127
+	.half	2
+	.byte	138,0
+	.word	0,0
 	.sdecl	'.debug_frame',debug
 	.sect	'.debug_frame'
-.L1047:
+.L1040:
 	.word	48
 	.word	-1
 	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
@@ -24702,197 +24677,197 @@ yqj_delay_start_count:	.type	object
 	.sdecl	'.debug_frame',debug,cluster('yqj_left_turn_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L121,.L436-.L121
+	.word	.L1040,.L119,.L434-.L119
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_right_turn_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L123,.L439-.L123
+	.word	.L1040,.L121,.L437-.L121
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_dianzu_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L125,.L441-.L125
+	.word	.L1040,.L123,.L439-.L123
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_dianyuan_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L127,.L443-.L127
+	.word	.L1040,.L125,.L441-.L125
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_xianquandianzu0_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L129,.L445-.L129
+	.word	.L1040,.L127,.L443-.L127
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_kaiguang1_0trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L131,.L447-.L131
+	.word	.L1040,.L129,.L445-.L129
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_kaiguang0_1trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L133,.L449-.L133
+	.word	.L1040,.L131,.L447-.L131
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_kaiguang_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L135,.L451-.L135
+	.word	.L1040,.L133,.L449-.L133
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_erjiguan_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L137,.L453-.L137
+	.word	.L1040,.L135,.L451-.L135
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_tberjiguan_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L139,.L455-.L139
+	.word	.L1040,.L137,.L453-.L137
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_sanjiguan1_2trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L141,.L457-.L141
+	.word	.L1040,.L139,.L455-.L139
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_sanjiguan2_1trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L143,.L459-.L143
+	.word	.L1040,.L141,.L457-.L141
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_sanjiguan2_0trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L145,.L467-.L145
+	.word	.L1040,.L143,.L465-.L143
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_sanjiguan0_1trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L147,.L461-.L147
+	.word	.L1040,.L145,.L459-.L145
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_sanjiguan1_0trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L149,.L465-.L149
+	.word	.L1040,.L147,.L463-.L147
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_sanjiguan0_2trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L151,.L463-.L151
+	.word	.L1040,.L149,.L461-.L149
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_double_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L153,.L469-.L153
+	.word	.L1040,.L151,.L467-.L151
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_ldiangan_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L155,.L471-.L155
+	.word	.L1040,.L153,.L469-.L153
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_rdiangan_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L157,.L473-.L157
+	.word	.L1040,.L155,.L471-.L155
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_xianquan_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L159,.L475-.L159
+	.word	.L1040,.L157,.L473-.L157
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_erji_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L161,.L477-.L161
+	.word	.L1040,.L159,.L475-.L159
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_dianchi_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L163,.L479-.L163
+	.word	.L1040,.L161,.L477-.L161
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_feimen_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L165,.L481-.L165
+	.word	.L1040,.L163,.L479-.L163
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_dianrong_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L167,.L483-.L167
+	.word	.L1040,.L165,.L481-.L165
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('yqj_meter_to_count')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L169,.L517-.L169
+	.word	.L1040,.L167,.L515-.L167
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('yqj_enter_state')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L171,.L519-.L171
+	.word	.L1040,.L169,.L517-.L169
 	.sdecl	'.debug_frame',debug,cluster('yqj_lock_distance_reached')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L173,.L521-.L173
+	.word	.L1040,.L171,.L519-.L171
 	.sdecl	'.debug_frame',debug,cluster('yqj_run_distance_reached')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L175,.L525-.L175
+	.word	.L1040,.L173,.L523-.L173
 	.sdecl	'.debug_frame',debug,cluster('yqj_delay_distance_reached')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L177,.L529-.L177
+	.word	.L1040,.L175,.L527-.L175
 	.sdecl	'.debug_frame',debug,cluster('yqj_init')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L179,.L432-.L179
+	.word	.L1040,.L177,.L430-.L177
 	.sdecl	'.debug_frame',debug,cluster('yqj_time_reached')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L181,.L485-.L181
+	.word	.L1040,.L179,.L483-.L179
 	.sdecl	'.debug_frame',debug,cluster('yqj_start_case')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L183,.L489-.L183
+	.word	.L1040,.L181,.L487-.L181
 	.sdecl	'.debug_frame',debug,cluster('yqj_start_run')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L185,.L493-.L185
+	.word	.L1040,.L183,.L491-.L183
 	.sdecl	'.debug_frame',debug,cluster('yqj_start_lock')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L187,.L495-.L187
+	.word	.L1040,.L185,.L493-.L185
 	.sdecl	'.debug_frame',debug,cluster('yqj_finish_case')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L189,.L497-.L189
+	.word	.L1040,.L187,.L495-.L187
 	.sdecl	'.debug_frame',debug,cluster('yqj_delay_done')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L191,.L498-.L191
+	.word	.L1040,.L189,.L496-.L189
 	.sdecl	'.debug_frame',debug,cluster('yqj_run_done')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L193,.L502-.L193
+	.word	.L1040,.L191,.L500-.L191
 	.sdecl	'.debug_frame',debug,cluster('yqj_lock_done')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L195,.L506-.L195
+	.word	.L1040,.L193,.L504-.L193
 	.sdecl	'.debug_frame',debug,cluster('yqj_get_flag')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L197,.L511-.L197
+	.word	.L1040,.L195,.L509-.L195
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('yqj_set_flag')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L1047,.L199,.L512-.L199
+	.word	.L1040,.L197,.L510-.L197
 	.sdecl	'.debug_frame',debug,cluster('yqj_get_state')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L201,.L515-.L201
+	.word	.L1040,.L199,.L513-.L199
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('yqj_get_action_trigger')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L1047,.L203,.L516-.L203
+	.word	.L1040,.L201,.L514-.L201
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	; Module end

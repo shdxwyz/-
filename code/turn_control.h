@@ -10,7 +10,7 @@
 #define TURN_CONTROL_TARGET_ANGLE_DEG          (90.0f)
 
 // 从转向起始 yaw 算起，相对 yaw 达到 85 度时结束转向。
-#define TURN_CONTROL_STOP_YAW_ANGLE_DEG        (85.0f)
+#define TURN_CONTROL_STOP_YAW_ANGLE_DEG        (80.0f)
 
 // yaw 异常或车辆堵转时的转向超时保护（ms）。
 #define TURN_CONTROL_TIMEOUT_MS                (500u)

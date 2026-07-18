@@ -54,8 +54,7 @@ uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
 // 线圈电阻：A8 和 A10 同时检测到白线
 uint8 yqj_xianquandianzu0_trigger(const uint16 adc_value[])
 {
-    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE);
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
 // 开关 1_0：A8 和 A10 同时检测到白线

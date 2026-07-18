@@ -32,41 +32,43 @@
 // 目标基础速度 1.0 m/s
 #define TARGET_SPEED_MPS (1.0f)
 
-// PID 周期 20ms
-#define PID_PERIOD_MS (20)
-#define PID_PERIOD_S (0.02f)
+// 编码器采样与速度 PID 周期 5ms。
+#define PID_PERIOD_MS (5)
+#define PID_PERIOD_S (0.005f)
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
 #define MOTOR_MAX_SAFE_SPEED_MPS (5.0f)
 #define MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 
-// 20ms 内基础目标计数 = TARGET_SPEED_MPS * 0.02 * ENCODER_COUNT_PER_METER
+// 5ms 内基础目标计数 = TARGET_SPEED_MPS * 0.005 * ENCODER_COUNT_PER_METER
 #define BASE_TARGET_COUNT (TARGET_SPEED_MPS * PID_PERIOD_S * ENCODER_COUNT_PER_METER)
 
 // PID 输出范围
 #define SPEED_PID_MAX_OUT (8000.0f)
 #define SPEED_PID_MAX_IOUT (2000.0f)
 
-// 速度 PID 参数
-#define SPEED_KP (2.8f)
+// 速度 PID 直接使用单周期编码器计数。周期从 20ms 缩短为 5ms 后，
+// 同一速度误差的计数变为 1/4，因此 Kp 放大 4 倍以保持比例输出一致。
+// Ki 的单次误差和调用频率刚好互相抵消，保持原值即可。
+#define SPEED_KP (11.2f)
 #define SPEED_KI (0.02f)
 #define SPEED_KD (0.0f)
 
 // 前馈系数：PWM = FEEDFORWARD_GAIN * target_speed
 #define FEEDFORWARD_GAIN (500.0f)
 
-// 主循环周期
-#define MAIN_LOOP_PERIOD_MS (2)
+// 主循环固定等待时间
+#define MAIN_LOOP_PERIOD_MS (1)
 
 // ==================== 巡线参数 ====================
 
 #define SENSOR_NUM (XUNJI_SENSOR_TOTAL)
 
-// ADC 时域滤波：三帧中值去除单次异常，再由一阶低通平滑噪声。
-// alpha 越小越平滑，但检测到线和元器件的延迟也越大。
-#define ADC_FILTER_ALPHA (0.9f)
-#define ADC_FILTER_HISTORY_NUM (3u)
+// 主循环从 2ms 改为 1ms 后，五帧中值仍覆盖约 4ms，和原三帧中值相同。
+// alpha=1-sqrt(1-0.9)，使 1ms 更新两次后的低通响应等效于原 2ms 更新一次。
+#define ADC_FILTER_ALPHA (0.6838f)
+#define ADC_FILTER_HISTORY_NUM (5u)
 
 // ==================== ADC 变量 ====================
 
@@ -99,7 +101,7 @@ adc_channel_enum adc_list[SENSOR_NUM] =
 
 // ==================== 编码器与 PID 变量 ====================
 
-// 20ms 内编码器增量，用于速度 PID
+// 5ms 内编码器增量，用于速度 PID
 volatile int16 left_encoder_count = 0;
 volatile int16 right_encoder_count = 0;
 
@@ -199,12 +201,16 @@ int core0_main(void)
     pwm_init(ATOM0_CH6_P02_6, 100, 1300);
     system_delay_ms(2000);
 
-    // IMU660RC 初始化（120Hz 四元数输出）
-    imu660rc_init(IMU660RC_QUARTERNION_120HZ);
+    // IMU660RC 初始化（240Hz 四元数输出）
+    imu660rc_init(IMU660RC_QUARTERNION_240HZ);
    
     turn_control_init(PID_PERIOD_S, ENCODER_COUNT_PER_METER);
     yqj_init(ENCODER_COUNT_PER_METER);
-        
+
+    encoder_clear_count(LEFT_ENCODER);
+    encoder_clear_count(RIGHT_ENCODER);
+    left_encoder_count = 0;
+    right_encoder_count = 0;
     pit_ms_init(PIT0, PID_PERIOD_MS);
     while (TRUE)
     {
@@ -242,10 +248,10 @@ int core0_main(void)
                 yqj_turn_base_speed = 0.0f;
                 yqj_delay_ms = 0;
                 yqj_delay_distance_m = 0.0f;
-                yqj_run_ms = 10;
-                yqj_run_distance_m = 0.2f;
-                yqj_lock_ms = 66;
-                yqj_lock_distance_m = 0.1f;
+                yqj_run_ms = 50;
+                yqj_run_distance_m = 0.15f;
+                yqj_lock_ms = 10;
+                yqj_lock_distance_m = 0.05f;
                 break;
             case 2:
                             // 左转
@@ -319,7 +325,7 @@ int core0_main(void)
                                         yqj_pass_speed_mps = TARGET_SPEED_MPS;
                                         yqj_turn_base_speed = 1.0f;
                                         yqj_delay_ms = 0;
-                                        yqj_delay_distance_m = 0.0f;
+                                        yqj_delay_distance_m = 0.05f;
                                         yqj_run_ms = 120;
                                         yqj_run_distance_m = 0.0f;
                                         yqj_lock_ms = 50;
@@ -346,10 +352,10 @@ int core0_main(void)
                                         yqj_turn_base_speed = 1.0f;
                                         yqj_delay_ms = 0;
                                         yqj_delay_distance_m = 0.0f;
-                                        yqj_run_ms = 120;
+                                        yqj_run_ms =0;
                                         yqj_run_distance_m = 0.0f;
-                                        yqj_lock_ms = 50;
-                                        yqj_lock_distance_m = 0.4f;
+                                        yqj_lock_ms = 10;
+                                        yqj_lock_distance_m = 0.05f;
                                         break;
             case 100:
                 // 电源
@@ -964,8 +970,9 @@ int core0_main(void)
             default:
                 // 停止
                 // 这里是总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
-                motor_stop();
-                system_delay_ms(20000);
+                //motor_stop();
+                //system_delay_ms(20000);
+                yqj_flag=1;
                 break;
         }
 
@@ -1016,7 +1023,7 @@ int core0_main(void)
                     left_speed_decel_flag = 0;
                     right_speed_decel_flag = 0;
 
-                    // 立即清除旧的转弯 PWM，避免等待下一个 20ms 速度环周期时继续转动。
+                    // 立即清除旧的转弯 PWM，避免等待下一个 5ms 速度环周期时继续转动。
                     turn_stop_interrupt_state = interrupt_global_disable();
                     left_target_count = 0.0f;
                     right_target_count = 0.0f;
@@ -1101,7 +1108,8 @@ int core0_main(void)
         // ==================== 串口调试 ====================
 
         print_count++;
-        if (print_count >= 50)
+        // 主循环固定等待从 2ms 改为 1ms，计数翻倍后仍约每 100ms 输出一次。
+        if (print_count >= 100)
         {
             uint8 i;
             float left_speed_mps = (float)left_encoder_count /
@@ -1149,30 +1157,27 @@ void adc_all_init(void)
 
 // ==================== ADC 读取 ====================
 
-static uint16 adc_median3(uint16 a, uint16 b, uint16 c)
+static uint16 adc_history_median(const uint16 values[])
 {
+    uint16 sorted[ADC_FILTER_HISTORY_NUM];
     uint16 temp;
+    uint8 i;
+    uint8 j;
 
-    if (a > b)
+    for (i = 0; i < ADC_FILTER_HISTORY_NUM; i++)
     {
-        temp = a;
-        a = b;
-        b = temp;
-    }
-    if (b > c)
-    {
-        temp = b;
-        b = c;
-        c = temp;
-    }
-    if (a > b)
-    {
-        temp = a;
-        a = b;
-        b = temp;
+        sorted[i] = values[i];
+        j = i;
+        while ((j > 0u) && (sorted[j - 1u] > sorted[j]))
+        {
+            temp = sorted[j - 1u];
+            sorted[j - 1u] = sorted[j];
+            sorted[j] = temp;
+            j--;
+        }
     }
 
-    return b;
+    return sorted[ADC_FILTER_HISTORY_NUM / 2u];
 }
 
 void adc_all_read(void)
@@ -1199,9 +1204,7 @@ void adc_all_read(void)
         else
         {
             adc_filter_history[i][adc_filter_history_index] = raw_value;
-            median_value = adc_median3(adc_filter_history[i][0],
-                                       adc_filter_history[i][1],
-                                       adc_filter_history[i][2]);
+            median_value = adc_history_median(adc_filter_history[i]);
 
             adc_filter_output[i] += ADC_FILTER_ALPHA *
                                     ((float)median_value - adc_filter_output[i]);
@@ -1221,14 +1224,14 @@ void adc_all_read(void)
     }
 }
 
-// ==================== 20ms 速度 PID 中断 ====================
+// ==================== 5ms 速度 PID 中断 ====================
 
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
     interrupt_global_enable(0);
     pit_clear_flag(CCU60_CH0);
 
-    // ==================== 读取 20ms 内编码器增量 ====================
+    // ==================== 读取 5ms 内编码器增量 ====================
     // 左编码器前进时是负数，所以取反变成正数。
     left_encoder_count = -encoder_get_count(LEFT_ENCODER);
 
@@ -1242,7 +1245,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 
     // ==================== 电机超速保护 ====================
     // 使用编码器实测速度而不是目标速度；正转、反转均按绝对值判断。
-    // 20ms 内任一编码器计数超过 5m/s 对应阈值，立即锁存并关闭两侧电机。
+    // 5ms 内任一编码器计数超过 5m/s 对应阈值，立即锁存并关闭两侧电机。
     if(((float)left_encoder_count > MOTOR_MAX_SAFE_COUNT) ||
        ((float)left_encoder_count < -MOTOR_MAX_SAFE_COUNT) ||
        ((float)right_encoder_count > MOTOR_MAX_SAFE_COUNT) ||

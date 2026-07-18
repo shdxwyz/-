@@ -11,7 +11,7 @@ volatile float turn_control_angle_deg = 0.0f;
 float turn_control_angle_pid_output = 0.0f;
 
 static PidTypeDef turn_control_angle_pid;
-static float turn_control_pid_period_s = 0.02f;
+static float turn_control_pid_period_s = 0.005f;
 static float turn_control_encoder_count_per_meter = 12106.0f;
 
 // 四元数解算后的 yaw 持续更新，每次转向只重新记录起点。

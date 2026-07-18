@@ -29,13 +29,14 @@
 
 // 死区外 ADC 差值到单轮目标修正量的比例。
 // turn_count = (去掉死区后的 line_error) * XUNJI_LINE_TURN_KP。
-#define XUNJI_LINE_TURN_KP              (0.03f)
+// PID 周期由 20ms 缩短为 5ms，目标计数按 1/4 缩放以保持原差速。
+#define XUNJI_LINE_TURN_KP              (0.0075f)
 
-// 左右轮目标计数的最大修正量，单位：count/20ms。
-#define XUNJI_LINE_TURN_LIMIT           (800.0f)
+// 左右轮目标计数的最大修正量，单位：count/5ms。
+#define XUNJI_LINE_TURN_LIMIT           (200.0f)
 
 // 防止某一侧目标速度过低导致电机不稳定。
-#define XUNJI_MIN_TARGET_COUNT          (200.0f)
+#define XUNJI_MIN_TARGET_COUNT          (50.0f)
 
 // 所有巡线 ADC 同时大于该阈值时，左右目标设为 0。
 // 注意：12 位 ADC 最大只有 4095，当前 18000 会使这个停止条件无法成立。
