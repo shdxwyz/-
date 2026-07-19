@@ -25,9 +25,12 @@
 
 // ==================== 速度 PID 参数 ====================
 
-// 实测（强磁电机）：小车走 0.5 米约 27000 个编码器计数
-// 1 米 = 27000 * 2 = 54000
+// 左轮实测：小车走 0.5 米约 27000 个编码器计数，1 米约 54000。
+// 更换右编码器后，右轮每米计数略微提高，用于补偿直行时轻微右偏。
 #define ENCODER_COUNT_PER_METER (54000.0f)
+#define RIGHT_ENCODER_COUNT_PER_METER (60000.0f)
+#define RIGHT_ENCODER_COUNT_SCALE \
+    (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 目标基础速度 1.0 m/s
 #define TARGET_SPEED_MPS (1.0f)
@@ -38,11 +41,14 @@
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
 #define MOTOR_MAX_SAFE_SPEED_MPS (5.0f)
-#define MOTOR_MAX_SAFE_COUNT \
+#define LEFT_MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * ENCODER_COUNT_PER_METER * PID_PERIOD_S)
+#define RIGHT_MOTOR_MAX_SAFE_COUNT \
+    (MOTOR_MAX_SAFE_SPEED_MPS * RIGHT_ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 
 // 5ms 内基础目标计数 = TARGET_SPEED_MPS * 0.005 * ENCODER_COUNT_PER_METER
 #define BASE_TARGET_COUNT (TARGET_SPEED_MPS * PID_PERIOD_S * ENCODER_COUNT_PER_METER)
+#define RIGHT_BASE_TARGET_COUNT (BASE_TARGET_COUNT * RIGHT_ENCODER_COUNT_SCALE)
 
 // PID 输出范围
 #define SPEED_PID_MAX_OUT (8000.0f)
@@ -114,7 +120,7 @@ volatile float car_distance_m = 0.0f;
 
 // 巡线算出的左右目标编码器计数
 volatile float left_target_count = BASE_TARGET_COUNT;
-volatile float right_target_count = BASE_TARGET_COUNT;
+volatile float right_target_count = RIGHT_BASE_TARGET_COUNT;
 
 // PID 输出 PWM
 volatile float left_base_pwm = 0;
@@ -240,7 +246,7 @@ int core0_main(void)
 
         switch (yqj_flag)
         {
-            case 1:
+            /*case 1:
                 // 线圈电阻
                 yqj_condition = yqj_xianquandianzu0_trigger(adc_value);
                 yqj_case_trigger = 0;
@@ -356,12 +362,12 @@ int core0_main(void)
                                         yqj_run_distance_m = 0.0f;
                                         yqj_lock_ms = 10;
                                         yqj_lock_distance_m = 0.05f;
-                                        break;
-            case 100:
+                                        break;*/
+            case 1:
                 // 电源
                 yqj_condition = yqj_dianyuan_trigger(adc_value);
                 yqj_case_trigger = 0;
-                yqj_pass_speed_mps = 1.3f;
+                yqj_pass_speed_mps = 1.0f;
                 yqj_turn_base_speed = 0.0f;
                 yqj_delay_ms = 0;
                 yqj_delay_distance_m = 0.0f;
@@ -383,11 +389,11 @@ int core0_main(void)
             //     yqj_lock_ms = 33;
             //     yqj_lock_distance_m = 0.2f;
             //     break;
-            case 200:
+            case 2:
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
                 yqj_pass_speed_mps = TARGET_SPEED_MPS;
-                yqj_turn_base_speed = -1.1f;
+                yqj_turn_base_speed = -1.0f;
                 yqj_delay_ms = 0;
                 yqj_delay_distance_m = 0.0f;
                 yqj_run_ms = 120;
@@ -409,12 +415,12 @@ int core0_main(void)
             //     yqj_lock_ms = 0;
             //     yqj_lock_distance_m = 0.6f;
             //     break;
-            case 300:
+            case 3:
                 // 右转
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
                 yqj_pass_speed_mps = TARGET_SPEED_MPS;
-                yqj_turn_base_speed = -1.1f;
+                yqj_turn_base_speed = -1.0f;
                 yqj_delay_ms = 0;
                 yqj_delay_distance_m = 0.0f;
                 yqj_run_ms = 120;
@@ -436,7 +442,7 @@ int core0_main(void)
             //     yqj_lock_distance_m = 0.2f;
             //     break;
 
-            case 400:
+            case 4:
                 // 左转
                 yqj_condition = yqj_left_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -449,7 +455,7 @@ int core0_main(void)
                 yqj_lock_ms = 50;
                 yqj_lock_distance_m = 0.2f;
                 break;
-            case 500:
+            case 5:
                 // sanjiguan
                 yqj_condition = yqj_sanjiguan1_2trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -475,7 +481,7 @@ int core0_main(void)
             //     yqj_lock_ms = 33;
             //     yqj_lock_distance_m = 0.2f;
             //     break;
-            case 600:
+            case 6:
                 // sanjiguan
                 yqj_condition = yqj_sanjiguan0_1trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -490,7 +496,7 @@ int core0_main(void)
                 yqj_lock_distance_m = 0.4f;
 
                 break;
-            case 700:
+            case 7:
                 // zuowan
                 yqj_condition = yqj_left_turn_trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -504,7 +510,7 @@ int core0_main(void)
                 yqj_lock_distance_m = 0.3f;
                 break;
 
-            case 800:
+            case 8:
                 // 左转
                 yqj_condition = yqj_left_turn_trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -517,7 +523,7 @@ int core0_main(void)
                 yqj_lock_ms = 50;
                 yqj_lock_distance_m = 0.3f;
                 break;
-            case 900:
+            case 9:
                 // zuowan
                 yqj_condition = yqj_left_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -544,7 +550,7 @@ int core0_main(void)
             //     yqj_lock_ms = 33;
             //     yqj_lock_distance_m = 1.2f;
             //     break;
-            case 1000:
+            case 10:
                 // 二级管
                 yqj_condition = yqj_erjiguan_trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -804,9 +810,22 @@ int core0_main(void)
                 yqj_run_ms = 12;
                 yqj_run_distance_m = 0.0f;
                 yqj_lock_ms = 15;
-                yqj_lock_distance_m = 1.5f;
+                yqj_lock_distance_m = 0.5f;
                 break;
             case 24:
+                                                    // 特别二级管左转
+                                                    yqj_condition = yqj_tberjiguan_trigger(adc_value);
+                                                    yqj_case_trigger = 1;
+                                                    yqj_pass_speed_mps = TARGET_SPEED_MPS;
+                                                    yqj_turn_base_speed = -1.0f;
+                                                    yqj_delay_ms = 0;
+                                                    yqj_delay_distance_m = 0.05f;
+                                                    yqj_run_ms = 120;
+                                                    yqj_run_distance_m = 0.0f;
+                                                    yqj_lock_ms = 50;
+                                                    yqj_lock_distance_m = 0.4f;
+                                                    break;
+            case 25:
                 // youwan
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -819,7 +838,7 @@ int core0_main(void)
                 yqj_lock_ms = 15;
                 yqj_lock_distance_m = 0.1f;
                 break;
-            case 25:
+            case 26:
                 // youwan
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -832,7 +851,7 @@ int core0_main(void)
                 yqj_lock_ms = 15;
                 yqj_lock_distance_m = 0.4f;
                 break;
-            case 26:
+            case 27:
                 // youwan
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -845,7 +864,7 @@ int core0_main(void)
                 yqj_lock_ms = 50;
                 yqj_lock_distance_m = 0.6f;
                 break;
-            case 27:
+            case 28:
                 // youwan
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -858,7 +877,7 @@ int core0_main(void)
                 yqj_lock_ms = 50;
                 yqj_lock_distance_m = 0.2f;
                 break;
-            case 28:
+            case 29:
                 // youwan
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 0;       // 不转弯，同速直行
@@ -871,7 +890,7 @@ int core0_main(void)
                 yqj_lock_ms = 50;
                 yqj_lock_distance_m = 0.2f;
                 break;
-            case 29:
+            case 30:
                 // youwan
                 yqj_condition = yqj_right_turn_trigger(adc_value);
                 yqj_case_trigger = 1;
@@ -970,9 +989,9 @@ int core0_main(void)
             default:
                 // 停止
                 // 这里是总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
-                //motor_stop();
-                //system_delay_ms(20000);
-                yqj_flag=1;
+                motor_stop();
+                system_delay_ms(20000);
+                //yqj_flag=1;
                 break;
         }
 
@@ -1095,7 +1114,8 @@ int core0_main(void)
 
         // ==================== 直接使用巡线结果，不做软启动 ====================
         left_target_count = final_left_target;
-        right_target_count = final_right_target;
+        // 高层控制统一按左轮计数标定计算，写入速度环前换算成右编码器计数。
+        right_target_count = final_right_target * RIGHT_ENCODER_COUNT_SCALE;
 
         left_pwm_min = left_speed_decel_flag ? -PWM_DUTY_MAX : 0;
         right_pwm_min = right_speed_decel_flag ? -PWM_DUTY_MAX : 0;
@@ -1115,7 +1135,7 @@ int core0_main(void)
             float left_speed_mps = (float)left_encoder_count /
                                    (ENCODER_COUNT_PER_METER * PID_PERIOD_S);
             float right_speed_mps = (float)right_encoder_count /
-                                    (ENCODER_COUNT_PER_METER * PID_PERIOD_S);
+                                    (RIGHT_ENCODER_COUNT_PER_METER * PID_PERIOD_S);
 
             print_count = 0;
 
@@ -1246,10 +1266,10 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     // ==================== 电机超速保护 ====================
     // 使用编码器实测速度而不是目标速度；正转、反转均按绝对值判断。
     // 5ms 内任一编码器计数超过 5m/s 对应阈值，立即锁存并关闭两侧电机。
-    if(((float)left_encoder_count > MOTOR_MAX_SAFE_COUNT) ||
-       ((float)left_encoder_count < -MOTOR_MAX_SAFE_COUNT) ||
-       ((float)right_encoder_count > MOTOR_MAX_SAFE_COUNT) ||
-       ((float)right_encoder_count < -MOTOR_MAX_SAFE_COUNT))
+    if(((float)left_encoder_count > LEFT_MOTOR_MAX_SAFE_COUNT) ||
+       ((float)left_encoder_count < -LEFT_MOTOR_MAX_SAFE_COUNT) ||
+       ((float)right_encoder_count > RIGHT_MOTOR_MAX_SAFE_COUNT) ||
+       ((float)right_encoder_count < -RIGHT_MOTOR_MAX_SAFE_COUNT))
     {
         left_target_count = 0.0f;
         right_target_count = 0.0f;
@@ -1274,8 +1294,9 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     left_encoder_total += left_encoder_count;
     right_encoder_total += right_encoder_count;
 
-    car_distance_m = ((float)left_encoder_total + (float)right_encoder_total) /
-                     (2.0f * ENCODER_COUNT_PER_METER);
+    car_distance_m = 0.5f *
+                     ((float)left_encoder_total / ENCODER_COUNT_PER_METER +
+                      (float)right_encoder_total / RIGHT_ENCODER_COUNT_PER_METER);
 
     // ==================== 速度 PID ====================
     // PID_Calc(pid, 实际值, 目标值)
@@ -1293,7 +1314,8 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     // 前馈 = FEEDFORWARD_GAIN * target_speed
     // target_speed = target_count / (PID_PERIOD_S * ENCODER_COUNT_PER_METER)
     left_base_pwm += FEEDFORWARD_GAIN * left_target_count / (PID_PERIOD_S * ENCODER_COUNT_PER_METER);
-    right_base_pwm += FEEDFORWARD_GAIN * right_target_count / (PID_PERIOD_S * ENCODER_COUNT_PER_METER);
+    right_base_pwm += FEEDFORWARD_GAIN * right_target_count /
+                      (PID_PERIOD_S * RIGHT_ENCODER_COUNT_PER_METER);
 }
 
 // ==================== 限幅函数 ====================
