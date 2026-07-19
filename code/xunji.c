@@ -32,8 +32,8 @@ int32 xunji_get_line_error_simple(const uint16 adc_value[])
 
     // 左侧为 [2]~[6]，中间为 [7]，右侧为 [8]~[12]。
     // 当前左右五路的权重均为 1。
-    left_sum = (float)adc_value[2] * 1.0f +
-               (float)adc_value[3] * 1.0f +
+    left_sum = (float)adc_value[2] * 3.0f +
+               (float)adc_value[3] * 2.0f +
                (float)adc_value[4] * 1.0f +
                (float)adc_value[5] * 1.0f +
                (float)adc_value[6] * 1.0f;
@@ -41,8 +41,8 @@ int32 xunji_get_line_error_simple(const uint16 adc_value[])
     right_sum = (float)adc_value[8] * 1.0f +
                 (float)adc_value[9] * 1.0f +
                 (float)adc_value[10] * 1.0f +
-                (float)adc_value[11] * 1.0f +
-                (float)adc_value[12] * 1.0f;
+                (float)adc_value[11] * 2.0f +
+                (float)adc_value[12] * 3.0f;
 
     // 正值表示左侧信号更强，负值表示右侧信号更强。
     line_error = left_sum - right_sum;
