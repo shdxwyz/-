@@ -205,10 +205,10 @@ static const yqj_case_config_struct yqj_case_table[] =
         // 二极管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.4f),
     // 三极管，左转
-    YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  1.4f, 50, 0.0f,  0, 0.0f,  50, 0.4f),
+    YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  1.4f, 50, 0.0f,  0, 0.0f,  50, 0.2f),
     // 左弯，直行通过
-    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
-    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
+    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 左转
     YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 100, 0.0f,  33, 0.2f),
     // 二极管，直行通过
@@ -216,7 +216,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电容，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.1f),
     // 三极管，左转
-    YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 120, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 12, 0.0f,  33, 0.1f),
 
     // 左转
     YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f,  10, 0.0f,  10, 0.2f),
@@ -229,14 +229,14 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 双触发，右转
     YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f, 100, 0.0f,  33, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f, 150, 0.8f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.0f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f, 120, 0.0f, 15, 0.7f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f, 120, 0.0f,  50, 0.0f),
     // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f,  10, 0.0f,  33, 0.1f),
+    YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f,  10, 0.0f,  33, 0.6f),
         // 二级管，直行通过
-    YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.2f),
+  //  YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.2f),
         // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
+    YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
    // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.2f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.3f),
     // 三极管，直行通过
@@ -256,7 +256,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.3f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.1f,  0, 0.0f,  12, 0.0f,  15, 2.4f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  12, 0.0f,  15, 2.4f),
    // YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.0f,  0, 0.0f, 120, 0.0f, 150, 2.4f),
     // 开关
    // YQJ_CASE(yqj_kaiguang0_1trigger,      1, TARGET_SPEED_MPS,  0.0f,  0, 0.0f, 100, 0.0f, 140, 0.5f),
