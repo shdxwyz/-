@@ -10,7 +10,7 @@
 #define TURN_CONTROL_TARGET_ANGLE_DEG          (90.0f)
 
 // 从转向起始 yaw 算起，相对 yaw 达到 85 度时结束转向。
-#define TURN_CONTROL_STOP_YAW_ANGLE_DEG        (80.0f)
+#define TURN_CONTROL_STOP_YAW_ANGLE_DEG        (90.0f)
 
 // yaw 异常或车辆堵转时的转向超时保护（ms）。
 #define TURN_CONTROL_TIMEOUT_MS                (500u)
@@ -18,9 +18,9 @@
 // ==================== 角度环 PID 参数 ====================
 
 // PID 输出为左右轮速度差，单位 m/s。
-#define TURN_CONTROL_ANGLE_PID_MAX_OUT         (3.5f)
-#define TURN_CONTROL_ANGLE_PID_MAX_IOUT        (1.0f)
-#define TURN_CONTROL_ANGLE_KP                  (0.012f)
+#define TURN_CONTROL_ANGLE_PID_MAX_OUT         (6.5f)
+#define TURN_CONTROL_ANGLE_PID_MAX_IOUT        (2.0f)
+#define TURN_CONTROL_ANGLE_KP                  (0.016f)
 #define TURN_CONTROL_ANGLE_KI                  (0.00f)
 #define TURN_CONTROL_ANGLE_KD                  (0.00f)
 
