@@ -32,12 +32,13 @@
 #define RIGHT_ENCODER_COUNT_SCALE \
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
-// 目标基础速度 1.0 m/s
+// 目标基础速度 1.2 m/s
 #define TARGET_SPEED_MPS (1.2f)
 
 // 编码器采样与速度 PID 周期 5ms。
 #define PID_PERIOD_MS (5)
 #define PID_PERIOD_S (0.005f)
+#define PID_PERIOD_10NS_TICKS ((uint32)(PID_PERIOD_MS * 100000UL))
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
 #define MOTOR_MAX_SAFE_SPEED_MPS (5.0f)
@@ -54,11 +55,13 @@
 #define SPEED_PID_MAX_OUT (8000.0f)
 #define SPEED_PID_MAX_IOUT (2000.0f)
 
-// 速度 PID 直接使用单周期编码器计数。周期从 20ms 缩短为 5ms 后，
-// 同一速度误差的计数变为 1/4，因此 Kp 放大 4 倍以保持比例输出一致。
-// Ki 的单次误差和调用频率刚好互相抵消，保持原值即可。
-#define SPEED_KP (11.2f)
-#define SPEED_KI (0.02f)
+// 速度 PID 直接使用归一化到 5ms 的编码器计数。
+// 右编码器每米计数更多，因此右轮 count 域增益按比例减小，
+// 使相同的 m/s 误差在左右两侧产生近似相同的 PWM 修正。
+#define LEFT_SPEED_KP (11.2f)
+#define RIGHT_SPEED_KP (LEFT_SPEED_KP / RIGHT_ENCODER_COUNT_SCALE)
+#define LEFT_SPEED_KI (0.02f)
+#define RIGHT_SPEED_KI (LEFT_SPEED_KI / RIGHT_ENCODER_COUNT_SCALE)
 #define SPEED_KD (0.0f)
 
 // 前馈系数：PWM = FEEDFORWARD_GAIN * target_speed
@@ -67,14 +70,19 @@
 // 主循环固定等待时间
 #define MAIN_LOOP_PERIOD_MS (1)
 
+// printf 在 115200 波特率下会阻塞主循环约 20ms。
+// 实车高速运行时默认关闭；台架调试时可临时改为 1。
+#define CONTROL_DEBUG_PRINT_ENABLE (0)
+#define CONTROL_DEBUG_PRINT_INTERVAL_LOOPS (100u)
+
 // ==================== 巡线参数 ====================
 
 #define SENSOR_NUM (XUNJI_SENSOR_TOTAL)
 
-// 主循环从 2ms 改为 1ms 后，五帧中值仍覆盖约 4ms，和原三帧中值相同。
-// alpha=1-sqrt(1-0.9)，使 1ms 更新两次后的低通响应等效于原 2ms 更新一次。
+// 三帧中值可剔除单帧尖峰，同时只引入约 1ms 的检测延迟。
+// 巡线继续使用低通输出；元器件触发直接使用中值结果以更快响应。
 #define ADC_FILTER_ALPHA (0.6838f)
-#define ADC_FILTER_HISTORY_NUM (5u)
+#define ADC_FILTER_HISTORY_NUM (3u)
 
 // ==================== ADC 变量 ====================
 
@@ -83,6 +91,7 @@
 uint16 adc_value[SENSOR_NUM];
 
 static uint16 adc_filter_history[SENSOR_NUM][ADC_FILTER_HISTORY_NUM];
+static uint16 adc_trigger_value[SENSOR_NUM];
 static float adc_filter_output[SENSOR_NUM];
 static uint8 adc_filter_history_index = 0;
 static uint8 adc_filter_initialized = 0;
@@ -110,6 +119,13 @@ adc_channel_enum adc_list[SENSOR_NUM] =
 // 5ms 内编码器增量，用于速度 PID
 volatile int16 left_encoder_count = 0;
 volatile int16 right_encoder_count = 0;
+
+// 根据真实采样间隔归一化到一个 5ms 周期的反馈计数，供速度 PID 使用。
+static volatile float left_encoder_feedback_count = 0.0f;
+static volatile float right_encoder_feedback_count = 0.0f;
+static uint16 left_encoder_previous_raw = 0u;
+static uint16 right_encoder_previous_raw = 0u;
+static uint32 encoder_previous_sample_time = 0u;
 
 // 软件累计总计数，用于计算总路程
 volatile int32 left_encoder_total = 0;
@@ -142,6 +158,11 @@ void set_speed_change_flags(float next_left_target,
                             float next_right_target,
                             float current_left_target,
                             float current_right_target);
+static void publish_speed_targets(float left_reference_count,
+                                  float right_reference_count);
+static void snapshot_speed_pwm(float *left_pwm_snapshot,
+                               float *right_pwm_snapshot);
+static int32 snapshot_encoder_total_sum(void);
 
 // ==================== 元器件顺序配置 ====================
 
@@ -188,7 +209,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
     YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1.2, TARGET_SPEED_MPS,  1.0f,  0, 0.0f, 100, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.0f,  0, 0.0f, 100, 0.0f,  33, 0.2f),
     // 二极管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 2.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.2f),
     // 电容，直行通过
@@ -255,11 +276,16 @@ int core0_main(void)
     int16 left_pwm_min = 0;
     int16 right_pwm_min = 0;
 
+#if CONTROL_DEBUG_PRINT_ENABLE
     uint32 print_count = 0;
+#endif
     float final_left_target = BASE_TARGET_COUNT;
     float final_right_target = BASE_TARGET_COUNT;
     float action_left_target = BASE_TARGET_COUNT;
     float action_right_target = BASE_TARGET_COUNT;
+    float left_pwm_snapshot = 0.0f;
+    float right_pwm_snapshot = 0.0f;
+    int32 encoder_total_sum = 0;
 
     uint8 yqj_condition = 0;
     uint8 yqj_case_trigger = 0;
@@ -291,16 +317,16 @@ int core0_main(void)
              PID_POSITION,
              SPEED_PID_MAX_OUT,
              SPEED_PID_MAX_IOUT,
-             SPEED_KP,
-             SPEED_KI,
+             LEFT_SPEED_KP,
+             LEFT_SPEED_KI,
              SPEED_KD);
 
     PID_Init(&right_speed_pid,
              PID_POSITION,
              SPEED_PID_MAX_OUT,
              SPEED_PID_MAX_IOUT,
-             SPEED_KP,
-             SPEED_KI,
+             RIGHT_SPEED_KP,
+             RIGHT_SPEED_KI,
              SPEED_KD);
 
     cpu_wait_event_ready();
@@ -316,6 +342,9 @@ int core0_main(void)
 
     encoder_clear_count(LEFT_ENCODER);
     encoder_clear_count(RIGHT_ENCODER);
+    left_encoder_previous_raw = (uint16)encoder_get_count(LEFT_ENCODER);
+    right_encoder_previous_raw = (uint16)encoder_get_count(RIGHT_ENCODER);
+    encoder_previous_sample_time = system_getval();
     left_encoder_count = 0;
     right_encoder_count = 0;
     pit_ms_init(PIT0, PID_PERIOD_MS);
@@ -328,6 +357,7 @@ int core0_main(void)
         // xunji 只根据 ADC 计算普通巡线目标，不处理特殊动作命令。
         // 传入完整 ADC 数组，xunji 直接使用真实下标 [2]~[12]。
         xunji_update(adc_value, BASE_TARGET_COUNT, &line_result);
+        encoder_total_sum = snapshot_encoder_total_sum();
 
         // ==================== 元器件顺序层 ====================
         // 总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
@@ -349,7 +379,7 @@ int core0_main(void)
         {
             const yqj_case_config_struct *case_config = &yqj_case_table[yqj_flag - 1u];
 
-            yqj_condition = case_config->trigger(adc_value);
+            yqj_condition = case_config->trigger(adc_trigger_value);
             yqj_case_trigger = case_config->turn_enabled;
             yqj_pass_speed_mps = case_config->pass_speed_mps;
             yqj_turn_base_speed = case_config->turn_base_speed;
@@ -371,12 +401,12 @@ int core0_main(void)
             if (yqj_condition)
             {
                 yqj_start_case(yqj_case_trigger,
-                               left_encoder_total + right_encoder_total);
+                               encoder_total_sum);
             }
         }
         else if (YQJ_STATE_DELAY == yqj_state)
         {
-            if (yqj_delay_done(left_encoder_total + right_encoder_total,
+            if (yqj_delay_done(encoder_total_sum,
                                yqj_delay_ms,
                                yqj_delay_distance_m))
             {
@@ -391,7 +421,7 @@ int core0_main(void)
                 }
 
                 yqj_turn_done = yqj_get_action_trigger() ? 0u : 1u;
-                yqj_start_run(left_encoder_total + right_encoder_total);
+                yqj_start_run(encoder_total_sum);
             }
         }
         else if (YQJ_STATE_RUN == yqj_state)
@@ -428,18 +458,18 @@ int core0_main(void)
             }
 
             run_conditions_done =
-                yqj_run_done(left_encoder_total + right_encoder_total,
+                yqj_run_done(encoder_total_sum,
                              yqj_run_ms,
                              yqj_run_distance_m);
 
             if (yqj_turn_done && run_conditions_done)
             {
-                yqj_start_lock(left_encoder_total + right_encoder_total);
+                yqj_start_lock(encoder_total_sum);
             }
         }
         else if (YQJ_STATE_LOCK == yqj_state)
         {
-            if (yqj_lock_done(left_encoder_total + right_encoder_total,
+            if (yqj_lock_done(encoder_total_sum,
                               yqj_lock_ms,
                               yqj_lock_distance_m))
             {
@@ -484,28 +514,28 @@ int core0_main(void)
         }
 
         // ==================== 直接使用巡线结果，不做软启动 ====================
-        left_target_count = final_left_target;
-        // 高层控制统一按左轮计数标定计算，写入速度环前换算成右编码器计数。
-        right_target_count = final_right_target * RIGHT_ENCODER_COUNT_SCALE;
+        // 高层控制统一按左轮计数标定计算，再原子发布左右速度目标。
+        publish_speed_targets(final_left_target, final_right_target);
 
         left_pwm_min = left_speed_decel_flag ? -PWM_DUTY_MAX : 0;
         right_pwm_min = right_speed_decel_flag ? -PWM_DUTY_MAX : 0;
 
-        left_pwm = limit_int16((int16)left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
-        right_pwm = limit_int16((int16)right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
+        snapshot_speed_pwm(&left_pwm_snapshot, &right_pwm_snapshot);
+        left_pwm = limit_int16((int16)left_pwm_snapshot, left_pwm_min, PWM_DUTY_MAX);
+        right_pwm = limit_int16((int16)right_pwm_snapshot, right_pwm_min, PWM_DUTY_MAX);
 
         motor_control(left_pwm, right_pwm);
 
         // ==================== 串口调试 ====================
 
+#if CONTROL_DEBUG_PRINT_ENABLE
         print_count++;
-        // 主循环固定等待从 2ms 改为 1ms，计数翻倍后仍约每 100ms 输出一次。
-        if (print_count >= 100)
+        if (print_count >= CONTROL_DEBUG_PRINT_INTERVAL_LOOPS)
         {
             uint8 i;
-            float left_speed_mps = (float)left_encoder_count /
+            float left_speed_mps = left_encoder_feedback_count /
                                    (ENCODER_COUNT_PER_METER * PID_PERIOD_S);
-            float right_speed_mps = (float)right_encoder_count /
+            float right_speed_mps = right_encoder_feedback_count /
                                     (RIGHT_ENCODER_COUNT_PER_METER * PID_PERIOD_S);
 
             print_count = 0;
@@ -530,6 +560,7 @@ int core0_main(void)
                    left_speed_mps,
                    right_speed_mps);
         }
+#endif
 
         system_delay_ms(MAIN_LOOP_PERIOD_MS);
     }
@@ -580,8 +611,9 @@ void adc_all_read(void)
 
     for (i = 0; i < SENSOR_NUM; i++)
     {
-        // 先对当前时刻连续采样 3 次取平均，再对主循环之间的数据做时域滤波。
-        raw_value = adc_mean_filter_convert(adc_list[i], 3);
+        // ADC 已经在后台连续转换，每路只读取一次最新结果。
+        // 跨帧中值负责剔除尖峰，避免同一结果寄存器被连续重复读取。
+        raw_value = adc_convert(adc_list[i]);
 
         if (!adc_filter_initialized)
         {
@@ -590,6 +622,7 @@ void adc_all_read(void)
                 adc_filter_history[i][j] = raw_value;
             }
             adc_filter_output[i] = (float)raw_value;
+            adc_trigger_value[i] = raw_value;
             adc_value[i] = raw_value;
         }
         else
@@ -597,6 +630,8 @@ void adc_all_read(void)
             adc_filter_history[i][adc_filter_history_index] = raw_value;
             median_value = adc_history_median(adc_filter_history[i]);
 
+            // 元器件触发不再经过低通，较巡线数据提前约一帧响应。
+            adc_trigger_value[i] = median_value;
             adc_filter_output[i] += ADC_FILTER_ALPHA *
                                     ((float)median_value - adc_filter_output[i]);
             adc_value[i] = (uint16)(adc_filter_output[i] + 0.5f);
@@ -619,28 +654,53 @@ void adc_all_read(void)
 
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
-    interrupt_global_enable(0);
+    uint16 left_encoder_raw;
+    uint16 right_encoder_raw;
+    uint32 sample_time;
+    uint32 sample_ticks;
+    float sample_scale = 1.0f;
+
     pit_clear_flag(CCU60_CH0);
 
-    // ==================== 读取 5ms 内编码器增量 ====================
-    // 左编码器前进时是负数，所以取反变成正数。
-    left_encoder_count = -encoder_get_count(LEFT_ENCODER);
+    // 在重新开启中断嵌套前完成两路快照，避免高优先级 IMU 中断插在左右读取之间。
+    sample_time = system_getval();
+    left_encoder_raw = (uint16)encoder_get_count(LEFT_ENCODER);
+    right_encoder_raw = (uint16)encoder_get_count(RIGHT_ENCODER);
 
-    // 右编码器前进时是正数，直接读取。
-    right_encoder_count = encoder_get_count(RIGHT_ENCODER);
+    // 编码器保持自由运行，通过 16 位模差得到本周期增量。
+    // 这样不会丢失“读取后、清零前”到来的脉冲。
+    left_encoder_count =
+        -(int16)((uint16)(left_encoder_raw - left_encoder_previous_raw));
+    right_encoder_count =
+        (int16)((uint16)(right_encoder_raw - right_encoder_previous_raw));
+    left_encoder_previous_raw = left_encoder_raw;
+    right_encoder_previous_raw = right_encoder_raw;
 
-    // ==================== 读完立刻清空硬件编码器 ====================
+    sample_ticks = (uint32)(sample_time - encoder_previous_sample_time);
+    encoder_previous_sample_time = sample_time;
 
-    encoder_clear_count(LEFT_ENCODER);
-    encoder_clear_count(RIGHT_ENCODER);
+    interrupt_global_enable(0);
+
+    // PIT 可能被 IMU/STM 中断短暂延迟。将实测增量归一化到名义 5ms，
+    // 防止一个长采样窗被误认为突然加速，下一短采样窗又被误认为减速。
+    if ((sample_ticks >= (PID_PERIOD_10NS_TICKS / 4u)) &&
+        (sample_ticks <= (PID_PERIOD_10NS_TICKS * 4u)))
+    {
+        sample_scale = (float)PID_PERIOD_10NS_TICKS / (float)sample_ticks;
+    }
+
+    left_encoder_feedback_count =
+        (float)left_encoder_count * sample_scale;
+    right_encoder_feedback_count =
+        (float)right_encoder_count * sample_scale;
 
     // ==================== 电机超速保护 ====================
     // 使用编码器实测速度而不是目标速度；正转、反转均按绝对值判断。
     // 5ms 内任一编码器计数超过 5m/s 对应阈值，立即锁存并关闭两侧电机。
-    if(((float)left_encoder_count > LEFT_MOTOR_MAX_SAFE_COUNT) ||
-       ((float)left_encoder_count < -LEFT_MOTOR_MAX_SAFE_COUNT) ||
-       ((float)right_encoder_count > RIGHT_MOTOR_MAX_SAFE_COUNT) ||
-       ((float)right_encoder_count < -RIGHT_MOTOR_MAX_SAFE_COUNT))
+    if((left_encoder_feedback_count > LEFT_MOTOR_MAX_SAFE_COUNT) ||
+       (left_encoder_feedback_count < -LEFT_MOTOR_MAX_SAFE_COUNT) ||
+       (right_encoder_feedback_count > RIGHT_MOTOR_MAX_SAFE_COUNT) ||
+       (right_encoder_feedback_count < -RIGHT_MOTOR_MAX_SAFE_COUNT))
     {
         left_target_count = 0.0f;
         right_target_count = 0.0f;
@@ -673,11 +733,11 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     // PID_Calc(pid, 实际值, 目标值)
 
     left_base_pwm = PID_Calc(&left_speed_pid,
-                             (float)left_encoder_count,
+                             left_encoder_feedback_count,
                              left_target_count);
 
     right_base_pwm = PID_Calc(&right_speed_pid,
-                              (float)right_encoder_count,
+                              right_encoder_feedback_count,
                               right_target_count);
 
     // ==================== 前馈控制 ====================
@@ -705,6 +765,44 @@ int16 limit_int16(int16 value, int16 min, int16 max)
     {
         return value;
     }
+}
+
+// 左右目标必须作为一组提交，避免速度中断读到“新左目标 + 旧右目标”。
+static void publish_speed_targets(float left_reference_count,
+                                  float right_reference_count)
+{
+    uint32 interrupt_state;
+
+    interrupt_state = interrupt_global_disable();
+    left_target_count = left_reference_count;
+    right_target_count =
+        right_reference_count * RIGHT_ENCODER_COUNT_SCALE;
+    interrupt_global_enable(interrupt_state);
+}
+
+// 左右 PID 输出必须取自同一个速度环周期。
+static void snapshot_speed_pwm(float *left_pwm_snapshot,
+                               float *right_pwm_snapshot)
+{
+    uint32 interrupt_state;
+
+    interrupt_state = interrupt_global_disable();
+    *left_pwm_snapshot = left_base_pwm;
+    *right_pwm_snapshot = right_base_pwm;
+    interrupt_global_enable(interrupt_state);
+}
+
+// 元器件状态机每轮只使用一次一致的左右总里程快照。
+static int32 snapshot_encoder_total_sum(void)
+{
+    uint32 interrupt_state;
+    int32 total_sum;
+
+    interrupt_state = interrupt_global_disable();
+    total_sum = left_encoder_total + right_encoder_total;
+    interrupt_global_enable(interrupt_state);
+
+    return total_sum;
 }
 
 void set_speed_change_flags(float next_left_target,

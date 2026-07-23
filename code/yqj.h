@@ -5,7 +5,7 @@
 
 // ADC 小于该阈值时认为传感器压到白线。
 // 速度提高后需要更早触发转弯，因此阈值可以适当调高。
-#define YQJ_TURN_TRIGGER_ADC_VALUE      (400)
+#define YQJ_TURN_TRIGGER_ADC_VALUE      (500)
 
 // ==================== 执行状态 ====================
 
