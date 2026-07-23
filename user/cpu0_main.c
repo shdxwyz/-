@@ -33,7 +33,7 @@
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 目标基础速度 1.0 m/s
-#define TARGET_SPEED_MPS (1.2f)
+#define TARGET_SPEED_MPS (1.0f)
 
 // 编码器采样与速度 PID 周期 5ms。
 #define PID_PERIOD_MS (5)
@@ -286,7 +286,7 @@ static const yqj_case_config_struct yqj_case_table[] =
         // 电感，直行通过
         YQJ_CASE(yqj_ldiangan_trigger, 0, 1.0f, 0.0f, 0, 0.0f, 0, 0.2f, 50, 0.3f),
         //非门0_1，直行通过
-        YQJ_CASE(yqj_feimen0_1_trigger, 0, 1.0f, 0.0f, 0, 0.0f, 0, 0.2f, 50, 0.3f),
+        YQJ_CASE(yqj_dianrong_trigger, 0, 1.0f, 0.0f, 0, 0.0f, 0, 0.2f, 50, 0.4f),
         // 双触发，右转
         YQJ_CASE(yqj_double_trigger, 1, TARGET_SPEED_MPS, -1.0f, 0, 0.0f, 0, 0.0f, 33, 0.5f),
         // 三极管，右转
