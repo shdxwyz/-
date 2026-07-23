@@ -33,7 +33,7 @@
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 目标基础速度 1.2 m/s
-#define TARGET_SPEED_MPS (1.2f)
+#define TARGET_SPEED_MPS (1.4f)
 
 // 编码器采样与速度 PID 周期 5ms。
 #define PID_PERIOD_MS (5)
@@ -41,7 +41,7 @@
 #define PID_PERIOD_10NS_TICKS ((uint32)(PID_PERIOD_MS * 100000UL))
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
-#define MOTOR_MAX_SAFE_SPEED_MPS (5.0f)
+#define MOTOR_MAX_SAFE_SPEED_MPS (9.0f)
 #define LEFT_MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 #define RIGHT_MOTOR_MAX_SAFE_COUNT \
@@ -58,7 +58,7 @@
 // 速度 PID 直接使用归一化到 5ms 的编码器计数。
 // 右编码器每米计数更多，因此右轮 count 域增益按比例减小，
 // 使相同的 m/s 误差在左右两侧产生近似相同的 PWM 修正。
-#define LEFT_SPEED_KP (11.2f)
+#define LEFT_SPEED_KP (12.0f)
 #define RIGHT_SPEED_KP (LEFT_SPEED_KP / RIGHT_ENCODER_COUNT_SCALE)
 #define LEFT_SPEED_KI (0.02f)
 #define RIGHT_SPEED_KI (LEFT_SPEED_KI / RIGHT_ENCODER_COUNT_SCALE)
@@ -194,63 +194,63 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电源
     YQJ_CASE(yqj_dianyuan_trigger,        0, 2.0f,             0.0f,  0, 0.0f,  10, 0.2f,  66, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.2f,  0, 0.0f, 120, 0.0f,  50, 0.6f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.2f,  0, 0.0f, 120, 0.0f,  50, 0.2f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.6f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.2f),
         // 二级管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.2f),
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.1f,  0, 0.0f, 120, 0.0f,  50, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 120, 0.0f,  50, 0.2f),
     // 三极管，直行通过
     YQJ_CASE(yqj_sanjiguan1_2trigger,     0, 2.0f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.5f),
         // 二极管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.4f),
     // 三极管，左转
-    YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  1.1f, 50, 0.0f,  0, 0.0f,  50, 0.4f),
+    YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  1.4f, 50, 0.0f,  0, 0.0f,  50, 0.4f),
     // 左弯，直行通过
     YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
     YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.1f,  0, 0.0f, 100, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 100, 0.0f,  33, 0.2f),
     // 二极管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 2.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.1f),
     // 电容，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.1f),
     // 三极管，左转
-    YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.1f,  0, 0.0f, 120, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 120, 0.0f,  33, 0.2f),
 
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.1f,  0, 0.0f,  10, 0.0f,  10, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f,  10, 0.0f,  10, 0.2f),
         // 二级管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  0, 0.4f),
     // 右弯，直行通过
-    YQJ_CASE(yqj_right_turn_trigger,      0, 2.0f,             0.0f,  0, 0.0f,   0, 0.1f,  0, 0.0f),
+    YQJ_CASE(yqj_right_turn_trigger,      0, 2.0f,             0.0f,  0, 0.0f,   0, 0.1f,  0, 0.2f),
     // 电容，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  0, 0.2f),
     // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.1f, 0, 0.0f, 100, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f, 100, 0.0f,  33, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.2f,  0, 0.0f, 120, 0.0f, 150, 0.8f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.2f,  0, 0.0f, 120, 0.0f,  50, 0.0f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f, 150, 0.8f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.0f),
     // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.1f, 0, 0.0f,  10, 0.0f,  33, 0.1f),
+    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f,  10, 0.0f,  33, 0.1f),
         // 二级管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.2f),
         // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.2f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
+    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
    // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.2f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.3f),
     // 三极管，直行通过
-    YQJ_CASE(yqj_sanjiguan2_0trigger,     0, 1.2f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
+    YQJ_CASE(yqj_sanjiguan2_0trigger,     0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
     // 右弯，直行通过
-    YQJ_CASE(yqj_right_turn_trigger,      0, 1.3f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.1f),
+    YQJ_CASE(yqj_right_turn_trigger,      0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.1f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f,  10, 0.0f,  33, 0.7f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f,  12, 0.0f,  15, 0.4f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  10, 0.0f,  33, 0.7f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  12, 0.0f,  15, 0.4f),
     // 特别二极管，右转
-    YQJ_CASE(yqj_tberjiguan_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.05f,120, 0.0f,  50, 0.4f),
+    YQJ_CASE(yqj_tberjiguan_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.05f,120, 0.0f,  50, 0.4f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.1f,  0, 0.0f,  12, 0.0f,  15, 0.1f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.1f,  0, 0.0f,  12, 0.0f,  15, 0.4f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  12, 0.0f,  15, 0.3f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  12, 0.0f,  15, 0.4f),
     // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.3f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.6f),
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
@@ -332,7 +332,7 @@ int core0_main(void)
 
     cpu_wait_event_ready();
 
-    pwm_init(ATOM0_CH6_P02_6, 100, 1300);
+    pwm_init(ATOM0_CH6_P02_6, 100, 1400);
     system_delay_ms(2000);
 
     // IMU660RC 初始化（240Hz 四元数输出）

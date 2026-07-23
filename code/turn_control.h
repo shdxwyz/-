@@ -20,12 +20,12 @@
 // PID 输出为左右轮速度差，单位 m/s。
 #define TURN_CONTROL_ANGLE_PID_MAX_OUT         (6.5f)
 #define TURN_CONTROL_ANGLE_PID_MAX_IOUT        (2.0f)
-#define TURN_CONTROL_ANGLE_KP                  (0.016f)
+#define TURN_CONTROL_ANGLE_KP                  (0.018f)
 #define TURN_CONTROL_ANGLE_KI                  (0.00f)
 #define TURN_CONTROL_ANGLE_KD                  (0.00f)
 
 // 左右轮最终目标速度的安全限幅，单位 m/s。
-#define TURN_CONTROL_WHEEL_SPEED_LIMIT_MPS     (5.0f)
+#define TURN_CONTROL_WHEEL_SPEED_LIMIT_MPS     (50.0f)
 
 // ==================== 串口调试量 ====================
 
