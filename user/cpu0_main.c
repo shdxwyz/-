@@ -81,8 +81,8 @@
 
 #define SENSOR_NUM (XUNJI_SENSOR_TOTAL)
 
-// 三帧中值可剔除单帧尖峰，同时只引入约 1ms 的检测延迟。
-// 巡线继续使用低通输出；元器件触发直接使用中值结果以更快响应。
+// 三帧中值可剔除巡线数据中的单帧尖峰，同时只引入约 1ms 的检测延迟。
+// 元器件触发直接使用当前帧原始值，任意一帧满足条件即可触发。
 #define ADC_FILTER_ALPHA (0.85f)
 #define ADC_FILTER_HISTORY_NUM (3u)
 
@@ -628,10 +628,10 @@ void adc_all_read(void)
         else
         {
             adc_filter_history[i][adc_filter_history_index] = raw_value;
+            // 元器件触发绕过中值和低通，当前任意一帧满足条件就立即触发。
+            adc_trigger_value[i] = raw_value;
             median_value = adc_history_median(adc_filter_history[i]);
 
-            // 元器件触发不再经过低通，较巡线数据提前约一帧响应。
-            adc_trigger_value[i] = median_value;
             adc_filter_output[i] += ADC_FILTER_ALPHA *
                                     ((float)median_value - adc_filter_output[i]);
             adc_value[i] = (uint16)(adc_filter_output[i] + 0.5f);
