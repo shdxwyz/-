@@ -25,18 +25,18 @@
 #define XUNJI_CENTER_ERROR_GAIN        (2.0f)
 
 // line_error 的死区：差值绝对值小于 500 时不产生左右差速。
-#define XUNJI_LINE_DEAD_ZONE            (500)
+#define XUNJI_LINE_DEAD_ZONE            (800)
 
 // 死区外 ADC 差值到单轮目标修正量的比例。
 // turn_count = (去掉死区后的 line_error) * XUNJI_LINE_TURN_KP。
-// PID 周期由 20ms 缩短为 5ms，目标计数按 1/4 缩放以保持原差速。
-#define XUNJI_LINE_TURN_KP              (0.0075f)
+// 速度环由 5ms 缩短为 2ms，count/周期参数同步乘以 2/5。
+#define XUNJI_LINE_TURN_KP              (0.008f)
 
-// 左右轮目标计数的最大修正量，单位：count/5ms。
-#define XUNJI_LINE_TURN_LIMIT           (200.0f)
+// 左右轮目标计数的最大修正量，单位：count/2ms。
+#define XUNJI_LINE_TURN_LIMIT           (800.0f)
 
 // 防止某一侧目标速度过低导致电机不稳定。
-#define XUNJI_MIN_TARGET_COUNT          (50.0f)
+#define XUNJI_MIN_TARGET_COUNT          (10.0f)
 
 // 所有巡线 ADC 同时大于该阈值时，左右目标设为 0。
 // 注意：12 位 ADC 最大只有 4095，当前 18000 会使这个停止条件无法成立。

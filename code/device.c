@@ -99,28 +99,33 @@ void motor_set_right(int16 pwm)
 
 void motor_control(int16 left_pwm, int16 right_pwm)
 {
+    uint32 interrupt_state;
+
     // 两路输出作为一个整体更新，避免超速中断在两次写入之间触发后，
-    // 主循环又用中断前的旧命令短暂重启其中一路电机。
-    interrupt_global_disable();
+    // 其他执行路径又用中断前的旧命令短暂重启其中一路电机。
+    interrupt_state = interrupt_global_disable();
     motor_set_left(left_pwm);
     motor_set_right(right_pwm);
-    interrupt_global_enable(0);
+    interrupt_global_enable(interrupt_state);
 }
 
 
 void motor_stop(void)
 {
-    motor_set_left(0);
-    motor_set_right(0);
+    motor_control(0, 0);
 }
 
 
 void motor_emergency_stop(void)
 {
+    uint32 interrupt_state;
+
     // 先锁存，再关闭两侧输出；之后任何非零输出命令都会被拒绝。
+    interrupt_state = interrupt_global_disable();
     motor_emergency_latched = 1;
     motor_set_left(0);
     motor_set_right(0);
+    interrupt_global_enable(interrupt_state);
 }
 
 

@@ -10,11 +10,6 @@ typedef enum
 volatile float turn_control_angle_deg = 0.0f;
 float turn_control_angle_pid_output = 0.0f;
 
-// 速度输出层用这两个标记决定对应电机是否允许输出负 PWM。
-// 标记定义在 cpu0_main.c；转向模块只在转向开始和结束时更新它们。
-extern volatile uint8 left_speed_decel_flag;
-extern volatile uint8 right_speed_decel_flag;
-
 static PidTypeDef turn_control_angle_pid;
 static float turn_control_pid_period_s = 0.005f;
 static float turn_control_encoder_count_per_meter = 12106.0f;
@@ -62,17 +57,6 @@ static void turn_control_begin(uint8 direction)
     turn_control_yaw_started = turn_control_yaw_valid;
     turn_control_direction = direction;
 
-    // 内侧轮需要经过零速并可能反转：左转允许左轮负 PWM，右转允许右轮负 PWM。
-    if (TURN_CONTROL_DIRECTION_LEFT == direction)
-    {
-        left_speed_decel_flag = 1;
-        right_speed_decel_flag = 0;
-    }
-    else
-    {
-        left_speed_decel_flag = 0;
-        right_speed_decel_flag = 1;
-    }
     interrupt_global_enable(interrupt_state);
 }
 
@@ -101,8 +85,6 @@ void turn_control_stop(void)
     turn_control_direction = TURN_CONTROL_DIRECTION_NONE;
     turn_control_yaw_started = 0;
     turn_control_angle_pid_output = 0.0f;
-    left_speed_decel_flag = 0;
-    right_speed_decel_flag = 0;
     PID_clear(&turn_control_angle_pid);
     interrupt_global_enable(interrupt_state);
 }

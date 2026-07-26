@@ -9,7 +9,7 @@
 // 角度环以 90 度为控制目标，保证到达停止角前仍有足够差速。
 #define TURN_CONTROL_TARGET_ANGLE_DEG          (90.0f)
 
-// 从转向起始 yaw 算起，相对 yaw 达到 85 度时结束转向。
+// 从转向起始 yaw 算起，相对 yaw 达到 90 度时结束转向。
 #define TURN_CONTROL_STOP_YAW_ANGLE_DEG        (90.0f)
 
 // yaw 异常或车辆堵转时的转向超时保护（ms）。

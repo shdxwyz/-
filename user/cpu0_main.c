@@ -11,7 +11,8 @@
 
 // ==================== PIT 与编码器配置 ====================
 
-#define PIT0 (CCU60_CH0)
+#define SPEED_CONTROL_PIT (CCU60_CH0)
+#define MAIN_CONTROL_PIT (CCU60_CH1)
 
 // 左编码器
 #define LEFT_ENCODER (TIM2_ENCODER)
@@ -26,39 +27,40 @@
 // ==================== 速度 PID 参数 ====================
 
 // 左轮实测：小车走 0.5 米约 27000 个编码器计数，1 米约 54000。
-// 更换右编码器后，右轮每米计数略微提高，用于补偿直行时轻微右偏。
+// 两侧编码器硬件相同；当前右侧60000作为既有控制补偿保留。
 #define ENCODER_COUNT_PER_METER (54000.0f)
-#define RIGHT_ENCODER_COUNT_PER_METER (60000.0f)
+#define RIGHT_ENCODER_COUNT_PER_METER (62000.0f)
 #define RIGHT_ENCODER_COUNT_SCALE \
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
-// 目标基础速度 1.2 m/s
+// 目标基础速度 1.4 m/s
 #define TARGET_SPEED_MPS (1.4f)
 
-// 编码器采样与速度 PID 周期 5ms。
-#define PID_PERIOD_MS (5)
-#define PID_PERIOD_S (0.005f)
+// 编码器采样与速度 PID 周期 2ms。
+#define PID_PERIOD_MS (2)
+#define PID_PERIOD_S ((float)PID_PERIOD_MS / 1000.0f)
 #define PID_PERIOD_10NS_TICKS ((uint32)(PID_PERIOD_MS * 100000UL))
 
 // 任一电机实测速度绝对值超过该值时，锁存急停并关闭全部电机。
-#define MOTOR_MAX_SAFE_SPEED_MPS (9.0f)
+#define MOTOR_MAX_SAFE_SPEED_MPS (12.0f)
 #define LEFT_MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 #define RIGHT_MOTOR_MAX_SAFE_COUNT \
     (MOTOR_MAX_SAFE_SPEED_MPS * RIGHT_ENCODER_COUNT_PER_METER * PID_PERIOD_S)
 
-// 5ms 内基础目标计数 = TARGET_SPEED_MPS * 0.005 * ENCODER_COUNT_PER_METER
+// 单个速度环周期内的基础目标计数。
 #define BASE_TARGET_COUNT (TARGET_SPEED_MPS * PID_PERIOD_S * ENCODER_COUNT_PER_METER)
 #define RIGHT_BASE_TARGET_COUNT (BASE_TARGET_COUNT * RIGHT_ENCODER_COUNT_SCALE)
 
 // PID 输出范围
-#define SPEED_PID_MAX_OUT (8000.0f)
-#define SPEED_PID_MAX_IOUT (2000.0f)
+#define SPEED_PID_MAX_OUT (10000.0f)
+#define SPEED_PID_MAX_IOUT (8000.0f)
 
-// 速度 PID 直接使用归一化到 5ms 的编码器计数。
+// 速度环由 5ms 缩短为 2ms 后，count 域误差缩小为 2/5，
+// Kp 放大到原来的 5/2，以保持相同 m/s 误差对应的 PWM 修正。
 // 右编码器每米计数更多，因此右轮 count 域增益按比例减小，
 // 使相同的 m/s 误差在左右两侧产生近似相同的 PWM 修正。
-#define LEFT_SPEED_KP (12.0f)
+#define LEFT_SPEED_KP (30.0f)
 #define RIGHT_SPEED_KP (LEFT_SPEED_KP / RIGHT_ENCODER_COUNT_SCALE)
 #define LEFT_SPEED_KI (0.02f)
 #define RIGHT_SPEED_KI (LEFT_SPEED_KI / RIGHT_ENCODER_COUNT_SCALE)
@@ -67,8 +69,8 @@
 // 前馈系数：PWM = FEEDFORWARD_GAIN * target_speed
 #define FEEDFORWARD_GAIN (500.0f)
 
-// 主循环固定等待时间
-#define MAIN_LOOP_PERIOD_MS (1)
+// 主控制任务由独立 PIT 提供严格的 1kHz 节拍。
+#define MAIN_CONTROL_PERIOD_MS (1)
 
 // printf 在 115200 波特率下会阻塞主循环约 20ms。
 // 实车高速运行时默认关闭；台架调试时可临时改为 1。
@@ -81,7 +83,7 @@
 
 // 三帧中值可剔除单帧尖峰，同时只引入约 1ms 的检测延迟。
 // 巡线继续使用低通输出；元器件触发直接使用中值结果以更快响应。
-#define ADC_FILTER_ALPHA (0.6838f)
+#define ADC_FILTER_ALPHA (0.85f)
 #define ADC_FILTER_HISTORY_NUM (3u)
 
 // ==================== ADC 变量 ====================
@@ -116,11 +118,11 @@ adc_channel_enum adc_list[SENSOR_NUM] =
 
 // ==================== 编码器与 PID 变量 ====================
 
-// 5ms 内编码器增量，用于速度 PID
+// 单个速度环周期内的编码器增量，用于速度 PID。
 volatile int16 left_encoder_count = 0;
 volatile int16 right_encoder_count = 0;
 
-// 根据真实采样间隔归一化到一个 5ms 周期的反馈计数，供速度 PID 使用。
+// 根据真实采样间隔归一化到一个 2ms 周期的反馈计数，供速度 PID 使用。
 static volatile float left_encoder_feedback_count = 0.0f;
 static volatile float right_encoder_feedback_count = 0.0f;
 static uint16 left_encoder_previous_raw = 0u;
@@ -141,9 +143,15 @@ volatile float right_target_count = RIGHT_BASE_TARGET_COUNT;
 // PID 输出 PWM
 volatile float left_base_pwm = 0;
 volatile float right_base_pwm = 0;
+static volatile int16 left_applied_pwm = 0;
+static volatile int16 right_applied_pwm = 0;
 
 volatile uint8 left_speed_decel_flag = 0;
 volatile uint8 right_speed_decel_flag = 0;
+static volatile uint8 speed_control_enabled = 0;
+
+// CCU60_CH1 每 1ms 递增一次；主循环只处理最新节拍，不补跑过期任务。
+volatile uint32 main_control_tick = 0;
 
 PidTypeDef left_speed_pid;
 PidTypeDef right_speed_pid;
@@ -153,15 +161,13 @@ PidTypeDef right_speed_pid;
 void adc_all_init(void);
 void adc_all_read(void);
 
-int16 limit_int16(int16 value, int16 min, int16 max);
-void set_speed_change_flags(float next_left_target,
-                            float next_right_target,
-                            float current_left_target,
-                            float current_right_target);
+static int16 limit_pwm_float(float value, int16 min, int16 max);
+static void clear_speed_change_flags(void);
+static void speed_control_stop_immediate(void);
 static void publish_speed_targets(float left_reference_count,
-                                  float right_reference_count);
-static void snapshot_speed_pwm(float *left_pwm_snapshot,
-                               float *right_pwm_snapshot);
+                                  float right_reference_count,
+                                  uint8 left_negative_pwm_allowed,
+                                  uint8 right_negative_pwm_allowed);
 static int32 snapshot_encoder_total_sum(void);
 
 // ==================== 元器件顺序配置 ====================
@@ -194,7 +200,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电源
     YQJ_CASE(yqj_dianyuan_trigger,        0, 2.0f,             0.0f,  0, 0.0f,  10, 0.2f,  66, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.6f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.8f),
     YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.2f),
         // 二级管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.2f),
@@ -207,14 +213,14 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 三极管，左转
     YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  1.4f, 50, 0.0f,  0, 0.0f,  50, 0.2f),
     // 左弯，直行通过
-    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
-    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.1f),
+    YQJ_CASE(yqj_left_turn_trigger,       0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.1f),
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 100, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 10, 0.0f,  33, 0.2f),
     // 二极管，直行通过
-    YQJ_CASE(yqj_erjiguan_trigger,        0, 2.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.1f),
+    YQJ_CASE(yqj_erjiguan_trigger,        0, 2.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 电容，直行通过
-    YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.1f),
+    YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 三极管，左转
     YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 12, 0.0f,  33, 0.1f),
 
@@ -227,10 +233,10 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电容，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  0, 0.2f),
     // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f, 100, 0.0f,  33, 0.2f),
+    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f, 10, 0.0f,  33, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f, 120, 0.0f, 15, 0.7f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f, 120, 0.0f,  50, 0.0f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f, 10, 0.0f, 15, 0.7f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.3f,  0, 0.0f, 10, 0.0f,  50, 0.2f),
     // 双触发，右转
     YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -1.4f, 0, 0.0f,  10, 0.0f,  33, 0.6f),
         // 二级管，直行通过
@@ -238,9 +244,9 @@ static const yqj_case_config_struct yqj_case_table[] =
         // 双触发，右转
     YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
    // 右弯，直行通过
-    YQJ_CASE(yqj_right_turn_trigger,      0, 2.2f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.3f),
+    YQJ_CASE(yqj_right_turn_trigger,      0, 2.2f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 三极管，直行通过
-    YQJ_CASE(yqj_sanjiguan2_0trigger,     0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.3f),
+    YQJ_CASE(yqj_sanjiguan2_0trigger,     0, 1.5f,             0.0f,  0, 0.0f,   10, 0.2f,  50, 0.3f),
     // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.1f),
     // 右转
@@ -272,25 +278,19 @@ int core0_main(void)
 {
     xunji_result_struct line_result = {0, 0, BASE_TARGET_COUNT, BASE_TARGET_COUNT};
 
-    int16 left_pwm = 0;
-    int16 right_pwm = 0;
-    int16 left_pwm_min = 0;
-    int16 right_pwm_min = 0;
-
 #if CONTROL_DEBUG_PRINT_ENABLE
     uint32 print_count = 0;
 #endif
     float final_left_target = BASE_TARGET_COUNT;
     float final_right_target = BASE_TARGET_COUNT;
-    float action_left_target = BASE_TARGET_COUNT;
-    float action_right_target = BASE_TARGET_COUNT;
-    float left_pwm_snapshot = 0.0f;
-    float right_pwm_snapshot = 0.0f;
     int32 encoder_total_sum = 0;
+    uint32 processed_control_tick = 0;
 
     uint8 yqj_condition = 0;
     uint8 yqj_case_trigger = 0;
     uint8 yqj_turn_done = 1;
+    uint8 left_negative_pwm_allowed = 0;
+    uint8 right_negative_pwm_allowed = 0;
     uint32 yqj_delay_ms = 0;
     float yqj_delay_distance_m = 0.0f; // DELAY 阶段不巡线距离，0 表示不限制距离
     uint32 yqj_run_ms = 0;
@@ -348,9 +348,17 @@ int core0_main(void)
     encoder_previous_sample_time = system_getval();
     left_encoder_count = 0;
     right_encoder_count = 0;
-    pit_ms_init(PIT0, PID_PERIOD_MS);
+    main_control_tick = 0;
+    pit_ms_init(SPEED_CONTROL_PIT, PID_PERIOD_MS);
+    pit_ms_init(MAIN_CONTROL_PIT, MAIN_CONTROL_PERIOD_MS);
     while (TRUE)
     {
+        // 等待下一个硬件 1ms 节拍。若某轮超时，只处理最新节拍，不连续补跑旧任务。
+        while (processed_control_tick == main_control_tick)
+        {
+        }
+        processed_control_tick = main_control_tick;
+
         // ==================== 读取 15 路 ADC ====================
 
         adc_all_read();
@@ -364,6 +372,8 @@ int core0_main(void)
         // 总流程：正常巡线、判断当前 flag、延时、执行动作、自锁、flag 加一。
         yqj_condition = 0;
         yqj_case_trigger = 0;
+        left_negative_pwm_allowed = 0;
+        right_negative_pwm_allowed = 0;
         yqj_delay_ms = 0;
         yqj_delay_distance_m = 0.0f;
         yqj_run_ms = 0;
@@ -393,8 +403,9 @@ int core0_main(void)
         }
         else
         {
-            motor_stop();
+            speed_control_stop_immediate();
             system_delay_ms(20000);
+            continue;
         }
 
         if (YQJ_STATE_LINE == yqj_state)
@@ -411,16 +422,6 @@ int core0_main(void)
                                yqj_delay_ms,
                                yqj_delay_distance_m))
             {
-                if (yqj_get_action_trigger())
-                {
-                    action_left_target = yqj_turn_base_speed * PID_PERIOD_S * ENCODER_COUNT_PER_METER;
-                    action_right_target = yqj_turn_base_speed * PID_PERIOD_S * ENCODER_COUNT_PER_METER;
-                    set_speed_change_flags(action_left_target,
-                                           action_right_target,
-                                           final_left_target,
-                                           final_right_target);
-                }
-
                 yqj_turn_done = yqj_get_action_trigger() ? 0u : 1u;
                 yqj_start_run(encoder_total_sum);
             }
@@ -431,7 +432,7 @@ int core0_main(void)
 
             if (yqj_get_action_trigger() && !yqj_turn_done)
             {
-                // 转向由相对 yaw 达到 85 度结束；超时仅用于传感器异常或堵转保护。
+                // 转向由相对 yaw 达到 90 度结束；超时仅用于传感器异常或堵转保护。
                 if (turn_control_target_reached() ||
                     yqj_time_reached(yqj_state_start_time,
                                      TURN_CONTROL_TIMEOUT_MS))
@@ -440,20 +441,11 @@ int core0_main(void)
 
                     // yaw 转向结束后立即清除转向输出；未完成的 RUN 时间/距离改为同速直行。
                     yqj_turn_done = 1;
-                    turn_control_stop();
-                    left_speed_decel_flag = 0;
-                    right_speed_decel_flag = 0;
-
-                    // 立即清除旧的转弯 PWM，避免等待下一个 5ms 速度环周期时继续转动。
+                    // 把角度环、速度目标、PID 和实际 PWM 作为一个整体清零，
+                    // 避免 2ms 速度 ISR 插入各清零步骤之间。
                     turn_stop_interrupt_state = interrupt_global_disable();
-                    left_target_count = 0.0f;
-                    right_target_count = 0.0f;
-                    left_base_pwm = 0.0f;
-                    right_base_pwm = 0.0f;
-                    PID_clear(&left_speed_pid);
-                    PID_clear(&right_speed_pid);
-                    motor_set_left(0);
-                    motor_set_right(0);
+                    turn_control_stop();
+                    speed_control_stop_immediate();
                     interrupt_global_enable(turn_stop_interrupt_state);
                 }
             }
@@ -474,16 +466,23 @@ int core0_main(void)
                               yqj_lock_ms,
                               yqj_lock_distance_m))
             {
-                left_speed_decel_flag = 0;
-                right_speed_decel_flag = 0;
+                clear_speed_change_flags();
                 yqj_finish_case();
             }
         }
         else
         {
             yqj_turn_done = 1;
-            turn_control_stop();
+            {
+                uint32 invalid_state_interrupt_state;
+
+                invalid_state_interrupt_state = interrupt_global_disable();
+                turn_control_stop();
+                speed_control_stop_immediate();
+                interrupt_global_enable(invalid_state_interrupt_state);
+            }
             yqj_set_flag(0);
+            continue;
         }
 
         if (YQJ_STATE_DELAY == yqj_state)
@@ -502,6 +501,14 @@ int core0_main(void)
                 turn_control_apply(yqj_turn_base_speed,
                                    &final_left_target,
                                    &final_right_target);
+                if (yqj_turn_base_speed >= 0.0f)
+                {
+                    left_negative_pwm_allowed = 1;
+                }
+                else
+                {
+                    right_negative_pwm_allowed = 1;
+                }
             }
             else
             {
@@ -516,16 +523,10 @@ int core0_main(void)
 
         // ==================== 直接使用巡线结果，不做软启动 ====================
         // 高层控制统一按左轮计数标定计算，再原子发布左右速度目标。
-        publish_speed_targets(final_left_target, final_right_target);
-
-        left_pwm_min = left_speed_decel_flag ? -PWM_DUTY_MAX : 0;
-        right_pwm_min = right_speed_decel_flag ? -PWM_DUTY_MAX : 0;
-
-        snapshot_speed_pwm(&left_pwm_snapshot, &right_pwm_snapshot);
-        left_pwm = limit_int16((int16)left_pwm_snapshot, left_pwm_min, PWM_DUTY_MAX);
-        right_pwm = limit_int16((int16)right_pwm_snapshot, right_pwm_min, PWM_DUTY_MAX);
-
-        motor_control(left_pwm, right_pwm);
+        publish_speed_targets(final_left_target,
+                              final_right_target,
+                              left_negative_pwm_allowed,
+                              right_negative_pwm_allowed);
 
         // ==================== 串口调试 ====================
 
@@ -552,8 +553,8 @@ int core0_main(void)
                    yqj_flag,
                    motor_emergency_is_latched(),
                    turn_control_angle_deg,
-                   left_pwm,
-                   right_pwm,
+                   left_applied_pwm,
+                   right_applied_pwm,
                    (int)left_target_count,
                    (int)right_target_count,
                    left_encoder_count,
@@ -562,8 +563,6 @@ int core0_main(void)
                    right_speed_mps);
         }
 #endif
-
-        system_delay_ms(MAIN_LOOP_PERIOD_MS);
     }
 }
 
@@ -651,7 +650,7 @@ void adc_all_read(void)
     }
 }
 
-// ==================== 5ms 速度 PID 中断 ====================
+// ==================== 2ms 速度 PID 与电机输出中断 ====================
 
 IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 {
@@ -660,6 +659,10 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     uint32 sample_time;
     uint32 sample_ticks;
     float sample_scale = 1.0f;
+    int16 left_pwm_min;
+    int16 right_pwm_min;
+    int16 next_left_pwm;
+    int16 next_right_pwm;
 
     pit_clear_flag(CCU60_CH0);
 
@@ -682,7 +685,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 
     interrupt_global_enable(0);
 
-    // PIT 可能被 IMU/STM 中断短暂延迟。将实测增量归一化到名义 5ms，
+    // PIT 可能被 IMU/STM 中断短暂延迟。将实测增量归一化到名义 2ms，
     // 防止一个长采样窗被误认为突然加速，下一短采样窗又被误认为减速。
     if ((sample_ticks >= (PID_PERIOD_10NS_TICKS / 4u)) &&
         (sample_ticks <= (PID_PERIOD_10NS_TICKS * 4u)))
@@ -697,7 +700,7 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 
     // ==================== 电机超速保护 ====================
     // 使用编码器实测速度而不是目标速度；正转、反转均按绝对值判断。
-    // 5ms 内任一编码器计数超过 5m/s 对应阈值，立即锁存并关闭两侧电机。
+    // 单周期内任一编码器计数超过配置速度阈值，立即锁存并关闭两侧电机。
     if((left_encoder_feedback_count > LEFT_MOTOR_MAX_SAFE_COUNT) ||
        (left_encoder_feedback_count < -LEFT_MOTOR_MAX_SAFE_COUNT) ||
        (right_encoder_feedback_count > RIGHT_MOTOR_MAX_SAFE_COUNT) ||
@@ -709,6 +712,9 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
         right_base_pwm = 0.0f;
         PID_clear(&left_speed_pid);
         PID_clear(&right_speed_pid);
+        left_applied_pwm = 0;
+        right_applied_pwm = 0;
+        speed_control_enabled = 0;
         motor_emergency_stop();
         return;
     }
@@ -718,6 +724,9 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     {
         left_base_pwm = 0.0f;
         right_base_pwm = 0.0f;
+        left_applied_pwm = 0;
+        right_applied_pwm = 0;
+        speed_control_enabled = 0;
         return;
     }
 
@@ -729,6 +738,19 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     car_distance_m = 0.5f *
                      ((float)left_encoder_total / ENCODER_COUNT_PER_METER +
                       (float)right_encoder_total / RIGHT_ENCODER_COUNT_PER_METER);
+
+    // 停车状态不运行PID，避免编码器回弹或噪声把零目标重新变成正PWM。
+    if (!speed_control_enabled)
+    {
+        left_base_pwm = 0.0f;
+        right_base_pwm = 0.0f;
+        left_applied_pwm = 0;
+        right_applied_pwm = 0;
+        PID_clear(&left_speed_pid);
+        PID_clear(&right_speed_pid);
+        motor_control(0, 0);
+        return;
+    }
 
     // ==================== 速度 PID ====================
     // PID_Calc(pid, 实际值, 目标值)
@@ -748,29 +770,61 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     left_base_pwm += FEEDFORWARD_GAIN * left_target_count / (PID_PERIOD_S * ENCODER_COUNT_PER_METER);
     right_base_pwm += FEEDFORWARD_GAIN * right_target_count /
                       (PID_PERIOD_S * RIGHT_ENCODER_COUNT_PER_METER);
+
+    // PID计算完成后立即下发PWM，省去等待下一轮主循环的0~1ms延迟。
+    // 正常巡线禁止负PWM；只有对应转向内侧轮被明确授权时才允许反转。
+    left_pwm_min = left_speed_decel_flag ? -PWM_DUTY_MAX : 0;
+    right_pwm_min = right_speed_decel_flag ? -PWM_DUTY_MAX : 0;
+    next_left_pwm = limit_pwm_float(left_base_pwm, left_pwm_min, PWM_DUTY_MAX);
+    next_right_pwm = limit_pwm_float(right_base_pwm, right_pwm_min, PWM_DUTY_MAX);
+    left_applied_pwm = next_left_pwm;
+    right_applied_pwm = next_right_pwm;
+    motor_control(next_left_pwm, next_right_pwm);
 }
 
-// ==================== 限幅函数 ====================
-
-int16 limit_int16(int16 value, int16 min, int16 max)
+// 在转换为 int16 前先按 float 限幅，避免极端目标使强制转换溢出并反向。
+static int16 limit_pwm_float(float value, int16 min, int16 max)
 {
-    if (value > max)
+    if (value > (float)max)
     {
         return max;
     }
-    else if (value < min)
+    else if (value < (float)min)
     {
         return min;
     }
     else
     {
-        return value;
+        return (int16)value;
     }
 }
 
-// 左右目标必须作为一组提交，避免速度中断读到“新左目标 + 旧右目标”。
+// 立即停止速度环和两侧电机；可安全嵌套在外层临界区中。
+static void speed_control_stop_immediate(void)
+{
+    uint32 interrupt_state;
+
+    interrupt_state = interrupt_global_disable();
+    left_target_count = 0.0f;
+    right_target_count = 0.0f;
+    left_base_pwm = 0.0f;
+    right_base_pwm = 0.0f;
+    left_applied_pwm = 0;
+    right_applied_pwm = 0;
+    left_speed_decel_flag = 0;
+    right_speed_decel_flag = 0;
+    speed_control_enabled = 0;
+    PID_clear(&left_speed_pid);
+    PID_clear(&right_speed_pid);
+    motor_control(0, 0);
+    interrupt_global_enable(interrupt_state);
+}
+
+// 左右目标和反转权限必须作为一组提交，避免速度中断读到半套命令。
 static void publish_speed_targets(float left_reference_count,
-                                  float right_reference_count)
+                                  float right_reference_count,
+                                  uint8 left_negative_pwm_allowed,
+                                  uint8 right_negative_pwm_allowed)
 {
     uint32 interrupt_state;
 
@@ -778,18 +832,19 @@ static void publish_speed_targets(float left_reference_count,
     left_target_count = left_reference_count;
     right_target_count =
         right_reference_count * RIGHT_ENCODER_COUNT_SCALE;
+    left_speed_decel_flag = left_negative_pwm_allowed;
+    right_speed_decel_flag = right_negative_pwm_allowed;
+    speed_control_enabled = 1;
     interrupt_global_enable(interrupt_state);
 }
 
-// 左右 PID 输出必须取自同一个速度环周期。
-static void snapshot_speed_pwm(float *left_pwm_snapshot,
-                               float *right_pwm_snapshot)
+static void clear_speed_change_flags(void)
 {
     uint32 interrupt_state;
 
     interrupt_state = interrupt_global_disable();
-    *left_pwm_snapshot = left_base_pwm;
-    *right_pwm_snapshot = right_base_pwm;
+    left_speed_decel_flag = 0;
+    right_speed_decel_flag = 0;
     interrupt_global_enable(interrupt_state);
 }
 
@@ -804,15 +859,6 @@ static int32 snapshot_encoder_total_sum(void)
     interrupt_global_enable(interrupt_state);
 
     return total_sum;
-}
-
-void set_speed_change_flags(float next_left_target,
-                            float next_right_target,
-                            float current_left_target,
-                            float current_right_target)
-{
-    left_speed_decel_flag = (next_left_target < current_left_target) ? 1 : 0;
-    right_speed_decel_flag = (next_right_target < current_right_target) ? 1 : 0;
 }
 
 #pragma section all restore
