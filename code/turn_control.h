@@ -20,7 +20,7 @@
 // PID 输出为左右轮速度差，单位 m/s。
 #define TURN_CONTROL_ANGLE_PID_MAX_OUT         (10.5f)
 #define TURN_CONTROL_ANGLE_PID_MAX_IOUT        (2.0f)
-#define TURN_CONTROL_ANGLE_KP                  (0.028f)
+#define TURN_CONTROL_ANGLE_KP                  (0.02f)
 #define TURN_CONTROL_ANGLE_KI                  (0.00f)
 #define TURN_CONTROL_ANGLE_KD                  (0.00f)
 

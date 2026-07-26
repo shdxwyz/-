@@ -43,12 +43,11 @@ uint8 yqj_dianzu_trigger(const uint16 adc_value[])
 // 电源：A3~A8 同时检测到白线
 uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
 {
-    return (adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[10] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
+    return ((adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE ||
+            adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE )&&
+
+            (adc_value[13] < YQJ_TURN_TRIGGER_ADC_VALUE ||
+            adc_value[14] < YQJ_TURN_TRIGGER_ADC_VALUE ));
 }
 
 // 线圈电阻：A8 和 A10 同时检测到白线
@@ -109,7 +108,7 @@ uint8 yqj_sanjiguan2_1trigger(const uint16 adc_value[])
 // 三极管 2_0：A8 和 A10 同时检测到白线
 uint8 yqj_sanjiguan2_0trigger(const uint16 adc_value[])
 {
-    return (adc_value[12] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+    return (adc_value[12] < YQJ_TURN_TRIGGER_ADC_VALUE ||
             adc_value[13] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
@@ -125,7 +124,7 @@ uint8 yqj_sanjiguan0_1trigger(const uint16 adc_value[])
 // 三极管 1_0：A1 和 A2 同时检测到白线
 uint8 yqj_sanjiguan1_0trigger(const uint16 adc_value[])
 {
-    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE ||
             adc_value[2] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 
