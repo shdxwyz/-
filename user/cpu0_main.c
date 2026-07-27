@@ -316,9 +316,9 @@ static const yqj_case_config_struct yqj_case_table[] =
         //非门0_1，直行通过
        // YQJ_CASE(yqj_dianrong_trigger, 0, TARGET_SPEED_MPS, 0.0f, 0, 0.0f, 0, 0.2f, 50, 0.1f),
         // 双触发，右转
-        YQJ_CASE(yqj_double_trigger, 1, TARGET_SPEED_MPS, -TARGET_SPEED_MPS, 0, 0.0f, 0, 0.0f, 33, 0.2f),
+        YQJ_CASE(yqj_double_trigger, 1, TARGET_SPEED_MPS, -TARGET_SPEED_MPS, 0, 0.0f, 0, 0.0f, 33, 0.5f),
         // 三极管，右转
-        YQJ_CASE(yqj_double_trigger, 1, TARGET_SPEED_MPS, -TARGET_SPEED_MPS, 0, 0.1f, 0, 0.0f, 33, 0.1f),
+        YQJ_CASE(yqj_double_trigger, 1, TARGET_SPEED_MPS, -TARGET_SPEED_MPS, 0, 0.1f, 0, 0.0f, 33, 0.5f),
         //电容，直行通过
         YQJ_CASE(yqj_dianrong_trigger, 0, TARGET_SPEED_MPS, 0.0f, 0, 0.0f, 0, 0.2f, 50, 0.4f),
 
