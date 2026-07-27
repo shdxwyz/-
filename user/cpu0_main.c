@@ -29,7 +29,7 @@
 // 左轮实测：小车走 0.5 米约 27000 个编码器计数，1 米约 54000。
 // 两侧编码器硬件相同；当前右侧60000作为既有控制补偿保留。
 #define ENCODER_COUNT_PER_METER (54000.0f)
-#define RIGHT_ENCODER_COUNT_PER_METER (62000.0f)
+#define RIGHT_ENCODER_COUNT_PER_METER (56000.0f)
 #define RIGHT_ENCODER_COUNT_SCALE \
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
@@ -201,7 +201,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     YQJ_CASE(yqj_dianyuan_trigger,        0, 2.0f,             0.0f,  0, 0.0f,  10, 0.2f,  66, 0.2f),
     // 右转
     YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.8f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.2f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f, 120, 0.0f,  50, 0.6f),
         // 二级管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.2f),
     // 左转
@@ -222,7 +222,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电容，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 三极管，左转
-    YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 12, 0.0f,  33, 0.1f),
+    YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f, 12, 0.0f,  33, 0.5f),
 
     // 左转
     YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  1.4f,  0, 0.0f,  10, 0.0f,  10, 0.2f),
@@ -251,7 +251,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     YQJ_CASE(yqj_right_turn_trigger,      0, 1.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.1f),
     // 右转
     YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  10, 0.0f,  33, 0.7f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  12, 0.0f,  15, 0.4f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.0f,  12, 0.0f,  15, 0.6f),
     // 特别二极管，右转
     YQJ_CASE(yqj_tberjiguan_trigger,      1, TARGET_SPEED_MPS, -1.4f,  0, 0.05f,120, 0.0f,  50, 0.4f),
     // 右转

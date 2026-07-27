@@ -25,15 +25,15 @@
 #define XUNJI_CENTER_ERROR_GAIN        (2.0f)
 
 // line_error 的死区：差值绝对值小于 500 时不产生左右差速。
-#define XUNJI_LINE_DEAD_ZONE            (800)
+#define XUNJI_LINE_DEAD_ZONE            (1200)
 
 // 死区外 ADC 差值到单轮目标修正量的比例。
 // turn_count = (去掉死区后的 line_error) * XUNJI_LINE_TURN_KP。
 // 速度环由 5ms 缩短为 2ms，count/周期参数同步乘以 2/5。
-#define XUNJI_LINE_TURN_KP              (0.008f)
+#define XUNJI_LINE_TURN_KP              (0.0095f)
 
 // 左右轮目标计数的最大修正量，单位：count/2ms。
-#define XUNJI_LINE_TURN_LIMIT           (800.0f)
+#define XUNJI_LINE_TURN_LIMIT           (8000.0f)
 
 // 防止某一侧目标速度过低导致电机不稳定。
 #define XUNJI_MIN_TARGET_COUNT          (10.0f)
