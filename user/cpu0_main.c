@@ -34,7 +34,7 @@
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 目标基础速度 1.4 m/s
-#define TARGET_SPEED_MPS (2.0f)
+#define TARGET_SPEED_MPS (2.2f)
 
 // 编码器采样与速度 PID 周期 2ms。
 #define PID_PERIOD_MS (2)
@@ -60,11 +60,18 @@
 // Kp 放大到原来的 5/2，以保持相同 m/s 误差对应的 PWM 修正。
 // 右编码器每米计数更多，因此右轮 count 域增益按比例减小，
 // 使相同的 m/s 误差在左右两侧产生近似相同的 PWM 修正。
-#define LEFT_SPEED_KP (10.0f)
-#define RIGHT_SPEED_KP (LEFT_SPEED_KP / RIGHT_ENCODER_COUNT_SCALE)
-#define LEFT_SPEED_KI (0.02f)
-#define RIGHT_SPEED_KI (LEFT_SPEED_KI / RIGHT_ENCODER_COUNT_SCALE)
-#define SPEED_KD (0.0f)
+#define LEFT_LINE_SPEED_KP (10.0f)
+#define RIGHT_LINE_SPEED_KP (LEFT_LINE_SPEED_KP / RIGHT_ENCODER_COUNT_SCALE)
+#define LEFT_LINE_SPEED_KI (0.02f)
+#define RIGHT_LINE_SPEED_KI (LEFT_LINE_SPEED_KI / RIGHT_ENCODER_COUNT_SCALE)
+#define LINE_SPEED_KD (0.0f)
+
+// 转弯速度环与直线速度环独立，初始参数保持一致，便于后续单独整定
+#define LEFT_TURN_SPEED_KP (10.0f)
+#define RIGHT_TURN_SPEED_KP (LEFT_TURN_SPEED_KP / RIGHT_ENCODER_COUNT_SCALE)
+#define LEFT_TURN_SPEED_KI (0.00f)
+#define RIGHT_TURN_SPEED_KI (LEFT_TURN_SPEED_KI / RIGHT_ENCODER_COUNT_SCALE)
+#define TURN_SPEED_KD (0.0f)
 
 // 前馈系数：PWM = FEEDFORWARD_GAIN * target_speed
 #define FEEDFORWARD_GAIN (300.0f)
@@ -149,12 +156,15 @@ static volatile int16 right_applied_pwm = 0;
 volatile uint8 left_speed_decel_flag = 0;
 volatile uint8 right_speed_decel_flag = 0;
 static volatile uint8 speed_control_enabled = 0;
+static volatile uint8 speed_control_turn_mode = 0;
 
 // CCU60_CH1 每 1ms 递增一次；主循环只处理最新节拍，不补跑过期任务。
 volatile uint32 main_control_tick = 0;
 
-PidTypeDef left_speed_pid;
-PidTypeDef right_speed_pid;
+PidTypeDef left_line_speed_pid;
+PidTypeDef right_line_speed_pid;
+PidTypeDef left_turn_speed_pid;
+PidTypeDef right_turn_speed_pid;
 
 // ==================== 函数声明 ====================
 
@@ -163,6 +173,7 @@ void adc_all_read(void);
 
 static int16 limit_pwm_float(float value, int16 min, int16 max);
 static void clear_speed_change_flags(void);
+static void clear_all_speed_pid_states(void);
 static void speed_control_stop_immediate(void);
 static void publish_speed_targets(float left_reference_count,
                                   float right_reference_count,
@@ -200,23 +211,23 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电源
     YQJ_CASE(yqj_dianyuan_trigger,        0, 2.9f,             0.0f,  0, 0.0f,  10, 0.2f,  66, 0.2f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f, 0, 0.0f,  50, 0.8f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f, 0, 0.0f,  50, 0.8f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f, 0, 0.0f,  50, 0.8f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f, 0, 0.0f,  50, 0.8f),
         // 二级管，直行通过
-    YQJ_CASE(yqj_erjiguan_trigger,        0, 2.2f,             0.0f,  0, 0.0f,   0, 0.2f,  50, 0.4f),
+    YQJ_CASE(yqj_erjiguan_trigger,        0, 2.2f,             0.2f,  0, 0.0f,   0, 0.2f,  50, 0.4f),
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  2.0f,  0, 0.0f, 0, 0.0f,  50, 0.4f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  2.2f,  0, 0.0f, 0, 0.0f,  50, 0.4f),
     // 三极管，直行通过
     YQJ_CASE(yqj_sanjiguan1_2trigger,     0, 2.9f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.5f),
         // 二极管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 2.8f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.4f),
     // 三极管，左转
-    YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  2.0f, 50, 0.0f,  0, 0.0f,  50, 0.5f),
+    YQJ_CASE(yqj_sanjiguan0_1trigger,     1, TARGET_SPEED_MPS,  2.2f, 50, 0.0f,  0, 0.0f,  50, 0.5f),
     // 左弯，直行通过
     YQJ_CASE(yqj_left_turn_trigger,       0, 2.8f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.4f),
     YQJ_CASE(yqj_left_turn_trigger,       0, 2.8f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.4f),
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  2.0f,  0, 0.0f, 10, 0.0f,  33, 0.4f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  2.2f,  0, 0.0f, 10, 0.0f,  33, 0.4f),
     // 二极管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 2.9f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.4f),
     // 电容，直行通过
@@ -225,7 +236,7 @@ static const yqj_case_config_struct yqj_case_table[] =
     YQJ_CASE(yqj_sanjiguan1_2trigger,     1, TARGET_SPEED_MPS,  2.0f,  0, 0.05f, 0, 0.0f,  33, 0.5f),
 
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  2.0f,  0, 0.0f,  10, 0.0f,  10, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, TARGET_SPEED_MPS,  2.2f,  0, 0.0f,  10, 0.0f,  10, 0.2f),
         // 二级管，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 2.5f,             0.0f,  0, 0.0f,   0, 0.0f,  0, 0.4f),
     // 右弯，直行通过
@@ -233,16 +244,16 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 电容，直行通过
     YQJ_CASE(yqj_erjiguan_trigger,        0, 2.5f,             0.0f,  0, 0.0f,   0, 0.0f,  0, 0.4f),
     // 双触发，右转
-    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -2.0f, 0, 0.0f, 0, 0.0f,  33, 0.5f),
+    YQJ_CASE(yqj_double_trigger,          1, TARGET_SPEED_MPS, -2.2f, 0, 0.0f, 0, 0.0f,  33, 0.5f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f, 0, 0.0f, 15, 0.8f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f, 0, 0.0f,  50, 0.5f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f, 0, 0.0f, 15, 0.8f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f, 0, 0.0f,  50, 0.5f),
     // 双触发，右转
-    YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -2.0f, 0, 0.0f,  0, 0.0f,  33, 0.8f),
+    YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -2.2f, 0, 0.0f,  0, 0.0f,  33, 0.8f),
         // 二级管，直行通过
   //  YQJ_CASE(yqj_erjiguan_trigger,        0, 1.5f,             0.0f,  0, 0.0f,   0, 0.0f,  50, 0.2f),
         // 双触发，右转
-    YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
+    YQJ_CASE(yqj_right_turn_trigger,          1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f, 0, 0.0f,  33, 0.5f),
    // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, 3.2f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.2f),
     // 三极管，直行通过
@@ -250,19 +261,19 @@ static const yqj_case_config_struct yqj_case_table[] =
     // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0,3.8f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.4f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f,  10, 0.0f,  33, 0.9f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f,  12, 0.0f,  15, 0.6f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f,  10, 0.0f,  33, 0.9f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f,  12, 0.0f,  15, 0.6f),
     // 特别二极管，右转
-    YQJ_CASE(yqj_tberjiguan_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.05f,120, 0.0f,  50, 0.4f),
+    YQJ_CASE(yqj_tberjiguan_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.05f,120, 0.0f,  50, 0.4f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f,  12, 0.0f,  15, 0.3f),
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f,  12, 0.0f,  15, 0.5f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f,  12, 0.0f,  15, 0.3f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f,  12, 0.0f,  15, 0.5f),
     // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, 3.3f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.8f),
     YQJ_CASE(yqj_right_turn_trigger,      0, 3.5f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.6f),
     YQJ_CASE(yqj_right_turn_trigger,      0, 2.8f,             0.0f,  0, 0.0f,   0, 0.1f,  50, 0.4f),
     // 右转
-    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.0f,  0, 0.0f,  0, 0.0f,  15, 2.4f),
+    YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -2.2f,  0, 0.0f,  0, 0.0f,  15, 2.4f),
    // YQJ_CASE(yqj_right_turn_trigger,      1, TARGET_SPEED_MPS, -1.0f,  0, 0.0f, 120, 0.0f, 150, 2.4f),
     // 开关
    // YQJ_CASE(yqj_kaiguang0_1trigger,      1, TARGET_SPEED_MPS,  0.0f,  0, 0.0f, 100, 0.0f, 140, 0.5f),
@@ -314,21 +325,37 @@ int core0_main(void)
     motor_init();
 
     // PID 初始化
-    PID_Init(&left_speed_pid,
+    PID_Init(&left_line_speed_pid,
              PID_POSITION,
              SPEED_PID_MAX_OUT,
              SPEED_PID_MAX_IOUT,
-             LEFT_SPEED_KP,
-             LEFT_SPEED_KI,
-             SPEED_KD);
+             LEFT_LINE_SPEED_KP,
+             LEFT_LINE_SPEED_KI,
+             LINE_SPEED_KD);
 
-    PID_Init(&right_speed_pid,
+    PID_Init(&right_line_speed_pid,
              PID_POSITION,
              SPEED_PID_MAX_OUT,
              SPEED_PID_MAX_IOUT,
-             RIGHT_SPEED_KP,
-             RIGHT_SPEED_KI,
-             SPEED_KD);
+             RIGHT_LINE_SPEED_KP,
+             RIGHT_LINE_SPEED_KI,
+             LINE_SPEED_KD);
+
+    PID_Init(&left_turn_speed_pid,
+             PID_POSITION,
+             SPEED_PID_MAX_OUT,
+             SPEED_PID_MAX_IOUT,
+             LEFT_TURN_SPEED_KP,
+             LEFT_TURN_SPEED_KI,
+             TURN_SPEED_KD);
+
+    PID_Init(&right_turn_speed_pid,
+             PID_POSITION,
+             SPEED_PID_MAX_OUT,
+             SPEED_PID_MAX_IOUT,
+             RIGHT_TURN_SPEED_KP,
+             RIGHT_TURN_SPEED_KI,
+             TURN_SPEED_KD);
 
     cpu_wait_event_ready();
 
@@ -710,11 +737,11 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
         right_target_count = 0.0f;
         left_base_pwm = 0.0f;
         right_base_pwm = 0.0f;
-        PID_clear(&left_speed_pid);
-        PID_clear(&right_speed_pid);
+        clear_all_speed_pid_states();
         left_applied_pwm = 0;
         right_applied_pwm = 0;
         speed_control_enabled = 0;
+        speed_control_turn_mode = 0;
         motor_emergency_stop();
         return;
     }
@@ -727,6 +754,8 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
         left_applied_pwm = 0;
         right_applied_pwm = 0;
         speed_control_enabled = 0;
+        speed_control_turn_mode = 0;
+        clear_all_speed_pid_states();
         return;
     }
 
@@ -746,8 +775,8 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
         right_base_pwm = 0.0f;
         left_applied_pwm = 0;
         right_applied_pwm = 0;
-        PID_clear(&left_speed_pid);
-        PID_clear(&right_speed_pid);
+        speed_control_turn_mode = 0;
+        clear_all_speed_pid_states();
         motor_control(0, 0);
         return;
     }
@@ -755,13 +784,26 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     // ==================== 速度 PID ====================
     // PID_Calc(pid, 实际值, 目标值)
 
-    left_base_pwm = PID_Calc(&left_speed_pid,
-                             left_encoder_feedback_count,
-                             left_target_count);
+    if (speed_control_turn_mode)
+    {
+        left_base_pwm = PID_Calc(&left_turn_speed_pid,
+                                 left_encoder_feedback_count,
+                                 left_target_count);
 
-    right_base_pwm = PID_Calc(&right_speed_pid,
-                              right_encoder_feedback_count,
-                              right_target_count);
+        right_base_pwm = PID_Calc(&right_turn_speed_pid,
+                                  right_encoder_feedback_count,
+                                  right_target_count);
+    }
+    else
+    {
+        left_base_pwm = PID_Calc(&left_line_speed_pid,
+                                 left_encoder_feedback_count,
+                                 left_target_count);
+
+        right_base_pwm = PID_Calc(&right_line_speed_pid,
+                                  right_encoder_feedback_count,
+                                  right_target_count);
+    }
 
     // ==================== 前馈控制 ====================
     // 根据目标速度直接给基础 PWM，减小 PID 负担。
@@ -799,6 +841,15 @@ static int16 limit_pwm_float(float value, int16 min, int16 max)
     }
 }
 
+// 清除直线、转弯两套速度环的全部历史状态。
+static void clear_all_speed_pid_states(void)
+{
+    PID_clear(&left_line_speed_pid);
+    PID_clear(&right_line_speed_pid);
+    PID_clear(&left_turn_speed_pid);
+    PID_clear(&right_turn_speed_pid);
+}
+
 // 立即停止速度环和两侧电机；可安全嵌套在外层临界区中。
 static void speed_control_stop_immediate(void)
 {
@@ -814,8 +865,8 @@ static void speed_control_stop_immediate(void)
     left_speed_decel_flag = 0;
     right_speed_decel_flag = 0;
     speed_control_enabled = 0;
-    PID_clear(&left_speed_pid);
-    PID_clear(&right_speed_pid);
+    speed_control_turn_mode = 0;
+    clear_all_speed_pid_states();
     motor_control(0, 0);
     interrupt_global_enable(interrupt_state);
 }
@@ -827,8 +878,31 @@ static void publish_speed_targets(float left_reference_count,
                                   uint8 right_negative_pwm_allowed)
 {
     uint32 interrupt_state;
+    uint8 next_turn_mode;
 
+    next_turn_mode =
+        (left_negative_pwm_allowed || right_negative_pwm_allowed) ? 1u : 0u;
     interrupt_state = interrupt_global_disable();
+
+    if (next_turn_mode != speed_control_turn_mode)
+    {
+        // 进入新工况时从零积分开始，避免直线和转弯的积分互相带入
+        if (next_turn_mode)
+        {
+            PID_clear(&left_turn_speed_pid);
+            PID_clear(&right_turn_speed_pid);
+        }
+        else
+        {
+            PID_clear(&left_line_speed_pid);
+            PID_clear(&right_line_speed_pid);
+        }
+
+        speed_control_turn_mode = next_turn_mode;
+        left_base_pwm = 0.0f;
+        right_base_pwm = 0.0f;
+    }
+
     left_target_count = left_reference_count;
     right_target_count =
         right_reference_count * RIGHT_ENCODER_COUNT_SCALE;
