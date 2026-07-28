@@ -342,7 +342,9 @@ void imu660rc_get_quarternion(void)
     uint8   i;
     uint16  buff[4];
     uint8   *buff1_ptr;
+#if ((1 == IMU660RC_QUARTERNION_GET_ACC) || (1 == IMU660RC_QUARTERNION_GET_GYRO))
     int16   *buff2_ptr;
+#endif
 
     if(IMU660RC_QUARTERNION_DISABLE != imu660rc_quarternion_rate)
     {

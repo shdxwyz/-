@@ -87,8 +87,8 @@
 #define IMU660RC_INT2_PIN               ( ERU_CH0_REQ0_P15_4 )                                 // 中断信号引脚，在读取四元数时需要使用
 
 
-#define IMU660RC_QUARTERNION_GET_GYRO   ( 1 )                                   // 1：在输出四元数的模式时，读取四元数时自动读取角速度 0：不自动读取
-#define IMU660RC_QUARTERNION_GET_ACC    ( 1 )                                   // 1：在输出四元数的模式时，读取四元数时自动读取加速度 0：不自动读取
+#define IMU660RC_QUARTERNION_GET_GYRO   ( 0 )                                   // 1：在输出四元数的模式时，读取四元数时自动读取角速度 0：不自动读取
+#define IMU660RC_QUARTERNION_GET_ACC    ( 0 )                                   // 1：在输出四元数的模式时，读取四元数时自动读取加速度 0：不自动读取
 #define IMU660RC_ACC_SAMPLE_DEFAULT     ( IMU660RC_ACC_SAMPLE_SGN_8G )          // 在这设置默认的 加速度计 初始化量程
 #define IMU660RC_GYRO_SAMPLE_DEFAULT    ( IMU660RC_GYRO_SAMPLE_SGN_2000DPS )    // 在这设置默认的 陀螺仪   初始化量程
 
