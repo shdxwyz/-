@@ -118,6 +118,7 @@ void motor_stop(void)
 
 void motor_emergency_stop(void)
 {
+#if MOTOR_LATCHED_STOP_ENABLE
     uint32 interrupt_state;
 
     // 先锁存，再关闭两侧输出；之后任何非零输出命令都会被拒绝。
@@ -126,6 +127,10 @@ void motor_emergency_stop(void)
     motor_set_left(0);
     motor_set_right(0);
     interrupt_global_enable(interrupt_state);
+#else
+    // 调试期间关闭锁存急停；保持锁存状态为未触发。
+    motor_emergency_latched = 0;
+#endif
 }
 
 

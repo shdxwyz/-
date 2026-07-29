@@ -95,7 +95,7 @@ uint8 yqj_tberjiguan_trigger(const uint16 adc_value[])
 // 三极管 1_2：A1 和 A2 同时检测到白线
 uint8 yqj_sanjiguan1_2trigger(const uint16 adc_value[])
 {
-    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE &&
+    return (adc_value[1] < YQJ_TURN_TRIGGER_ADC_VALUE ||
             adc_value[0] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
 

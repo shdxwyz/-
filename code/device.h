@@ -15,6 +15,10 @@
 
 #define MOTOR_PWM_FREQ  17000
 
+// 锁存急停总开关：0=关闭全部锁存急停，1=启用。
+// 调试完成后应恢复为 1，避免传感器故障时电机持续运行。
+#define MOTOR_LATCHED_STOP_ENABLE  (0u)
+
 void motor_init(void);
 
 void motor_set_left(int16 pwm);
