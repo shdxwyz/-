@@ -27,16 +27,8 @@
 // 左右轮最终目标速度的安全限幅，单位 m/s。
 #define TURN_CONTROL_WHEEL_SPEED_LIMIT_MPS     (10.2f)
 
-// ==================== yaw 数据保护参数 ====================
-
-// 480Hz 下正常相邻帧转角远小于该值；超过时先作为单帧毛刺丢弃。
-#define TURN_CONTROL_YAW_MAX_STEP_DEG           (100.0f)
-
-// 连续多帧异常才置故障，避免一次 SPI 毛刺中断正常转弯。
+// 连续多帧出现 NaN 或明显越界值时才置故障。
 #define TURN_CONTROL_YAW_MAX_REJECT_COUNT       (100u)
-
-// 转弯期间超过该时间没有收到有效 yaw，判定为丢帧故障。
-#define TURN_CONTROL_YAW_STALE_TIMEOUT_MS       (120u)
 
 // ==================== 串口调试量 ====================
 

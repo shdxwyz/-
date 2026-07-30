@@ -28,14 +28,14 @@
 
 // 左轮实测：小车走 0.5 米约 27000 个编码器计数，1 米约 54000。
 // 两侧编码器硬件相同；当前右侧60000作为既有控制补偿保留。
-#define ENCODER_COUNT_PER_METER (54000.0f)
+#define ENCODER_COUNT_PER_METER (56000.0f)
 #define RIGHT_ENCODER_COUNT_PER_METER (54000.0f)
 #define RIGHT_ENCODER_COUNT_SCALE \
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 全局速度配置：所有 CASE 共用，修改这里即可调整直线和转弯速度。
-#define STRAIGHT_SPEED_MPS (1.5f)
-#define TURN_SPEED_MPS (0.2f)
+#define STRAIGHT_SPEED_MPS (2.3f)
+#define TURN_SPEED_MPS (0.5f)
 #define LEFT_TURN_SPEED_MPS (TURN_SPEED_MPS)
 #define RIGHT_TURN_SPEED_MPS (-TURN_SPEED_MPS)
 
@@ -210,7 +210,7 @@ typedef struct
 
 static const yqj_case_config_struct yqj_case_table[] =
 {
-        YQJ_CASE(yqj_dianyuan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,  10, 0.2f,  66, 0.4f),
+     YQJ_CASE(yqj_dianyuan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,  10, 0.2f,  66, 0.4f),
     // 电源
     YQJ_CASE(yqj_dianyuan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,  10, 0.2f,  66, 0.4f),
     // 右转
@@ -362,7 +362,7 @@ int core0_main(void)
 
     cpu_wait_event_ready();
 
-    pwm_init(ATOM0_CH6_P02_6, 100, 1550);
+    pwm_init(ATOM0_CH6_P02_6, 100, 1580);
     system_delay_ms(3000);
 
     // IMU660RC 初始化（240Hz 四元数输出）
@@ -470,35 +470,45 @@ int core0_main(void)
                     yqj_turn_done = 1;
                     turn_control_stop();
                 }
-                else if (MOTOR_LATCHED_STOP_ENABLE &&
-                         turn_control_yaw_faulted())
+                else if (turn_control_yaw_faulted())
                 {
-                    uint32 yaw_fault_interrupt_state;
-
-                    // yaw 连续突变或长时间未更新属于故障：
-                    // 立即锁存急停，重新上电前拒绝任何非零电机输出。
                     yqj_turn_done = 1;
-                    yaw_fault_interrupt_state = interrupt_global_disable();
                     turn_control_stop();
-                    speed_control_stop_immediate();
-                    motor_emergency_stop();
-                    interrupt_global_enable(yaw_fault_interrupt_state);
-                    continue;
+
+                    // 锁存急停关闭时只结束角度环，避免故障YAW令车辆持续转圈；
+                    // 锁存急停启用时维持原来的全电机故障停机行为。
+                    if (MOTOR_LATCHED_STOP_ENABLE)
+                    {
+                        uint32 yaw_fault_interrupt_state;
+
+                        yaw_fault_interrupt_state =
+                            interrupt_global_disable();
+                        speed_control_stop_immediate();
+                        motor_emergency_stop();
+                        interrupt_global_enable(
+                            yaw_fault_interrupt_state);
+                        continue;
+                    }
                 }
-                else if (MOTOR_LATCHED_STOP_ENABLE &&
-                         yqj_time_reached(yqj_state_start_time,
+                else if (yqj_time_reached(yqj_state_start_time,
                                           TURN_CONTROL_TIMEOUT_MS))
                 {
-                    uint32 turn_timeout_interrupt_state;
-
-                    // 超时表示 yaw 异常或车辆堵转，同样按故障锁存急停。
                     yqj_turn_done = 1;
-                    turn_timeout_interrupt_state = interrupt_global_disable();
                     turn_control_stop();
-                    speed_control_stop_immediate();
-                    motor_emergency_stop();
-                    interrupt_global_enable(turn_timeout_interrupt_state);
-                    continue;
+
+                    // 即使锁存急停关闭，超时也必须退出转弯，防止整圈旋转。
+                    if (MOTOR_LATCHED_STOP_ENABLE)
+                    {
+                        uint32 turn_timeout_interrupt_state;
+
+                        turn_timeout_interrupt_state =
+                            interrupt_global_disable();
+                        speed_control_stop_immediate();
+                        motor_emergency_stop();
+                        interrupt_global_enable(
+                            turn_timeout_interrupt_state);
+                        continue;
+                    }
                 }
             }
 

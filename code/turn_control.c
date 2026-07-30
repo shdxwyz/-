@@ -1,7 +1,5 @@
 #include "turn_control.h"
 
-#define TURN_CONTROL_MS_TO_10NS(ms) ((uint32)((ms) * 100000UL))
-
 typedef enum
 {
     TURN_CONTROL_DIRECTION_NONE = 0,
@@ -22,8 +20,6 @@ static volatile float turn_control_start_yaw_deg = 0.0f;
 static volatile uint8 turn_control_yaw_valid = 0;
 static volatile uint8 turn_control_yaw_started = 0;
 static volatile uint8 turn_control_direction = TURN_CONTROL_DIRECTION_NONE;
-static volatile uint32 turn_control_last_valid_yaw_time = 0u;
-static volatile uint32 turn_control_begin_time = 0u;
 static volatile uint8 turn_control_yaw_reject_count = 0u;
 static volatile uint8 turn_control_yaw_fault = 0u;
 
@@ -80,22 +76,9 @@ static void turn_control_begin(uint8 direction)
     turn_control_angle_deg = 0.0f;
     turn_control_angle_pid_output = 0.0f;
     turn_control_start_yaw_deg = turn_control_current_yaw_deg;
-    turn_control_begin_time = system_getval();
     turn_control_yaw_reject_count = 0u;
     turn_control_yaw_fault = 0u;
-
-    // 只有足够新的 yaw 才能直接作为本次起点，否则等待下一帧有效数据。
-    if (turn_control_yaw_valid &&
-        ((uint32)(turn_control_begin_time -
-                  turn_control_last_valid_yaw_time) <=
-         TURN_CONTROL_MS_TO_10NS(TURN_CONTROL_YAW_STALE_TIMEOUT_MS)))
-    {
-        turn_control_yaw_started = 1u;
-    }
-    else
-    {
-        turn_control_yaw_started = 0u;
-    }
+    turn_control_yaw_started = turn_control_yaw_valid ? 1u : 0u;
     turn_control_direction = direction;
 
     interrupt_global_enable(interrupt_state);
@@ -132,14 +115,10 @@ void turn_control_stop(void)
     interrupt_global_enable(interrupt_state);
 }
 
-// 每次四元数数据就绪后更新 yaw，并在转向期间计算相对起点的绝对角度。
+// 每次四元数数据就绪后更新 yaw，并按转向方向计算相对起点的角度。
 void turn_control_update_yaw(float yaw_deg)
 {
-    uint32 sample_time;
     float yaw_delta;
-    float frame_delta;
-
-    sample_time = system_getval();
 
     // NaN、无穷大以及明显越界值不能进入回绕循环和角度环。
     if ((yaw_deg != yaw_deg) ||
@@ -159,36 +138,8 @@ void turn_control_update_yaw(float yaw_deg)
         yaw_deg += 360.0f;
     }
 
-    if (turn_control_yaw_valid)
-    {
-        frame_delta =
-            turn_control_wrap_yaw_delta(yaw_deg -
-                                        turn_control_current_yaw_deg);
-        if (frame_delta < 0.0f)
-        {
-            frame_delta = -frame_delta;
-        }
-
-        if (frame_delta > TURN_CONTROL_YAW_MAX_STEP_DEG)
-        {
-            // 非转弯阶段若已经长时间没有有效数据，允许用当前帧重新同步；
-            // 转弯期间绝不重置基准，避免一次跳变掩盖真实的失帧故障。
-            if (!((TURN_CONTROL_DIRECTION_NONE ==
-                   turn_control_direction) &&
-                  ((uint32)(sample_time -
-                            turn_control_last_valid_yaw_time) >
-                   TURN_CONTROL_MS_TO_10NS(
-                       TURN_CONTROL_YAW_STALE_TIMEOUT_MS))))
-            {
-                turn_control_reject_yaw_sample();
-                return;
-            }
-        }
-    }
-
     turn_control_current_yaw_deg = yaw_deg;
     turn_control_yaw_valid = 1;
-    turn_control_last_valid_yaw_time = sample_time;
     turn_control_yaw_reject_count = 0u;
 
     if (TURN_CONTROL_DIRECTION_NONE == turn_control_direction)
@@ -205,12 +156,16 @@ void turn_control_update_yaw(float yaw_deg)
         return;
     }
 
+    // 停止角只需要本次起点与当前姿态之间的转角大小。
+    // 最短角差天然处理任意起点和 0/360 度跨界，结果始终位于 0~180 度，
+    // 因此反向小抖动不会再被解释为接近 360 度。
     yaw_delta = turn_control_wrap_yaw_delta(yaw_deg -
                                             turn_control_start_yaw_deg);
     if (yaw_delta < 0.0f)
     {
         yaw_delta = -yaw_delta;
     }
+
     turn_control_angle_deg = yaw_delta;
 }
 
@@ -225,30 +180,15 @@ uint8 turn_control_target_reached(void)
     return (turn_control_angle_deg >= TURN_CONTROL_STOP_YAW_ANGLE_DEG);
 }
 
-// 转弯期间检查连续异常帧和有效 yaw 超时；非转弯状态始终返回正常。
+// 仅检查连续 NaN 或明显越界值；不再检查相邻跳变和 YAW 丢帧时间。
 uint8 turn_control_yaw_faulted(void)
 {
-    uint32 reference_time;
-    uint32 current_time;
-
     if (TURN_CONTROL_DIRECTION_NONE == turn_control_direction)
     {
         return 0u;
     }
 
-    if (turn_control_yaw_fault)
-    {
-        return 1u;
-    }
-
-    current_time = system_getval();
-    reference_time = turn_control_yaw_started ?
-                     turn_control_last_valid_yaw_time :
-                     turn_control_begin_time;
-
-    return ((uint32)(current_time - reference_time) >
-            TURN_CONTROL_MS_TO_10NS(
-                TURN_CONTROL_YAW_STALE_TIMEOUT_MS));
+    return turn_control_yaw_fault;
 }
 
 // 角度误差经过 PID 变成左右轮速度差，再换算为编码器目标计数。
