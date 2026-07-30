@@ -34,8 +34,8 @@
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 全局速度配置：所有 CASE 共用，修改这里即可调整直线和转弯速度。
-#define STRAIGHT_SPEED_MPS (2.0f)
-#define TURN_SPEED_MPS (0.5f)
+#define STRAIGHT_SPEED_MPS (1.5f)
+#define TURN_SPEED_MPS (0.2f)
 #define LEFT_TURN_SPEED_MPS (TURN_SPEED_MPS)
 #define RIGHT_TURN_SPEED_MPS (-TURN_SPEED_MPS)
 
@@ -93,7 +93,7 @@
 
 // 三帧中值可剔除巡线数据中的单帧尖峰，同时只引入约 1ms 的检测延迟。
 // 元器件触发直接使用当前帧原始值，任意一帧满足条件即可触发。
-#define ADC_FILTER_ALPHA (0.85f)
+#define ADC_FILTER_ALPHA (0.95f)
 #define ADC_FILTER_HISTORY_NUM (3u)
 
 // ==================== ADC 变量 ====================
@@ -210,7 +210,7 @@ typedef struct
 
 static const yqj_case_config_struct yqj_case_table[] =
 {
-
+        YQJ_CASE(yqj_dianyuan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,  10, 0.2f,  66, 0.4f),
     // 电源
     YQJ_CASE(yqj_dianyuan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,  10, 0.2f,  66, 0.4f),
     // 右转
@@ -239,9 +239,9 @@ static const yqj_case_config_struct yqj_case_table[] =
     YQJ_CASE(yqj_sanjiguan1_2trigger,     1, STRAIGHT_SPEED_MPS, LEFT_TURN_SPEED_MPS,  0, 0.05f, 0, 0.0f,  33, 0.5f),
 
     // 左转
-    YQJ_CASE(yqj_left_turn_trigger,       1, STRAIGHT_SPEED_MPS, LEFT_TURN_SPEED_MPS,  0, 0.0f,  10, 0.0f,  10, 0.2f),
+    YQJ_CASE(yqj_left_turn_trigger,       1, STRAIGHT_SPEED_MPS, LEFT_TURN_SPEED_MPS,  0, 0.0f,  10, 0.0f,  10, 0.3f),
         // 二级管，直行通过
-    YQJ_CASE(yqj_erjiguan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,   0, 0.0f,  0, 0.4f),
+    YQJ_CASE(yqj_erjiguan_trigger,        0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,   0, 0.0f,  0, 0.5f),
     // 右弯，直行通过
     YQJ_CASE(yqj_right_turn_trigger,      0, STRAIGHT_SPEED_MPS,    0.0f,  0, 0.0f,   0, 0.1f,  0, 0.2f),
     // 电容，直行通过
@@ -362,8 +362,8 @@ int core0_main(void)
 
     cpu_wait_event_ready();
 
-    pwm_init(ATOM0_CH6_P02_6, 100, 1500);
-    system_delay_ms(2000);
+    pwm_init(ATOM0_CH6_P02_6, 100, 1550);
+    system_delay_ms(3000);
 
     // IMU660RC 初始化（240Hz 四元数输出）
     imu660rc_init(IMU660RC_QUARTERNION_480HZ);

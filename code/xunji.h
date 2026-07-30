@@ -22,7 +22,7 @@
 // 中间光电管为 adc_value[7]；严格大于 2000 时将左右差值放大 2 倍。
 #define XUNJI_CENTER_SENSOR_IDX        (7)
 #define XUNJI_CENTER_ADC_THRESHOLD     (2000)
-#define XUNJI_CENTER_ERROR_GAIN        (2.0f)
+#define XUNJI_CENTER_ERROR_GAIN        (1.8f)
 
 // line_error 的死区：差值绝对值小于 500 时不产生左右差速。
 #define XUNJI_LINE_DEAD_ZONE            (1400)
@@ -33,7 +33,7 @@
 #define XUNJI_LINE_TURN_KP              (0.0080f)
 
 // 左右轮目标计数的最大修正量，单位：count/2ms。
-#define XUNJI_LINE_TURN_LIMIT           (80.0f)
+#define XUNJI_LINE_TURN_LIMIT           (8000.0f)
 
 // 防止某一侧目标速度过低导致电机不稳定。
 #define XUNJI_MIN_TARGET_COUNT          (20.0f)

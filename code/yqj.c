@@ -45,8 +45,6 @@ uint8 yqj_dianyuan_trigger(const uint16 adc_value[])
 {
     return (adc_value[3] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[4] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[5] < YQJ_TURN_TRIGGER_ADC_VALUE &&
-            adc_value[10] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[9] < YQJ_TURN_TRIGGER_ADC_VALUE &&
             adc_value[8] < YQJ_TURN_TRIGGER_ADC_VALUE);
 }
