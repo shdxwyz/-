@@ -56,8 +56,8 @@
 #define RIGHT_BASE_TARGET_COUNT (BASE_TARGET_COUNT * RIGHT_ENCODER_COUNT_SCALE)
 
 // PID 输出范围
-#define SPEED_PID_MAX_OUT (10000.0f)
-#define SPEED_PID_MAX_IOUT (4000.0f)
+#define SPEED_PID_MAX_OUT (4000.0f)
+#define SPEED_PID_MAX_IOUT (2000.0f)
 
 // 速度环由 5ms 缩短为 2ms 后，count 域误差缩小为 2/5，
 // Kp 放大到原来的 5/2，以保持相同 m/s 误差对应的 PWM 修正。
