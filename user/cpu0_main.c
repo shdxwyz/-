@@ -34,7 +34,7 @@
     (RIGHT_ENCODER_COUNT_PER_METER / ENCODER_COUNT_PER_METER)
 
 // 全局速度配置：所有 CASE 共用，修改这里即可调整直线和转弯速度。
-#define STRAIGHT_SPEED_MPS (1.8f)
+#define STRAIGHT_SPEED_MPS (1.6f)
 #define TURN_SPEED_MPS (0.5f)
 #define LEFT_TURN_SPEED_MPS (TURN_SPEED_MPS)
 #define RIGHT_TURN_SPEED_MPS (-TURN_SPEED_MPS)
@@ -378,7 +378,7 @@ int core0_main(void)
 
     cpu_wait_event_ready();
 
-    pwm_init(ATOM0_CH6_P02_6, 100, 1400);
+    pwm_init(ATOM0_CH6_P02_6, 100, 1300);
     system_delay_ms(3000);
 
     // IMU660RC 初始化（240Hz 四元数输出）
