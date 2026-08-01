@@ -21,7 +21,7 @@
 
 // 中间光电管为 adc_value[7]；严格大于 2000 时将左右差值放大 2 倍。
 #define XUNJI_CENTER_SENSOR_IDX        (7)
-#define XUNJI_CENTER_ADC_THRESHOLD     (2000)
+#define XUNJI_CENTER_ADC_THRESHOLD     (1500)
 #define XUNJI_CENTER_ERROR_GAIN        (1.8f)
 
 // line_error 的死区：差值绝对值小于 500 时不产生左右差速。
